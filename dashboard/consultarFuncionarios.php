@@ -21,13 +21,6 @@
                 </tr>';
 
             while ($fila = $result->fetch_assoc()) {
-                /*echo "ID: " . $fila['id_persona'] . "<br>";
-                echo "Numero de documento: " . $fila['no_documento'] . "<br>";
-                echo "Nombres: " . $fila['primer_nombre'] . " " . $fila['segundo_nombre'] . "<br>";
-                echo "Apellidos: " . $fila['primer_apellido'] . " " . $fila['segundo_apellido'] . "<br>";
-                echo "Correo: " . $fila['correo'] . "<br>";
-                echo "Rol: " . $fila['rol'] . "<br>";
-                echo "<br>\n\n";*/
 
                 $id = $fila["id_persona"];
                 $ndoc = $fila["no_documento"];
