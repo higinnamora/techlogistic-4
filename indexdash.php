@@ -154,7 +154,7 @@ session_start();
               Gestiona la existencia de productos en bodega, registra reportes de ventas y pedidos, y controla las
               devoluciones.</p>
             <div class="mt-auto">
-              <a href="./dashboard/inventario/indexinventario.html" class="btn btn-primary">Ir a Inventario</a></a>
+              <a href="./dashboard/inventario/indexinventario.php" class="btn btn-primary">Ir a Inventario</a></a>
             </div>
           </div>
         </div>

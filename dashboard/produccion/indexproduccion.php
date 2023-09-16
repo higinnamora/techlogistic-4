@@ -1,3 +1,17 @@
+
+<!-- Estamos validando que el usuario si tenga una sesion iniciada, de lo contrario se enviara a login-->
+<?php
+session_start();
+
+
+if (!isset($_SESSION['tipo_usuario'])) {
+    header("Location: ../../sign-in.html");
+    exit; 
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -51,12 +65,12 @@
                 <img src="https://higinnamora.github.io/techlogistic/images/profile/profile.png" alt="mdo" class="rounded-circle" width="38" height="38" />
               </a>
               <ul class="dropdown-menu dropdown-menu-lg-end">
-                <li><a class="dropdown-item" href="#">Mi perfil</a></li>
-                <li><a class="dropdown-item" href="#">Configuración</a></li>
+                <li><a class="dropdown-item" href="../../502.html" target="_blank">Mi perfil</a></li>
+                <li><a class="dropdown-item" href="../../502.html" target="_blank">Configuración</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="../index.html">Cerrar sesión</a></li>
+                <li><a class="dropdown-item" href="../../cerrar_sesion.php">Cerrar sesión</a></li>
               </ul>
             </div>
           </li>
@@ -68,61 +82,59 @@
   <!-- Main -->
   <main class="container my-5 h-100">
     <div class="d-flex flex-column flex-md-row justify-content-between">
-      <h4 class="text-md-start text-left">Ventas</h4>
+      <h4 class="text-md-start text-left">Producción</h4>
       <div class="d-flex flex-column flex-md-row gap-2">
-        <a href="./nueva-venta.html"><button class="btn btn-primary w-auto" >Agregar venta</button></a>
-
+        <a href="./nueva-orden.html"> <button class="btn btn-primary w-auto">Agregar orden</button></a>
         <div class="input-group w-auto">
-          <input type="text" class="form-control" placeholder="Buscar venta" aria-label="Buscar venta">
+          <input type="text" class="form-control" placeholder="Buscar orden" aria-label="Buscar orden">
           <!-- Icon buscar -->
           <span class="input-group-text" id="basic-addon2"><i class='bx bx-search'></i></span>
         </div>
       </div>
     </div>
     <hr>
-    <!-- Tabla de Ventas -->
+    <!-- Tabla de Producción -->
     <ul class="nav nav-tabs">
       <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Número de factura</a>
+        <a class="nav-link active" aria-current="page" href="#">Ordenes</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="../../404.html" target="_blank">Id Cliente</a>
+        <a class="nav-link" href="../../502.html" target="_blank">Consumos</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="../../502.html" target="_blank">Nombre del cliente</a>
+        <a class="nav-link" href="../../404.html" target="_blank">Horarios</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="../../404.html" target="_blank">Código del producto</a>
+        <a class="nav-link" href="../../502.html" target="_blank">Almacenes</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="../../502.html" target="_blank">Cantidad vendida</a>
+        <a class="nav-link" href="../../404.html" target="_blank">Informes</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="../../404.html" target="_blank">Metodo pago</a>
+        <a class="nav-link" href="../../502.html" target="_blank">Maquinaria</a>
       </li>
     </ul>
-
-    <div class="table-responsive">
+  <div class="table-responsive">
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">Número de factura</th>
-          <th scope="col">Id Cliente</th>
-          <th scope="col">Nombre del cliente</th>
-          <th scope="col">Código del producto</th>
-          <th scope="col">Cantidad vendida</th>
-          <th scope="col">Metodo pago</th>
+          <th scope="col">#</th>
+          <th scope="col">Número de Orden</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Producto</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Estado</th>
           <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <th scope="row">#P12345</th>
-          <td>C12345</td>
-          <td>Juan Pérez</td>
-          <td>P12345</td>
-          <td>50</td>
-          <td>Tarjeta de crédito</td>
+          <th scope="row">1</th>
+          <td>ORD-2023-001</td>
+          <td>2023-08-11</td>
+          <td>Producto A</td>
+          <td>100</td>
+          <td>Pendiente</td>
           <td>
             <div class="dropdown">
               <button class="btn btn-sm btn-outline-secondary border-0" type="button" id="dropdownMenuButton1"
@@ -137,29 +149,51 @@
           </td>
         </tr>
         <tr>
-          <th scope="row">#93742</th>
-          <td>S93842</td>
-          <td>María López</td>
-          <td>P93842</td>
-          <td>100</td>
-          <td>Efectivo</td>
+          <th scope="row">2</th>
+          <td>ORD-2023-002</td>
+          <td>2023-08-12</td>
+          <td>Producto B</td>
+          <td>75</td>
+          <td>En Proceso</td>
           <td>
             <div class="dropdown">
-              <button class="btn btn-sm btn-outline-secondary border-0" type="button" id="dropdownMenuButton1"
+              <button class="btn btn-sm btn-outline-secondary border-0" type="button" id="dropdownMenuButton2"
                 data-bs-toggle="dropdown" aria-expanded="false">
                 <i class='bx bx-dots-horizontal-rounded'></i>
               </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
                 <li><a class="dropdown-item" href="#">Editar</a></li>
                 <li><a class="dropdown-item" href="#">Eliminar</a></li>
               </ul>
             </div>
           </td>
         </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>ORD-2023-003</td>
+          <td>2023-08-12</td>
+          <td>Producto C</td>
+          <td>150</td>
+          <td>Completada</td>
+          <td>
+            <div class="dropdown">
+              <button class="btn btn-sm btn-outline-secondary border-0" type="button" id="dropdownMenuButton3"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <i class='bx bx-dots-horizontal-rounded'></i>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                <li><a class="dropdown-item" href="#">Editar</a></li>
+                <li><a class="dropdown-item" href="#">Eliminar</a></li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        <!-- ... (más filas de ejemplos) ... -->
       </tbody>
     </table>
   </div>
   </main>
+
   <footer class="copyright">
     <div class="bd-container">
       <p>💙 © 2023 Techlogistic. Todos los derechos reservados. 💚</p>

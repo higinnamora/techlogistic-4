@@ -1,3 +1,17 @@
+
+<!-- Estamos validando que el usuario si tenga una sesion iniciada, de lo contrario se enviara a login-->
+<?php
+session_start();
+
+
+if (!isset($_SESSION['tipo_usuario'])) {
+    header("Location: ../../sign-in.html");
+    exit; 
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -56,7 +70,7 @@
                 <li>
                   <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="../index.html">Cerrar sesión</a></li>
+                <li><a class="dropdown-item" href="../../cerrar_sesion.php">Cerrar sesión</a></li>
               </ul>
             </div>
           </li>

@@ -1,3 +1,20 @@
+
+<!-- Estamos validando que el usuario si tenga una sesion iniciada, de lo contrario se enviara a login-->
+
+<?php
+
+session_start();
+
+
+if (!isset($_SESSION['tipo_usuario'])) {
+    header("Location: ../../sign-in.html");
+    exit; 
+}
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -56,7 +73,7 @@
                 <li>
                   <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="../index.html">Cerrar sesión</a></li>
+                <li><a class="dropdown-item" href="../../cerrar_sesion.php">Cerrar sesión</a></li>
               </ul>
             </div>
           </li>
@@ -68,42 +85,61 @@
   <!-- Main -->
   <main class="container my-5 h-100">
     <div class="d-flex flex-column flex-md-row justify-content-between">
-      <h4 class="text-md-start text-left">Proveedores</h4>
+      <h4 class="text-md-start text-left">Ventas</h4>
       <div class="d-flex flex-column flex-md-row gap-2">
-        <a href="./nuevo-proveedor.html"> <button class="btn btn-primary w-auto">Agregar proveedor</button></a>
+        <a href="./nueva-venta.html"><button class="btn btn-primary w-auto" >Agregar venta</button></a>
+
         <div class="input-group w-auto">
-          <input type="text" class="form-control" placeholder="Buscar proveedor" aria-label="Buscar proveedor">
+          <input type="text" class="form-control" placeholder="Buscar venta" aria-label="Buscar venta">
           <!-- Icon buscar -->
           <span class="input-group-text" id="basic-addon2"><i class='bx bx-search'></i></span>
         </div>
       </div>
     </div>
     <hr>
-    <!-- Tabla de proveedores -->
+    <!-- Tabla de Ventas -->
     <ul class="nav nav-tabs">
       <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Proveedores</a>
+        <a class="nav-link active" aria-current="page" href="#">Número de factura</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="../../404.html" target="_blank">Productos</a>
+        <a class="nav-link" href="../../404.html" target="_blank">Id Cliente</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../../502.html" target="_blank">Nombre del cliente</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../../404.html" target="_blank">Código del producto</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../../502.html" target="_blank">Cantidad vendida</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../../404.html" target="_blank">Metodo pago</a>
       </li>
     </ul>
 
     <div class="table-responsive">
-      <table class="table">
+    <table class="table">
       <thead>
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">Nombre</th>
-          <th scope="col">Nit</th>
+          <th scope="col">Número de factura</th>
+          <th scope="col">Id Cliente</th>
+          <th scope="col">Nombre del cliente</th>
+          <th scope="col">Código del producto</th>
+          <th scope="col">Cantidad vendida</th>
+          <th scope="col">Metodo pago</th>
           <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <th scope="row">1</th>
-          <td>Innovax Corp.</td>
-          <td>NIT: 9876543210</td>
+          <th scope="row">#P12345</th>
+          <td>C12345</td>
+          <td>Juan Pérez</td>
+          <td>P12345</td>
+          <td>50</td>
+          <td>Tarjeta de crédito</td>
           <td>
             <div class="dropdown">
               <button class="btn btn-sm btn-outline-secondary border-0" type="button" id="dropdownMenuButton1"
@@ -118,94 +154,12 @@
           </td>
         </tr>
         <tr>
-          <th scope="row">2</th>
-          <td>Nexus Solutions Ltda.</td>
-          <td>NIT: 1234567890</td>
-          <td>
-            <div class="dropdown">
-              <button class="btn btn-sm btn-outline-secondary border-0" type="button" id="dropdownMenuButton1"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                <i class='bx bx-dots-horizontal-rounded'></i>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">Editar</a></li>
-                <li><a class="dropdown-item" href="#">Eliminar</a></li>
-              </ul>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Globalsoft SAS</td>
-          <td>NIT: 4567890123</td>
-          <td>
-            <div class="dropdown">
-              <button class="btn btn-sm btn-outline-secondary border-0" type="button" id="dropdownMenuButton1"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                <i class='bx bx-dots-horizontal-rounded'></i>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">Editar</a></li>
-                <li><a class="dropdown-item" href="#">Eliminar</a></li>
-              </ul>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">4</th>
-          <td>AdvancedTech Inc.</td>
-          <td>NIT: 2345678901</td>
-          <td>
-            <div class="dropdown">
-              <button class="btn btn-sm btn-outline-secondary border-0" type="button" id="dropdownMenuButton1"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                <i class='bx bx-dots-horizontal-rounded'></i>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">Editar</a></li>
-                <li><a class="dropdown-item" href="#">Eliminar</a></li>
-              </ul>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">5</th>
-          <td>VisionaryWorks S.A.</td>
-          <td>NIT: 8901234567</td>
-          <td>
-            <div class="dropdown">
-              <button class="btn btn-sm btn-outline-secondary border-0" type="button" id="dropdownMenuButton1"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                <i class='bx bx-dots-horizontal-rounded'></i>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">Editar</a></li>
-                <li><a class="dropdown-item" href="#">Eliminar</a></li>
-              </ul>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">6</th>
-          <td>TechVantage Corp.</td>
-          <td>NIT: 5678901234</td>
-          <td>
-            <div class="dropdown">
-              <button class="btn btn-sm btn-outline-secondary border-0" type="button" id="dropdownMenuButton1"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                <i class='bx bx-dots-horizontal-rounded'></i>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">Editar</a></li>
-                <li><a class="dropdown-item" href="#">Eliminar</a></li>
-              </ul>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">7</th>
-          <td>Prodigy Solutions Ltda.</td>
-          <td>NIT: 3456789012</td>
+          <th scope="row">#93742</th>
+          <td>S93842</td>
+          <td>María López</td>
+          <td>P93842</td>
+          <td>100</td>
+          <td>Efectivo</td>
           <td>
             <div class="dropdown">
               <button class="btn btn-sm btn-outline-secondary border-0" type="button" id="dropdownMenuButton1"
@@ -221,9 +175,8 @@
         </tr>
       </tbody>
     </table>
-    </div>
+  </div>
   </main>
-  
   <footer class="copyright">
     <div class="bd-container">
       <p>💙 © 2023 Techlogistic. Todos los derechos reservados. 💚</p>
