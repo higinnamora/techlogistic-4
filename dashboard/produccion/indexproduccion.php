@@ -115,7 +115,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
       </li>
     </ul>
   <div class="table-responsive">
-    <table class="table">
+    <table id="tablaproduccion" class="table">
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -193,6 +193,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
     </table>
   </div>
   </main>
+</body>
 
   <footer class="copyright">
     <div class="bd-container">
@@ -205,6 +206,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
   <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
     crossorigin="anonymous"></script>
-</body>
+
+   
 
 </html>

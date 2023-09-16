@@ -35,7 +35,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
   <!-- Header -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
-      <a href="../index.html" class="navbar-brand" title="Techlogistic"><img src="../../favicon.png" alt=""
+      <a href="../../indexprincipal.html" class="navbar-brand" title="Techlogistic"><img src="../../favicon.png" alt=""
           class="navigation__image">Techlogistic</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,20 +44,9 @@ if (!isset($_SESSION['tipo_usuario'])) {
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="../">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../proveedores/">Proveedores</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../produccion/">Producción</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../inventario/">Inventario</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../ventas/">Ventas</a>
-          </li>
+            <a class="nav-link active" aria-current="page" href="../../indexdash.php">Inicio</a>
+
+
           <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
           <li class="nav-item dropdown">
             <div class="dropdown" role="group">
@@ -100,21 +89,11 @@ if (!isset($_SESSION['tipo_usuario'])) {
           <!-- Icon buscar -->
           <span class="input-group-text" id="basic-addon2"><i class='bx bx-search'></i></span>
           <input class="button mb-1" type="submit" value="buscar" />
-    
-     <!-- <form action="eliminardash.php" method="POST">
-        <div class="input-group w-auto">
-          <input type="text" class="form-control" placeholder="eliminar persona" name="eliminardash" aria-label="Buscar producto">
-          <!-- Icon buscar -->
-         <!--<span class="input-group-text" id="basic-addon2"><i class='bx bx-search'></i></span>
-          <input class="button mb-1" type="submit" value="eliminar" />
-        </div>
-      </form>-->
-
-
-
+      </form>
       </div>
     </div>
     <hr>
+    
     <!-- Tabla de Inventario -->
     <ul class="nav nav-tabs">
       <li class="nav-item">
@@ -134,7 +113,9 @@ if (!isset($_SESSION['tipo_usuario'])) {
       </li>
     </ul>
 <br><br>
-    
+
+
+
     <div class="table-responsive">
     <table class="table">
       <thead>
@@ -211,6 +192,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
   <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
     crossorigin="anonymous"></script>
+
 </body>
 
 </html>

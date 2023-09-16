@@ -15,6 +15,8 @@ if (!$conexion) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $cedula = $_POST["sign-up-form-cedula"];
+    $numcargo = $_POST["sign-up-form-numcargo"];
+    $cargo = $_POST["sign-up-form-cargo"];
     $nombre1 = $_POST["sign-up-form-name1"];
     $nombre2 = $_POST["sign-up-form-name2"];
     $apellido1 = $_POST["sign-up-form-apellido1"];
@@ -29,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "INSERT INTO persona(no_documento, primer_nombre, segundo_nombre, primer_apellido, Segundo_apellido)   
             VALUES ('$cedula', '$nombre1', '$nombre2', '$apellido1', '$apellido2')";
     $sql2 = "INSERT INTO rol ( id_funcionario, descripcion, pass, passconfirm, correo) 
-            values( 2, 'administrador', '$contra', '$confcontra', '$email')";
+            values( '$numcargo', '$cargo', '$contra', '$confcontra', '$email')";
 
 
 

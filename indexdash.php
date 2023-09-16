@@ -60,20 +60,15 @@ session_start();
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+            <a class="nav-link active" aria-current="page" href="./indexdash.php">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./proveedores/">Proveedores</a>
+            <a class="btn btn-primary" href="./sign-up.html" >Registrar usuario</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./produccion/">Producción</a>
+            <h4>Administrador</h4>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./dashboard/inventario/">Inventario</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./ventas/">Ventas</a>
-          </li>
+          
 
           <?php } ?>
 
@@ -123,7 +118,7 @@ session_start();
             <p class="card-text mb-4">Gestiona y administra proveedores, incluyendo la inscripción, eliminación y
               evaluación.</p>
             <div class="mt-auto">
-              <a href="./dashboard/proveedores/indexproveedores.html" class="btn btn-primary">Ir a proveedores</a></a>
+              <a href="./dashboard/proveedores/indexproveedores.php" class="btn btn-primary">Ir a proveedores</a></a>
             </div>
           </div>
         </div>
@@ -141,7 +136,7 @@ session_start();
               prima, consumos, horarios de producción y mantenimiento de maquinaria. Facilita la generación y consulta
               de informes de producción.</p>
             <div class="mt-auto">
-              <a href="./dashboard/produccion/indexproduccion.html" class="btn btn-primary">Ir a Producción</a></a>
+              <a href="./dashboard/produccion/indexproduccion.php" class="btn btn-primary">Ir a Producción</a></a>
             </div>
           </div>
         </div>
@@ -171,7 +166,7 @@ session_start();
             <p class="card-text mb-4">Administra el proceso de ventas, desde el registro de la venta hasta la generación
               de facturas y cotizaciones.</p>
             <div class="mt-auto">
-              <a href="./dashboard/ventas/indexventas.html" class="btn btn-primary">Ir a Ventas</a></a>
+              <a href="./dashboard/ventas/indexventas.php" class="btn btn-primary">Ir a Ventas</a></a>
             </div>
           </div>
         </div>
