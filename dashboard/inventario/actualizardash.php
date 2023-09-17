@@ -1,5 +1,6 @@
 <?php
-$conn = new mysqli('localhost', 'root', 'Aura2117*', 'techlogisticdb');
+$conexion;
+include_once "conexion_a_la_DB.php";
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $actualizar = $_POST["consultardash"];

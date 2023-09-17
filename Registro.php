@@ -1,17 +1,6 @@
 <?php
-
-    $user = "root";
-    $server = "localhost";
-    $password = "";
-    $db = "techlogisticdb";
-    $conexion = new mysqli($server, $user, $password, $db);
-
-
-
-if (!$conexion) {
-    die ("error de conexion".mysqli_connect_error());
-}
-
+$conexion;
+include_once "conexion_a_la_DB.php";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $cedula = $_POST["sign-up-form-cedula"];
@@ -26,21 +15,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $confcontra = $_POST["sign-up-form-password-confirm"];
 }
 
-
-
     $sql = "INSERT INTO persona(no_documento, primer_nombre, segundo_nombre, primer_apellido, Segundo_apellido)   
             VALUES ('$cedula', '$nombre1', '$nombre2', '$apellido1', '$apellido2')";
     $sql2 = "INSERT INTO rol ( id_funcionario, descripcion, pass, passconfirm, correo) 
             values( '$numcargo', '$cargo', '$contra', '$confcontra', '$email')";
-
-
 
 if ($conexion->query($sql) === TRUE) {
     echo "Registro exitoso";
 } else {
     echo "por favor verifique su informacion " . $conexion->error;
 }
-
 if ($conexion->query($sql2)){
     echo "Registro exitoso";
 } else {

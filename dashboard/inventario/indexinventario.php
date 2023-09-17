@@ -1,19 +1,16 @@
-
 <!-- Estamos validando que el usuario si tenga una sesion iniciada, de lo contrario se enviara a login-->
 <?php
 session_start();
 
 
 if (!isset($_SESSION['tipo_usuario'])) {
-    header("Location: ../../sign-in.html");
-    exit; 
+  header("Location: ../../sign-in.html");
+  exit;
 }
-  $conex = new mysqli("localhost", "root", "", "techlogisticdb");
-  if (!$conex) {
-      echo "fallo la conexion";
-  }
-  $sql = "SELECT codigo_producto, cantidad_stock, descripcion_stock, estado FROM stock;";
-  $datos = $conex->query($sql);
+$conexion;
+include_once "conexion_a_la_DB.php";
+$sql = "SELECT codigo_producto, cantidad_stock, descripcion_stock, estado FROM stock;";
+$datos = $conex->query($sql);
 ?>
 
 
@@ -30,8 +27,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
   <!-- Box icons-->
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <!-- Bootstrap 5 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <!-- Estilos CSS -->
   <link rel="stylesheet" href="../../styles/techlogistic.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
@@ -42,10 +38,8 @@ if (!isset($_SESSION['tipo_usuario'])) {
   <!-- Header -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
-      <a href="../../indexprincipal.html" class="navbar-brand" title="Techlogistic"><img src="../../favicon.png" alt=""
-          class="navigation__image">Techlogistic</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <a href="../../indexprincipal.html" class="navbar-brand" title="Techlogistic"><img src="../../favicon.png" alt="" class="navigation__image">Techlogistic</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -54,7 +48,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
             <a class="nav-link active" aria-current="page" href="../../indexdash.php">Inicio</a>
 
 
-          <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
+            <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
           <li class="nav-item dropdown">
             <div class="dropdown" role="group">
               <a class="dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
@@ -80,31 +74,31 @@ if (!isset($_SESSION['tipo_usuario'])) {
     <div class="d-flex flex-column flex-md-row justify-content-between">
       <h4 class="text-md-start text-left">Inventario</h4>
       <div class="d-flex flex-column flex-md-row gap-2">
-        <a href="./nuevo-producto.html"> <button class="btn btn-primary w-auto" >Agregar producto</button></a>
-        
+        <a href="./nuevo-producto.html"> <button class="btn btn-primary w-auto">Agregar producto</button></a>
+
         <!--<form action="consultarinventarios.php" method="POST">
         <div class="input-group w-auto">-->
-          
-          <!-- Icon buscar -->
-          <!--<span class="input-group-text" id="basic-addon2"><i class='bx bx-search'></i></span>
+
+        <!-- Icon buscar -->
+        <!--<span class="input-group-text" id="basic-addon2"><i class='bx bx-search'></i></span>
           <input class="button mb-1" name="consultardash" type="submit" value="Consultar" />
         </div>
       </form>-->
-      <form action="consultarinventario.php" method="POST">
-        <div class="input-group w-auto">
-          <input type="text" class="form-control" placeholder="nombre del producto" name="consultasimple" aria-label="Buscar producto">
-          <!-- Icon buscar -->
-          <span class="input-group-text" id="basic-addon2"><i class='bx bx-search'></i></span>
-          <input class="button mb-1" type="submit" value="buscar" />
-      </form>
+        <form action="consultarinventario.php" method="POST">
+          <div class="input-group w-auto">
+            <input type="text" class="form-control" placeholder="nombre del producto" name="consultasimple" aria-label="Buscar producto">
+            <!-- Icon buscar -->
+            <span class="input-group-text" id="basic-addon2"><i class='bx bx-search'></i></span>
+            <input class="button mb-1" type="submit" value="buscar" />
+        </form>
       </div>
     </div>
     <hr>
-    
+
     <!-- Tabla de Inventario -->
     <ul class="nav nav-tabs">
       <li class="nav-item">
-        <a class="nav-link active" aria-current="page"  href="#">Productos</a>
+        <a class="nav-link active" aria-current="page" href="#">Productos</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="../../404.html" target="_blank">Pedidos</a>
@@ -119,61 +113,57 @@ if (!isset($_SESSION['tipo_usuario'])) {
         <a class="nav-link" href="../../502.html" target="_blank">Devoluciones</a>
       </li>
     </ul>
-<br><br>
+    <br><br>
 
 
     <div class="table-responsive">
-    <table id="stock" class="table">
-      <thead>
-        <tr>
-          <th scope="col">Código de producto</th>
-          <th scope="col">Cantidad</th>
-          <th scope="col">Descripción</th>
-          <th scope="col">Estado</th>
-          <th scope="col">Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-      <?php
+      <table id="stock" class="table">
+        <thead>
+          <tr>
+            <th scope="col">Código de producto</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
 
-        // Itera sobre los datos y genera las filas de la tabla
-        foreach ($datos as $fila) {
+          // Itera sobre los datos y genera las filas de la tabla
+          foreach ($datos as $fila) {
             echo "<tr>";
             foreach ($fila as $valor) {
-                echo "<td>$valor</td>";
+              echo "<td>$valor</td>";
             }
-            ?>
+          ?>
             <td>
-            <div class="dropdown">
-              <button class="btn btn-sm btn-outline-secondary border-0" type="button" id="dropdownMenuButton1"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                <i class='bx bx-dots-horizontal-rounded'></i>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="./actualizardash.php">Editar</a></li>
-                <li><a class="dropdown-item" href="./eliminardash.php">Eliminar</a></li>
-              </ul>
-            </div>
-          </td>
+              <div class="dropdown">
+                <button class="btn btn-sm btn-outline-secondary border-0" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class='bx bx-dots-horizontal-rounded'></i>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><a class="dropdown-item" href="./actualizardash.php">Editar</a></li>
+                  <li><a class="dropdown-item" href="./eliminardash.php">Eliminar</a></li>
+                </ul>
+              </div>
+            </td>
           <?php
             echo "</tr>";
           }
           ?>
-      </tbody>
-    </table>
-  </div>
+        </tbody>
+      </table>
+    </div>
   </main>
   <footer class="copyright">
     <div class="bd-container">
       <p>💙 © 2023 Techlogistic. Todos los derechos reservados. 💚</p>
-      <p><a href="https://higinnamora.github.io/techlogistic/terminos-y-condiciones.html">Términos y Condiciones</a> · <a
-          href="https://higinnamora.github.io/techlogistic/politica-de-privacidad.html">Política de Privacidad</a></p>
+      <p><a href="https://higinnamora.github.io/techlogistic/terminos-y-condiciones.html">Términos y Condiciones</a> · <a href="https://higinnamora.github.io/techlogistic/politica-de-privacidad.html">Política de Privacidad</a></p>
     </div>
   </footer>
 
-  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-    crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -182,13 +172,14 @@ if (!isset($_SESSION['tipo_usuario'])) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.html5.min.js"></script>
 <script>
-    $(document).ready(function() {
-        $('#stock').DataTable({
-          dom: 'Bfrtip', 
-            buttons: [
-                'excel', 'csv'
-            ]
-        });
+  $(document).ready(function() {
+    $('#stock').DataTable({
+      dom: 'Bfrtip',
+      buttons: [
+        'excel', 'csv'
+      ]
     });
+  });
 </script>
+
 </html>

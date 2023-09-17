@@ -1,11 +1,6 @@
 <?php
-    //Cambiar el nombre de la base y la contraseña por la que se necesiten
     $conexion;
     include_once "conexion_a_la_DB.php";
-    /* 
-    if($_SERVER["REQUEST_METHOD"] == "POST") {
-        $consultar = $_POST["consultardash"];
-    }*/
 
     $sql = "CALL ConsultarProductosMateriasProveedores()";
     if ($stmt = $conexion->prepare($sql)) {
