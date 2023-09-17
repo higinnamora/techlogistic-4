@@ -14,7 +14,7 @@ $conex = new mysqli("localhost", "root", "Aura2117*", "techlogisticdb");
   if (!$conex) {
       echo "fallo la conexion";
   }
-  $sql = "SELECT id_funcionario, id_cliente, id_medio_pago, cantidad_productos, descuento, fechaFactura, observacion, subtotal, valor_total FROM orden_venta;";
+  $sql = "SELECT numero_orden_venta, id_funcionario, id_cliente, id_medio_pago, cantidad_productos, descuento, fechaFactura, observacion, subtotal, valor_total FROM orden_venta;";
   $datos = $conex->query($sql);
 ?>
 
@@ -127,7 +127,7 @@ $conex = new mysqli("localhost", "root", "Aura2117*", "techlogisticdb");
     </ul>
 
     <div class="table-responsive">
-    <table id="orden_venta" class="table">
+    <table id="ventas" class="table">
       <thead>
         <tr>
           <th scope="col">Número orden de venta</th>
