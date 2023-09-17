@@ -14,7 +14,7 @@ $conex = new mysqli("localhost", "root", "Aura2117*", "techlogisticdb");
   if (!$conex) {
       echo "fallo la conexion";
   }
-  $sql = "SELECT codigo_producto, material, modelo, precio, talla, color_producto, ubicacion FROM producto;";
+  $sql = "SELECT id_funcionario, id_cliente, id_medio_pago, cantidad_productos, descuento, fechaFactura, observacion, subtotal, valor_total FROM orden_venta;";
   $datos = $conex->query($sql);
 ?>
 
@@ -37,6 +37,8 @@ $conex = new mysqli("localhost", "root", "Aura2117*", "techlogisticdb");
     integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <!-- Estilos CSS -->
   <link rel="stylesheet" href="../../styles/techlogistic.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
 </head>
 
 <body class="vh-100">
@@ -125,7 +127,7 @@ $conex = new mysqli("localhost", "root", "Aura2117*", "techlogisticdb");
     </ul>
 
     <div class="table-responsive">
-    <table class="table">
+    <table id="orden_venta" class="table">
       <thead>
         <tr>
           <th scope="col">Número orden de venta</th>
@@ -142,13 +144,14 @@ $conex = new mysqli("localhost", "root", "Aura2117*", "techlogisticdb");
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">#P12345</th>
-          <td>C12345</td>
-          <td>Juan Pérez</td>
-          <td>P12345</td>
-          <td>50</td>
-          <td>Tarjeta de crédito</td>
+      <?php
+      // Itera sobre los datos y genera las filas de la tabla
+      foreach ($datos as $fila) {
+          echo "<tr>";
+          foreach ($fila as $valor) {
+              echo "<td>$valor</td>";
+          }
+          ?>
           <td>
             <div class="dropdown">
               <button class="btn btn-sm btn-outline-secondary border-0" type="button" id="dropdownMenuButton1"
@@ -161,27 +164,10 @@ $conex = new mysqli("localhost", "root", "Aura2117*", "techlogisticdb");
               </ul>
             </div>
           </td>
-        </tr>
-        <tr>
-          <th scope="row">#93742</th>
-          <td>S93842</td>
-          <td>María López</td>
-          <td>P93842</td>
-          <td>100</td>
-          <td>Efectivo</td>
-          <td>
-            <div class="dropdown">
-              <button class="btn btn-sm btn-outline-secondary border-0" type="button" id="dropdownMenuButton1"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                <i class='bx bx-dots-horizontal-rounded'></i>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">Editar</a></li>
-                <li><a class="dropdown-item" href="#">Eliminar</a></li>
-              </ul>
-            </div>
-          </td>
-        </tr>
+          <?php
+            echo "</tr>";
+          }
+          ?>
       </tbody>
     </table>
   </div>
@@ -198,5 +184,19 @@ $conex = new mysqli("localhost", "root", "Aura2117*", "techlogisticdb");
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
     crossorigin="anonymous"></script>
 </body>
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.html5.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#ventas').DataTable({
+          dom: 'Bfrtip', 
+            buttons: [
+                'excel', 'csv'
+            ]
+        });
+    });
+</script>
 </html>

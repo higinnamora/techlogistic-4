@@ -12,7 +12,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
   if (!$conex) {
       echo "fallo la conexion";
   }
-  $sql = "SELECT codigo_producto, material, modelo, precio, talla, color_producto, ubicacion FROM producto;";
+  $sql = "SELECT codigo_producto, cantidad_stock, descripcion_stock, estado FROM stock;";
   $datos = $conex->query($sql);
 ?>
 
@@ -121,16 +121,13 @@ if (!isset($_SESSION['tipo_usuario'])) {
     </ul>
 <br><br>
     <div class="table-responsive">
-    <table id="productos" class="table">
+    <table id="stock" class="table">
       <thead>
         <tr>
           <th scope="col">Código de producto</th>
-          <th scope="col">Material</th>
-          <th scope="col">Modelo</th>
-          <th scope="col">Precio</th>
-          <th scope="col">Talla</th>
-          <th scope="col">Color producto</th>
-          <th scope="col">Ubicación</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Descripción</th>
+          <th scope="col">Estado</th>
           <th scope="col">Acciones</th>
         </tr>
       </thead>
@@ -142,9 +139,9 @@ if (!isset($_SESSION['tipo_usuario'])) {
             echo "<tr>";
             foreach ($fila as $valor) {
                 echo "<td>$valor</td>";
-            }?>
+            }
+            ?>
             <td>
-
             <div class="dropdown">
               <button class="btn btn-sm btn-outline-secondary border-0" type="button" id="dropdownMenuButton1"
                 data-bs-toggle="dropdown" aria-expanded="false">
@@ -158,8 +155,8 @@ if (!isset($_SESSION['tipo_usuario'])) {
           </td>
           <?php
             echo "</tr>";
-        }
-        ?>
+          }
+          ?>
       </tbody>
     </table>
   </div>
@@ -184,7 +181,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
 <script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.html5.min.js"></script>
 <script>
     $(document).ready(function() {
-        $('#productos').DataTable({
+        $('#stock').DataTable({
           dom: 'Bfrtip', 
             buttons: [
                 'excel', 'csv'
