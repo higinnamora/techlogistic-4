@@ -8,7 +8,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
   exit;
 }
 $conexion;
-include_once "conexion_a_la_DB.php";
+include_once "../../conexion_a_la_DB.php";
 $sql = "SELECT codigo_producto, material, modelo, precio, talla, color_producto, ubicacion FROM producto;";
 $datos = $conexion->query($sql);
 ?>

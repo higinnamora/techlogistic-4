@@ -1,9 +1,9 @@
 <?php
     $conexion;
-    include_once "conexion_a_la_DB.php";
+    include_once "../conexion_a_la_DB.php";
  
     $sql = "CALL ConsultarPersona()";
-    if ($stmt = $conn->prepare($sql)) {
+    if ($stmt = $conexion->prepare($sql)) {
         if ($stmt->execute()) {
             $result = $stmt->get_result();
 

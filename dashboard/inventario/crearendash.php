@@ -1,7 +1,7 @@
 <?php 
 
 $conexion;
-include_once "conexion_a_la_DB.php";
+include_once "../../conexion_a_la_DB.php";
 
 $id_func = $_POST["id_funcionario"];
 $material = $_POST["material"];
