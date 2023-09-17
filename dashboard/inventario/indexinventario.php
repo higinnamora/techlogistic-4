@@ -10,7 +10,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
 $conexion;
 include_once "conexion_a_la_DB.php";
 $sql = "SELECT codigo_producto, cantidad_stock, descripcion_stock, estado FROM stock;";
-$datos = $conex->query($sql);
+$datos = $conexion->query($sql);
 ?>
 
 

@@ -12,7 +12,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
 $conexion;
 include_once "conexion_a_la_DB.php";
 $sql = "SELECT numero_orden_venta, id_funcionario, id_cliente, id_medio_pago, cantidad_productos, descuento, fechaFactura, observacion, subtotal, valor_total FROM orden_venta;";
-$datos = $conex->query($sql);
+$datos = $conexion->query($sql);
 ?>
 
 

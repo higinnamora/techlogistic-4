@@ -8,9 +8,9 @@ if (!isset($_SESSION['tipo_usuario'])) {
   exit;
 }
 $conexion;
-include_once "conexion_a_la_DB.php";
+include_once "../../conexion_a_la_DB.php";
 $sql = "SELECT nit, id_persona, razon_social FROM proveedor;";
-$datos = $conex->query($sql);
+$datos = $conexion->query($sql);
 
 ?>
 <!DOCTYPE html>

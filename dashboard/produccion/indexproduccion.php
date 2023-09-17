@@ -10,7 +10,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
 $conexion;
 include_once "conexion_a_la_DB.php";
 $sql = "SELECT codigo_producto, material, modelo, precio, talla, color_producto, ubicacion FROM producto;";
-$datos = $conex->query($sql);
+$datos = $conexion->query($sql);
 ?>
 
 
