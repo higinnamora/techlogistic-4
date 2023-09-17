@@ -171,8 +171,6 @@ session_start();
 
         <?php } ?>
 
-
-
         </div>
       </main>
 
