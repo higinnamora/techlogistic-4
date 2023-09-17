@@ -27,7 +27,6 @@ session_start();
     <link rel="stylesheet" href="../styles/techlogistic.css">
   </head>
 
-<<<<<<< HEAD
 <body class="vh-100">
   <!-- Header -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -38,16 +37,6 @@ session_start();
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-=======
-  <body class="vh-100">
-    <!-- Header -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container">
-        <a href="./indexprincipal.html" class="navbar-brand" title="Techlogistic"><img src="../favicon.png" alt="./indexprincipal" class="navigation__image">Techlogistic</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
->>>>>>> 1bd28f9b1e988d5866b6b90bc216e306ee3526fe
 
       <?php } ?>
 
@@ -118,7 +107,6 @@ session_start();
 
       <?php } ?>
 
-<<<<<<< HEAD
       <?php if($_SESSION['tipo_usuario'] == 3) { ?>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
@@ -190,21 +178,6 @@ session_start();
               evaluación.</p>
             <div class="mt-auto">
               <a href="./dashboard/proveedores/indexproveedores.php" class="btn btn-primary">Ir a proveedores</a></a>
-=======
-      <?php if ($_SESSION['tipo_usuario'] == 2) { ?>
-        <!-- 4 Cards -->
-        <div class="row g-4">
-          <div class="col-md-6">
-            <div class="card h-100">
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Proveedores</h5>
-                <p class="card-text mb-4">Gestiona y administra proveedores, incluyendo la inscripción, eliminación y
-                  evaluación.</p>
-                <div class="mt-auto">
-                  <a href="./dashboard/proveedores/indexproveedores.php" class="btn btn-primary">Ir a proveedores</a></a>
-                </div>
-              </div>
->>>>>>> 1bd28f9b1e988d5866b6b90bc216e306ee3526fe
             </div>
           </div>
 
