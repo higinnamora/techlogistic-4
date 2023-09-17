@@ -8,7 +8,12 @@ if (!isset($_SESSION['tipo_usuario'])) {
     header("Location: ../../sign-in.html");
     exit; 
 }
-
+$conex = new mysqli("localhost", "root", "Aura2117*", "techlogisticdb");
+  if (!$conex) {
+      echo "fallo la conexion";
+  }
+  $sql = "SELECT codigo_producto, material, modelo, precio, talla, color_producto, ubicacion FROM producto;";
+  $datos = $conex->query($sql);
 ?>
 
 
@@ -29,6 +34,8 @@ if (!isset($_SESSION['tipo_usuario'])) {
     integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <!-- Estilos CSS -->
   <link rel="stylesheet" href="../../styles/techlogistic.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
 </head>
 
 <body class="vh-100">
@@ -114,27 +121,30 @@ if (!isset($_SESSION['tipo_usuario'])) {
         <a class="nav-link" href="../../502.html" target="_blank">Maquinaria</a>
       </li>
     </ul>
-  <div class="table-responsive">
-    <table id="tablaproduccion" class="table">
+    <div class="table-responsive">
+    <table id="productos" class="table">
       <thead>
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">Número de Orden</th>
-          <th scope="col">Fecha</th>
-          <th scope="col">Producto</th>
-          <th scope="col">Cantidad</th>
-          <th scope="col">Estado</th>
-          <th scope="col"></th>
+          <th scope="col">Código de producto</th>
+          <th scope="col">Material</th>
+          <th scope="col">Modelo</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Talla</th>
+          <th scope="col">Color producto</th>
+          <th scope="col">Ubicación</th>
+          <th scope="col">Acciones</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>ORD-2023-001</td>
-          <td>2023-08-11</td>
-          <td>Producto A</td>
-          <td>100</td>
-          <td>Pendiente</td>
+    
+            <?php
+            // Itera sobre los datos y genera las filas de la tabla
+        foreach ($datos as $fila) {
+          echo "<tr>";
+          foreach ($fila as $valor) {
+              echo "<td>$valor</td>";
+          }
+          ?>
           <td>
             <div class="dropdown">
               <button class="btn btn-sm btn-outline-secondary border-0" type="button" id="dropdownMenuButton1"
@@ -147,48 +157,10 @@ if (!isset($_SESSION['tipo_usuario'])) {
               </ul>
             </div>
           </td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>ORD-2023-002</td>
-          <td>2023-08-12</td>
-          <td>Producto B</td>
-          <td>75</td>
-          <td>En Proceso</td>
-          <td>
-            <div class="dropdown">
-              <button class="btn btn-sm btn-outline-secondary border-0" type="button" id="dropdownMenuButton2"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                <i class='bx bx-dots-horizontal-rounded'></i>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                <li><a class="dropdown-item" href="#">Editar</a></li>
-                <li><a class="dropdown-item" href="#">Eliminar</a></li>
-              </ul>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>ORD-2023-003</td>
-          <td>2023-08-12</td>
-          <td>Producto C</td>
-          <td>150</td>
-          <td>Completada</td>
-          <td>
-            <div class="dropdown">
-              <button class="btn btn-sm btn-outline-secondary border-0" type="button" id="dropdownMenuButton3"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                <i class='bx bx-dots-horizontal-rounded'></i>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
-                <li><a class="dropdown-item" href="#">Editar</a></li>
-                <li><a class="dropdown-item" href="#">Eliminar</a></li>
-              </ul>
-            </div>
-          </td>
-        </tr>
-        <!-- ... (más filas de ejemplos) ... -->
+        <?php
+            echo "</tr>";
+        }
+        ?>
       </tbody>
     </table>
   </div>
@@ -206,7 +178,19 @@ if (!isset($_SESSION['tipo_usuario'])) {
   <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
     crossorigin="anonymous"></script>
-
-   
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.html5.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#productos').DataTable({
+          dom: 'Bfrtip', 
+            buttons: [
+                'excel', 'csv'
+            ]
+        });
+    });
+</script>
 </html>

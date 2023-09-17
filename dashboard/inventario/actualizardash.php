@@ -1,6 +1,5 @@
 <?php
-
-$conn = new mysqli('localhost', 'root', '', 'techlogisticdb');
+$conn = new mysqli('localhost', 'root', 'Aura2117*', 'techlogisticdb');
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $actualizar = $_POST["consultardash"];
@@ -37,14 +36,5 @@ if ($conn->query($sql) == true) {
 }else{
     echo "producto no encontrado";
 }
-
-
-
-
 $conn->close();
-
-
-
-
-
 ?>

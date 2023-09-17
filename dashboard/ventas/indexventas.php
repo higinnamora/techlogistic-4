@@ -10,7 +10,12 @@ if (!isset($_SESSION['tipo_usuario'])) {
     header("Location: ../../sign-in.html");
     exit; 
 }
-
+$conex = new mysqli("localhost", "root", "Aura2117*", "techlogisticdb");
+  if (!$conex) {
+      echo "fallo la conexion";
+  }
+  $sql = "SELECT codigo_producto, material, modelo, precio, talla, color_producto, ubicacion FROM producto;";
+  $datos = $conex->query($sql);
 ?>
 
 
@@ -123,13 +128,17 @@ if (!isset($_SESSION['tipo_usuario'])) {
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">Número de factura</th>
+          <th scope="col">Número orden de venta</th>
           <th scope="col">Id Cliente</th>
           <th scope="col">Nombre del cliente</th>
-          <th scope="col">Código del producto</th>
-          <th scope="col">Cantidad vendida</th>
-          <th scope="col">Metodo pago</th>
-          <th scope="col"></th>
+          <th scope="col">id medio de pago</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Descuento</th>
+          <th scope="col">Fecha factura</th>
+          <th scope="col">Observación</th>
+          <th scope="col">Subtotal</th>
+          <th scope="col">Total a pagar</th>
+          <th scope="col">Acciones</th>
         </tr>
       </thead>
       <tbody>

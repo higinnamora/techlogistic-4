@@ -6,12 +6,16 @@ session_start();
 
 if (!isset($_SESSION['tipo_usuario'])) {
     header("Location: ../../sign-in.html");
-    exit; 
+    exit;
 }
+$conex = new mysqli("localhost", "root", "Aura2117*", "techlogisticdb");
+if (!$conex) {
+    echo "fallo la conexion";
+}
+$sql = "SELECT nit, id_persona, razon_social FROM proveedor;";
+$datos = $conex->query($sql); 
 
 ?>
-
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -29,6 +33,8 @@ if (!isset($_SESSION['tipo_usuario'])) {
     integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <!-- Estilos CSS -->
   <link rel="stylesheet" href="../../styles/techlogistic.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
 </head>
 
 <body class="vh-100">
@@ -104,21 +110,25 @@ if (!isset($_SESSION['tipo_usuario'])) {
     </ul>
 
     <div class="table-responsive">
-      <table class="table">
+    <table id="proveedor" class="table">
       <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Nombre</th>
+      <tr>
           <th scope="col">Nit</th>
-          <th scope="col"></th>
+          <th scope="col">Id persona</th>
+          <th scope="col">Razon social</th>
+          <th scope="col">Acciones</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Innovax Corp.</td>
-          <td>NIT: 9876543210</td>
-          <td>
+        <?php
+            // Itera sobre los datos y genera las filas de la tabla
+        foreach ($datos as $fila) {
+          echo "<tr>";
+          foreach ($fila as $valor) {
+              echo "<td>$valor</td>";
+          }
+          ?>
+         <td>
             <div class="dropdown">
               <button class="btn btn-sm btn-outline-secondary border-0" type="button" id="dropdownMenuButton1"
                 data-bs-toggle="dropdown" aria-expanded="false">
@@ -129,112 +139,12 @@ if (!isset($_SESSION['tipo_usuario'])) {
                 <li><a class="dropdown-item" href="#">Eliminar</a></li>
               </ul>
             </div>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Nexus Solutions Ltda.</td>
-          <td>NIT: 1234567890</td>
-          <td>
-            <div class="dropdown">
-              <button class="btn btn-sm btn-outline-secondary border-0" type="button" id="dropdownMenuButton1"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                <i class='bx bx-dots-horizontal-rounded'></i>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">Editar</a></li>
-                <li><a class="dropdown-item" href="#">Eliminar</a></li>
-              </ul>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Globalsoft SAS</td>
-          <td>NIT: 4567890123</td>
-          <td>
-            <div class="dropdown">
-              <button class="btn btn-sm btn-outline-secondary border-0" type="button" id="dropdownMenuButton1"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                <i class='bx bx-dots-horizontal-rounded'></i>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">Editar</a></li>
-                <li><a class="dropdown-item" href="#">Eliminar</a></li>
-              </ul>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">4</th>
-          <td>AdvancedTech Inc.</td>
-          <td>NIT: 2345678901</td>
-          <td>
-            <div class="dropdown">
-              <button class="btn btn-sm btn-outline-secondary border-0" type="button" id="dropdownMenuButton1"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                <i class='bx bx-dots-horizontal-rounded'></i>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">Editar</a></li>
-                <li><a class="dropdown-item" href="#">Eliminar</a></li>
-              </ul>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">5</th>
-          <td>VisionaryWorks S.A.</td>
-          <td>NIT: 8901234567</td>
-          <td>
-            <div class="dropdown">
-              <button class="btn btn-sm btn-outline-secondary border-0" type="button" id="dropdownMenuButton1"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                <i class='bx bx-dots-horizontal-rounded'></i>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">Editar</a></li>
-                <li><a class="dropdown-item" href="#">Eliminar</a></li>
-              </ul>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">6</th>
-          <td>TechVantage Corp.</td>
-          <td>NIT: 5678901234</td>
-          <td>
-            <div class="dropdown">
-              <button class="btn btn-sm btn-outline-secondary border-0" type="button" id="dropdownMenuButton1"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                <i class='bx bx-dots-horizontal-rounded'></i>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">Editar</a></li>
-                <li><a class="dropdown-item" href="#">Eliminar</a></li>
-              </ul>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">7</th>
-          <td>Prodigy Solutions Ltda.</td>
-          <td>NIT: 3456789012</td>
-          <td>
-            <div class="dropdown">
-              <button class="btn btn-sm btn-outline-secondary border-0" type="button" id="dropdownMenuButton1"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                <i class='bx bx-dots-horizontal-rounded'></i>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">Editar</a></li>
-                <li><a class="dropdown-item" href="#">Eliminar</a></li>
-              </ul>
-            </div>
-          </td>
-        </tr>
+            <?php
+            echo "</tr>";
+        }
+        ?>
       </tbody>
-    </table>
+      </table>
     </div>
   </main>
   
@@ -250,5 +160,19 @@ if (!isset($_SESSION['tipo_usuario'])) {
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
     crossorigin="anonymous"></script>
 </body>
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.html5.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#proveedor').DataTable({
+          dom: 'Bfrtip', 
+            buttons: [
+                'excel', 'csv'
+            ]
+        });
+    });
+</script>
 </html>

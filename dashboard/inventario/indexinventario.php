@@ -120,9 +120,6 @@ if (!isset($_SESSION['tipo_usuario'])) {
       </li>
     </ul>
 <br><br>
-
-
-
     <div class="table-responsive">
     <table id="productos" class="table">
       <thead>
