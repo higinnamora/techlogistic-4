@@ -27,6 +27,18 @@ session_start();
     <link rel="stylesheet" href="../styles/techlogistic.css">
   </head>
 
+<<<<<<< HEAD
+<body class="vh-100">
+  <!-- Header -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container">
+      <a href="./indexprincipal.html" class="navbar-brand" title="Techlogistic"><img src="./favicon.png" width="50" height="50" alt=""
+          class="navigation__image">Techlogistic</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+=======
   <body class="vh-100">
     <!-- Header -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -35,6 +47,7 @@ session_start();
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+>>>>>>> 1bd28f9b1e988d5866b6b90bc216e306ee3526fe
 
       <?php } ?>
 
@@ -105,6 +118,79 @@ session_start();
 
       <?php } ?>
 
+<<<<<<< HEAD
+      <?php if($_SESSION['tipo_usuario'] == 3) { ?>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
+          <li class="nav-item">
+            <h4>Costurero</h4>
+      <?php } ?>
+
+      <?php if($_SESSION['tipo_usuario'] == 2) { ?>
+
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./indexdash.php">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="button" href="./sign-up.html" >Registrar usuario</a>
+          </li>
+          <li class="nav-item">
+            <h4>Administrador</h4>
+          </li>
+          
+
+          <?php } ?>
+
+          <?php if($_SESSION['tipo_usuario'] == 1 or $_SESSION['tipo_usuario'] == 2 or $_SESSION['tipo_usuario'] == 3) { ?>
+
+          <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
+          <li class="nav-item dropdown">
+            <div class="dropdown" role="group">
+              <a class="dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://higinnamora.github.io/techlogistic/images/profile/profile.png" alt="mdo" class="rounded-circle" width="38" height="38" />
+              </a>
+              <ul class="dropdown-menu dropdown-menu-lg-end">
+                <li><a class="dropdown-item" href="../../502.html" target="_blank">Mi perfil</a></li>
+                <li><a class="dropdown-item" href="../../502.html" target="_blank">Configuración</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                
+                <li><a class="dropdown-item" href="./cerrar_sesion.php">Cerrar sesión</a></li>
+              </ul>
+            </div>
+          </li>
+
+          <?php } ?>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <?php if($_SESSION['tipo_usuario'] == 1 or $_SESSION['tipo_usuario'] == 3 or $_SESSION['tipo_usuario'] == 2) { ?>
+
+  <!-- Main -->
+  <main class="container my-5 h-100">
+    <h4 class="text-md-start text-left">Bienvenida/o a Techlogistic</h4>
+    <hr>
+
+    <?php } ?>
+
+    <?php if($_SESSION['tipo_usuario'] == 2) { ?>
+    <!-- 4 Cards -->
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Proveedores</h5>
+            <p class="card-text mb-4">Gestiona y administra proveedores, incluyendo la inscripción, eliminación y
+              evaluación.</p>
+            <div class="mt-auto">
+              <a href="./dashboard/proveedores/indexproveedores.php" class="btn btn-primary">Ir a proveedores</a></a>
+=======
       <?php if ($_SESSION['tipo_usuario'] == 2) { ?>
         <!-- 4 Cards -->
         <div class="row g-4">
@@ -118,6 +204,7 @@ session_start();
                   <a href="./dashboard/proveedores/indexproveedores.php" class="btn btn-primary">Ir a proveedores</a></a>
                 </div>
               </div>
+>>>>>>> 1bd28f9b1e988d5866b6b90bc216e306ee3526fe
             </div>
           </div>
 

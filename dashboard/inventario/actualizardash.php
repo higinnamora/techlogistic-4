@@ -13,7 +13,7 @@ $sql = "SELECT * FROM producto
         or precio = '$consultar' or talla = '$consultar' or color_producto = '$consultar' 
         or ubicacion = '$consultar';";
 
-if ($conn->query($sql) == true) {
+if ($conexion->query($sql) == true) {
         while ($row=$consultar->fetch_assoc()) {
             $codigopro = $row["codigo_producto"];
             $material = $row["material"];
