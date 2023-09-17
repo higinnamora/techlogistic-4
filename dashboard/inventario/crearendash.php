@@ -1,6 +1,6 @@
 <?php 
 
-$conex = new mysqli("localhost", "root", "", "techlogisticdb");
+$conex = new mysqli("localhost", "root", "Aura2117*", "techlogisticdb");
 
 if (!$conex) {
     echo "fallo la conexion";

@@ -8,7 +8,12 @@ if (!isset($_SESSION['tipo_usuario'])) {
     header("Location: ../../sign-in.html");
     exit; 
 }
-
+  $conex = new mysqli("localhost", "root", "Aura2117*", "techlogisticdb");
+  if (!$conex) {
+      echo "fallo la conexion";
+  }
+  $sql = "SELECT codigo_producto, material, modelo, precio, talla, color_producto, ubicacion FROM producto;";
+  $datos = $conex->query($sql);
 ?>
 
 
@@ -29,6 +34,8 @@ if (!isset($_SESSION['tipo_usuario'])) {
     integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <!-- Estilos CSS -->
   <link rel="stylesheet" href="../../styles/techlogistic.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
 </head>
 
 <body class="vh-100">
@@ -117,31 +124,29 @@ if (!isset($_SESSION['tipo_usuario'])) {
 
 
     <div class="table-responsive">
-    <table class="table">
+    <table id="productos" class="table">
       <thead>
         <tr>
           <th scope="col">Código de producto</th>
-          <th scope="col">Nombre de producto</th>
-          <th scope="col">Categoría</th>
-          <th scope="col">Marca</th>
-          <th scope="col">Cantidad en bodega</th>
-          <th scope="col">Precio unitario</th>
-          <th scope="col">Ingreso</th>
-          <th scope="col">Vencimiento</th>
-          <th scope="col"></th>
+          <th scope="col">Material</th>
+          <th scope="col">Modelo</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Talla</th>
+          <th scope="col">Color producto</th>
+          <th scope="col">Ubicación</th>
+          <th scope="col">Acciones</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">#P12345</th>
-          <td>Camisa de algodón</td>
-          <td>Ropa</td>
-          <td>FashCo</td>
-          <td>50</td>
-          <td>$25</td>
-          <td>2023-03-01</td>
-          <td>N/A</td>
-          <td>
+      <?php
+
+        // Itera sobre los datos y genera las filas de la tabla
+        foreach ($datos as $fila) {
+            echo "<tr>";
+            foreach ($fila as $valor) {
+                echo "<td>$valor</td>";
+            }?>
+            <td>
 
             <div class="dropdown">
               <button class="btn btn-sm btn-outline-secondary border-0" type="button" id="dropdownMenuButton1"
@@ -154,29 +159,10 @@ if (!isset($_SESSION['tipo_usuario'])) {
               </ul>
             </div>
           </td>
-        </tr>
-        <tr>
-          <th>#P82733</th>
-          <td>Pantalon de Jean</td>
-          <td>Ropa</td>
-          <td>RiverUs</td>
-          <td>50</td>
-          <td>$35</td>
-          <td>2023-03-01</td>
-          <td>N/A</td>
-          <td>
-            <div class="dropdown">
-              <button class="btn btn-sm btn-outline-secondary border-0" type="button" id="dropdownMenuButton1"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                <i class='bx bx-dots-horizontal-rounded'></i>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">Editar</a></li>
-                <li><a class="dropdown-item" href="#">Eliminar</a></li>
-              </ul>
-            </div>
-          </td>
-        </tr>
+          <?php
+            echo "</tr>";
+        }
+        ?>
       </tbody>
     </table>
   </div>
@@ -194,5 +180,19 @@ if (!isset($_SESSION['tipo_usuario'])) {
     crossorigin="anonymous"></script>
 
 </body>
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.html5.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#productos').DataTable({
+          dom: 'Bfrtip', 
+            buttons: [
+                'excel', 'csv'
+            ]
+        });
+    });
+</script>
 </html>
