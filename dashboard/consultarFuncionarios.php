@@ -1,10 +1,6 @@
 <?php
-    //Cambiar el nombre de la base y la contraseña por la que se necesiten
-    $conn = new mysqli('localhost', 'root', 'admin', 'techlogistic');
-    /* 
-    if($_SERVER["REQUEST_METHOD"] == "POST") {
-        $consultar = $_POST["consultardash"];
-    }*/
+    $conexion;
+    include_once "conexion_a_la_DB.php";
  
     $sql = "CALL ConsultarPersona()";
     if ($stmt = $conn->prepare($sql)) {

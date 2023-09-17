@@ -1,6 +1,7 @@
 <?php
 
-$conn = new mysqli('localhost', 'root', '', 'techlogisticdb');
+$conexion;
+include_once "conexion_a_la_DB.php";;
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $eliminar = $_POST["eliminardash"];
