@@ -8,7 +8,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
     header("Location: ../../sign-in.html");
     exit; 
 }
-  $conex = new mysqli("localhost", "root", "Aura2117*", "techlogisticdb");
+  $conex = new mysqli("localhost", "root", "", "techlogisticdb");
   if (!$conex) {
       echo "fallo la conexion";
   }
@@ -90,7 +90,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
           <input class="button mb-1" name="consultardash" type="submit" value="Consultar" />
         </div>
       </form>-->
-      <form action="consultarinventariosimple.php" method="POST">
+      <form action="consultarinventario.php" method="POST">
         <div class="input-group w-auto">
           <input type="text" class="form-control" placeholder="nombre del producto" name="consultasimple" aria-label="Buscar producto">
           <!-- Icon buscar -->
@@ -120,6 +120,8 @@ if (!isset($_SESSION['tipo_usuario'])) {
       </li>
     </ul>
 <br><br>
+
+
     <div class="table-responsive">
     <table id="stock" class="table">
       <thead>

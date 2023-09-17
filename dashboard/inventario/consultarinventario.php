@@ -1,18 +1,19 @@
 <?php
     //Cambiar el nombre de la base y la contraseña por la que se necesiten
-    $conn = new mysqli('localhost', 'root', 'admin', 'techlogistic');
+    $conexion;
+    include_once "conexion_a_la_DB.php";
     /* 
     if($_SERVER["REQUEST_METHOD"] == "POST") {
         $consultar = $_POST["consultardash"];
     }*/
 
     $sql = "CALL ConsultarProductosMateriasProveedores()";
-    if ($stmt = $conn->prepare($sql)) {
+    if ($stmt = $conexion->prepare($sql)) {
         if ($stmt->execute()) {
             $result = $stmt->get_result();
 
             echo '<table>
-                <tr> 
+                <tr>
                     <th>Código Producto</th>
                     <th>Id Funcionario</th>
                     <th>Material</th>
@@ -77,5 +78,5 @@
     } else {
         die("Error en la preparación del procedimiento almacenado: " . $conex->error);
     }
-    mysqli_close($conn);
+    mysqli_close($conexion);
 ?>
