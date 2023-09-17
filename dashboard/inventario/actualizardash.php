@@ -1,5 +1,6 @@
 <?php
-$conn = new mysqli('localhost', 'root', 'Aura2117*', 'techlogisticdb');
+$conexion;
+include_once "conexion_a_la_DB.php";
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $actualizar = $_POST["consultardash"];
@@ -12,7 +13,7 @@ $sql = "SELECT * FROM producto
         or precio = '$consultar' or talla = '$consultar' or color_producto = '$consultar' 
         or ubicacion = '$consultar';";
 
-if ($conn->query($sql) == true) {
+if ($conexion->query($sql) == true) {
         while ($row=$consultar->fetch_assoc()) {
             $codigopro = $row["codigo_producto"];
             $material = $row["material"];

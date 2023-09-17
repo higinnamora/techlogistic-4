@@ -32,7 +32,7 @@ session_start();
   <!-- Header -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
-      <a href="./indexprincipal.html" class="navbar-brand" title="Techlogistic"><img src="../favicon.png" alt="./indexprincipal"
+      <a href="./indexprincipal.html" class="navbar-brand" title="Techlogistic"><img src="./favicon.png" width="50" height="50" alt=""
           class="navigation__image">Techlogistic</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,7 +63,7 @@ session_start();
             <a class="nav-link active" aria-current="page" href="./indexdash.php">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="btn btn-primary" href="./sign-up.html" >Registrar usuario</a>
+            <a class="button" href="./sign-up.html" >Registrar usuario</a>
           </li>
           <li class="nav-item">
             <h4>Administrador</h4>
