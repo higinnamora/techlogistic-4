@@ -80,11 +80,7 @@ session_start();
                               <img src="https://higinnamora.github.io/techlogistic/images/profile/profile.png" alt="mdo" class="rounded-circle" width="38" height="38" />
                             </a>
                             <ul class="dropdown-menu dropdown-menu-lg-end">
-                              <li><a class="dropdown-item" href="../../502.html" target="_blank">Mi perfil</a></li>
-                              <li><a class="dropdown-item" href="../../502.html" target="_blank">Configuración</a></li>
-                              <li>
-                                <hr class="dropdown-divider">
-                              </li>
+                            
 
                               <li><a class="dropdown-item" href="./cerrar_sesion.php">Cerrar sesión</a></li>
                             </ul>
@@ -125,7 +121,7 @@ session_start();
             <a class="button" href="./sign-up.html" >Registrar usuario</a>
           </li>
           <li class="nav-item">
-            <h4>Administrador</h4>
+            <h5>Administrador</h5>
           </li>
           
 
@@ -140,11 +136,7 @@ session_start();
                 <img src="https://higinnamora.github.io/techlogistic/images/profile/profile.png" alt="mdo" class="rounded-circle" width="38" height="38" />
               </a>
               <ul class="dropdown-menu dropdown-menu-lg-end">
-                <li><a class="dropdown-item" href="../../502.html" target="_blank">Mi perfil</a></li>
-                <li><a class="dropdown-item" href="../../502.html" target="_blank">Configuración</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
+                
                 
                 <li><a class="dropdown-item" href="./cerrar_sesion.php">Cerrar sesión</a></li>
               </ul>
@@ -157,15 +149,6 @@ session_start();
       </div>
     </div>
   </nav>
-
-  <?php if($_SESSION['tipo_usuario'] == 1 or $_SESSION['tipo_usuario'] == 3 or $_SESSION['tipo_usuario'] == 2) { ?>
-
-  <!-- Main -->
-  <main class="container my-5 h-100">
-    <h4 class="text-md-start text-left">Bienvenida/o a Techlogistic</h4>
-    <hr>
-
-    <?php } ?>
 
     <?php if($_SESSION['tipo_usuario'] == 2) { ?>
     <!-- 4 Cards -->

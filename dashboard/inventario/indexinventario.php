@@ -55,11 +55,6 @@ $datos = $conexion->query($sql);
                 <img src="https://higinnamora.github.io/techlogistic/images/profile/profile.png" alt="mdo" class="rounded-circle" width="38" height="38" />
               </a>
               <ul class="dropdown-menu dropdown-menu-lg-end">
-                <li><a class="dropdown-item" href="../../502.html" target="_blank">Mi perfil</a></li>
-                <li><a class="dropdown-item" href="../../502.html" target="_blank">Configuración</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
                 <li><a class="dropdown-item" href="../../cerrar_sesion.php">Cerrar sesión</a></li>
               </ul>
             </div>
