@@ -44,16 +44,16 @@ $datos = $conexion->query($sql);
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="../">Inicio</a>
+            <a class="nav-link active" aria-current="page" href="../../indexdash.php">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../proveedores/">Proveedores</a>
+            <a class="nav-link" href="../proveedores/indexproveedores.php">Proveedores</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../produccion/">Producción</a>
+            <a class="nav-link" href="../produccion/indexproduccion.php">Producción</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../inventario/">Inventario</a>
+            <a class="nav-link" href="../inventario/indexinventario.php">Inventario</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="../ventas/">Ventas</a>
@@ -65,11 +65,11 @@ $datos = $conexion->query($sql);
                 <img src="https://higinnamora.github.io/techlogistic/images/profile/profile.png" alt="mdo" class="rounded-circle" width="38" height="38" />
               </a>
               <ul class="dropdown-menu dropdown-menu-lg-end">
-                <li><a class="dropdown-item" href="#">Mi perfil</a></li>
-                <li><a class="dropdown-item" href="#">Configuración</a></li>
-                <li>
+                <!--<li><a class="dropdown-item" href="#">Mi perfil</a></li>-->
+                <!--<li><a class="dropdown-item" href="#">Configuración</a></li>-->
+                <!--<li>
                   <hr class="dropdown-divider">
-                </li>
+                </li>-->
                 <li><a class="dropdown-item" href="../../cerrar_sesion.php">Cerrar sesión</a></li>
               </ul>
             </div>
@@ -99,7 +99,7 @@ $datos = $conexion->query($sql);
         <a class="nav-link active" aria-current="page" href="#">Proveedores</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="../../404.html" target="_blank">Productos</a>
+        <a class="nav-link" href="productos.php" target="_blank">Productos</a>
       </li>
     </ul>
 

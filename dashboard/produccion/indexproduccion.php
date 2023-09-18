@@ -8,9 +8,9 @@ if (!isset($_SESSION['tipo_usuario'])) {
   exit;
 }
 $conexion;
-include_once "../../conexion_a_la_DB.php";
+include_once "conexion_a_la_DB.php";
 $sql = "SELECT codigo_producto, material, modelo, precio, talla, color_producto, ubicacion FROM producto;";
-$datos = $conexion->query($sql);
+$datos = $conex->query($sql);
 ?>
 
 
@@ -38,16 +38,27 @@ $datos = $conexion->query($sql);
   <!-- Header -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
-      <a href="../../indexprincipal.html" class="navbar-brand" title="Techlogistic"><img src="../../favicon.png" alt="" class="navigation__image">Techlogistic</a>
+      <a href="../index.html" class="navbar-brand" title="Techlogistic"><img src="../../favicon.png" alt="" class="navigation__image">Techlogistic</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="../../indexdash.php">Inicio</a>
+            <a class="nav-link active" aria-current="page" href="../">Inicio</a>
           </li>
-          
+          <li class="nav-item">
+            <a class="nav-link" href="../proveedores/">Proveedores</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../produccion/">Producción</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../inventario/">Inventario</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../ventas/">Ventas</a>
+          </li>
           <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
           <li class="nav-item dropdown">
             <div class="dropdown" role="group">
@@ -55,6 +66,11 @@ $datos = $conexion->query($sql);
                 <img src="https://higinnamora.github.io/techlogistic/images/profile/profile.png" alt="mdo" class="rounded-circle" width="38" height="38" />
               </a>
               <ul class="dropdown-menu dropdown-menu-lg-end">
+                <li><a class="dropdown-item" href="../../502.html" target="_blank">Mi perfil</a></li>
+                <li><a class="dropdown-item" href="../../502.html" target="_blank">Configuración</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
                 <li><a class="dropdown-item" href="../../cerrar_sesion.php">Cerrar sesión</a></li>
               </ul>
             </div>
