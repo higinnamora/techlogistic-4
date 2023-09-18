@@ -36,9 +36,6 @@
           <li class="navigation__item">
             <a href="./sign-in.html" class="button button-outline">Iniciar sesión</a>
           </li>
-          <li class="navigation__item">
-            <a href="./sign-up.html" class="button ">Registro</a>
-          </li>
         </ul>
       </div>
       <div class="navigation__toggle" id="navigation-toggle">
@@ -57,18 +54,12 @@
           <h2 class="hero__subtitle">Con Techlogistic, podrás optimizar tus operaciones logísticas, reducir costos y
             elevar la satisfacción del cliente.</h2>
           <div class="buttons">
-            <a href="./404.html" class="button">
+            <a href="#contact" class="button">
               Solicita demo
               <i class='icon bx bx-chevron-right'></i>
             </a>
-            <a href="./502.html" class="button ml-1">
-              Regístrate
-            </a>
           </div>
           <div class="hero__image">
-            <p>
-              <span class="tag">Ejemplo</span>
-            </p>
             <img src="./images/design/hero-dashboard.png" alt="Dashboard image" />
           </div>
         </div>
@@ -128,7 +119,7 @@
               <p>Desde que comenzamos a utilizar Techlogistic, hemos experimentado una gran mejora en la eficiencia de
                 nuestras operaciones logísticas. El software es fácil de usar y nos ha permitido optimizar nuestras
                 rutas de entrega, lo que se traduce en ahorro de costos y clientes más satisfechos.</p>
-              <span>John Doe, <strong>CEO</strong> and TechLead</span>
+              <span>Emmett Shear, <strong>CEO</strong> and TechLead</span>
             </div>
             <div class="clients__card">
               <h4>Discord</h4>
@@ -138,7 +129,7 @@
               <p>Techlogistic ha sido fundamental en la transformación de nuestra cadena de suministro. La plataforma
                 nos ha ayudado a mantener un control preciso de nuestro inventario, simplificar la coordinación con
                 proveedores y acelerar nuestros procesos internos. ¡Una herramienta imprescindible!</p>
-              <span>John Doe, <strong>CEO</strong> and Co-founder</span>
+              <span>Jason Citron, <strong>CEO</strong> and Co-founder</span>
             </div>
             <div class="clients__card">
               <h4>Canva</h4>
@@ -148,7 +139,7 @@
               <p>El seguimiento en tiempo real y los análisis de datos que ofrece Techlogistic nos han permitido tomar
                 decisiones informadas y mejorar constantemente nuestra logística. Ahora podemos identificar áreas de
                 mejora y abordarlas de manera proactiva. ¡Estamos muy satisfechos con los resultados!</p>
-              <span>John Doe, <strong>CEO</strong> and Co-founder</span>
+              <span>Melanie Perkins, <strong>CEO</strong> and Co-founder</span>
             </div>
             <div class="clients__card">
               <h4>Apple</h4>
@@ -158,7 +149,7 @@
               <p>La automatización de procesos que ofrece Techlogistic ha sido un cambio de juego para nuestro
                 negocio. Nos ha liberado tiempo para enfocarnos en el crecimiento y en brindar un mejor servicio al
                 cliente, mientras la plataforma se ocupa de las tareas logísticas más tediosas.</p>
-              <span>John Doe <strong>COO</strong> and Founder</span>
+              <span>Tim Cook <strong>COO</strong> and Founder</span>
             </div>
           </div>
         </div>
@@ -219,31 +210,24 @@
     <section class="section contact" id="contact">
       <h2>Encuentra la ayuda que necesitas</h2>
       <div class="bd-container">
-        <form class="form">
+        <form class="form" action="./contactenos.php" method="POST">
           <div class="form-field">
-            <label for="name">Nombres:</label>
-            <input type="text" placeholder="Nombre/s" id="name" required />
+            <label for="name">Nombre:</label>
+            <input type="text" name="nombre" placeholder="Nombre" id="name" required />
           </div>
           <div class="form-field">
-            <label for="apellidos">Apellidos:</label>
-            <input type="text" placeholder="Apellido/s" id="apellidos" required />
+            <label for="apellidos">Apellido:</label>
+            <input type="text" name="apellido" placeholder="Apellido" id="apellidos" required />
           </div>
           <div class="form-field">
             <label for="email">Tú email:</label>
-            <input type="text" placeholder="Dirección de correo electronico" id="email" required
+            <input type="email" name="email" placeholder="Dirección de correo electronico" id="email" required
               pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" />
-          </div>
           <div class="form-field">
-            <label for="business">Nombre de empresa <span>(opcional)</span>:</label>
-            <input type="text" placeholder="Nombre de su empresa o negocio" id="business" required />
+            <label for="Numero">Numero de telefono</label>
+            <input type="text" name="numerotelefono" placeholder="Nos contactaremos contigo" id="comment" required>
           </div>
-          <div class="form-field form-field--comments">
-            <label for="comment">¿En qué estás interesado?:</label>
-            <textarea type="text" placeholder="Comentarios" id="comment"></textarea>
-          </div>
-          <a href="./404.html">
-            <button class="button" type="submit">Contactar</button>
-          </a>
+          <input class="button mb-1" type="submit" value="Contactar" />
         </form>
       </div>
     </section>
