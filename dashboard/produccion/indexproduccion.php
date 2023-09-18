@@ -8,9 +8,9 @@ if (!isset($_SESSION['tipo_usuario'])) {
   exit;
 }
 $conexion;
-include_once "conexion_a_la_DB.php";
+include_once "conexion_a_la_DB.phpphp";
 $sql = "SELECT codigo_producto, material, modelo, precio, talla, color_producto, ubicacion FROM producto;";
-$datos = $conex->query($sql);
+$datos = $conexion->query($sql);
 ?>
 
 
@@ -45,20 +45,9 @@ $datos = $conex->query($sql);
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="../">Inicio</a>
+            <a class="nav-link active" aria-current="page" href="../../indexdash.php">Inicio</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../proveedores/">Proveedores</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../produccion/">Producción</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../inventario/">Inventario</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../ventas/">Ventas</a>
-          </li>
+          
           <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
           <li class="nav-item dropdown">
             <div class="dropdown" role="group">
