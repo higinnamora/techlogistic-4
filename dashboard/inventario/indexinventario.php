@@ -38,7 +38,7 @@ $datos = $conexion->query($sql);
   <!-- Header -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
-      <a href="../../indexprincipal.html" class="navbar-brand" title="Techlogistic"><img src="../../favicon.png" alt="" class="navigation__image">Techlogistic</a>
+      <a href="../../indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../../favicon.png" alt="" class="navigation__image">Techlogistic</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -55,6 +55,11 @@ $datos = $conexion->query($sql);
                 <img src="https://higinnamora.github.io/techlogistic/images/profile/profile.png" alt="mdo" class="rounded-circle" width="38" height="38" />
               </a>
               <ul class="dropdown-menu dropdown-menu-lg-end">
+                <!--<li><a class="dropdown-item" href="../../502.html" target="_blank">Mi perfil</a></li>
+                <li><a class="dropdown-item" href="../../502.html" target="_blank">Configuración</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>-->
                 <li><a class="dropdown-item" href="../../cerrar_sesion.php">Cerrar sesión</a></li>
               </ul>
             </div>
@@ -93,7 +98,7 @@ $datos = $conexion->query($sql);
     <!-- Tabla de Inventario -->
     <ul class="nav nav-tabs">
       <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Productos</a>
+        <a class="nav-link active" aria-current="page" href="../produccion/indexproduccion.php">Productos</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="../../404.html" target="_blank">Pedidos</a>

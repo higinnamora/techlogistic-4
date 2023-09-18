@@ -37,7 +37,7 @@ $datos = $conexion->query($sql);
   <!-- Header -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
-      <a href="../index.html" class="navbar-brand" title="Techlogistic"><img src="../../favicon.png" alt="" class="navigation__image">Techlogistic</a>
+      <a href="../../indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../../favicon.png" alt="" class="navigation__image">Techlogistic</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -84,7 +84,7 @@ $datos = $conexion->query($sql);
     <div class="d-flex flex-column flex-md-row justify-content-between">
       <h4 class="text-md-start text-left">Proveedores</h4>
       <div class="d-flex flex-column flex-md-row gap-2">
-        <a href="./nuevo-proveedor.html"> <button class="btn btn-primary w-auto">Agregar proveedor</button></a>
+        <a href="registrarProveedor.html"> <button class="btn btn-primary w-auto">Agregar proveedor</button></a>
         <div class="input-group w-auto">
           <input type="text" class="form-control" placeholder="Buscar proveedor" aria-label="Buscar proveedor">
           <!-- Icon buscar -->
