@@ -8,7 +8,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
   exit;
 }
 $conexion;
-include_once "conexion_a_la_DB.phpphp";
+include_once "../../conexion_a_la_DB.php";
 $sql = "SELECT codigo_producto, material, modelo, precio, talla, color_producto, ubicacion FROM producto;";
 $datos = $conexion->query($sql);
 ?>
@@ -23,7 +23,7 @@ $datos = $conexion->query($sql);
   <title>Techlogistic</title>
   <meta name="description" content="">
   <!-- Favicon -->
-  <link rel="icon" href="../../favicon.png">
+  <link rel="x" href="../../favicon.png">
   <!-- Box icons-->
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <!-- Bootstrap 5 -->
@@ -38,7 +38,7 @@ $datos = $conexion->query($sql);
   <!-- Header -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
-      <a href="../index.html" class="navbar-brand" title="Techlogistic"><img src="../../favicon.png" alt="" class="navigation__image">Techlogistic</a>
+      <a href="../../indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../../favicon.png" alt="" class="navigation__image">Techlogistic</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -55,10 +55,10 @@ $datos = $conexion->query($sql);
                 <img src="https://higinnamora.github.io/techlogistic/images/profile/profile.png" alt="mdo" class="rounded-circle" width="38" height="38" />
               </a>
               <ul class="dropdown-menu dropdown-menu-lg-end">
-                <li><a class="dropdown-item" href="../../502.html" target="_blank">Mi perfil</a></li>
+                <!--<li><a class="dropdown-item" href="../../502.html" target="_blank">Mi perfil</a></li>
                 <li><a class="dropdown-item" href="../../502.html" target="_blank">Configuración</a></li>
                 <li>
-                  <hr class="dropdown-divider">
+                  <hr class="dropdown-divider">–-->
                 </li>
                 <li><a class="dropdown-item" href="../../cerrar_sesion.php">Cerrar sesión</a></li>
               </ul>
@@ -86,22 +86,7 @@ $datos = $conexion->query($sql);
     <!-- Tabla de Producción -->
     <ul class="nav nav-tabs">
       <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Ordenes</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="../../502.html" target="_blank">Consumos</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="../../404.html" target="_blank">Horarios</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="../../502.html" target="_blank">Almacenes</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="../../404.html" target="_blank">Informes</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="../../502.html" target="_blank">Maquinaria</a>
+        <a class="nav-link active" aria-current="page" href="#">Poductos</a>
       </li>
     </ul>
     <div class="table-responsive">
@@ -115,7 +100,6 @@ $datos = $conexion->query($sql);
             <th scope="col">Talla</th>
             <th scope="col">Color producto</th>
             <th scope="col">Ubicación</th>
-            <th scope="col">Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -127,19 +111,6 @@ $datos = $conexion->query($sql);
             foreach ($fila as $valor) {
               echo "<td>$valor</td>";
             }
-          ?>
-            <td>
-              <div class="dropdown">
-                <button class="btn btn-sm btn-outline-secondary border-0" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                  <i class='bx bx-dots-horizontal-rounded'></i>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li><a class="dropdown-item" href="#">Editar</a></li>
-                  <li><a class="dropdown-item" href="#">Eliminar</a></li>
-                </ul>
-              </div>
-            </td>
-          <?php
             echo "</tr>";
           }
           ?>
