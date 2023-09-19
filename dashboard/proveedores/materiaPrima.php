@@ -119,33 +119,11 @@
                 <td>$descripcionMateria</td>
             </tr>";
                 }
-                echo "</tbody>\n";
+                echo "</tbody></table>\n";
                 $rta->free();
             }
             ?>
 
-            <table id="proveedor" class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Nit</th>
-                        <th scope="col">Id persona</th>
-                        <th scope="col">Razon social</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    // Itera sobre los datos y genera las filas de la tabla
-                    foreach ($datos as $fila) {
-                        echo "<tr>";
-                        foreach ($fila as $valor) {
-                            echo "<td>$valor</td>";
-                        }
-
-                        echo "</tr>";
-                    }
-                    ?>
-                </tbody>
-            </table>
         </div>
 
     </main>

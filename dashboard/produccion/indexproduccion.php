@@ -88,6 +88,9 @@ $datos = $conexion->query($sql);
       <li class="nav-item">
         <a class="nav-link active" aria-current="page" href="#">Productos</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="materiasProveedores.php">Materias/provedores</a>
+      </li>
     </ul>
     <div class="table-responsive">
       <table id="productos" class="table">
