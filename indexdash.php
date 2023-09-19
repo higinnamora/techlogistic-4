@@ -65,8 +65,7 @@ session_start();
                           <a class="nav-link" aria-current="page" href="./indexdash.php">Inicio</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link text-decoration-none" href="./dashboard/consultarFuncionarios.php">Consultar
-                            Funcionarios</a>
+                          <a class="nav-link text-decoration-none" href="./dashboard/consultarFuncionarios.php">Consultar funcionarios</a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link text-decoration-none" href="./sign-up.html">Registrar usuario</a>
@@ -162,7 +161,7 @@ session_start();
                   <p class="card-text mb-4">Permite la creación, almacenamiento y actualización de información detallada
                     de los proveedores.</p>
                   <div class="mt-auto">
-                    <a href="./dashboard/proveedores/indexproveedores.php" class="btn btn-primary">Ir a
+                    <a href="./dashboard/proveedores/indexproveedores.php" class="button">Ir a
                       proveedores</a></a>
                   </div>
                 </div>
@@ -177,7 +176,7 @@ session_start();
                   <p class="card-text mb-4">Se genera la creación, modificación y eliminación del producto final,
                     facilitando la generación y consulta de informes de producción.</p>
                   <div class="mt-auto">
-                    <a href="./dashboard/produccion/indexproduccion.php" class="btn btn-primary">Ir a Producción</a></a>
+                    <a href="./dashboard/produccion/indexproduccion.php" class="button">Ir a Producción</a></a>
                   </div>
                 </div>
               </div>
@@ -190,7 +189,7 @@ session_start();
                     Gestiona la existencia de productos en bodega, registra reportes de ventas y pedidos, y controla las
                     devoluciones.</p>
                   <div class="mt-auto">
-                    <a href="./dashboard/inventario/indexinventario.php" class="btn btn-primary">Ir a Inventario</a></a>
+                    <a href="./dashboard/inventario/indexinventario.php" class="button">Ir a Inventario</a></a>
                   </div>
                 </div>
               </div>
@@ -205,7 +204,7 @@ session_start();
                     generación
                     de facturas y cotizaciones.</p>
                   <div class="mt-auto">
-                    <a href="./dashboard/ventas/indexventas.php" class="btn btn-primary">Ir a Ventas</a></a>
+                    <a href="./dashboard/ventas/indexventas.php" class="button">Ir a Ventas</a></a>
                   </div>
                 </div>
               </div>

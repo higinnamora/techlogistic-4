@@ -76,7 +76,7 @@ $datos = $conexion->query($sql);
     <div class="d-flex flex-column flex-md-row justify-content-between">
       <h4 class="text-md-start text-left">Proveedores</h4>
       <div class="d-flex flex-column flex-md-row gap-2">
-        <a href="registrarProveedor.html"> <button class="btn btn-primary w-auto">Agregar proveedor</button></a>
+        <a href="registrarProveedor.html"> <button class="button w-auto">Agregar proveedor</button></a>
 
       </div>
     </div>
