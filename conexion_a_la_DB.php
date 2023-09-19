@@ -2,8 +2,8 @@
 
     $user = "root";
     $server = "localhost";
-    $password = "admin";
-    $db = "techlogistic";
+    $password = "Aura2117*";
+    $db = "techlogisticdb";
     $conexion = new mysqli($server, $user, $password, $db);
     
 if (!$conexion) {

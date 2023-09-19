@@ -100,7 +100,6 @@ $datos = $conexion->query($sql);
             <th scope="col">Observación</th>
             <th scope="col">Subtotal</th>
             <th scope="col">Total a pagar</th>
-            <th scope="col">Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -111,7 +110,6 @@ $datos = $conexion->query($sql);
             foreach ($fila as $valor) {
               echo "<td>$valor</td>";
             }
-            echo "<td><td/>";
             ?>
             <?php echo "</tr>";
           }
