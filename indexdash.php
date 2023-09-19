@@ -45,7 +45,7 @@ session_start();
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
             <li class="nav-item">
-              <h4>Vendedor</h4>
+              <a class="nav-link">Vendedor</a>
 
             <?php } ?>
 
@@ -144,7 +144,7 @@ session_start();
                   <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="./indexdash.php">Inicio</a>
                   </li>
-                  <h4>Vendedor</h4>
+                  <a class="nav-link">Vendedor</a>
                 <?php } ?>
 
               </ul>
