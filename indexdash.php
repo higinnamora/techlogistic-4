@@ -75,7 +75,6 @@ session_start();
                           <a class="nav-link" href="#">Administrador</a>
                         </li>
 
-
                       <?php } ?>
 
                       <?php if ($_SESSION['tipo_usuario'] == 1 or $_SESSION['tipo_usuario'] == 2 or $_SESSION['tipo_usuario'] == 3) { ?>
