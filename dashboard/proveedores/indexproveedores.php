@@ -99,7 +99,7 @@ $datos = $conexion->query($sql);
         <a class="nav-link active" aria-current="page" href="#">Proveedores</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="productos.php" target="_blank">Productos</a>
+        <a class="nav-link" href="materiaPrima.php" target="_blank">Materia Prima</a>
       </li>
     </ul>
 
