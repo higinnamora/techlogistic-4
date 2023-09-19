@@ -15,6 +15,8 @@
                     <th>Segundo Nombre</th>
                     <th>Primer Apellido</th>
                     <th>Segundo Apellido</th>
+                    <th>Correo</th>
+                    <th>Rol</th>
                 </tr>';
 
             while ($fila = $result->fetch_assoc()) {
@@ -47,5 +49,5 @@
     } else {
         die("Error en la preparación del procedimiento almacenado: " . $conex->error);
     }
-    mysqli_close($conn);
+    //mysqli_close($conn);
 ?>

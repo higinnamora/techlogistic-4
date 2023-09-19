@@ -62,6 +62,9 @@ session_start();
                           <a class="nav-link active" aria-current="page" href="./indexdash.php">Inicio</a>
                         </li>
                         <li class="nav-item">
+                          <a class="btn btn-primary" href="./dashboard/consultarFuncionarios.php">Consultar Funcionarios</a>
+                        </li>
+                        <li class="nav-item">
                           <a class="btn btn-primary" href="./sign-up.html">Registrar usuario</a>
                         </li>
                         <li class="nav-item">
@@ -155,8 +158,7 @@ session_start();
         <div class="card h-100">
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">Proveedores</h5>
-            <p class="card-text mb-4">Gestiona y administra proveedores, incluyendo la inscripción, eliminación y
-              evaluación.</p>
+            <p class="card-text mb-4">Permite la creación, almacenamiento y actualización de información detallada de los proveedores.</p>
             <div class="mt-auto">
               <a href="./dashboard/proveedores/indexproveedores.php" class="btn btn-primary">Ir a proveedores</a></a>
             </div>
