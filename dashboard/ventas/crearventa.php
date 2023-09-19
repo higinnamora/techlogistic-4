@@ -21,7 +21,7 @@ $sql = "INSERT INTO orden_venta(id_funcionario, id_cliente, id_medio_pago, canti
 VALUES ('$funcionario', '$tipocliente', '$mediopago', '$cantidad', '$descuento', '$fechafactura', '$observa', '$subtotal', '$total');";
 
 if ($conexion->query($sql) === TRUE) {
-    header("Location: /dashboard/ventas/registro-venta-exitosa.php");
+    header("Location: registro-venta-exitosa.php");
 } else {
     echo "Error al registrar los elementos: " . $conexion->error;
 }

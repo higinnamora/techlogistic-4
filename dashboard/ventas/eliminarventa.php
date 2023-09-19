@@ -17,7 +17,7 @@ if ($conexion->query($sql) === TRUE) {
     echo "Error al eliminar el elemento: " . $conexion->error;
 }
 if ($conexion->query($sql2) === TRUE) {
-    header("Location: /dashboard/ventas/eliminar-venta-exitosa.php");
+    header("Location: eliminar-venta-exitosa.php");
 } else {
     echo "Error al eliminar el elemento: " . $conexion->error;
 }
