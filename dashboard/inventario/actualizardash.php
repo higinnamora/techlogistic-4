@@ -1,41 +1,29 @@
 <?php
+
 $conexion;
 include_once "../../conexion_a_la_DB.php";
 
+
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    $actualizar = $_POST["consultardash"];
+    $codigo = $_POST["codigo"];
+    $cantidad = $_POST["cantidad"];
+    $descripcion = $_POST["descripcion"];
+    $estadopro = $_POST["estadoproducto"];
 }
 
 
-$sql = "SELECT * FROM producto 
-        WHERE codigo_producto = '$consultar' or material = '$consultar' 
-        or nombre_producto = '$consultar' or modelo = '$consultar' 
-        or precio = '$consultar' or talla = '$consultar' or color_producto = '$consultar' 
-        or ubicacion = '$consultar';";
+$sql = "UPDATE stock SET cantidad_stock = '$cantidad',
+       descripcion_stock = '$descripcion', estado = '$estadopro' WHERE id_stock = '$codigo';";
 
-if ($conexion->query($sql) == true) {
-        while ($row=$consultar->fetch_assoc()) {
-            $codigopro = $row["codigo_producto"];
-            $material = $row["material"];
-            $nombrepro = $row["nombre_producto"];
-            $modelo = $row["modelo"];
-            $preciopro = $row["precio"];
-            $talla = $row["talla"];
-            $color = $row["color_producto"];
-            $ubicacion = $row["ubicacion"];
-        }
-
-            echo $codigopro;
-            echo $material;
-            echo $nombrepro;
-            echo $modelo;
-            echo $preciopro;
-            echo $talla;
-            echo $color;
-            echo $ubicacion;
-        
-}else{
-    echo "producto no encontrado";
+if ($conexion->query($sql) === TRUE) {
+    echo "Actualizacion exitosa";
+} else {
+    echo "Error al actulizar los elementos: " . $conexion->error;
 }
-$conn->close();
-?>
+
+
+
+
+
+
+$conexion->close();

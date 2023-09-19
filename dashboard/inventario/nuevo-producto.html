@@ -21,7 +21,7 @@
   <!-- Header -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
-      <a href="/techlogistic-main/indexprincipal.html" class="navbar-brand" title="Techlogistic"><img src="../../favicon.png" alt=""
+      <a href="../../indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../../favicon.png" alt=""
           class="navigation__image">Techlogistic</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,12 +40,7 @@
                 <img src="https://higinnamora.github.io/techlogistic/images/profile/profile.png" alt="mdo" class="rounded-circle" width="38" height="38" />
               </a>
               <ul class="dropdown-menu dropdown-menu-lg-end">
-                <li><a class="dropdown-item" href="#">Mi perfil</a></li>
-                <li><a class="dropdown-item" href="#">Configuración</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="../index.html">Cerrar sesión</a></li>
+                <li><a class="dropdown-item" href="../../cerrar_sesion.php">Cerrar sesión</a></li>
               </ul>
             </div>
           </li>
@@ -60,8 +55,11 @@
       <h4 class="text-md-start text-left">Nuevo producto</h4>
 
       <div class="mb-3">
-        <label for="material" class="form-label">codigo de funcionario</label>
-        <input type="text" class="form-control" id="id_funcionario" placeholder="codigo funcionario" name="id_funcionario" required>
+        <label for="sign-up-form-numcargo">Funcionario</label>
+        <select  name="id_funcionario">
+          <option value="1">Costurero</option>
+          <option value="2">Administrador</option>
+        </select>
       </div>
       
       <div class="mb-3">
