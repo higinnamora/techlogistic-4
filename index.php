@@ -22,7 +22,7 @@
     <i class='bx bx-chevron-up scrolltop__icon'></i>
   </a>
   <!-- Header -->
-  <header class="header" id="header">
+  <header class="header header--landing" id="header">
     <nav class="navigation bd-container">
       <div class="navigation__container-logo">
         <a href="index.html" class="navigation__logo" title="Techlogistic"><img src="./favicon.png" alt=""
