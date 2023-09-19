@@ -82,12 +82,12 @@ $datos = $conexion->query($sql);
     </div>
     <hr>
     <!-- Tabla de proveedores -->
-    <ul class="nav nav-tabs">
+    <ul class="nav nav-tabs mb-4">
       <li class="nav-item">
         <a class="nav-link active" aria-current="page" href="#">Proveedores</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="materiaPrima.php" target="_blank">Materia Prima</a>
+        <a class="nav-link" href="materiaPrima.php">Materia Prima</a>
       </li>
     </ul>
 
