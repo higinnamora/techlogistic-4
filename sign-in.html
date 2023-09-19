@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<!--provando conexion con git hub-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Techlogistic</title>
+  <meta name="description" content="">
+  <!-- Favicon -->
+  <link rel="icon" href="./favicon.png">
+  <!-- Box icons-->
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <!-- Normalize -->
+  <link rel="stylesheet" href="./styles/normalize.css">
+  <!-- Estilos CSS -->
+  <link rel="stylesheet" href="./styles/techlogistic.css">
+</head>
+
+<body>
+  <!-- Scroll top -->
+  <a href="#" class="scrolltop" id="scroll-top" title="Scroll top">
+    <i class='bx bx-chevron-up scrolltop__icon'></i>
+  </a>
+  <!-- Header -->
+  <header class="header" id="header">
+    <nav class="navigation bd-container">
+      <div class="navigation__container-logo">
+        <a href="../techlogistic-4/indexprincipal.html" class="navigation__logo" title="Techlogistic"><img src="./favicon.png" alt=""
+            class="navigation__image">Techlogistic</a>
+      </div>
+      </div>
+      <div class="navigation__toggle" id="navigation-toggle">
+        <i class='bx bx-menu'></i>
+      </div>
+    </nav>
+  </header>
+  <!-- Main-->
+  <main class="main">
+    <section class="section section-auth">
+      <div class="wrapper-box">
+        <h3 class="title">Iniciar sesión</h3>
+        <form class="form" action="loginprincipal.php" method="POST" id="sign-in-form" >
+          <div class="form-field">
+            <label for="sign-in-form-email">Correo electrónico</label>
+            <input
+              type="email"
+              placeholder="Ingresa tu correo electrónico"
+              id="sign-in-form-email"
+              name="sign-in-form-email"
+              class="js-email-input"
+              pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+              required
+            />
+          </div>
+          <div class="form-field">
+            <label for="sign-in-form-password">Contraseña</label>
+            <input
+              type="password"
+              placeholder="Ingresa tu contraseña"
+              id="sign-in-form-password"
+              name="sign-in-form-password"
+              pattern=".{8,}"
+              required
+            />
+          </div>
+          <input class="button mb-1" type="submit" value="Iniciar sesión">
+          
+          <p class="block text-center">
+            Si has olvidado tu contraseña debes informale a tu jefe inmediato para que sea reestablecida.
+          </p>
+        </form>
+      </div>
+    </section>
+    <footer class="copyright">
+      <div class="bd-container">
+        <p>💙 © 2023 Techlogistic. Todos los derechos reservados. 💚</p>
+        <p><a href="./terminos-y-condiciones.html">Términos y Condiciones</a> · <a
+            href="./politica-de-privacidad.html">Política de Privacidad</a></p>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Scroll reveal -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <!-- Main JS-->
+  <script src="./js/techlogistic.js"></script>
+</body>
+
+</html>
