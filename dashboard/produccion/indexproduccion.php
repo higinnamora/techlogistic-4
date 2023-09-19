@@ -47,7 +47,7 @@ $datos = $conexion->query($sql);
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="../../indexdash.php">Inicio</a>
           </li>
-          
+
           <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
           <li class="nav-item dropdown">
             <div class="dropdown" role="group">
@@ -59,13 +59,13 @@ $datos = $conexion->query($sql);
                 <li><a class="dropdown-item" href="../../502.html" target="_blank">Configuración</a></li>
                 <li>
                   <hr class="dropdown-divider">–-->
-                </li>
-                <li><a class="dropdown-item" href="../../cerrar_sesion.php">Cerrar sesión</a></li>
-              </ul>
-            </div>
           </li>
+          <li><a class="dropdown-item" href="../../cerrar_sesion.php">Cerrar sesión</a></li>
         </ul>
       </div>
+      </li>
+      </ul>
+    </div>
     </div>
   </nav>
 
@@ -74,7 +74,7 @@ $datos = $conexion->query($sql);
     <div class="d-flex flex-column flex-md-row justify-content-between">
       <h4 class="text-md-start text-left">Producción</h4>
       <div class="d-flex flex-column flex-md-row gap-2">
-        <a href="./nueva-orden.html"> <button class="btn btn-primary w-auto">Agregar orden</button></a>
+        <a href="nuevoProducto.html"> <button class="btn btn-primary w-auto">Agregar producto</button></a>
         <div class="input-group w-auto">
           <input type="text" class="form-control" placeholder="Buscar orden" aria-label="Buscar orden">
           <!-- Icon buscar -->
@@ -119,7 +119,48 @@ $datos = $conexion->query($sql);
     </div>
   </main>
 </body>
-
+<h4>Actualizar Producto</h4>
+<form class="form" id="sign-up-form" action="editarProducto.php" method="POST">
+  <div class="form-field" style="display: none;">
+    <label for="funcionario">Funcionario/label>
+      <input type="number" value="2" id="funcionario" name="funcionario" required />
+  </div>
+  <div class="form-field">
+    <label for="producto">Código Producto</label>
+    <input type="number" placeholder="ingrese código producto" id="producto" name="producto" required />
+  </div>
+  <div class="form-field">
+    <label for="material">Material</label>
+    <input type="text" placeholder="ingrese material" id="material" name="material" required />
+  </div>
+  <div class="form-field">
+    <label for="modelo">Módelo</label>
+    <input type="number" placeholder="ingrese módelo" id="modelo" name="modelo" required />
+  </div>
+  <div class="form-field">
+    <label for="precio">Precio</label>
+    <input type="number" placeholder="ingrese precio" id="precio" name="precio" required />
+  </div>
+  <div class="form-field">
+    <label for="talla">Talla</label>
+    <input type="number" placeholder="ingrese talla" id="talla" name="talla" required />
+  </div>
+  <div class="form-field">
+    <label for="color">Color Producto</label>
+    <input type="text" placeholder="ingrese color producto" id="color" name="color" required />
+  </div>
+  <div class="form-field">
+    <label for="ubicacion">Ubicación</label>
+    <input type="text" placeholder="ingrese ubicación" id="ubicacion" name="ubicacion" required />
+  </div>
+  <input class="button" type="submit" value="Actualizar" />
+</form>
+<h4>Eliminar producto</h4>
+<form class="newsletter-form" action="eliminarProducto.php" id="newsletter-form" method="POST">
+  <div class="form-field">
+    <input type="text" name="eliminarProducto" placeholder="Código producto" class="newsletter-input" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
+    <button class="button" type="submit">Eliminar</button>
+</form>
 <footer class="copyright">
   <div class="bd-container">
     <p>💙 © 2023 Techlogistic. Todos los derechos reservados. 💚</p>
