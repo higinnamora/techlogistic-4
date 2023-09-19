@@ -105,12 +105,12 @@ $datos = $conexion->query($sql);
             }
             ?>
             <td>
-              <div class="dropdown">
+              <!-- <div class="dropdown">
                 <button class="btn btn-sm btn-outline-secondary border-0" type="button" id="dropdownMenuButton1"
                   data-bs-toggle="dropdown" aria-expanded="false">
                   <i class='bx bx-dots-horizontal-rounded'></i>
                 </button>
-              </div>
+              </div> -->
             </td>
             <?php
             echo "</tr>";

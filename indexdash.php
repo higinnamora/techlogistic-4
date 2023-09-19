@@ -54,7 +54,7 @@ session_start();
                 <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
 
                   <li class="nav-item">
-                    <h4>Costurero</h4>
+                    <a class="nav-link">Costurero</a>
                   <?php } ?>
 
                   <?php if ($_SESSION['tipo_usuario'] == 2) { ?>
@@ -65,7 +65,8 @@ session_start();
                           <a class="nav-link" aria-current="page" href="./indexdash.php">Inicio</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link text-decoration-none" href="./dashboard/consultarFuncionarios.php">Consultar funcionarios</a>
+                          <a class="nav-link text-decoration-none" href="./dashboard/consultarFuncionarios.php">Consultar
+                            funcionarios</a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link text-decoration-none" href="./sign-up.html">Registrar usuario</a>
@@ -117,7 +118,7 @@ session_start();
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="./indexdash.php">Inicio</a>
           </li>
-          <h4>Costurero</h4>
+          <a class="nav-link">Costurero</a>
         <?php } ?>
 
         <?php if ($_SESSION['tipo_usuario'] == 2) { ?>
