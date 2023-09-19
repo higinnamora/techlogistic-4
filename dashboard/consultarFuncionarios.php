@@ -23,7 +23,7 @@
   <!-- Header -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
-      <a href="../../indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../../favicon.png" alt=""
+      <a href="../indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../../favicon.png" alt=""
           class="navigation__image">Techlogistic</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,7 +32,7 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="../../indexdash.php">Inicio</a>
+            <a class="nav-link active" aria-current="page" href="../indexdash.php">Inicio</a>
           </li>
           <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
           <li class="nav-item dropdown">
@@ -131,8 +131,8 @@
     <div class="copyright">
       <div class="bd-container">
         <p>💙 © 2023 Techlogistic. Todos los derechos reservados. 💚</p>
-        <p><a href="../../terminos-y-condiciones.html">Términos y Condiciones</a> · <a
-            href="../../politica-de-privacidad.html">Política de Privacidad</a></p>
+        <p><a href="../terminos-y-condiciones.html">Términos y Condiciones</a> · <a
+            href="../politica-de-privacidad.html">Política de Privacidad</a></p>
       </div>
     </div>
   </footer>
