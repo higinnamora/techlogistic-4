@@ -2,13 +2,8 @@
 
     $user = "root";
     $server = "localhost";
-<<<<<<< Updated upstream
-    $password = "admin";
-    $db = "techlogistic";
-=======
-    $password = "";
+    $password = "Aura2117*";
     $db = "techlogisticdb";
->>>>>>> Stashed changes
     $conexion = new mysqli($server, $user, $password, $db);
     
 if (!$conexion) {

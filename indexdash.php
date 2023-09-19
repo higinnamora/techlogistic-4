@@ -121,7 +121,7 @@ session_start();
             <a class="nav-link active" aria-current="page" href="./indexdash.php">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="button" href="./sign-up.html" >Registrar usuario</a>
+            <a class="button" href="./sign-up.html" >Registrar funcionario</a>
           </li>
           <li class="nav-item">
             <h5>Administrador</h5>
@@ -172,9 +172,8 @@ session_start();
             <div class="card h-100">
               <div class="card-body d-flex flex-column">
                 <h5 class="card-title">Producción</h5>
-                <p class="card-text mb-4">Controla y organiza el proceso de producción, incluyendo la gestión de la materia
-                  prima, consumos, horarios de producción y mantenimiento de maquinaria. Facilita la generación y consulta
-                  de informes de producción.</p>
+                <p class="card-text mb-4">Se genera la creación, modificación y eliminación del producto final, 
+                facilitando la generación y consulta de informes de producción.</p>
                 <div class="mt-auto">
                   <a href="./dashboard/produccion/indexproduccion.php" class="btn btn-primary">Ir a Producción</a></a>
                 </div>
