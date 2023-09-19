@@ -76,12 +76,15 @@ $datos = $conexion->query($sql);
       <div class="d-flex flex-column flex-md-row gap-2">
         <a href="nuevoProducto.html"> <button class="btn btn-primary w-auto">Agregar producto</button></a>
       </div>
+      <div class="d-flex flex-column flex-md-row gap-2">
+        <a href="materiasProveedores.php"> <button class="btn btn-primary w-auto">Materias/provedores</button></a>
+      </div>
     </div>
     <hr>
     <!-- Tabla de Producción -->
     <ul class="nav nav-tabs">
       <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Poductos</a>
+        <a class="nav-link active" aria-current="page" href="#">Productos</a>
       </li>
     </ul>
     <div class="table-responsive">
