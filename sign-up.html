@@ -28,19 +28,9 @@
   <header class="header" id="header">
     <nav class="navigation bd-container">
       <div class="navigation__container-logo">
-        <a href="index.html" class="navigation__logo" title="Techlogistic"><img src="./favicon.png" alt=""
+        <a href="../techlogistic-4/indexdash.php" class="navigation__logo" title="Techlogistic"><img src="./favicon.png" alt=""
             class="navigation__image">Techlogistic</a>
       </div>
-      <div class="navigation__menu" id="navigation-menu">
-        <ul class="navigation__list">
-          <li class="navigation__item"><a href="./index.html#hero" class="navigation__link active-link">Acerca de</a></li>
-          <li class="navigation__item"><a href="./index.html#about" class="navigation__link">Servicios</a></li>
-          <li class="navigation__item"><a href="./index.html#contact" class="navigation__link">Contacto</a></li>
-          <li class="navigation__item">
-            <a href="./sign-in.html" class="button button-outline">Iniciar sesión</a>
-          </li>
-          <li class="navigation__item">
-            <a href="./sign-up.html" class="button ">Registro</a>
           </li>
         </ul>
       </div>
@@ -55,17 +45,38 @@
       <div class="wrapper-box">
         <h3 class="title">Registrarme</h3>
         <form class="form" id="sign-up-form" action="Registro.php" method="POST">
-          <div class="form-field">
-            <label for="sign-up-form-cedula">Numero de documento</label>
-            <input
-              type="number"
-              placeholder="Sin puntos ni comas"
-              id="sign-up-form-cedula"
-              name="sign-up-form-cedula"
-              required
-            />
-          </div>
+          
+            <div class="form-field">
+              <label for="sign-up-form-numcargo">Numero de cargo</label>
+              <select  name="sign-up-form-numcargo">
+                <option value="1">1 Vendedor</option>
+                <option value="2">2 Administrador</option>
+                <option value="3">3 Costurero</option>
+              </select>
+              
+            </div>
 
+            <div class="form-field">
+              <label for="sign-up-form-cargo">Cargo</label>
+              <input
+                type="text"
+                placeholder="Ingrese el cargo a sustentar"
+                id="sign-up-form-cargo"
+                name="sign-up-form-cargo"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label for="sign-up-form-cedula">Numero de documento</label>
+              <input
+                type="text"
+                placeholder="Sin puntos ni comas"
+                id="sign-up-form-cedula"
+                name="sign-up-form-cedula"
+                required
+              />
+            </div>
 
           <div class="form-field">
             <label for="sign-up-form-name1">primer nombre</label>
@@ -144,10 +155,7 @@
             />
           </div>
           <input class="button mb-1" type="submit" value="Registrarme" />
-          <p class="block text-center">
-            ¿Ya tienes cuenta?
-            <a href="./sign-in.html" class="text-primary">¡Iniciar sesión!</a>
-          </p>
+          
         </form>
       </div>
     </section>

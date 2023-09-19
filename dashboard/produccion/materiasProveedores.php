@@ -1,14 +1,14 @@
 <?php
     $conexion;
     include_once "../../conexion_a_la_DB.php";
-
+ 
     $sql = "CALL ConsultarProductosMateriasProveedores()";
     if ($stmt = $conexion->prepare($sql)) {
         if ($stmt->execute()) {
             $result = $stmt->get_result();
 
             echo '<table>
-                <tr>
+                <tr> 
                     <th>Código Producto</th>
                     <th>Id Funcionario</th>
                     <th>Material</th>
@@ -25,6 +25,7 @@
                     <th>Id Proveedor</th>
                     <th>Nit</th>
                     <th>Id Persona</th>
+                    <th>Razón Social</th>
                 </tr>';
 
             while ($fila = $result->fetch_assoc()) {
@@ -41,10 +42,11 @@
                 $idMateriaProducto = $fila["id_materia_producto"];
                 $idMateriaPrima = $fila["id_materia_prima"];
                 $codigoProducto = $fila["codigo_producto"];
-                $gastoMateriaPrima = $fila["gasto_materia_prima"];
+                $gastoMaateriaPrima = $fila["gasto_materia_prima"];
                 $idProveedor = $fila["id_proveedor"];
                 $nit = $fila["nit"];
                 $idPersona = $fila["id_persona"];
+                $razonSocial = $fila["razon_social"];
             echo "
                 <tr>
                     <td>$codigoProducto</td>
@@ -59,10 +61,11 @@
                     <td>$idMateriaProducto</td>
                     <td>$idMateriaPrima</td>
                     <td>$codigoProducto</td>
-                    <td>$gastoMateriaPrima</td>
+                    <td>$gastoMaateriaPrima</td>
                     <td>$idProveedor</td>
                     <td>$nit</td>
                     <td>$idPersona</td>
+                    <td>$razonSocial</td>
                 </tr>";
             }
             echo "</table>";
@@ -73,5 +76,5 @@
     } else {
         die("Error en la preparación del procedimiento almacenado: " . $conex->error);
     }
-    mysqli_close($conexion);
+    //mysqli_close($conn);
 ?>

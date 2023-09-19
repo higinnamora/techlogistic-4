@@ -21,7 +21,7 @@
   <!-- Header -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
-      <a href="/techlogistic-main/indexprincipal.html" class="navbar-brand" title="Techlogistic"><img src="../../favicon.png" alt=""
+      <a href="../../indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../../favicon.png" alt=""
           class="navigation__image">Techlogistic</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,20 +30,9 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="../">Inicio</a>
+            <a class="nav-link active" aria-current="page" href="../../indexdash.php">Inicio</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../proveedores/">Proveedores</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../produccion/">Producción</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../inventario/">Inventario</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../ventas/">Ventas</a>
-          </li>
+          
           <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
           <li class="nav-item dropdown">
             <div class="dropdown" role="group">
@@ -51,12 +40,7 @@
                 <img src="https://higinnamora.github.io/techlogistic/images/profile/profile.png" alt="mdo" class="rounded-circle" width="38" height="38" />
               </a>
               <ul class="dropdown-menu dropdown-menu-lg-end">
-                <li><a class="dropdown-item" href="#">Mi perfil</a></li>
-                <li><a class="dropdown-item" href="#">Configuración</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="../index.html">Cerrar sesión</a></li>
+                <li><a class="dropdown-item" href="../../cerrar_sesion.php">Cerrar sesión</a></li>
               </ul>
             </div>
           </li>
@@ -71,8 +55,11 @@
       <h4 class="text-md-start text-left">Nuevo producto</h4>
 
       <div class="mb-3">
-        <label for="material" class="form-label">codigo de funcionario</label>
-        <input type="text" class="form-control" id="id_funcionario" placeholder="codigo funcionario" name="id_funcionario" required>
+        <label for="sign-up-form-numcargo">Funcionario</label>
+        <select  name="id_funcionario">
+          <option value="1">Costurero</option>
+          <option value="2">Administrador</option>
+        </select>
       </div>
       
       <div class="mb-3">
@@ -127,11 +114,12 @@
       </div>
     </div>
   
-  <footer class="copyright">
-    <div class="bd-container">
-      <p>💙 © 2023 Techlogistic. Todos los derechos reservados. 💚</p>
-      <p><a href="https://higinnamora.github.io/techlogistic/terminos-y-condiciones.html">Términos y Condiciones</a> · <a
-          href="https://higinnamora.github.io/techlogistic/politica-de-privacidad.html">Política de Privacidad</a></p>
+    <div class="copyright">
+      <div class="bd-container">
+        <p>💙 © 2023 Techlogistic. Todos los derechos reservados. 💚</p>
+        <p><a href="../../terminos-y-condiciones.html">Términos y Condiciones</a> · <a
+            href="../../politica-de-privacidad.html">Política de Privacidad</a></p>
+      </div>
     </div>
   </footer>
 

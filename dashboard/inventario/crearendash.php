@@ -1,10 +1,7 @@
 <?php 
 
-$conex = new mysqli("localhost", "root", "", "techlogisticdb");
-
-if (!$conex) {
-    echo "fallo la conexion";
-}
+$conexion;
+include_once "../../conexion_a_la_DB.php";
 
 $id_func = $_POST["id_funcionario"];
 $material = $_POST["material"];

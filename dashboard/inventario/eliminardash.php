@@ -1,30 +1,26 @@
 <?php
 
-$conn = new mysqli('localhost', 'root', '', 'techlogisticdb');
+$conexion;
+include_once "../../conexion_a_la_DB.php";
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    $eliminar = $_POST["eliminardash"];
+    $eliminarinv = $_POST["eliminar_inventario"];
 }
 
-$traerfuncion = $conn->prepare("CALL eliminarendash(?)");
-$traerfuncion->bind_param("i", $eliminar);
-$traerfuncion->execute();
+$eliminarinv = (int)$eliminarinv;
 
-$result = $traerfuncion->get_result();
+//$sql = "DELETE FROM producto WHERE codigo_producto = '$eliminarinv';";
+$sql2 = "DELETE FROM stock WHERE id_stock  = '$eliminarinv';";
 
-if ($result->num_rows > 0) {
-    echo "se elimina correctamente";
-}else{
-    echo "no se pudo eliminar";
+//if ($conexion->query($sql) === TRUE) {
+ //   echo "Elemento eliminado correctamente";
+//} else {
+   // echo "Error al eliminar el elemento: " . $conexion->error;
+//}
+if ($conexion->query($sql2) === TRUE) {
+    echo "Elemento eliminado correctamente";
+} else {
+    echo "Error al eliminar el elemento: " . $conexion->error;
 }
-
-
-
-
-$conn->close();
-
-
-
-
-
+$conexion->close();
 ?>

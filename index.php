@@ -25,7 +25,7 @@
   <header class="header" id="header">
     <nav class="navigation bd-container">
       <div class="navigation__container-logo">
-        <a href="indexprincipal.html" class="navigation__logo" title="Techlogistic"><img src="./favicon.png" alt=""
+        <a href="index.html" class="navigation__logo" title="Techlogistic"><img src="./favicon.png" alt=""
             class="navigation__image">Techlogistic</a>
       </div>
       <div class="navigation__menu" id="navigation-menu">
@@ -35,6 +35,9 @@
           <li class="navigation__item"><a href="#contact" class="navigation__link">Contacto</a></li>
           <li class="navigation__item">
             <a href="./sign-in.html" class="button button-outline">Iniciar sesión</a>
+          </li>
+          <li class="navigation__item">
+            <a href="./sign-up.html" class="button ">Registro</a>
           </li>
         </ul>
       </div>
@@ -54,12 +57,18 @@
           <h2 class="hero__subtitle">Con Techlogistic, podrás optimizar tus operaciones logísticas, reducir costos y
             elevar la satisfacción del cliente.</h2>
           <div class="buttons">
-            <a href="#contact" class="button">
+            <a href="./404.html" class="button">
               Solicita demo
               <i class='icon bx bx-chevron-right'></i>
             </a>
+            <a href="./502.html" class="button ml-1">
+              Regístrate
+            </a>
           </div>
           <div class="hero__image">
+            <p>
+              <span class="tag">Ejemplo</span>
+            </p>
             <img src="./images/design/hero-dashboard.png" alt="Dashboard image" />
           </div>
         </div>
@@ -119,7 +128,7 @@
               <p>Desde que comenzamos a utilizar Techlogistic, hemos experimentado una gran mejora en la eficiencia de
                 nuestras operaciones logísticas. El software es fácil de usar y nos ha permitido optimizar nuestras
                 rutas de entrega, lo que se traduce en ahorro de costos y clientes más satisfechos.</p>
-              <span>Emmett Shear, <strong>CEO</strong> and TechLead</span>
+              <span>John Doe, <strong>CEO</strong> and TechLead</span>
             </div>
             <div class="clients__card">
               <h4>Discord</h4>
@@ -129,7 +138,7 @@
               <p>Techlogistic ha sido fundamental en la transformación de nuestra cadena de suministro. La plataforma
                 nos ha ayudado a mantener un control preciso de nuestro inventario, simplificar la coordinación con
                 proveedores y acelerar nuestros procesos internos. ¡Una herramienta imprescindible!</p>
-              <span>Jason Citron, <strong>CEO</strong> and Co-founder</span>
+              <span>John Doe, <strong>CEO</strong> and Co-founder</span>
             </div>
             <div class="clients__card">
               <h4>Canva</h4>
@@ -139,7 +148,7 @@
               <p>El seguimiento en tiempo real y los análisis de datos que ofrece Techlogistic nos han permitido tomar
                 decisiones informadas y mejorar constantemente nuestra logística. Ahora podemos identificar áreas de
                 mejora y abordarlas de manera proactiva. ¡Estamos muy satisfechos con los resultados!</p>
-              <span>Melanie Perkins, <strong>CEO</strong> and Co-founder</span>
+              <span>John Doe, <strong>CEO</strong> and Co-founder</span>
             </div>
             <div class="clients__card">
               <h4>Apple</h4>
@@ -149,7 +158,7 @@
               <p>La automatización de procesos que ofrece Techlogistic ha sido un cambio de juego para nuestro
                 negocio. Nos ha liberado tiempo para enfocarnos en el crecimiento y en brindar un mejor servicio al
                 cliente, mientras la plataforma se ocupa de las tareas logísticas más tediosas.</p>
-              <span>Tim Cook <strong>COO</strong> and Founder</span>
+              <span>John Doe <strong>COO</strong> and Founder</span>
             </div>
           </div>
         </div>
@@ -177,47 +186,31 @@
         <div class="clients-cards-grid">
           <div class="clients__card">
             <h4>Plan Básico</h4>
-            <p>Seguimiento de envíos básico. <br>
-              Informes de rendimiento mensuales. <br>
-              Soporte por correo electrónico. <br>
-              Actualizaciones regulares. <br>
-              El Plan Básico de Gestión Logística es ideal para pequeñas empresas
-               o startups que desean una solución económica para administrar su inventario y obtener informes esenciales</p>
-            <!--<span><a class="button" href="./404.html">Ver más</a></span>-->
+            <p>Desde que comenzamos a utilizar Techlogistic, hemos experimentado una gran mejora en la eficiencia de
+              nuestras operaciones logísticas. El software es fácil de usar y nos ha permitido optimizar nuestras
+              rutas de entrega, lo que se traduce en ahorro de costos y clientes más satisfechos.</p>
+            <span><a class="button" href="./404.html">Ver más</a></span>
           </div>
           <div class="clients__card">
             <h4>Plan Premium</h4>
-            <p>Seguimiento avanzado de la produccion. <br>
-              Informes detallados y personalizables. <br>
-              Soporte prioritario por correo y chat. <br>
-              Integración con sistemas de terceros. <br>
-              Acceso a herramientas de optimización de produccion. <br>
-              El Plan Premium de Gestión Logística ofrece un conjunto completo de características
-               para empresas que buscan mejorar la eficiencia y obtener análisis detallados de sus operaciones.</p>
-            
+            <p>Desde que comenzamos a utilizar Techlogistic, hemos experimentado una gran mejora en la eficiencia de
+              nuestras operaciones logísticas. El software es fácil de usar y nos ha permitido optimizar nuestras
+              rutas de entrega, lo que se traduce en ahorro de costos y clientes más satisfechos.</p>
+            <span><a class="button" href="./404.html">Ver más</a></span>
           </div>
           <div class="clients__card">
             <h4>Plan Diamante</h4>
-            <p>Seguimiento en tiempo real de las ventas. <br>
-              Informes avanzados con análisis predictivo. <br>
-              Soporte 24/7 por correo, chat y teléfono. <br>
-              Personalización de la plataforma. <br>
-              Integración con sistemas de gestión de almacenes. <br>
-              Asesoría de expertos en logística. <br>
-              El Plan Diamante de Gestión Logística es para empresas que buscan la máxima eficiencia y control
-               en sus operaciones, con acceso a herramientas y recursos de nivel empresarial.</p>
-            
+            <p>Desde que comenzamos a utilizar Techlogistic, hemos experimentado una gran mejora en la eficiencia de
+              nuestras operaciones logísticas. El software es fácil de usar y nos ha permitido optimizar nuestras
+              rutas de entrega, lo que se traduce en ahorro de costos y clientes más satisfechos.</p>
+            <span><a class="button" href="./404.html">Ver más</a></span>
           </div>
           <div class="clients__card">
             <h4>Plan Empresarial</h4>
-            <p>Solución de logística personalizada para empresas. <br>
-              Integración total con sistemas existentes. <br>
-              Soporte dedicado y asesoramiento estratégico. <br>
-              Desarrollo de funciones a medida. <br>
-              Análisis de datos avanzados y pronósticos. <br>
-              El Plan Empresarial de Gestión Logística está diseñado para satisfacer las necesidades únicas de las grandes
-               empresas y operadores logísticos, ofreciendo una solución a medida y soporte especializado.</p>
-           
+            <p>Desde que comenzamos a utilizar Techlogistic, hemos experimentado una gran mejora en la eficiencia de
+              nuestras operaciones logísticas. El software es fácil de usar y nos ha permitido optimizar nuestras
+              rutas de entrega, lo que se traduce en ahorro de costos y clientes más satisfechos.</p>
+            <span><a class="button" href="./404.html">Ver más</a></span>
           </div>
         </div>
       </div>
@@ -226,24 +219,31 @@
     <section class="section contact" id="contact">
       <h2>Encuentra la ayuda que necesitas</h2>
       <div class="bd-container">
-        <form class="form" action="./contactenos.php" method="POST">
+        <form class="form">
           <div class="form-field">
-            <label for="name">Nombre:</label>
-            <input type="text" name="nombre" placeholder="Nombre" id="name" required />
+            <label for="name">Nombres:</label>
+            <input type="text" placeholder="Nombre/s" id="name" required />
           </div>
           <div class="form-field">
-            <label for="apellidos">Apellido:</label>
-            <input type="text" name="apellido" placeholder="Apellido" id="apellidos" required />
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" placeholder="Apellido/s" id="apellidos" required />
           </div>
           <div class="form-field">
             <label for="email">Tú email:</label>
-            <input type="email" name="email" placeholder="Dirección de correo electronico" id="email" required
+            <input type="text" placeholder="Dirección de correo electronico" id="email" required
               pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" />
-          <div class="form-field">
-            <label for="Numero">Numero de telefono</label>
-            <input type="text" name="numerotelefono" placeholder="Nos contactaremos contigo" id="comment" required>
           </div>
-          <input class="button mb-1" type="submit" value="Contactar" />
+          <div class="form-field">
+            <label for="business">Nombre de empresa <span>(opcional)</span>:</label>
+            <input type="text" placeholder="Nombre de su empresa o negocio" id="business" required />
+          </div>
+          <div class="form-field form-field--comments">
+            <label for="comment">¿En qué estás interesado?:</label>
+            <textarea type="text" placeholder="Comentarios" id="comment"></textarea>
+          </div>
+          <a href="./404.html">
+            <button class="button" type="submit">Contactar</button>
+          </a>
         </form>
       </div>
     </section>
@@ -252,7 +252,7 @@
       <div class="bd-container">
         <div class="footer-wrap">
           <div class="footer-area-logo">
-            <a href="./indexprincipal.html" class="footer-logo" title="Techlogistic"><img src="./favicon.png" class="footer-img"
+            <a href="index.html" class="footer-logo" title="Techlogistic"><img src="./favicon.png" class="footer-img"
                 alt="">Techlogistic</a>
             <div class="footer-description">
               <p>Plataforma de logística que combina tecnología avanzada, experiencia en la industria y sostenibilidad
@@ -306,6 +306,13 @@
             </div>
             <div class="newsletter">
               <h3 class="footer-title">Suscríbete a nuestro boletín</h3>
+              <form class="newsletter-form" id="newsletter-form">
+                <div class="form-field">
+                  <input type="email" placeholder="Ingresa tu correo" class="newsletter-input"
+                    pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
+                  <button class="button" type="submit">Suscribirse</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
