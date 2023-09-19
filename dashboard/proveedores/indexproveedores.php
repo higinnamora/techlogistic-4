@@ -110,7 +110,6 @@ $datos = $conexion->query($sql);
             <th scope="col">Nit</th>
             <th scope="col">Id persona</th>
             <th scope="col">Razon social</th>
-            <th scope="col">Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -121,18 +120,7 @@ $datos = $conexion->query($sql);
             foreach ($fila as $valor) {
               echo "<td>$valor</td>";
             }
-          ?>
-            <td>
-              <div class="dropdown">
-                <button class="btn btn-sm btn-outline-secondary border-0" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                  <i class='bx bx-dots-horizontal-rounded'></i>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li><a class="dropdown-item" href="editarProveedor.php">Editar</a></li>
-                  <li><a class="dropdown-item" href="#">Eliminar</a></li>
-                </ul>
-              </div>
-            <?php
+          
             echo "</tr>";
           }
             ?>
@@ -140,6 +128,29 @@ $datos = $conexion->query($sql);
       </table>
     </div>
   </main>
+  <h4>Actualizar Proveedor</h4>
+  <form class="form" id="sign-up-form" action="editarProveedor.php" method="POST">
+
+    <div class="form-field">
+      <label for="nit">Nit</label>
+      <input type="text" placeholder="ingrese el nit del proveedor" id="nit" name="nit" required />
+    </div>
+    <div class="form-field">
+      <label for="idPersona">Id Persona</label>
+      <input type="number" placeholder="ingrese id Persona" id="idPersona" name="idPersona" required />
+    </div>
+    <div class="form-field">
+      <label for="razonSocial">Razón social</label>
+      <input type="number" placeholder="ingrese Razón social" id="razonSocial" name="razonSocial" required />
+    </div>
+    <input class="button" type="submit" value="Actualizar" />
+  </form>
+  <h4>Eliminar proveedor</h4>
+  <form class="newsletter-form" action="eliminarProveedor.php" id="newsletter-form" method="POST">
+    <div class="form-field">
+      <input type="text" name="eliminarProveedor" placeholder="Nit " class="newsletter-input" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
+      <button class="button" type="submit">Eliminar</button>
+  </form>
 
   <footer class="copyright">
     <div class="bd-container">

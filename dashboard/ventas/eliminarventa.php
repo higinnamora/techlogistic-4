@@ -3,7 +3,6 @@
 $conexion;
 include_once "../../conexion_a_la_DB.php";
 
-
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $eliminarven = $_POST["eliminar_venta"];
 }
@@ -22,14 +21,5 @@ if ($conexion->query($sql2) === TRUE) {
 } else {
     echo "Error al eliminar el elemento: " . $conexion->error;
 }
-
-
-
-
-
 $conexion->close();
-
-
-
-
 ?>
