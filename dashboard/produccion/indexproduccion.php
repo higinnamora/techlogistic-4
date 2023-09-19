@@ -75,11 +75,6 @@ $datos = $conexion->query($sql);
       <h4 class="text-md-start text-left">Producción</h4>
       <div class="d-flex flex-column flex-md-row gap-2">
         <a href="nuevoProducto.html"> <button class="btn btn-primary w-auto">Agregar producto</button></a>
-        <div class="input-group w-auto">
-          <input type="text" class="form-control" placeholder="Buscar orden" aria-label="Buscar orden">
-          <!-- Icon buscar -->
-          <span class="input-group-text" id="basic-addon2"><i class='bx bx-search'></i></span>
-        </div>
       </div>
     </div>
     <hr>

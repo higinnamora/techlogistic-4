@@ -77,27 +77,7 @@ $datos = $conexion->query($sql);
         <a href="./nuevo-producto.html"> <button class="btn btn-primary w-auto">Agregar producto</button></a>
       </div>
     </div>
-    <hr>
-
-    <!-- Tabla de Inventario -->
-    <!--<ul class="nav nav-tabs">
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="../produccion/indexproduccion.php">Productos</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="../../404.html" target="_blank">Pedidos</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="../../502.html" target="_blank">Ventas</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="../../404.html" target="_blank">Reportes</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="../../502.html" target="_blank">Devoluciones</a>
-      </li>
-    </ul>-->
-   
+    <hr>   
 
 
     <div class="table-responsive">
@@ -108,7 +88,6 @@ $datos = $conexion->query($sql);
             <th scope="col">Cantidad</th>
             <th scope="col">Descripción</th>
             <th scope="col">Estado</th>
-            <th scope="col">Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -126,10 +105,6 @@ $datos = $conexion->query($sql);
                 <button class="btn btn-sm btn-outline-secondary border-0" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                   <i class='bx bx-dots-horizontal-rounded'></i>
                 </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li><a class="dropdown-item" href="./actualizardash.php">Editar</a></li>
-                  <li><a class="dropdown-item" href="eliminardash.php">Eliminar</a></li>
-                </ul>
               </div>
             </td>
           <?php

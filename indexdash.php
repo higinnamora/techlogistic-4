@@ -31,7 +31,7 @@ session_start();
   <!-- Header -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
-      <a href="./indexprincipal.html" class="navbar-brand" title="Techlogistic"><img src="./favicon.png" width="50" height="50" alt=""
+      <a href="./indexdash.php" class="navbar-brand" title="Techlogistic"><img src="./favicon.png" width="50" height="50" alt=""
           class="navigation__image">Techlogistic</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
