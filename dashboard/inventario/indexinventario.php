@@ -75,28 +75,12 @@ $datos = $conexion->query($sql);
       <h4 class="text-md-start text-left">Inventario</h4>
       <div class="d-flex flex-column flex-md-row gap-2">
         <a href="./nuevo-producto.html"> <button class="btn btn-primary w-auto">Agregar producto</button></a>
-
-        <!--<form action="consultarinventarios.php" method="POST">
-        <div class="input-group w-auto">-->
-
-        <!-- Icon buscar -->
-        <!--<span class="input-group-text" id="basic-addon2"><i class='bx bx-search'></i></span>
-          <input class="button mb-1" name="consultardash" type="submit" value="Consultar" />
-        </div>
-      </form>-->
-        <form action="consultarinventario.php" method="POST">
-          <div class="input-group w-auto">
-            <input type="text" class="form-control" placeholder="nombre del producto" name="consultasimple" aria-label="Buscar producto">
-            <!-- Icon buscar -->
-            <span class="input-group-text" id="basic-addon2"><i class='bx bx-search'></i></span>
-            <input class="button mb-1" type="submit" value="buscar" />
-        </form>
       </div>
     </div>
     <hr>
 
     <!-- Tabla de Inventario -->
-    <ul class="nav nav-tabs">
+    <!--<ul class="nav nav-tabs">
       <li class="nav-item">
         <a class="nav-link active" aria-current="page" href="../produccion/indexproduccion.php">Productos</a>
       </li>
@@ -112,8 +96,8 @@ $datos = $conexion->query($sql);
       <li class="nav-item">
         <a class="nav-link" href="../../502.html" target="_blank">Devoluciones</a>
       </li>
-    </ul>
-    <br><br>
+    </ul>-->
+   
 
 
     <div class="table-responsive">
@@ -155,6 +139,63 @@ $datos = $conexion->query($sql);
         </tbody>
       </table>
     </div>
+    <h4>Actualizar Inventario</h4>
+    
+<form class="form" id="sign-up-form"  action="actualizardash.php" method="POST">
+
+            <div class="form-field">
+              <label for="cantidad">Codigo stock</label>
+              <input
+                type="number"
+                placeholder="ingrese codigo"
+                id="codigo"
+                name="codigo"
+                required
+              />
+            </div>
+          
+
+
+            <div class="form-field">
+              <label for="cantidad">Cantidad en stock</label>
+              <input
+                type="number"
+                placeholder="ingrese cantidad de producto disponible"
+                id="cantidad"
+                name="cantidad"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label for="descripcion">Descripcion</label>
+              <input
+                type="text"
+                placeholder="Nombre del producto"
+                id="descripcion"
+                name="descripcion"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+        <label for="estadoproducto">Disponibilidad del producto</label>
+        <select  name="estadoproducto">
+          <option value="Disponible">Disponible</option>
+          <option value="Agotado">Agotado</option>
+        </select>
+      </div>
+          <input class="button" type="submit" value="Actualizar" />
+          </form>
+
+    <h4>Eliminar orden de venta</h4>
+
+                <form class="newsletter-form" action="eliminardash.php" id="newsletter-form" method="POST">
+                <div class="form-field">
+                  <input type="number" name="eliminar_inventario" placeholder="codigo del stock " class="newsletter-input"
+                    pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
+                  <button class="button" type="submit">Eliminar</button>
+                </form>
   </main>
   <footer class="copyright">
     <div class="bd-container">
