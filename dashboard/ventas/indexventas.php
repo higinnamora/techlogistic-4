@@ -83,7 +83,7 @@ $datos = $conexion->query($sql);
    
 
     <div class="table-responsive">
-      <table id="ventas" class="table">
+      <table id="ventas" class="table table-striped overflow-x-auto">
         <thead>
           <tr>
             <th scope="col">Número orden de venta</th>
@@ -107,100 +107,105 @@ $datos = $conexion->query($sql);
             foreach ($fila as $valor) {
               echo "<td>$valor</td>";
             }
-            ?>
-              <td>
-              
-              </td>
-            <?php
-            echo "</tr>";
+            echo "<td><td/>";
+            ?><?php echo "</tr>";
           }
           ?>
         </tbody>
       </table>
     </div>
 
-    <h4>Actualizar orden de venta</h4>
-    
-<form class="form" id="sign-up-form"  action="actualizarventas.php" method="POST">
+    <hr class="my-5">
+
+    <div>
+      <h4>Actualizar orden de venta</h4>
           
-            <div class="form-field">
-              <label for="numerodeventa">Numero de venta</label>
-              <input
-                type="text"
-                placeholder="ingrese el numero de la venta a actualizar"
-                id="numerodeventa"
-                name="numerodeventa"
-                required
-              />
-            </div>
+      <form class="form" id="sign-up-form"  action="actualizarventas.php" method="POST">
 
-<div class="form-field">
-              <label for="cantidad">cantidad</label>
-              <input
-                type="text"
-                placeholder="ingrese cantidad de producto"
-                id="cantidad"
-                name="cantidad"
-                required
-              />
-            </div>
-
-            <div class="form-field">
-              <label for="descuento">Descuento</label>
-              <input
-                type="text"
-                placeholder="ingrese el descuento"
-                id="descuento"
-                name="descuento"
-                required
-              />
-            </div>
-
-          <div class="form-field">
-            <label for="fechafactura">Fecha factura</label>
-            <input
-              type="date"
-              placeholder="Ingrese la fecha de factura"
-              id="fechafactura"
-              name="fechafactura"
-              required
-            />
-          </div>
-          
-          <div class="form-field">
-            <label for="observacion">Observacion</label>
-            <input
-              type="text"
-              placeholder="Ingrese el tipo de producto"
-              id="observacion"
-              name="observacion"
-              required
-            />
-          </div>
-          
-          <div class="form-field">
-            <label for="subtotal">Subtotal</label>
-            <input
-              type="text"
-              placeholder="Ingresa el Subtotal"
-              id="subtotal"
-              name="subtotal"
-              required
-            />
-          </div>
-
-          <div class="form-field">
-            <label for="totalapagar"> Total a pagar</label>
-            <input
-              type="text"
-              placeholder="Ingresa el total"
-              id="totalapagar"
-              name="totalapagar"
-              required
-            />
+        <div class="form-field">
+          <label for="numerodeventa">Número de venta</label>
+          <input
+            type="text"
+            placeholder="Ingrese el numero de la venta a actualizar"
+            id="numerodeventa"
+            name="numerodeventa"
+            required
+          />
         </div>
-          <input class="button" type="submit" value="Actualizar" />
-          </form>
+
+      <div class="form-field">
+          <label for="cantidad">Cantidad</label>
+          <input
+            type="text"
+            placeholder="Ingrese cantidad de producto"
+            id="cantidad"
+            name="cantidad"
+            required
+          />
+        </div>
+
+        <div class="form-field">
+          <label for="descuento">Descuento</label>
+          <input
+            type="text"
+            placeholder="Ingrese el descuento"
+            id="descuento"
+            name="descuento"
+            required
+          />
+        </div>
+
+      <div class="form-field">
+        <label for="fechafactura">Fecha factura</label>
+        <input
+          type="date"
+          placeholder="Ingrese la fecha de factura"
+          id="fechafactura"
+          name="fechafactura"
+          required
+        />
+      </div>
+
+      <div class="form-field">
+        <label for="observacion">Observación</label>
+        <input
+          type="text"
+          placeholder="Ingrese el tipo de producto"
+          id="observacion"
+          name="observacion"
+          required
+        />
+      </div>
+
+      <div class="form-field">
+        <label for="subtotal">Subtotal</label>
+        <input
+          type="text"
+          placeholder="Ingresa el Subtotal"
+          id="subtotal"
+          name="subtotal"
+          required
+        />
+      </div>
+
+      <div class="form-field">
+        <label for="totalapagar"> Total a pagar</label>
+        <input
+          type="text"
+          placeholder="Ingresa el total"
+          id="totalapagar"
+          name="totalapagar"
+          required
+        />
+      </div>
+        <div class=""></div>
+        <div>
+        <input class="button" type="submit" value="Actualizar" />
+        </div>
+      </form>
+    </div>
+
+    <hr class="my-5">
 
     <h4>Eliminar orden de venta</h4>
 
