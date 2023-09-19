@@ -53,26 +53,27 @@
   <main class="container my-5 h-100">
     <form style="margin: 0 auto; width: 580px;" id="form-new-sale" action="crearventa.php" method="POST">
       <h4 class="text-md-start text-left">Nueva venta</h4>
+
       <div class="mb-3">
-        <label for="sign-up-form-numcargo">Venta realizada por</label>
-        <select  name="funcionario">
-          <option value="1">1 Vendedor</option>
+        <label class="form-label" for="sign-up-form-numcargo">Venta realizada por</label>
+        <select name="funcionario" class="form-select">
+          <option selected value="1">1 Vendedor</option>
           <option value="2">2 Administrador</option>
         </select>
       </div>
 
       <div class="mb-3">
-        <label for="sign-up-form-numcargo">Genero cliente</label>
-        <select  name="tipocliente">
-          <option value="2">Masculino</option>
+        <label class="form-label" for="sign-up-form-numcargo">Genero cliente</label>
+        <select name="tipocliente" class="form-select">
+          <option selected value="2">Masculino</option>
           <option value="3">Femenina</option>
         </select>
       </div>
 
       <div class="mb-3">
-        <label for="sign-up-form-numcargo">Medio de pago</label>
-        <select  name="mediodepago">
-          <option value="1">1 Tarjeta debito</option>
+        <label class="form-label" for="sign-up-form-numcargo">Medio de pago</label>
+        <select name="mediodepago" class="form-select">
+          <option selected value="1">1 Tarjeta debito</option>
           <option value="2">2 Efectivo</option>
           <option value="3">2 Tarjeta credito</option>
         </select>
