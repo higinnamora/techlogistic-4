@@ -128,7 +128,7 @@ $datos = $conexion->query($sql);
                   <i class='bx bx-dots-horizontal-rounded'></i>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li><a class="dropdown-item" href="#">Editar</a></li>
+                  <li><a class="dropdown-item" href="editarProveedor.php">Editar</a></li>
                   <li><a class="dropdown-item" href="#">Eliminar</a></li>
                 </ul>
               </div>

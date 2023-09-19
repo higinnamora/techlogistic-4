@@ -7,10 +7,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $persona = $_POST["sign-up-form-persona"];
     $razonSocial = $_POST["sign-up-form-razon"];
 }
-//echo "nit: ".$nit."\n";
-//echo "persona: ".$persona."\n";
-//echo "razon social: ".$razonSocial."\n";
-
 $sql = "INSERT INTO proveedor(nit, id_persona, razon_social)   
         VALUES ('$nit', '$persona', '$razonSocial');";
 

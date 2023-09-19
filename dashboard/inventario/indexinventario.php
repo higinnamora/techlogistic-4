@@ -144,7 +144,7 @@ $datos = $conexion->query($sql);
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                   <li><a class="dropdown-item" href="./actualizardash.php">Editar</a></li>
-                  <li><a class="dropdown-item" href="./eliminardash.php">Eliminar</a></li>
+                  <li><a class="dropdown-item" href="eliminardash.php">Eliminar</a></li>
                 </ul>
               </div>
             </td>
