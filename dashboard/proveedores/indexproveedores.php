@@ -33,7 +33,7 @@ $datos = $conexion->query($sql);
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
 </head>
 
-<body class="vh-100">
+<body>
   <!-- Header -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
@@ -104,10 +104,10 @@ $datos = $conexion->query($sql);
             foreach ($fila as $valor) {
               echo "<td>$valor</td>";
             }
-          
+
             echo "</tr>";
           }
-            ?>
+          ?>
         </tbody>
       </table>
     </div>
