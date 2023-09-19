@@ -119,6 +119,9 @@ $datos = $conexion->query($sql);
         </tbody>
       </table>
     </div>
+
+    <hr class="my-4">
+
     <h4>Actualizar Inventario</h4>
 
     <form class="form" id="sign-up-form" action="actualizardash.php" method="POST">
@@ -148,9 +151,15 @@ $datos = $conexion->query($sql);
           <option value="Agotado">Agotado</option>
         </select>
       </div>
-      <input class="button" type="submit" value="Actualizar" />
+
+      <div></div>
+      <div></div>
+      <div>
+        <input class="button" type="submit" value="Actualizar" />
+      </div>
     </form>
 
+    <hr class="my-4">
     <h4>Eliminar orden de venta</h4>
 
     <form class="newsletter-form" action="eliminardash.php" id="newsletter-form" method="POST">
