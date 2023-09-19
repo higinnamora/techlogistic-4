@@ -64,14 +64,11 @@
             />
           </div>
           <input class="button mb-1" type="submit" value="Recuperar contraseña" />
-          <p class="block text-center">
-            <a href="./sign-in.html" class="text-primary">¡Iniciar sesión!</a>
-            o
-            <a href="./sign-up.html" class="text-primary">¡Registrarme!</a>
-          </p>
         </form>
       </div>
     </section>
+<?php ?>
+
     <footer class="copyright">
       <div class="bd-container">
         <p>💙 © 2023 Techlogistic. Todos los derechos reservados. 💚</p>
