@@ -46,18 +46,6 @@ $datos = $conexion->query($sql);
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="../../indexdash.php">Inicio</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../proveedores/indexproveedores.php">Proveedores</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../produccion/indexproduccion.php">Producción</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../inventario/indexinventario.php">Inventario</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../ventas/">Ventas</a>
-          </li>
           <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
           <li class="nav-item dropdown">
             <div class="dropdown" role="group">
@@ -85,11 +73,7 @@ $datos = $conexion->query($sql);
       <h4 class="text-md-start text-left">Proveedores</h4>
       <div class="d-flex flex-column flex-md-row gap-2">
         <a href="registrarProveedor.html"> <button class="btn btn-primary w-auto">Agregar proveedor</button></a>
-        <div class="input-group w-auto">
-          <input type="text" class="form-control" placeholder="Buscar proveedor" aria-label="Buscar proveedor">
-          <!-- Icon buscar -->
-          <span class="input-group-text" id="basic-addon2"><i class='bx bx-search'></i></span>
-        </div>
+
       </div>
     </div>
     <hr>
