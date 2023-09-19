@@ -45,11 +45,13 @@ session_start();
           <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
             <li class="nav-item">
               <h4>Vendedor</h4>
+              
             <?php } ?>
 
             <?php if ($_SESSION['tipo_usuario'] == 3) { ?>
               <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
+                
                   <li class="nav-item">
                     <h4>Costurero</h4>
                   <?php } ?>
@@ -110,6 +112,9 @@ session_start();
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
           <li class="nav-item">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./indexdash.php">Inicio</a>
+          </li>
             <h4>Costurero</h4>
       <?php } ?>
 
@@ -130,21 +135,14 @@ session_start();
 
           <?php } ?>
 
-          <?php if($_SESSION['tipo_usuario'] == 1 or $_SESSION['tipo_usuario'] == 2 or $_SESSION['tipo_usuario'] == 3) { ?>
-
-          <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
-          <li class="nav-item dropdown">
-            <div class="dropdown" role="group">
-              <a class="dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="https://higinnamora.github.io/techlogistic/images/profile/profile.png" alt="mdo" class="rounded-circle" width="38" height="38" />
-              </a>
-              <ul class="dropdown-menu dropdown-menu-lg-end">
-                <li><a class="dropdown-item" href="./cerrar_sesion.php">Cerrar sesión</a></li>
-              </ul>
-            </div>
+          <?php if($_SESSION['tipo_usuario'] == 1) { ?>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./indexdash.php">Inicio</a>
           </li>
-
-          <?php } ?>
+            <h4>Vendedor</h4>
+      <?php } ?>
 
         </ul>
       </div>
@@ -218,11 +216,14 @@ session_start();
 
 
       <?php if ($_SESSION['tipo_usuario'] == 1 or $_SESSION['tipo_usuario'] == 2 or $_SESSION['tipo_usuario'] == 3) { ?>
-        <footer class="copyright">
-          <div class="bd-container">
-            <p>💙 © 2023 Techlogistic. Todos los derechos reservados. 💚</p>
-            <p><a href="https://higinnamora.github.io/techlogistic/terminos-y-condiciones.html">Términos y Condiciones</a> · <a href="https://higinnamora.github.io/techlogistic/politica-de-privacidad.html">Política de Privacidad</a></p>
-          </div>
+        </footer>
+    <div class="copyright">
+      <div class="bd-container">
+        <p>💙 © 2023 Techlogistic. Todos los derechos reservados. 💚</p>
+        <p><a href="./terminos-y-condiciones.html">Términos y Condiciones</a> · <a
+            href="./politica-de-privacidad.html">Política de Privacidad</a></p>
+      </div>
+    </div>
         </footer>
       <?php } ?>
       <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>

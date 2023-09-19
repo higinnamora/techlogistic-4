@@ -210,16 +210,13 @@ $datos = $conexion->query($sql);
                     pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
                   <button class="button" type="submit">Eliminar</button>
                 </form>
-
-               
-                
-
-
   </main>
-  <footer class="copyright">
-    <div class="bd-container">
-      <p>💙 © 2023 Techlogistic. Todos los derechos reservados. 💚</p>
-      <p><a href="https://higinnamora.github.io/techlogistic/terminos-y-condiciones.html">Términos y Condiciones</a> · <a href="https://higinnamora.github.io/techlogistic/politica-de-privacidad.html">Política de Privacidad</a></p>
+  <div class="copyright">
+      <div class="bd-container">
+        <p>💙 © 2023 Techlogistic. Todos los derechos reservados. 💚</p>
+        <p><a href="../../terminos-y-condiciones.html">Términos y Condiciones</a> · <a
+            href="../../politica-de-privacidad.html">Política de Privacidad</a></p>
+      </div>
     </div>
   </footer>
 

@@ -159,11 +159,13 @@ $datos = $conexion->query($sql);
     <input type="text" name="eliminarProducto" placeholder="Código producto" class="newsletter-input" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
     <button class="button" type="submit">Eliminar</button>
 </form>
-<footer class="copyright">
-  <div class="bd-container">
-    <p>💙 © 2023 Techlogistic. Todos los derechos reservados. 💚</p>
-    <p><a href="https://higinnamora.github.io/techlogistic/terminos-y-condiciones.html">Términos y Condiciones</a> · <a href="https://higinnamora.github.io/techlogistic/politica-de-privacidad.html">Política de Privacidad</a></p>
-  </div>
+<div class="copyright">
+      <div class="bd-container">
+        <p>💙 © 2023 Techlogistic. Todos los derechos reservados. 💚</p>
+        <p><a href="../../terminos-y-condiciones.html">Términos y Condiciones</a> · <a
+            href="../../politica-de-privacidad.html">Política de Privacidad</a></p>
+      </div>
+    </div>
 </footer>
 
 <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
