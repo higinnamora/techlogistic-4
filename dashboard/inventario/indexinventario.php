@@ -142,8 +142,8 @@ $datos = $conexion->query($sql);
       </div>
 
       <div class="mb-3">
-        <label for="estadoproducto">Disponibilidad del producto</label>
-        <select name="estadoproducto">
+        <label for="estadoproducto" class="form-label">Disponibilidad del producto</label>
+        <select name="estadoproducto" class="form-select">
           <option value="Disponible">Disponible</option>
           <option value="Agotado">Agotado</option>
         </select>

@@ -32,12 +32,13 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="../../indexdash.php">Inicio</a>
           </li>
-          
+
           <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
           <li class="nav-item dropdown">
             <div class="dropdown" role="group">
               <a class="dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="https://higinnamora.github.io/techlogistic/images/profile/profile.png" alt="mdo" class="rounded-circle" width="38" height="38" />
+                <img src="https://higinnamora.github.io/techlogistic/images/profile/profile.png" alt="mdo"
+                  class="rounded-circle" width="38" height="38" />
               </a>
               <ul class="dropdown-menu dropdown-menu-lg-end">
                 <li><a class="dropdown-item" href="../../cerrar_sesion.php">Cerrar sesión</a></li>
@@ -50,30 +51,31 @@
   </nav>
 
   <!-- Main -->
-  <main class="container my-5 h-100">
+  <main class="container my-5">
     <form style="margin: 0 auto; width: 580px;" id="form-new-product" action="crearendash.php" method="POST">
       <h4 class="text-md-start text-left">Nuevo producto</h4>
 
       <div class="mb-3">
-        <label for="sign-up-form-numcargo">Funcionario</label>
-        <select  name="id_funcionario">
+        <label for="sign-up-form-numcargo" class="form-label">Funcionario</label>
+        <select name="id_funcionario" class="form-select">
           <option value="1">Costurero</option>
           <option value="2">Administrador</option>
         </select>
       </div>
-      
+
       <div class="mb-3">
-        <label for="material" class="form-label">material de Producto</label>
-        <input type="text" class="form-control" id="material" placeholder="algodón" name="material" required>
+        <label for="material" class="form-label">Material de Producto</label>
+        <input type="text" class="form-control" id="material" placeholder="Algodón" name="material" required>
       </div>
 
       <div class="mb-3">
         <label for="nombreProducto" class="form-label">Nombre de Producto</label>
-        <input type="text" class="form-control" id="nombreProducto" placeholder="Camisa de algodón" name="nombreproducto" required>
+        <input type="text" class="form-control" id="nombreProducto" placeholder="Camisa de algodón"
+          name="nombreproducto" required>
       </div>
       <div class="mb-3">
         <label for="modeloProducto" class="form-label">Modelo</label>
-        <input type="text" class="form-control" id="modeloProducto" placeholder="modelo" name="modelo" required>
+        <input type="text" class="form-control" id="modeloProducto" placeholder="Modelo" name="modelo" required>
       </div>
       <div class="mb-3">
         <label for="precioProducto" class="form-label">Precio de Producto</label>
@@ -91,36 +93,36 @@
         <label for="ubicacionProducto" class="form-label">Ubicación del producto</label>
         <input type="text" class="form-control" id="ubicacionProducto" name="ubicacion" required>
       </div>
-      
+
       <input type="submit" class="btn btn-primary" value="Agregar producto" />
     </form>
   </main>
 
-    <!-- Modal -->
-    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="successModalLabel">Registro completado ✅</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body" id="successModalMessage">
-            <!-- Mensaje de éxito dinámico -->
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
-          </div>
+  <!-- Modal -->
+  <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="successModalLabel">Registro completado ✅</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="successModalMessage">
+          <!-- Mensaje de éxito dinámico -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
         </div>
       </div>
     </div>
-  
-    <div class="copyright">
-      <div class="bd-container">
-        <p>💙 © 2023 Techlogistic. Todos los derechos reservados. 💚</p>
-        <p><a href="../../terminos-y-condiciones.html">Términos y Condiciones</a> · <a
-            href="../../politica-de-privacidad.html">Política de Privacidad</a></p>
-      </div>
+  </div>
+
+  <div class="copyright">
+    <div class="bd-container">
+      <p>💙 © 2023 Techlogistic. Todos los derechos reservados. 💚</p>
+      <p><a href="../../terminos-y-condiciones.html">Términos y Condiciones</a> · <a
+          href="../../politica-de-privacidad.html">Política de Privacidad</a></p>
     </div>
+  </div>
   </footer>
 
   <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
