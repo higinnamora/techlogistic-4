@@ -21,9 +21,9 @@ if ($existeusuario > 0) {
         $_SESSION['tipo_usuario'] = $row['id_funcionario'];
         header("Location: indexdash.php");
     }else{
-        echo "contraseña incorrecta";
+        header("Location: contraseña-incorrecta.php");
     }
 } else{
-    echo "el usuario no existe";
+    header("Location: usuario-inexistente.php");
 }
 $conexion->close();
