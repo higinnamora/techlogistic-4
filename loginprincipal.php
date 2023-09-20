@@ -20,13 +20,11 @@ if ($existeusuario > 0) {
         $_SESSION['correo'] = $row['correo'];
         $_SESSION['tipo_usuario'] = $row['id_funcionario'];
         header("Location: indexdash.php");
-
-    }else{
+    } else {
         header("Location: contrasena-incorrecta.php");
     }
 
 } else {
-
     header("Location: usuario-inexistente.php");
 }
 $conexion->close();
