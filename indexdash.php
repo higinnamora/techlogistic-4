@@ -28,7 +28,7 @@ session_start();
     <link rel="stylesheet" href="../styles/techlogistic.css">
   </head>
 
-  <body>
+  <body class="vh-100">
     <!-- Header -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container">
