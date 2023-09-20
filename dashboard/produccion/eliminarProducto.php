@@ -15,27 +15,27 @@ $sql3 = "DELETE FROM stock WHERE codigo_producto = '$eliminarven';";
 $sql4 = "DELETE FROM orden_venta_producto WHERE codigo_producto = '$eliminarven';";
 $sql5 = "DELETE FROM producto WHERE codigo_producto = '$eliminarven';";
 if ($conexion->query($sql) === TRUE) {
-    echo "";
+    
 } else {
     echo "Error al eliminar el elemento: " . $conexion->error;
 }
 if ($conexion->query($sql2) === TRUE) {
-    echo "";
+    
 } else {
     echo "Error al eliminar el elemento: " . $conexion->error;
 }
 if ($conexion->query($sql3) === TRUE) {
-    echo "";
+    
 } else {
     echo "Error al eliminar el elemento: " . $conexion->error;
 }
 if ($conexion->query($sql4) === TRUE) {
-    echo "";
+    
 } else {
     echo "Error al eliminar el elemento: " . $conexion->error;
 }
 if ($conexion->query($sql5) === TRUE) {
-    echo "";
+    header("Location: eliminar-producto-exitoso.php");
 } else {
     echo "Error al eliminar el elemento: " . $conexion->error;
 }
