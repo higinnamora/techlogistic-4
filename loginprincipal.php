@@ -20,17 +20,13 @@ if ($existeusuario > 0) {
         $_SESSION['correo'] = $row['correo'];
         $_SESSION['tipo_usuario'] = $row['id_funcionario'];
         header("Location: indexdash.php");
-<<<<<<< Updated upstream
+
     }else{
-        header("Location: contraseña-incorrecta.php");
-    }
-} else{
-=======
-    } else {
         header("Location: contrasena-incorrecta.php");
     }
+
 } else {
->>>>>>> Stashed changes
+
     header("Location: usuario-inexistente.php");
 }
 $conexion->close();

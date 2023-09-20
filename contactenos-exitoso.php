@@ -33,26 +33,6 @@
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="../../indexdash.php">Inicio</a>
-          </li>
-
-          <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
-          <li class="nav-item dropdown">
-            <div class="dropdown" role="group">
-              <a class="dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="https://higinnamora.github.io/techlogistic/images/profile/profile.png" alt="mdo"
-                  class="rounded-circle" width="38" height="38" />
-              </a>
-              <ul class="dropdown-menu dropdown-menu-lg-end">
-                <li><a class="dropdown-item" href="../../cerrar_sesion.php">Cerrar sesión</a></li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </div>
     </div>
   </nav>
   <!-- Main-->

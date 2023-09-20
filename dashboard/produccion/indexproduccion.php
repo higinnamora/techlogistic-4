@@ -137,7 +137,7 @@ $datos = $conexion->query($sql);
       </div>
       <div class="form-field">
         <label for="modelo">Módelo</label>
-        <input type="number" placeholder="ingrese módelo" id="modelo" name="modelo" required />
+        <input type="text" placeholder="ingrese módelo" id="modelo" name="modelo" required />
       </div>
       <div class="form-field">
         <label for="precio">Precio</label>
@@ -145,7 +145,7 @@ $datos = $conexion->query($sql);
       </div>
       <div class="form-field">
         <label for="talla">Talla</label>
-        <input type="number" placeholder="ingrese talla" id="talla" name="talla" required />
+        <input type="text" placeholder="ingrese talla" id="talla" name="talla" required />
       </div>
       <div class="form-field">
         <label for="color">Color Producto</label>
