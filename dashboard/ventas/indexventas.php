@@ -78,14 +78,10 @@ $datos = $conexion->query($sql);
       <h4 class="text-md-start text-left">Ventas</h4>
       <div class="d-flex flex-column flex-md-row gap-2">
         <a href="./nueva-venta.html"><button class="button w-auto">Agregar venta</button></a>
-
-
       </div>
     </div>
     <hr>
     <!-- Tabla de Ventas -->
-
-
     <div class="table-responsive">
       <table id="ventas" class="table table-striped overflow-x-auto">
         <thead>

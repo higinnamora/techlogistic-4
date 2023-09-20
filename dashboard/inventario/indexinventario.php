@@ -82,10 +82,9 @@ $datos = $conexion->query($sql);
       </div>
     </div>
     <hr>
-
-
+ <!-- Tabla de Stock -->
     <div class="table-responsive">
-      <table id="stock" class="table">
+      <table id="stock" class="table table-striped overflow-x-auto">
         <thead>
           <tr>
             <th scope="col">Código de producto</th>
@@ -104,14 +103,14 @@ $datos = $conexion->query($sql);
               echo "<td>$valor</td>";
             }
             ?>
-            <td>
-              <!-- <div class="dropdown">
+            <!-- <td>
+              <div class="dropdown">
                 <button class="btn btn-sm btn-outline-secondary border-0" type="button" id="dropdownMenuButton1"
                   data-bs-toggle="dropdown" aria-expanded="false">
                   <i class='bx bx-dots-horizontal-rounded'></i>
                 </button>
-              </div> -->
-            </td>
+              </div> 
+            </td>-->
             <?php
             echo "</tr>";
           }
