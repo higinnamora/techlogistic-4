@@ -4,7 +4,7 @@ $conexion;
 include_once "../../conexion_a_la_DB.php";
 
 
-if($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $funcionario = $_POST["funcionario"];
     $tipocliente = $_POST["tipocliente"];
     $mediopago = $_POST["mediodepago"];
@@ -25,10 +25,5 @@ if ($conexion->query($sql) === TRUE) {
 } else {
     echo "Error al registrar los elementos: " . $conexion->error;
 }
-
-
-
-
-
 
 $conexion->close();
