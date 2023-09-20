@@ -16,14 +16,21 @@ if ($existeusuario > 0) {
     $row = $pregunta->fetch_assoc();
     $pass_db = $row['pass'];
 
-    if($pass_db == $contra) {
+    if ($pass_db == $contra) {
         $_SESSION['correo'] = $row['correo'];
         $_SESSION['tipo_usuario'] = $row['id_funcionario'];
         header("Location: indexdash.php");
+<<<<<<< Updated upstream
     }else{
         header("Location: contraseña-incorrecta.php");
     }
 } else{
+=======
+    } else {
+        header("Location: contrasena-incorrecta.php");
+    }
+} else {
+>>>>>>> Stashed changes
     header("Location: usuario-inexistente.php");
 }
 $conexion->close();

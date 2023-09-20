@@ -33,19 +33,17 @@
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      
+
     </div>
   </nav>
   <!-- Main-->
   <main class="main">
     <section class="section section-gif">
-      <img
-        src="./images/design/2255052.png"
-        class="h-25 mx-auto mb-5">
+      <img src="./images/design/2255052.png" class="h-25 mx-auto mb-5">
       <h1 class="text-center mb-5">
         Contraseña incorrecta
       </h1>
-      <a href="./sign-in.html"><button class="button">Volver a inicio de sesion</button></a>
+      <a href="./sign-in.html"><button class="button">Volver a inicio de sesión</button></a>
     </section>
     <footer class="copyright">
       <div class="bd-container">
