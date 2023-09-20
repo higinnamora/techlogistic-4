@@ -19,12 +19,12 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
 </head>
 
-<body>
+<body class="vh-100">
   <!-- Header -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
-    <a href="../indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../favicon.png" width="50"
-            height="50" alt="" class="navigation__image">Techlogistic</a>
+      <a href="../indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../favicon.png" width="50"
+          height="50" alt="" class="navigation__image">Techlogistic</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

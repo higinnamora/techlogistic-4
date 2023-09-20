@@ -82,7 +82,7 @@ $datos = $conexion->query($sql);
       </div>
     </div>
     <hr>
- <!-- Tabla de Stock -->
+    <!-- Tabla de Stock -->
     <div class="table-responsive">
       <table id="stock" class="table table-striped overflow-x-auto">
         <thead>
@@ -126,20 +126,20 @@ $datos = $conexion->query($sql);
     <form class="form" id="sign-up-form" action="actualizardash.php" method="POST">
 
       <div class="form-field">
-        <label for="cantidad">Codigo stock</label>
-        <input type="number" placeholder="ingrese codigo" id="codigo" name="codigo" required />
+        <label for="cantidad">Código stock</label>
+        <input type="number" placeholder="Ingrese codigo" id="codigo" name="codigo" required />
       </div>
 
 
 
       <div class="form-field">
         <label for="cantidad">Cantidad en stock</label>
-        <input type="number" placeholder="ingrese cantidad de producto disponible" id="cantidad" name="cantidad"
+        <input type="number" placeholder="Ingrese cantidad de producto disponible" id="cantidad" name="cantidad"
           required />
       </div>
 
       <div class="form-field">
-        <label for="descripcion">Descripcion</label>
+        <label for="descripcion">Descripción</label>
         <input type="text" placeholder="Nombre del producto" id="descripcion" name="descripcion" required />
       </div>
 
@@ -163,7 +163,7 @@ $datos = $conexion->query($sql);
 
     <form class="newsletter-form" action="eliminardash.php" id="newsletter-form" method="POST">
       <div class="form-field">
-        <input type="number" name="eliminar_inventario" placeholder="codigo del stock " class="newsletter-input"
+        <input type="number" name="eliminar_inventario" placeholder="Código del stock " class="newsletter-input"
           pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
         <button class="button" type="submit">Eliminar</button>
     </form>
