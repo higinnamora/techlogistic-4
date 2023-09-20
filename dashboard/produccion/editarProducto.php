@@ -19,7 +19,7 @@ $sql = "UPDATE producto SET material = '$material', nombre_producto = '$producto
         WHERE codigo_producto = '$producto';";
 
 if ($conexion->query($sql) === TRUE) {
-  header("Location: actualizar-producto-exitosa.php");
+  header("Location: actualizar-producto-exitoso.php");
 } else {
   echo "Error al actualizar los elementos: " . $conexion->error;
 }
