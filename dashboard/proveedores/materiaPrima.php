@@ -61,7 +61,7 @@
     <!-- Main -->
     <main class="container my-5 h-100">
         <div class="d-flex flex-column flex-md-row justify-content-between">
-            <h4 class="text-md-start text-left">Matería prima</h4>
+            <h4 class="text-md-start text-left">Materia prima</h4>
         </div>
         <hr>
         <!-- Tabla de proveedores -->
