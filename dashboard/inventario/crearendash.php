@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $conexion;
 include_once "../../conexion_a_la_DB.php";
@@ -17,8 +17,8 @@ $sql = "INSERT INTO producto (id_funcionario, material, nombre_producto, modelo,
         VALUES('$id_func', '$material', '$nombrepro', '$modelo', '$preciopro', '$talla', '$color', '$ubicacion');";
 
 if ($conex->query($sql) == true) {
-    echo "Se registro exitosamente este producto";
-}else{
+    header("Location: crear-inventario-exitoso.php");
+} else {
     echo "fallo el registro del producto";
 }
 
