@@ -16,7 +16,7 @@ $sql = "INSERT INTO producto(id_funcionario, material, nombre_producto, modelo, 
         VALUES ('$funcionario', '$material', '$producto', '$modelo', '$precio', '$talla', '$color', '$ubicacion');";
 
 if ($conexion->query($sql) == TRUE) {
-    echo "Registro exitoso";
+    header("Location: registrar-producto-exitoso.php");
 } else {
     echo "por favor verifique su informacion " . $conexion->error;
 }
