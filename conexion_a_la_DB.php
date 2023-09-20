@@ -1,13 +1,13 @@
 <?php
 
-    $user = "root";
-    $server = "localhost";
-    $password = "Aura2117*";
-    $db = "techlogisticdb";
-    $conexion = new mysqli($server, $user, $password, $db);
-    
+$user = "root";
+$server = "localhost";
+$password = "root";
+$db = "techlogistic";
+$conexion = new mysqli($server, $user, $password, $db);
+
 if (!$conexion) {
-    die ("error de conexion".mysqli_connect_error());
+    die("error de conexion" . mysqli_connect_error());
 }
 
 ?>
