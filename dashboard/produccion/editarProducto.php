@@ -2,16 +2,16 @@
 $conexion;
 include_once "../../conexion_a_la_DB.php";
 
-if($_SERVER["REQUEST_METHOD"] == "POST") {
-    $producto = $_POST["producto"];
-    $funcionario = $_POST["funcionario"];
-    $producto = $_POST["producto"];
-    $material = $_POST["material"];
-    $modelo = $_POST["modelo"];
-    $precio = $_POST["precio"];
-    $talla = $_POST["talla"];
-    $color = $_POST["color"];
-    $ubicacion = $_POST["ubicacion"];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $producto = $_POST["producto"];
+  $funcionario = $_POST["funcionario"];
+  $producto = $_POST["producto"];
+  $material = $_POST["material"];
+  $modelo = $_POST["modelo"];
+  $precio = $_POST["precio"];
+  $talla = $_POST["talla"];
+  $color = $_POST["color"];
+  $ubicacion = $_POST["ubicacion"];
 }
 
 
@@ -19,7 +19,7 @@ $sql = "UPDATE producto SET material = '$material', nombre_producto = '$producto
         WHERE codigo_producto = '$producto';";
 
 if ($conexion->query($sql) === TRUE) {
-  echo "Actualizacion exitosa";
+  header("Location: actualizar-producto-exitosa.php");
 } else {
   echo "Error al actualizar los elementos: " . $conexion->error;
 }

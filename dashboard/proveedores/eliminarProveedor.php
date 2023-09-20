@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $sql = "DELETE FROM proveedor WHERE nit = '$eliminarven';";
 if ($conexion->query($sql) === TRUE) {
-    header("Location: /dashboard/proveedores/eliminar-proveedor-exitoso.php");
+    header("Location: eliminar-proveedor-exitoso.php");
 } else {
     echo "Error al eliminar el elemento: " . $conexion->error;
 }

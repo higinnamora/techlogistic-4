@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $sql = "UPDATE proveedor SET nit = '$nit', id_persona = '$idPersona', razon_social = '$razonSocial' WHERE nit = '$nit';";
 
 if ($conexion->query($sql) === TRUE) {
-  header("Location: /dashboard/proveedores/actualizar-proveedor-exitoso.php");
+  header("Location: actualizar-proveedor-exitoso.php");
 } else {
   echo "Error al actualizar los elementos: " . $conexion->error;
 }
