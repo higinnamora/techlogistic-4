@@ -7,7 +7,7 @@
   <title>Techlogistic</title>
   <meta name="description" content="">
   <!-- Favicon -->
-  <link rel="icon" href="../../favicon.png">
+  <link rel="icon" href="../../IMAGES/favicon.png">
   <!-- Box icons-->
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <!-- Bootstrap 5 -->
@@ -27,7 +27,7 @@
   <!-- Header -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
-      <a href="../../indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../../favicon.png" alt=""
+      <a href="../../PHP/indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../../IMAGES/favicon.png" alt=""
           class="navigation__image">Techlogistic</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,7 +36,7 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="../../indexdash.php">Inicio</a>
+            <a class="nav-link active" aria-current="page" href="../../PHP/indexdash.php">Inicio</a>
           </li>
 
           <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
@@ -47,7 +47,7 @@
                   class="rounded-circle" width="38" height="38" />
               </a>
               <ul class="dropdown-menu dropdown-menu-lg-end">
-                <li><a class="dropdown-item" href="../../cerrar_sesion.php">Cerrar sesión</a></li>
+                <li><a class="dropdown-item" href="../../PHP/cerrar_sesion.php">Cerrar sesión</a></li>
               </ul>
             </div>
           </li>
@@ -69,8 +69,8 @@
     <footer class="copyright">
       <div class="bd-container">
         <p>💙 © 2023 Techlogistic. Todos los derechos reservados. 💚</p>
-        <p><a href="../../terminos-y-condiciones.html">Términos y Condiciones</a> · <a
-            href="../../politica-de-privacidad.html">Política de Privacidad</a></p>
+        <p><a href="../../HTML/terminos-y-condiciones.html">Términos y Condiciones</a> · <a
+            href="../../HTML/politica-de-privacidad.html">Política de Privacidad</a></p>
       </div>
     </footer>
   </main>
@@ -78,7 +78,7 @@
   <!-- Scroll reveal -->
   <script src="https://unpkg.com/scrollreveal"></script>
   <!-- Main JS-->
-  <script src="../../js/techlogistic.js"></script>
+  <script src="../../JS/techlogistic.js"></script>
 </body>
 
 </html>

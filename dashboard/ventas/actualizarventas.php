@@ -1,7 +1,7 @@
 <?php
 
 $conexion;
-include_once "../../conexion_a_la_DB.php";
+include_once "../../PHP/conexion_a_la_DB.php";
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 $sql = "UPDATE orden_venta SET cantidad_productos = '$cantidad',
-       descuento = '$descuento', fechaFactura = '$fechafactura', observacion = '$observa',
+       descuento = '$descuento', fecha_factura = '$fechafactura', observacion = '$observa',
        subtotal = '$subtotal', valor_Total = '$total' WHERE numero_orden_venta = '$numventa';";
 
 if ($conexion->query($sql) === TRUE) {

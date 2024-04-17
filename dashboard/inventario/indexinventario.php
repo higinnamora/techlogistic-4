@@ -4,11 +4,11 @@ session_start();
 
 
 if (!isset($_SESSION['tipo_usuario'])) {
-  header("Location: ../../sign-in.html");
+  header("Location: ../../HTML/sign-in.html");
   exit;
 }
 $conexion;
-include_once "../../conexion_a_la_DB.php";
+include_once "../../PHP/conexion_a_la_DB.php";
 $sql = "SELECT codigo_producto, cantidad_stock, descripcion_stock, estado FROM stock;";
 $datos = $conexion->query($sql);
 ?>
@@ -23,14 +23,14 @@ $datos = $conexion->query($sql);
   <title>Techlogistic</title>
   <meta name="description" content="">
   <!-- Favicon -->
-  <link rel="icon" href="../../favicon.png">
+  <link rel="icon" href="../../IMAGES/favicon.png">
   <!-- Box icons-->
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <!-- Estilos CSS -->
-  <link rel="stylesheet" href="../../styles/techlogistic.css">
+  <link rel="stylesheet" href="../../STYLES/techlogistic.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
 </head>
@@ -39,7 +39,7 @@ $datos = $conexion->query($sql);
   <!-- Header -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
-      <a href="../../indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../../favicon.png" alt=""
+      <a href="../../PHP/indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../../IMAGES/favicon.png" alt=""
           class="navigation__image">Techlogistic</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,7 +48,7 @@ $datos = $conexion->query($sql);
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="../../indexdash.php">Inicio</a>
+            <a class="nav-link active" aria-current="page" href="../../PHP/indexdash.php">Inicio</a>
 
 
             <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
@@ -64,7 +64,7 @@ $datos = $conexion->query($sql);
                 <li>
                   <hr class="dropdown-divider">
                 </li>-->
-                <li><a class="dropdown-item" href="../../cerrar_sesion.php">Cerrar sesión</a></li>
+                <li><a class="dropdown-item" href="../../PHP/cerrar_sesion.php">Cerrar sesión</a></li>
               </ul>
             </div>
           </li>
@@ -78,7 +78,7 @@ $datos = $conexion->query($sql);
     <div class="d-flex flex-column flex-md-row justify-content-between">
       <h4 class="text-md-start text-left">Inventario</h4>
       <div class="d-flex flex-column flex-md-row gap-2">
-        <a href="./nuevo-producto.html"> <button class="button w-auto">Agregar producto</button></a>
+        <a href="../../HTML/nuevo-producto.html"> <button class="button w-auto">Agregar producto</button></a>
       </div>
     </div>
     <hr>
@@ -171,8 +171,8 @@ $datos = $conexion->query($sql);
   <div class="copyright">
     <div class="bd-container">
       <p>💙 © 2023 Techlogistic. Todos los derechos reservados. 💚</p>
-      <p><a href="./../../terminos-y-condiciones.html">Términos y Condiciones</a> · <a
-          href="../../politica-de-privacidad.html">Política de Privacidad</a></p>
+      <p><a href="../../HTML/terminos-y-condiciones.html">Términos y Condiciones</a> · <a
+          href="../../HTML/politica-de-privacidad.html">Política de Privacidad</a></p>
     </div>
   </div>
   </footer>

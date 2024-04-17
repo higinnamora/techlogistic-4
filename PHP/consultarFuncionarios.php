@@ -7,14 +7,14 @@
   <title>Techlogistic</title>
   <meta name="description" content="">
   <!-- Favicon -->
-  <link rel="icon" href="../../favicon.png">
+  <link rel="icon" href="../../IMAGES/favicon.png">
   <!-- Box icons-->
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <!-- Estilos CSS -->
-  <link rel="stylesheet" href="../../styles/techlogistic.css">
+  <link rel="stylesheet" href="../../STYLES/techlogistic.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
 </head>
@@ -23,7 +23,7 @@
   <!-- Header -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
-      <a href="../indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../favicon.png" width="50"
+      <a href="../indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../IMAGES/favicon.png" width="50"
           height="50" alt="" class="navigation__image">Techlogistic</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,7 +32,7 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="../indexdash.php">Inicio</a>
+            <a class="nav-link active" aria-current="page" href="./indexdash.php">Inicio</a>
           </li>
           <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
           <li class="nav-item dropdown">
@@ -66,7 +66,7 @@
 
       <?php
       $conexion;
-      include_once "../conexion_a_la_DB.php";
+      include_once "./conexion_a_la_DB.php";
 
       $sql = "CALL ConsultarPersona()";
       if ($stmt = $conexion->prepare($sql)) {

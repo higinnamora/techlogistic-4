@@ -7,7 +7,7 @@ session_start();
 
 <?php if ($_SESSION['tipo_usuario'] == 1 or $_SESSION['tipo_usuario'] == 2 or $_SESSION['tipo_usuario'] == 3) { ?>
 
-  <!DOCTYPE html>
+  <!DOCTYPE html>5
   <html lang="es">
 
   <head>
@@ -16,23 +16,23 @@ session_start();
     <title>Techlogistic</title>
     <meta name="description" content="">
     <!-- Favicon -->
-    <link rel="icon" href="../favicon.png">
+    <link rel="icon" href="../IMAGES/favicon.png">
     <!-- Box icons-->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <!-- Normalize -->
-    <link rel="stylesheet" href="../styles/normalize.css">
+    <link rel="stylesheet" href="../STYLES/normalize.css">
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <!-- Estilos CSS -->
-    <link rel="stylesheet" href="../styles/techlogistic.css">
+    <link rel="stylesheet" href="../STYLES/techlogistic.css">
   </head>
 
   <body class="vh-100">
     <!-- Header -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container">
-        <a href="./indexdash.php" class="navbar-brand" title="Techlogistic"><img src="./favicon.png" width="40"
+        <a href="indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../IMAGES/favicon.png" width="40"
             height="40" alt="" class="navigation__image">Techlogistic</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
           aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,14 +62,14 @@ session_start();
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                       <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
                         <li class="nav-item">
-                          <a class="nav-link" aria-current="page" href="./indexdash.php">Inicio</a>
+                          <a class="nav-link" aria-current="page" href="indexdash.php">Inicio</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link text-decoration-none" href="./dashboard/consultarFuncionarios.php">Consultar
+                          <a class="nav-link text-decoration-none" href="../PHP/consultarFuncionarios.php">Consultar
                             funcionarios</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link text-decoration-none" href="./sign-up.html">Registrar usuario</a>
+                          <a class="nav-link text-decoration-none" href="../HTML/sign-up.html">Registrar usuario</a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link" href="#">Administrador</a>
@@ -90,7 +90,7 @@ session_start();
                             <ul class="dropdown-menu dropdown-menu-lg-end">
 
 
-                              <li><a class="dropdown-item" href="./cerrar_sesion.php">Cerrar sesión</a></li>
+                              <li><a class="dropdown-item" href="cerrar_sesion.php">Cerrar sesión</a></li>
                             </ul>
                           </div>
                         </li>
@@ -126,10 +126,10 @@ session_start();
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="./indexdash.php">Inicio</a>
+                <a class="nav-link active" aria-current="page" href="indexdash.php">Inicio</a>
               </li>
               <li class="nav-item">
-                <a class="button" href="./sign-up.html">Registrar funcionario</a>
+                <a class="button" href="../HTML/sign-up.html">Registrar funcionario</a>
               </li>
               <li class="nav-item">
                 <h5>Administrador</h5>
@@ -142,7 +142,7 @@ session_start();
               <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="./indexdash.php">Inicio</a>
+                    <a class="nav-link active" aria-current="page" href="indexdash.php">Inicio</a>
                   </li>
                   <a class="nav-link">Vendedor</a>
                 <?php } ?>
@@ -162,7 +162,7 @@ session_start();
                   <p class="card-text mb-4">Permite la creación, almacenamiento y actualización de información detallada
                     de los proveedores.</p>
                   <div class="mt-auto">
-                    <a href="./dashboard/proveedores/indexproveedores.php" class="button">Ir a
+                    <a href="../dashboard/proveedores/indexproveedores.php" class="button">Ir a
                       proveedores</a></a>
                   </div>
                 </div>
@@ -177,7 +177,7 @@ session_start();
                   <p class="card-text mb-4">Se genera la creación, modificación y eliminación del producto final,
                     facilitando la generación y consulta de informes de producción.</p>
                   <div class="mt-auto">
-                    <a href="./dashboard/produccion/indexproduccion.php" class="button">Ir a Producción</a></a>
+                    <a href="../dashboard/produccion/indexproduccion.php" class="button">Ir a Producción</a></a>
                   </div>
                 </div>
               </div>
@@ -190,7 +190,7 @@ session_start();
                     Gestiona la existencia de productos en bodega, registra reportes de ventas y pedidos, y controla las
                     devoluciones.</p>
                   <div class="mt-auto">
-                    <a href="./dashboard/inventario/indexinventario.php" class="button">Ir a Inventario</a></a>
+                    <a href="../dashboard/inventario/indexinventario.php" class="button">Ir a Inventario</a></a>
                   </div>
                 </div>
               </div>
@@ -205,7 +205,7 @@ session_start();
                     generación
                     de facturas y cotizaciones.</p>
                   <div class="mt-auto">
-                    <a href="./dashboard/ventas/indexventas.php" class="button">Ir a Ventas</a></a>
+                    <a href="../dashboard/ventas/indexventas.php" class="button">Ir a Ventas</a></a>
                   </div>
                 </div>
               </div>
@@ -220,8 +220,8 @@ session_start();
     <div class="copyright">
       <div class="bd-container">
         <p>💙 © 2023 Techlogistic. Todos los derechos reservados. 💚</p>
-        <p><a href="./terminos-y-condiciones.html">Términos y Condiciones</a> · <a
-            href="./politica-de-privacidad.html">Política de Privacidad</a></p>
+        <p><a href="../HTML/terminos-y-condiciones.html">Términos y Condiciones</a> · <a
+            href="../HTML/politica-de-privacidad.html">Política de Privacidad</a></p>
       </div>
     </div>
     </footer>

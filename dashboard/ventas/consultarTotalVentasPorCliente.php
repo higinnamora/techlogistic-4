@@ -1,6 +1,6 @@
 <?php
     $conexion;
-    include_once "conexion_a_la_DB.php";
+    include_once "../../PHP/conexion_a_la_DB.php";
  
     $sql = "CALL ConsultarTotalVentasClientes()";
     if ($stmt = $conn->prepare($sql)) {

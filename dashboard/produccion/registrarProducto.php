@@ -1,6 +1,6 @@
 <?php
 $conexion;
-include_once "../../conexion_a_la_DB.php";
+include_once "../../PHP/conexion_a_la_DB.php";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $funcionario = $_POST["sign-up-form-funcionario"];

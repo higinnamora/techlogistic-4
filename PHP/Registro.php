@@ -15,10 +15,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $confcontra = $_POST["sign-up-form-password-confirm"];
 }
 
-$sql = "INSERT INTO persona(no_documento, primer_nombre, segundo_nombre, primer_apellido, Segundo_apellido)   
+$sql = "INSERT INTO personas(no_documento, primer_nombre, segundo_nombre, primer_apellido, Segundo_apellido)   
             VALUES ('$cedula', '$nombre1', '$nombre2', '$apellido1', '$apellido2')";
-$sql2 = "INSERT INTO rol ( id_funcionario, descripcion, pass, passconfirm, correo) 
-            values( '$numcargo', '$cargo', '$contra', '$confcontra', '$email')";
+$sql2 = "INSERT INTO correos ( id_persona, correo, password) 
+            values( '$numcargo', '$email', '$contra')";
 
 if ($conexion->query($sql) === TRUE) {
     header("Location: registro-exitoso.php");
