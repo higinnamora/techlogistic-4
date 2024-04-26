@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 $sql = "INSERT INTO orden_venta(id_funcionario, id_cliente, id_medio_pago, cantidad_productos, descuento, fecha_factura, observacion, subtotal, valor_Total)   
-VALUES ('$funcionario', '$tipocliente', '$mediopago', '$cantidad', '$descuento', '$fechafactura', '$observa', '$subtotal', '$total');";
+VALUES ('$funcionario', '1', '$mediopago', '$cantidad', '$descuento', '$fechafactura', '$observa', '$subtotal', '$total');";
 
 if ($conexion->query($sql) === TRUE) {
     header("Location: registro-venta-exitosa.php");

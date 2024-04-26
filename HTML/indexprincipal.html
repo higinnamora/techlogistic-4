@@ -228,24 +228,13 @@
     <section class="section contact" id="contact">
       <h2>Encuentra la ayuda que necesitas</h2>
       <div class="bd-container">
-        <form class="form" action="../PHP/contactenos-exitoso.php" method="POST">
-          <div class="form-field">
-            <label for="name">Nombre:</label>
-            <input type="text" name="nombre" placeholder="Nombre" id="name" required />
-          </div>
-          <div class="form-field">
-            <label for="apellidos">Apellido:</label>
-            <input type="text" name="apellido" placeholder="Apellido" id="apellidos" required />
-          </div>
+        <form class="form" action="../PHP/contactenos.php" method="POST">
           <div class="form-field">
             <label for="email">Tú email:</label>
             <input type="email" name="email" placeholder="Dirección de correo electronico" id="email" required
               pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" />
           </div>
-          <div class="form-field">
-            <label for="Numero">Número de teléfono:</label>
-            <input type="text" name="numerotelefono" placeholder="Nos contactaremos contigo" id="comment" required>
-          </div>
+          
           <div class="w-auto">
             <button class="button mb-1" type="submit">Contactar</button>
           </div>

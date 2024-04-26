@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
 --
--- Host: localhost    Database: techlogistic
+-- Host: 127.0.0.1    Database: techlogistic
 -- ------------------------------------------------------
--- Server version	8.0.36
+-- Server version	8.2.0
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -207,10 +207,8 @@ CREATE TABLE `materia_prima` (
   `id_materia_prima` int NOT NULL,
   `id_funcionario` int NOT NULL,
   `color_materia` varchar(20) NOT NULL,
-  `textura` varchar(30) NOT NULL,
   `precio` float NOT NULL,
   `cantidad_materia` int NOT NULL,
-  `peso` float NOT NULL,
   `descripcion_materia` varchar(40) NOT NULL,
   `categoria_materia_id_categoria` int NOT NULL,
   PRIMARY KEY (`id_materia_prima`),
@@ -227,7 +225,7 @@ CREATE TABLE `materia_prima` (
 
 LOCK TABLES `materia_prima` WRITE;
 /*!40000 ALTER TABLE `materia_prima` DISABLE KEYS */;
-INSERT INTO `materia_prima` VALUES (1,1,'Negra','Suave',20000,5,2.5,'tela camiseta',1);
+INSERT INTO `materia_prima` VALUES (1,1,'Negra',20000,5,'tela camiseta',1),(2,2,'Verde',30000,2,'Jean',2);
 /*!40000 ALTER TABLE `materia_prima` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -366,6 +364,7 @@ CREATE TABLE `pedidos` (
   `numero_orden` int NOT NULL,
   `cantidad_pedido` int NOT NULL,
   `fecha_pedido` date NOT NULL,
+  `devolucion` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id_pedido`),
   UNIQUE KEY `numero_orden_UNIQUE` (`numero_orden`),
   KEY `id_proveedor` (`id_proveedor`),
@@ -381,7 +380,7 @@ CREATE TABLE `pedidos` (
 
 LOCK TABLES `pedidos` WRITE;
 /*!40000 ALTER TABLE `pedidos` DISABLE KEYS */;
-INSERT INTO `pedidos` VALUES (1,1,1,1,5,'2024-02-02');
+INSERT INTO `pedidos` VALUES (1,1,1,1,5,'2024-02-02',NULL);
 /*!40000 ALTER TABLE `pedidos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -423,9 +422,9 @@ DROP TABLE IF EXISTS `producto`;
 CREATE TABLE `producto` (
   `codigo_producto` int NOT NULL AUTO_INCREMENT,
   `id_funcionario` int NOT NULL,
-  `material` varchar(60) NOT NULL,
+  `cantidad` int NOT NULL,
   `nombre_producto` varchar(60) NOT NULL,
-  `modelo` varchar(20) NOT NULL,
+  `material` varchar(60) NOT NULL,
   `precio` float NOT NULL,
   `talla` varchar(50) NOT NULL,
   `color_producto` varchar(20) NOT NULL,
@@ -442,7 +441,7 @@ CREATE TABLE `producto` (
 
 LOCK TABLES `producto` WRITE;
 /*!40000 ALTER TABLE `producto` DISABLE KEYS */;
-INSERT INTO `producto` VALUES (1,1,'Algodon','Camista','2024',20000,'s','Gris','Bodega'),(2,1,'Lana','Saco','2024',30000,'s','Negro','Bodega'),(3,2,'Algodon','Sudadera','2024',15000,'s','Cafe','Bodega'),(4,1,'Algodon','Jean','2024',30000,'s','Azul','Bodega');
+INSERT INTO `producto` VALUES (1,1,0,'Camista','Algodon',20000,'s','Gris','Bodega'),(2,1,0,'Saco','Lana',30000,'s','Negro','Bodega'),(3,2,0,'Sudadera','Algodon',15000,'s','Cafe','Bodega'),(4,1,0,'Jean','Algodon',30000,'s','Azul','Bodega');
 /*!40000 ALTER TABLE `producto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -486,7 +485,7 @@ CREATE TABLE `proveedores` (
   `id_proveedor` int NOT NULL AUTO_INCREMENT,
   `id_persona` int NOT NULL,
   `nit` varchar(20) NOT NULL,
-  `razon_social` int NOT NULL,
+  `razon_social` varchar(60) NOT NULL,
   PRIMARY KEY (`id_proveedor`),
   KEY `id_persona` (`id_persona`),
   CONSTRAINT `proveedor_ibfk_1` FOREIGN KEY (`id_persona`) REFERENCES `personas` (`id_persona`)
@@ -499,7 +498,7 @@ CREATE TABLE `proveedores` (
 
 LOCK TABLES `proveedores` WRITE;
 /*!40000 ALTER TABLE `proveedores` DISABLE KEYS */;
-INSERT INTO `proveedores` VALUES (1,4,'123',3);
+INSERT INTO `proveedores` VALUES (1,4,'123','3');
 /*!40000 ALTER TABLE `proveedores` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -565,4 +564,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-16  8:56:02
+-- Dump completed on 2024-04-17 21:18:37

@@ -11,7 +11,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
 }
 $conexion;
 include_once "../../PHP/conexion_a_la_DB.php";
-$sql = "SELECT numero_orden_venta, id_funcionario, id_cliente, id_medio_pago, cantidad_productos, descuento, fechaFactura, observacion, subtotal, valor_total FROM orden_venta;";
+$sql = "SELECT numero_orden_venta, id_funcionario, id_cliente, id_medio_pago, cantidad_productos, descuento, fecha_factura, observacion, subtotal, valor_Total FROM orden_venta;";
 $datos = $conexion->query($sql);
 ?>
 

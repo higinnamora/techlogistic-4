@@ -81,6 +81,16 @@
       </div>
 
       <div class="mb-3">
+        <label class="form-label" for="descripcion">Producto</label>
+        <select name="descripcion" class="form-select">
+          <option selected value="Camiseta">Camiseta</option>
+          <option value="Saco">Saco</option>
+          <option value="Sudadera">Sudadera</option>
+          <option value="Jean">Jean</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
         <label for="cantidadpro" class="form-label">Cantidad de productos</label>
         <input type="number" name="cantidadpro" class="form-control" id="cantidadpro" placeholder="12345" required>
       </div>
@@ -91,10 +101,6 @@
       <div class="mb-3">
         <label for="codigoProducto" class="form-label">Fecha de compra</label>
         <input type="date" class="form-control" name="fechafactura" id="fechafactura" placeholder="2023-05-08" required>
-      </div>
-      <div class="mb-3">
-        <label for="descripcion" class="form-label">Tipo de producto</label>
-        <input type="text" class="form-control" name="descripcion" id="descripcion" placeholder="Chaqueta" required>
       </div>
       <div class="mb-3">
         <label for="subtotal" class="form-label">Subtotal ($)</label>

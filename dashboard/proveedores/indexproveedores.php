@@ -9,7 +9,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
 }
 $conexion;
 include_once "../../PHP/conexion_a_la_DB.php";
-$sql = "SELECT nit, id_persona, razon_social FROM proveedor;";
+$sql = "SELECT nit, id_persona, razon_social FROM proveedores;";
 $datos = $conexion->query($sql);
 
 ?>

@@ -9,7 +9,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
 }
 $conexion;
 include_once "../../PHP/conexion_a_la_DB.php";
-$sql = "SELECT codigo_producto, material, modelo, precio, talla, color_producto, ubicacion FROM producto;";
+$sql = "SELECT codigo_producto, id_funcionario, cantidad, nombre_producto, material, precio, talla, color_producto, ubicacion FROM producto;";
 $datos = $conexion->query($sql);
 ?>
 
@@ -39,7 +39,7 @@ $datos = $conexion->query($sql);
   <!-- Header -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
-      <a href="../../indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../../IMAGES/favicon.png" alt=""
+      <a href="../../PHP/indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../../IMAGES/favicon.png" alt=""
           class="navigation__image">Techlogistic</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -97,8 +97,10 @@ $datos = $conexion->query($sql);
         <thead>
           <tr>
             <th scope="col">Código de producto</th>
+            <th scope="col">id funcionario</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Producto</th>
             <th scope="col">Material</th>
-            <th scope="col">Modelo</th>
             <th scope="col">Precio</th>
             <th scope="col">Talla</th>
             <th scope="col">Color producto</th>

@@ -89,10 +89,8 @@
                     <th scope="scope" >Id Materia Prima</th>
                     <th scope="scope" >Id Funcionario</th>
                     <th scope="scope" >Color Materia</th>
-                    <th scope="scope" >Textura</th>
                     <th scope="scope" >Precio</th>
                     <th scope="scope" >Cantidad Materia</th>
-                    <th scope="scope" >Peso</th>
                     <th scope="scope" >Descripción Materia</th>
                 </tr>
             </thead>
@@ -102,20 +100,16 @@
                     $idMateriaPrima = $row["id_materia_prima"];
                     $idFuncionario = $row["id_funcionario"];
                     $colorMateria = $row["color_materia"];
-                    $textura = $row["textura"];
                     $precio = $row["precio"];
                     $cantidadMateria = $row["cantidad_materia"];
-                    $peso = $row["peso"];
                     $descripcionMateria = $row["descripcion_materia"];
                     echo "
             <tr>
                 <td>$idMateriaPrima</td>
                 <td>$idFuncionario</td>
                 <td>$colorMateria</td>
-                <td>$textura</td>
                 <td>$precio</td>
                 <td>$cantidadMateria</td>
-                <td>$peso</td>
                 <td>$descripcionMateria</td>
             </tr>";
                 }
