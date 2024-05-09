@@ -65,11 +65,14 @@ session_start();
                           <a class="nav-link" aria-current="page" href="indexdash.php">Inicio</a>
                         </li>
                         <li class="nav-item">
-                          <a class="btn btn-secondary" href="../PHP/consultarFuncionarios.php">Consultar
+                          <a class="nav-link" aria-current="page" href="correo.php">Enviar correo</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" aria-current="page" href="../PHP/consultarFuncionarios.php">Consultar
                             funcionarios</a>
                         </li>
                         <li class="nav-item">
-                          <a class="btn btn-info" href="../HTML/sign-up.html">Registrar usuario</a>
+                          <a class="nav-link" aria-current="page" href="../HTML/sign-up.html">Registrar usuario</a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link" href="#">Administrador</a>
