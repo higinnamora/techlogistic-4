@@ -65,6 +65,9 @@ session_start();
                           <a class="nav-link" aria-current="page" href="indexdash.php">Inicio</a>
                         </li>
                         <li class="nav-item">
+                          <a class="nav-link" aria-current="page" href="correo.php">Enviar correo</a>
+                        </li>
+                        <li class="nav-item">
                           <a class="btn btn-secondary" href="../PHP/consultarFuncionarios.php">Consultar
                             funcionarios</a>
                         </li>
