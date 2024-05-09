@@ -108,6 +108,7 @@ session_start();
     <main class="container my-5 h-100">
       <h4 class="text-md-start text-left">Bienvenida/o a Techlogistic</h4>
       <hr>
+      
 
     <?php } ?>
 

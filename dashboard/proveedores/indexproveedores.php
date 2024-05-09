@@ -75,12 +75,24 @@ $datos = $conexion->query($sql);
   <main class="container my-5 h-100">
     <div class="d-flex flex-column flex-md-row justify-content-between">
       <h4 class="text-md-start text-left">Proveedores</h4>
+      <!-- subir archivos-->
+      <form action="../../PHP/carga_datos.php" method="post" enctype="multipart/form-data">
+        <h4>Cargar materia prima</h4>
+        <input type="file" name="archivo" accept=".xlsx, .xls"/>
+        <input type="submit" value="Enviar"/>
+      </form>
       <div class="d-flex flex-column flex-md-row gap-2">
         <a href="registrarProveedor.html"> <button class="button w-auto">Agregar proveedor</button></a>
-
       </div>
     </div>
     <hr>
+    
+
+
+
+
+
+
     <!-- Tabla de proveedores -->
     <ul class="nav nav-tabs mb-4">
       <li class="nav-item">
