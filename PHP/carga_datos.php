@@ -1,42 +1,38 @@
 <?php
-include_once "../LIBRERIAS/PHPExcel-1.8/Classes/PHPExcel/IOFactory.php";
 
+require '../composer/vendor/autoload.php';
 $conexion;
 include_once "./conexion_a_la_DB.php";
-if($_SERVER["REQUEST_METHOD"] == "POST")
+class MyReadfilter implements \PhpOffice\PhpSpreadsheet\Reader\IReadfilter{
 
-    $archivo = $_FILES['archivo'];
-    $carga_archivo = PHPExcel_IOFactory::load($archivo);
+    public function readCell($colum, $row, $worksheetName = '') {
+        if ($row>1){
+            return true;
+        }
+        return false;
+    }
+}
 
-    // Obtener la hoja activa
-    $sheet = $carga_archivo->getActiveSheet();
+$reader = new \PhpOffice\PhpSpreadsheet\Reader\Xls();
+$inputFileName = '../Base de datos/carga de datos.xlsx';
 
-    // Iterar sobre las filas
-    foreach ($sheet->getRowIterator() as $row) {
-        $rowData = $row->getCells();
-        
-        // Suponiendo que el archivo Excel tiene tres columnas
-        $columna1 = $rowData[0]->getValue();
-        $columna2 = $rowData[1]->getValue();
-        $columna3 = $rowData[2]->getValue();
-        $columna4 = $rowData[3]->getValue();
-        $columna5 = $rowData[4]->getValue();
+$inputFileType = \PhpOffice\PhpSpreadsheet\IOFactory::identify($inputFileName);
+$reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader($inputFileType);
 
-        // Insertar en la base de datos
-        $sql = "INSERT INTO materia_prima (id_funcionario, color_materia, precio, cantidad_materia, descripcion_materia) 
-        VALUES ('$columna1', '$columna2', '$columna3', '$columna4', '$columna5')";
-        if ($conn->query($sql) === TRUE) {
-            echo "Nuevo registro insertado correctamente <br>";
+$reader->setReadFilter( new MyReadfilter() );
+
+$spreadsheet = $reader->load($inputFileName);
+$cantidad = $spreadsheet->getActiveSheet()->toArray();
+foreach($cantidad as $row){
+    if($cantidad[0] !=''){
+        $sql = "INSERT INTO materia_prima (id_funcionario, color_materia, precio, cantidad_materia, descripcion_materia, categoria_materia_id_categoria) 
+        VALUES ('$row[0]', '$row[1]', '$row[2]', '$row[3]', '$row[4]', '$row[5]')";
+        if ($conexion->query($sql) === TRUE) {
+            echo "Nuevo registro insertado correctamente </br>";
         } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+            echo "Error: " . $sql . "<br>" . $conexion->error;
         }
     }
-
-
-
-
-
-
-
-
+}
+$conexion->close();
 ?>
