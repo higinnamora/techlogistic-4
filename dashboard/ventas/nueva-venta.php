@@ -64,7 +64,7 @@ if ($_SESSION['tipo_usuario']) {
                 <label class="form-label" for="sign-up-form-numcargo">Género cliente</label>
                 <select name="tipocliente" class="form-select">
                     <option selected value="2">Masculino</option>
-                    <option value="3">Femenina</option>
+                    <option value="3">Femenino</option>
                 </select>
             </div>
             <div class="mb-3">
@@ -75,13 +75,26 @@ if ($_SESSION['tipo_usuario']) {
                     <option value="3">3 Tarjeta débito</option>
                 </select>
             </div>
+            <?php
+                $conexion;
+                include_once "../../PHP/conexion_a_la_DB.php";
+
+                $sql = "SELECT nombre_producto FROM producto";
+                $resultado = mysqli_query($conexion, $sql);
+
+                $productos = [];
+                if ($resultado->num_rows > 0) {
+                    while ($fila = $resultado->fetch_assoc()) {
+                        $productos[] = $fila["nombre_producto"];
+                    }
+                }
+            ?>
             <div class="mb-3">
                 <label class="form-label" for="descripcion">Producto</label>
                 <select name="descripcion" class="form-select">
-                    <option selected value="Camiseta">Camiseta</option>
-                    <option value="Saco">Saco</option>
-                    <option value="Sudadera">Sudadera</option>
-                    <option value="Jean">Jean</option>
+                    <?php foreach ($productos as $producto) { ?>
+                        <option value="<?php echo $producto; ?>"><?php echo $producto; ?></option>
+                    <?php } ?>
                 </select>
             </div>
             <div class="mb-3">
