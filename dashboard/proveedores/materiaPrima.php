@@ -151,9 +151,9 @@
         <hr class="my-4">
 
         <h4>Eliminar materia prima</h4>
-        <form class="newsletter-form" action="eliminarProveedor.php" id="newsletter-form" method="POST">
+        <form class="newsletter-form" action="eliminarmateria.php" id="newsletter-form" method="POST">
             <div class="form-field">
-                <input type="text" name="eliminarProveedor" placeholder="Id " class="newsletter-input" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
+                <input type="text" name="eliminarmateria" placeholder="Id " class="newsletter-input" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
             </div>
             <button class="button" type="submit">Eliminar</button>
         </form>
