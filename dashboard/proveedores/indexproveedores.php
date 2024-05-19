@@ -86,13 +86,6 @@ $datos = $conexion->query($sql);
       </div>
     </div>
     <hr>
-    
-
-
-
-
-
-
     <!-- Tabla de proveedores -->
     <ul class="nav nav-tabs mb-4">
       <li class="nav-item">
