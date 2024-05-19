@@ -62,15 +62,17 @@ if ($_SESSION['tipo_usuario']) {
             <!-- Otros campos del formulario -->
             <div class="mb-3">
                 <label class="form-label" for="sign-up-form-numcargo">Género cliente</label>
-                <select name="tipocliente" class="form-select">
-                    <option selected value="2">Masculino</option>
+                <select name="tipocliente" class="form-select" required>
+                    <option value="" disabled selected hidden>Seleccione</option>
+                    <option value="2">Masculino</option>
                     <option value="3">Femenino</option>
                 </select>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="sign-up-form-numcargo">Medio de pago</label>
-                <select name="mediodepago" class="form-select">
-                    <option selected value="1">1 Efectivo</option>
+                <select name="mediodepago" class="form-select" required>
+                    <option value="" disabled selected hidden>Seleccione</option>
+                    <option value="1">1 Efectivo</option>
                     <option value="2">2 Tarjeta crédito</option>
                     <option value="3">3 Tarjeta débito</option>
                 </select>
@@ -91,31 +93,32 @@ if ($_SESSION['tipo_usuario']) {
             ?>
             <div class="mb-3">
                 <label class="form-label" for="descripcion">Producto</label>
-                <select name="descripcion" class="form-select">
+                <select name="descripcion" class="form-select" required>
                     <?php foreach ($productos as $producto) { ?>
+                        <option value="" disabled selected hidden>Seleccione</option>
                         <option value="<?php echo $producto; ?>"><?php echo $producto; ?></option>
                     <?php } ?>
                 </select>
             </div>
             <div class="mb-3">
                 <label for="cantidadpro" class="form-label">Cantidad de productos</label>
-                <input type="number" name="cantidadpro" class="form-control" id="cantidadpro" placeholder="12345" required>
+                <input type="number" name="cantidadpro" class="form-control" id="cantidadpro" placeholder="Ingrese cantidad de productos" required>
             </div>
             <div class="mb-3">
                 <label for="descuento" class="form-label">Descuento</label>
-                <input type="text" class="form-control" name="descuento" id="descuento" placeholder="6.0" required>
+                <input type="text" class="form-control" name="descuento" id="descuento" placeholder="Ingrese descuento" required>
             </div>
             <div class="mb-3">
                 <label for="codigoProducto" class="form-label">Fecha de compra</label>
-                <input type="date" class="form-control" name="fechafactura" id="fechafactura" placeholder="2023-05-08" required>
+                <input type="date" class="form-control" name="fechafactura" id="fechafactura" required>
             </div>
             <div class="mb-3">
                 <label for="subtotal" class="form-label">Subtotal ($)</label>
-                <input type="text" class="form-control" name="subtotal" id="subtotal" placeholder="150000" required>
+                <input type="text" class="form-control" name="subtotal" id="subtotal" placeholder="0" required>
             </div>
             <div class="mb-3">
                 <label for="total" class="form-label">Total ($)</label>
-                <input type="text" class="form-control" name="total" id="total" placeholder="300000" required>
+                <input type="text" class="form-control" name="total" id="total" placeholder="0" required>
             </div>
             <input type="submit" class="button" value="Agregar venta" />
         </form>
