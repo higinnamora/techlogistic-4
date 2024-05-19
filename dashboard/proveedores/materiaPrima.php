@@ -58,7 +58,7 @@
             <h4 class="text-md-start text-left">Materia prima</h4>
         </div>
         <div class="d-flex flex-column flex-md-row gap-2">
-            <a href="registrarProveedor.html"> <button class="button w-auto">Agregar materia prima</button></a>
+            <a href="registrarMateria.html"> <button class="button w-auto">Agregar materia prima</button></a>
         </div>
         <hr>
         <!-- Tabla de proveedores -->
@@ -84,7 +84,6 @@
             <thead>
                 <tr> 
                     <th scope="scope" >Id Materia Prima</th>
-                    <th scope="scope" >Id Funcionario</th>
                     <th scope="scope" >Color Materia</th>
                     <th scope="scope" >Precio</th>
                     <th scope="scope" >Cantidad Materia</th>
@@ -95,7 +94,6 @@
             if ($rta = $conexion->query($sql)) {
                 while ($row = $rta->fetch_assoc()) {
                     $idMateriaPrima = $row["id_materia_prima"];
-                    $idFuncionario = $row["id_funcionario"];
                     $colorMateria = $row["color_materia"];
                     $precio = $row["precio"];
                     $cantidadMateria = $row["cantidad_materia"];
@@ -103,7 +101,6 @@
                     echo "
             <tr>
                 <td>$idMateriaPrima</td>
-                <td>$idFuncionario</td>
                 <td>$colorMateria</td>
                 <td>$precio</td>
                 <td>$cantidadMateria</td>
