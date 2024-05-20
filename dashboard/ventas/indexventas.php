@@ -77,11 +77,9 @@ $datos = $conexion->query($sql);
     <div class="d-flex flex-column flex-md-row justify-content-between">
       <h4 class="text-md-start text-left">Ventas</h4>
       <div class="d-flex flex-column flex-md-row gap-2">
-        <a href="./mostrarDevolucion.php"><button class="button w-auto">Devolucion</button></a>
-      </div>
-      <div class="d-flex flex-column flex-md-row gap-2">
         <a href="./nueva-venta.php"><button class="button w-auto">Agregar venta</button></a>
       </div>
+      
     </div>
     <hr>
     <!-- Tabla de Ventas -->
@@ -117,7 +115,15 @@ $datos = $conexion->query($sql);
       </table>
     </div>
 
+    <div class="search-container">
+            <form class="search-box" action="buscarDevolucion.php" method="POST">
+                <input type="text" name="query" placeholder="Buscar devolucion">
+                <button class="button w-auto" type="submit">Devolucion</button>
+            </form><br>
+
     <hr class="my-5">
+
+    
 
     <div>
       <h4>Actualizar orden de venta</h4>

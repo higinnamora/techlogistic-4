@@ -1,14 +1,26 @@
 <?php
+$conexion;
 include_once "../../PHP/conexion_a_la_DB.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['query'])) {
     $query = htmlspecialchars($_POST['query']);
     $sql = "SELECT numero_orden_venta, id_funcionario, id_cliente, id_medio_pago, cantidad_productos, descuento, fecha_factura, observacion, subtotal, valor_Total, devolucion FROM orden_venta WHERE numero_orden_venta LIKE '%$query%' OR id_funcionario LIKE '%$query%'";
-    $result = $conn->query($sql);
+    $result = $conexion->query($sql);
 
     if ($result->num_rows > 0) {
         echo "<table>";
-        echo "<tr><th>ID</th><th>Producto ID</th><th>Cantidad</th><th>Devolución</th><th>Acción</th></tr>";
+        echo "<tr>
+        <th>numero de orden</th>
+        <th>numero del funcionario</th>
+        <th>numero del cliente</th>
+        <th>medio de pago</th>
+        <th>cantidad de productos</th>
+        <th>descuento</th>
+        <th>fecha</th>
+        <th>detalles de los productos</th>
+        <th>subtotal</th>
+        <th>Total</th>
+        <th>devolucion</th></tr>";
 
         while($row = $result->fetch_assoc()) {
             echo "<tr>";
@@ -23,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['query'])) {
             echo "<td>" . $row["subtotal"] . "</td>";
             echo "<td>" . $row["valor_Total"] . "</td>";
             echo "<td>" . ($row["devolucion"] ? 'Sí' : 'No') . "</td>";
-            echo "<td><form action='devolucion.php' method='POST'><input type='hidden' name='order_id' value='" . $row["id"] . "'><button type='submit' class='btn-devolucion'>Devolución</button></form></td>";
+            echo "<td><form action='devolucion.php' method='POST'><input type='hidden' name='order_id' value='" . $row["numero_orden_venta"] . "'><button type='submit' class='btn-devolucion'>Devolución</button></form></td>";
             echo "</tr>";
         }
 
@@ -35,5 +47,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['query'])) {
     echo "Por favor, ingresa una consulta de búsqueda.";
 }
 
-$conn->close();
+$conexion->close();
 ?>
