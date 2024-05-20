@@ -68,7 +68,7 @@
       $conexion;
       include_once "./conexion_a_la_DB.php";
 
-      $sql = "CALL ConsultarPersona()";
+      $sql = "CALL obtener_persona()";
       if ($stmt = $conexion->prepare($sql)) {
         if ($stmt->execute()) {
           $result = $stmt->get_result();
@@ -99,7 +99,7 @@
             $primerApell = $fila["primer_apellido"];
             $segundoApell = $fila["segundo_apellido"];
             $correo = $fila["correo"];
-            $rol = $fila["rol"];
+            $rol = $fila["descripcion_rol"];
             echo "
         <tr>
           <td>$id</td>

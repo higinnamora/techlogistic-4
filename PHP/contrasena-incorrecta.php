@@ -44,7 +44,7 @@
         Contraseña incorrecta
       </h1>
       <a href="../HTML/sign-in.html"><button class="button">Volver a inicio de sesión</button></a>
-    </section><br>
+    </section>
     <footer class="copyright">
       <div class="bd-container">
         <p>💙 © 2023 Techlogistic. Todos los derechos reservados. 💚</p>
