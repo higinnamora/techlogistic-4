@@ -56,74 +56,59 @@ if ($_SESSION['tipo_usuario']) {
     <main class="container my-5">
         <form style="margin: 0 auto; width: 580px;" id="form-new-sale" action="crearventa.php" method="POST">
             <h4 class="text-md-start text-left">Hacer devolución</h4>
-            <div class="form-field">
-                <label class="form-label" for="sign-up-form-numcargo">Venta realizada por</label>
-                <input type="text" class="form-control" name="vendedor" id="vendedor" value="<?php echo $nombre_usuario; ?>" readonly>
-                <input type="hidden" name="funcionario" value="<?php echo $tipo_usuario; ?>">
-            </div>
-            <!-- Otros campos del formulario -->
-            <div class="form-field">
-                <label class="form-label" for="sign-up-form-numcargo">Género cliente</label>
-                <select name="tipocliente" class="form-select" required>
-                    <option value="" disabled selected hidden>Seleccione</option>
-                    <option value="2">Masculino</option>
-                    <option value="3">Femenino</option>
-                </select>
-            </div>
-            <div class="form-field">
-                <label class="form-label" for="sign-up-form-numcargo">Medio de pago</label>
-                <select name="mediodepago" class="form-select" required>
-                    <option value="" disabled selected hidden>Seleccione</option>
-                    <option value="1">1 Efectivo</option>
-                    <option value="2">2 Tarjeta crédito</option>
-                    <option value="3">3 Tarjeta débito</option>
-                </select>
-            </div>
-            <?php
+
+        <div class="search-container">
+            <form class="search-box" action="devolucion.php" method="POST">
+                <input type="text" name="query" placeholder="Buscar devolucion">
+                <button type="submit">Buscar</button>
+            </form>
+            <div id="resultados"></div>
+        </div>
+
+
+        <?php
             $conexion;
             include_once "../../PHP/conexion_a_la_DB.php";
 
-            $sql = "SELECT nombre_producto FROM producto";
-            $resultado = mysqli_query($conexion, $sql);
+            $sql = "SELECT * FROM materia_prima;";
+            $result = mysqli_query($conexion, $sql);
 
-            $productos = [];
-            if ($resultado->num_rows > 0) {
-                while ($fila = $resultado->fetch_assoc()) {
-                    $productos[] = $fila["nombre_producto"];
+            echo '<table class="table">
+            <thead>
+                <tr>
+                    <th scope="scope" >numero orde de venta</th>
+                    <th scope="scope" >Color Materia</th>
+                    <th scope="scope" >Precio</th>
+                    <th scope="scope" >Cantidad Materia</th>
+                    <th scope="scope" >Descripción Materia</th>
+                </tr>
+            </thead>
+            <tbody>';
+            if ($rta = $conexion->query($sql)) {
+                while ($row = $rta->fetch_assoc()) {
+                    $idMateriaPrima = $row["id_materia_prima"];
+                    $colorMateria = $row["color_materia"];
+                    $precio = $row["precio"];
+                    $cantidadMateria = $row["cantidad_materia"];
+                    $descripcionMateria = $row["descripcion_materia"];
+                    echo "
+            <tr>
+                <td>$idMateriaPrima</td>
+                <td>$colorMateria</td>
+                <td>$precio</td>
+                <td>$cantidadMateria</td>
+                <td>$descripcionMateria</td>
+            </tr>";
                 }
+                echo "</tbody></table>\n";
+                $rta->free();
             }
             ?>
-            <div class="form-field">
-                <label class="form-label" for="descripcion">Producto</label>
-                <select name="descripcion" class="form-select" required>
-                    <?php foreach ($productos as $producto) { ?>
-                        <option value="" disabled selected hidden>Seleccione</option>
-                        <option value="<?php echo $producto; ?>"><?php echo $producto; ?></option>
-                    <?php } ?>
-                </select>
-            </div>
-            <div class="form-field">
-                <label for="cantidadpro" class="form-label">Cantidad de productos</label>
-                <input type="number" name="cantidadpro" class="form-control" id="cantidadpro" placeholder="Ingrese cantidad de productos" required>
-            </div>
-            <div class="form-field">
-                <label for="descuento" class="form-label">Descuento</label>
-                <input type="text" class="form-control" name="descuento" id="descuento" placeholder="Ingrese descuento" required>
-            </div>
-            <div class="form-field">
-                <label for="codigoProducto" class="form-label">Fecha de compra</label>
-                <input type="date" class="form-control" name="fechafactura" id="fechafactura" required>
-            </div>
-            <div class="form-field">
-                <label for="subtotal" class="form-label">Subtotal ($)</label>
-                <input type="text" class="form-control" name="subtotal" id="subtotal" placeholder="0" required>
-            </div>
-            <div class="form-field">
-                <label for="total" class="form-label">Total ($)</label>
-                <input type="text" class="form-control" name="total" id="total" placeholder="0" required>
-            </div>
-            <input type="submit" class="button" value="Agregar venta" />
-        </form>
+
+
+
+
+            
     </main>
     <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
         <div class="modal-dialog">
