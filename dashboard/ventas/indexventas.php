@@ -77,7 +77,7 @@ $datos = $conexion->query($sql);
     <div class="d-flex flex-column flex-md-row justify-content-between">
       <h4 class="text-md-start text-left">Ventas</h4>
       <div class="d-flex flex-column flex-md-row gap-2">
-        <a href="./devolucion.php"><button class="button w-auto">Devolucion</button></a>
+        <a href="./mostrarDevolucion.php"><button class="button w-auto">Devolucion</button></a>
       </div>
       <div class="d-flex flex-column flex-md-row gap-2">
         <a href="./nueva-venta.php"><button class="button w-auto">Agregar venta</button></a>
