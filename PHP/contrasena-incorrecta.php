@@ -43,8 +43,8 @@
       <h1 class="text-center mb-5">
         Contraseña incorrecta
       </h1>
-      <a href="./sign-in.html"><button class="button">Volver a inicio de sesión</button></a>
-    </section>
+      <a href="../HTML/sign-in.html"><button class="button">Volver a inicio de sesión</button></a>
+    </section><br>
     <footer class="copyright">
       <div class="bd-container">
         <p>💙 © 2023 Techlogistic. Todos los derechos reservados. 💚</p>

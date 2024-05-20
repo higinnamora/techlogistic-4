@@ -41,7 +41,7 @@ session_start();
 
       <?php } ?>
 
-      <?php if ($_SESSION['tipo_usuario'] == 1) { ?>
+      <?php if ($_SESSION['tipo_usuario'] == 2) { ?>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
             <li class="nav-item">
@@ -57,7 +57,7 @@ session_start();
                     <a class="nav-link">Costurero</a>
                   <?php } ?>
 
-                  <?php if ($_SESSION['tipo_usuario'] == 2) { ?>
+                  <?php if ($_SESSION['tipo_usuario'] == 1) { ?>
 
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                       <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
@@ -125,7 +125,7 @@ session_start();
           <a class="nav-link">Costurero</a>
         <?php } ?>
 
-        <?php if ($_SESSION['tipo_usuario'] == 2) { ?>
+        <?php if ($_SESSION['tipo_usuario'] == 1) { ?>
 
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
@@ -142,7 +142,7 @@ session_start();
 
             <?php } ?>
 
-            <?php if ($_SESSION['tipo_usuario'] == 1) { ?>
+            <?php if ($_SESSION['tipo_usuario'] == 2) { ?>
               <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
                   <li class="nav-item">
@@ -158,7 +158,7 @@ session_start();
 
         <!-- 4 Cards -->
         <div class="row g-4">
-          <?php if ($_SESSION['tipo_usuario'] == 2) { ?>
+          <?php if ($_SESSION['tipo_usuario'] == 1) { ?>
             <div class="col-md-6">
               <div class="card h-100">
                 <div class="card-body d-flex flex-column">
@@ -173,7 +173,7 @@ session_start();
               </div>
             </div>
           <?php } ?>
-          <?php if ($_SESSION['tipo_usuario'] == 3 or $_SESSION['tipo_usuario'] == 2) { ?>
+          <?php if ($_SESSION['tipo_usuario'] == 3 or $_SESSION['tipo_usuario'] == 1) { ?>
             <div class="col-md-6">
               <div class="card h-100">
                 <div class="card-body d-flex flex-column">

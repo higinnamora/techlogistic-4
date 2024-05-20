@@ -154,7 +154,8 @@
             </div>
             <button class="button" type="submit">Eliminar</button>
         </form>
-    </main>
+    </main><br><br>
+    <br><br>
 
     <footer>
         <div class="copyright">
