@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-05-2024 a las 03:10:26
+-- Tiempo de generación: 20-05-2024 a las 19:47:18
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -299,6 +299,21 @@ CREATE TABLE `orden_venta` (
 INSERT INTO `orden_venta` (`numero_orden_venta`, `id_funcionario`, `id_cliente`, `id_medio_pago`, `cantidad_productos`, `descuento`, `fecha_factura`, `observacion`, `subtotal`, `valor_Total`, `devolucion`) VALUES
 (1, 1, 1, 1, 2, 0, '2024-02-02', 'Camista', 40000, 40000, 0);
 
+--
+-- Disparadores `orden_venta`
+--
+DELIMITER $$
+CREATE TRIGGER `devolucion` AFTER UPDATE ON `orden_venta` FOR EACH ROW BEGIN
+    IF NEW.devolucion = TRUE AND OLD.devolucion = FALSE THEN
+        -- Actualizar la cantidad de productos en la tabla productos
+        UPDATE producto
+        SET cantidad = cantidad + NEW.cantidad_productos
+        WHERE codigo_producto = NEW.numero_orden_venta;
+    END IF;
+END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -322,7 +337,7 @@ INSERT INTO `orden_venta_producto` (`id_factura_producto`, `numero_orden_venta`,
 -- Disparadores `orden_venta_producto`
 --
 DELIMITER $$
-CREATE TRIGGER `actualizar_stock_despues_venta` AFTER INSERT ON `orden_venta_producto` FOR EACH ROW BEGIN
+CREATE TRIGGER `actualizar_productos_despues_venta` AFTER INSERT ON `orden_venta_producto` FOR EACH ROW BEGIN
     DECLARE cantidad_producto INT;
     DECLARE codigo_producto INT;
 
