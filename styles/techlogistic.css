@@ -1011,17 +1011,21 @@ a.button {
   top: 79%;
   right: 38%;
 }
+
 .search-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  max-width: 800px;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 .search-box {
   display: flex;
-  flex-direction: row;
+  margin-bottom: 20px;
 }
 .search-box input[type="text"] {
+  flex: 1;
   padding: 10px;
   font-size: 16px;
   border: 1px solid #ccc;
@@ -1029,7 +1033,7 @@ a.button {
   outline: none;
 }
 .search-box button {
-  padding: 10px;
+  padding: 10px 15px;
   font-size: 16px;
   background-color: #007BFF;
   border: none;
@@ -1039,4 +1043,45 @@ a.button {
 }
 .search-box button:hover {
   background-color: #0056b3;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+table, th, td {
+  border: 1px solid #ddd;
+}
+th, td {
+  padding: 12px;
+  text-align: left;
+}
+th {
+  background-color: #f2f2f2;
+}
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+tr:hover {
+  background-color: #f1f1f1;
+}
+.btn-devolucion {
+  padding: 8px 12px;
+  font-size: 14px;
+  background-color: #FF5733;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.btn-devolucion:hover {
+  background-color: #C70039;
+}
+.result-container {
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
