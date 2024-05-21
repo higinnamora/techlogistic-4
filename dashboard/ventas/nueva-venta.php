@@ -93,18 +93,23 @@ if ($_SESSION['tipo_usuario']) {
                 }
             }
             ?>
-            <div class="form-field">
-                <label class="form-label" for="descripcion">Producto</label>
-                <select name="descripcion" class="form-select" required>
-                    <?php foreach ($productos as $producto) { ?>
+            <div id="productos-container">
+                <div class="form-field product-div">
+                    <label class="form-label" for="descripcion">Producto</label>
+                    <select name="descripcion[]" class="form-select product-select" required>
                         <option value="" disabled selected hidden>Seleccione</option>
-                        <option value="<?php echo $producto; ?>"><?php echo $producto; ?></option>
-                    <?php } ?>
-                </select>
+                        <?php foreach ($productos as $producto) { ?>
+                            <option value="<?php echo $producto; ?>"><?php echo $producto; ?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+                <div class="form-field product-div">
+                    <label for="cantidadpro" class="form-label">Cantidad de productos</label>
+                    <input type="number" name="cantidadpro[]" class="form-control" placeholder="Ingrese cantidad de productos" required>
+                </div>
             </div>
             <div class="form-field">
-                <label for="cantidadpro" class="form-label">Cantidad de productos</label>
-                <input type="number" name="cantidadpro" class="form-control" id="cantidadpro" placeholder="Ingrese cantidad de productos" required>
+                <button type="button" id="addProduct" class="btn btn-primary">Agregar Producto</button>
             </div>
             <div class="form-field">
                 <label for="descuento" class="form-label">Descuento</label>
@@ -141,6 +146,40 @@ if ($_SESSION['tipo_usuario']) {
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const productosContainer = document.getElementById('productos-container');
+            const addProductButton = document.getElementById('addProduct');
+
+            function addProductDiv() {
+                const newDiv = document.createElement('div');
+                newDiv.className = 'form-field product-div';
+                newDiv.innerHTML = `
+                    <label class="form-label" for="descripcion">Producto</label>
+                    <select name="descripcion[]" class="form-select product-select" required>
+                        <option value="" disabled selected hidden>Seleccione</option>
+                        <?php foreach ($productos as $producto) { ?>
+                            <option value="<?php echo $producto; ?>"><?php echo $producto; ?></option
+                    <?php } ?>
+                </select>
+            `;
+            productosContainer.appendChild(newDiv);
+        }
+
+        productosContainer.addEventListener('change', (event) => {
+            if (event.target.classList.contains('product-select') && event.target.value !== '') {
+                // Verificar si no se ha agregado un nuevo campo aún
+                const selects = productosContainer.getElementsByClassName('product-select');
+                if (selects[selects.length - 1] === event.target) {
+                    addProductSelect();
+                }
+            }
+        });
+
+        // Agregar el primer campo de producto al cargar la página
+        addProductSelect();
+    });
+</script>
     <div class="copyright">
         <div class="bd-container">
             <p>💙 © 2023 Techlogistic. Todos los derechos reservados. 💚</p>
