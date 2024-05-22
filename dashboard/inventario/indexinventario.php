@@ -159,7 +159,7 @@ $datos = $conexion->query($sql);
     </form>
 
     <hr class="my-4">
-    <h4>Eliminar orden de venta</h4>
+    <h4>Eliminar inventario</h4>
 
     <form class="newsletter-form" action="eliminardash.php" id="newsletter-form" method="POST">
       <div class="form-field">

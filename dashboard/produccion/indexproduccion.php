@@ -79,7 +79,6 @@ $datos = $conexion->query($sql);
       <h4 class="text-md-start text-left">Producción</h4>
       <div class="d-flex flex-column ms-auto flex-md-row gap-2">
         <a href="nuevoProducto.html"> <button class="button w-auto">Agregar producto</button></a>
-        <a href="materiasProveedores.php"> <button class="button w-auto">Materias/provedores</button></a>
       </div>
     </div>
     <hr>
@@ -87,9 +86,6 @@ $datos = $conexion->query($sql);
     <ul class="nav nav-tabs mb-2">
       <li class="nav-item">
         <a class="nav-link active" aria-current="page" href="#">Productos</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" aria-current="page" href="materiasProveedores.php">Materias/provedores</a>
       </li>
     </ul>
     <div class="table-responsive">
