@@ -56,16 +56,16 @@ if (!isset($_SESSION['tipo_usuario'])) {
       <div class="wrapper-box">
       <ul class="nav nav-tabs mb-2">
       <li class="nav-item">
-        <a class="nav-link active" href="nuevoProductoFabricado.php" aria-current="page" href="#">Productos fabricados</a>
+        <a class="nav-link active" aria-current="page" href="#">Productos Externos</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Productos Externos</a>
+        <a class="nav-link active" href="nuevoProductoFabricado.php" aria-current="page" href="#">Productos fabricados</a>
       </li>
     </ul>
         <h3 class="title">Registrar Productos Externos</h3>
         <form class="form" id="sign-up-form" action="registrarProducto.php" method="POST">
 
-          <div class="form-field" style="display: none;">
+        <div class="form-field" style="display: none;">
             <label for="sign-up-form-funcionario">Funcionario</label>
             <input type="number" value="2" id="sign-up-form-funcionario" name="sign-up-form-funcionario" required />
           </div>
@@ -80,8 +80,8 @@ if (!isset($_SESSION['tipo_usuario'])) {
               name="sign-up-form-producto" required />
           </div>
           <div class="form-field">
-            <label for="sign-up-form-modelo">Modelo</label>
-            <input type="text" placeholder="Ingrese modelo" id="sign-up-form-modelo" name="sign-up-form-modelo"
+            <label for="cantidad">Cantidad de productos</label>
+            <input type="number" placeholder="Ingrese cantidad de productos" id="cantidad" name="cantidad"
               required />
           </div>
           <div class="form-field">

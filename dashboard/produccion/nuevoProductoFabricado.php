@@ -56,10 +56,10 @@ if (!isset($_SESSION['tipo_usuario'])) {
       <div class="wrapper-box">
       <ul class="nav nav-tabs mb-2">
       <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Productos fabricados</a>
+        <a class="nav-link active" href="nuevoProductoExterno.php" aria-current="page" href="#">Productos Externos</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" href="nuevoProductoExterno.php" aria-current="page" href="#">Productos Externos</a>
+        <a class="nav-link active" aria-current="page" href="#">Productos fabricados</a>
       </li>
     </ul>
         <h3 class="title">Registrar Productos Fabricados</h3>
@@ -81,7 +81,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
           </div>
           <div class="form-field">
             <label for="cantidad">Cantidad de productos</label>
-            <input type="number" placeholder="Ingrese precio" id="cantidad" name="cantidad"
+            <input type="number" placeholder="Ingrese cantidad de productos" id="cantidad" name="cantidad"
               required />
           </div>
           <div class="form-field">
