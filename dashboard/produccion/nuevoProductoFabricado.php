@@ -63,7 +63,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
       </li>
     </ul>
         <h3 class="title">Registrar Productos Fabricados</h3>
-        <form class="form" id="sign-up-form" action="registrarProducto.php" method="POST">
+        <form class="form" id="sign-up-form" action="registrarProductoFabricado.php" method="POST">
 
           <div class="form-field" style="display: none;">
             <label for="sign-up-form-funcionario">Funcionario</label>
@@ -80,8 +80,8 @@ if (!isset($_SESSION['tipo_usuario'])) {
               name="sign-up-form-producto" required />
           </div>
           <div class="form-field">
-            <label for="sign-up-form-modelo">Modelo</label>
-            <input type="text" placeholder="Ingrese modelo" id="sign-up-form-modelo" name="sign-up-form-modelo"
+            <label for="cantidad">Cantidad de productos</label>
+            <input type="number" placeholder="Ingrese precio" id="cantidad" name="cantidad"
               required />
           </div>
           <div class="form-field">

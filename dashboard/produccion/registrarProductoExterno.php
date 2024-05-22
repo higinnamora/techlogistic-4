@@ -11,7 +11,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $talla = $_POST["sign-up-form-talla"];
     $color = $_POST["sign-up-form-color"];
     $ubicacion = $_POST["sign-up-form-ubicacion"];
-    $cantidadDescontar= $_POST["utilizado"]
 }
 
 $cantidadDescontar = $cantidadDescontar
