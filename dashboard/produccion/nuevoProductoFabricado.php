@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+
+if (!isset($_SESSION['tipo_usuario'])) {
+  header("Location: ../../HTML/sign-in.html");
+  exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -44,7 +54,15 @@
   <main class="main">
     <section class="section section-auth">
       <div class="wrapper-box">
-        <h3 class="title">Registrar Producto</h3>
+      <ul class="nav nav-tabs mb-2">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#">Productos fabricados</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="nuevoProductoExterno.php" aria-current="page" href="#">Productos Externos</a>
+      </li>
+    </ul>
+        <h3 class="title">Registrar Productos Fabricados</h3>
         <form class="form" id="sign-up-form" action="registrarProducto.php" method="POST">
 
           <div class="form-field" style="display: none;">
@@ -85,11 +103,19 @@
             <input type="text" placeholder="Ingrese ubicacion" id="sign-up-form-ubicacion" name="sign-up-form-ubicacion"
               required />
           </div>
+          <div class="form-field">
+            <label for="sign-up-form-ubicacion">Material Utilizado</label>
+            <input type="text" placeholder="Ingrese metros cuadrados" id="sign-up-form-ubicacion" name="sign-up-form-ubicacion"
+              required />
+          </div>
 
           <input class="button mb-1" type="submit" value="Registrar Producto" />
         </form>
+        
       </div>
     </section>
+
+    
 
     <div class="copyright">
       <div class="bd-container">
