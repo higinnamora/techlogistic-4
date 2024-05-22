@@ -104,8 +104,8 @@ if (!isset($_SESSION['tipo_usuario'])) {
               required />
           </div>
           <div class="form-field">
-            <label for="sign-up-form-ubicacion">Material Utilizado</label>
-            <input type="text" placeholder="Ingrese metros cuadrados" id="sign-up-form-ubicacion" name="sign-up-form-ubicacion"
+            <label for="utilizado">Material Utilizado</label>
+            <input type="text" placeholder="Ingrese metros cuadrados" id="utilizado" name="utilizado"
               required />
           </div>
 

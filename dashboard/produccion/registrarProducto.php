@@ -11,7 +11,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $talla = $_POST["sign-up-form-talla"];
     $color = $_POST["sign-up-form-color"];
     $ubicacion = $_POST["sign-up-form-ubicacion"];
+    $cantidadDescontar= $_POST["utilizado"]
 }
+
+$cantidadDescontar = $cantidadDescontar
 $sql = "INSERT INTO producto(id_funcionario, material, nombre_producto, modelo, precio, talla, color_producto, ubicacion)   
         VALUES ('$funcionario', '$material', '$producto', '$modelo', '$precio', '$talla', '$color', '$ubicacion');";
 
