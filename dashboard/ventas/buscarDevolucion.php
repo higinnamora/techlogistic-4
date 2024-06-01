@@ -58,18 +58,18 @@ if ($_SESSION['tipo_usuario']) {
             <h4 class="text-md-start text-left">Hacer devolución</h4>
 
 
-<?php
-$conexion;
-include_once "../../PHP/conexion_a_la_DB.php";
+            <?php
+            $conexion;
+            include_once "../../PHP/conexion_a_la_DB.php";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['query'])) {
-    $query = htmlspecialchars($_POST['query']);
-    $sql = "SELECT numero_orden_venta, id_funcionario, id_cliente, id_medio_pago, cantidad_productos, descuento, fecha_factura, observacion, subtotal, valor_Total, devolucion FROM orden_venta WHERE numero_orden_venta LIKE '%$query%' OR id_funcionario LIKE '%$query%'";
-    $result = $conexion->query($sql);
+            if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['query'])) {
+                $query = htmlspecialchars($_POST['query']);
+                $sql = "SELECT numero_orden_venta, id_funcionario, id_cliente, id_medio_pago, cantidad_productos, descuento, fecha_factura, observacion, subtotal, valor_Total, devolucion FROM orden_venta WHERE numero_orden_venta LIKE '%$query%' OR id_funcionario LIKE '%$query%'";
+                $result = $conexion->query($sql);
 
-    if ($result->num_rows > 0) {
-        echo "<table>";
-        echo "<tr>
+                if ($result->num_rows > 0) {
+                    echo "<table>";
+                    echo "<tr>
         <th>numero de orden</th>
         <th>numero del funcionario</th>
         <th>numero del cliente</th>
@@ -82,35 +82,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['query'])) {
         <th>Total</th>
         <th>devolucion</th></tr>";
 
-        while($row = $result->fetch_assoc()) {
-            echo "<tr>";
-            echo "<td>" . $row["numero_orden_venta"] . "</td>";
-            echo "<td>" . $row["id_funcionario"] . "</td>";
-            echo "<td>" . $row["id_cliente"] . "</td>";
-            echo "<td>" . $row["id_medio_pago"] . "</td>";
-            echo "<td>" . $row["cantidad_productos"] . "</td>";
-            echo "<td>" . $row["descuento"] . "</td>";
-            echo "<td>" . $row["fecha_factura"] . "</td>";
-            echo "<td>" . $row["observacion"] . "</td>";
-            echo "<td>" . $row["subtotal"] . "</td>";
-            echo "<td>" . $row["valor_Total"] . "</td>";
-            echo "<td>" . ($row["devolucion"] ? 'Sí' : 'No') . "</td>";
-            echo "<td><form action='devolucion.php' method='POST'><input type='hidden' name='order_id' value='" . $row["numero_orden_venta"] . "'><button type='submit' class='btn-devolucion'>Devolución</button></form></td>";
-            echo "</tr>";
-        }
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<tr>";
+                        echo "<td>" . $row["numero_orden_venta"] . "</td>";
+                        echo "<td>" . $row["id_funcionario"] . "</td>";
+                        echo "<td>" . $row["id_cliente"] . "</td>";
+                        echo "<td>" . $row["id_medio_pago"] . "</td>";
+                        echo "<td>" . $row["cantidad_productos"] . "</td>";
+                        echo "<td>" . $row["descuento"] . "</td>";
+                        echo "<td>" . $row["fecha_factura"] . "</td>";
+                        echo "<td>" . $row["observacion"] . "</td>";
+                        echo "<td>" . $row["subtotal"] . "</td>";
+                        echo "<td>" . $row["valor_Total"] . "</td>";
+                        echo "<td>" . ($row["devolucion"] ? 'Sí' : 'No') . "</td>";
+                        echo "<td><form action='devolucion.php' method='POST'><input type='hidden' name='order_id' value='" . $row["numero_orden_venta"] . "'><button type='submit' class='btn-devolucion'>Devolución</button></form></td>";
+                        echo "</tr>";
+                    }
 
-        echo "</table>";
-    } else {
-        echo "No se encontraron resultados.";
-    }
-} else {
-    echo "Por favor, ingresa una consulta de búsqueda.";
-}
+                    echo "</table>";
+                } else {
+                    echo "No se encontraron resultados.";
+                }
+            } else {
+                echo "Por favor, ingresa una consulta de búsqueda.";
+            }
 
-$conexion->close();
-?>
+            $conexion->close();
+            ?>
 
-</main>
+    </main>
     <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -129,7 +129,7 @@ $conexion->close();
     </div>
     <div class="copyright">
         <div class="bd-container">
-            <p>💙 © 2023 Techlogistic. Todos los derechos reservados. 💚</p>
+            <p>💙 © 2024 Techlogistic. Todos los derechos reservados. 💚</p>
             <p><a href="../../HTML/terminos-y-condiciones.html">Términos y Condiciones</a> · <a href="../../HTML/politica-de-privacidad.html">Política de Privacidad</a></p>
         </div>
     </div>

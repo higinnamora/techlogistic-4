@@ -44,7 +44,7 @@
       <h1 class="text-center mb-5">
         Gracias por contactarnos
       </h1>
-      <a href="../HTML/indexprincipal.html"><button class="button">Volver a la página principal</button></a>
+      <a href="../index.html"><button class="button">Volver a la página principal</button></a>
     </section>
     <footer class="copyright">
       <div class="bd-container">

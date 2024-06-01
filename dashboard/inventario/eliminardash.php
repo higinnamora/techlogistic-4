@@ -23,4 +23,3 @@ if ($conexion->query($sql2) === TRUE) {
     echo "Error al eliminar el elemento: " . $conexion->error;
 }
 $conexion->close();
-?>

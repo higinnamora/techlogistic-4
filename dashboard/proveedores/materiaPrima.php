@@ -115,35 +115,34 @@
         <h4>Actualizar Materia prima</h4>
         <form class="form" id="sign-up-form" action="actualizarmateriaprima.php" method="POST">
 
-        <div class="form-field">
-          <label for="idmateriaprima">Id</label>
-          <input type="text" placeholder="Ingrese el id a actualizar" id="idmateriaprima"
-            name="idmateriaprima" required />
-        </div>
+            <div class="form-field">
+                <label for="idmateriaprima">Id</label>
+                <input type="text" placeholder="Ingrese el id a actualizar" id="idmateriaprima" name="idmateriaprima" required />
+            </div>
 
-        <div class="form-field">
-          <label for="colormateria">Color materia</label>
-          <input type="text" placeholder="Ingrese color" id="colormateria" name="colormateria" required />
-        </div>
+            <div class="form-field">
+                <label for="colormateria">Color materia</label>
+                <input type="text" placeholder="Ingrese color" id="colormateria" name="colormateria" required />
+            </div>
 
-        <div class="form-field">
-          <label for="precio">Precio</label>
-          <input type="number" placeholder="Ingrese el precio" id="precio" name="precio" required />
-        </div>
+            <div class="form-field">
+                <label for="precio">Precio</label>
+                <input type="number" placeholder="Ingrese el precio" id="precio" name="precio" required />
+            </div>
 
-        <div class="form-field">
-          <label for="cantidad">Cantidad</label>
-          <input type="text" placeholder="Ingrese cantidad" id="cantidad" name="cantidad" required />
-        </div>
+            <div class="form-field">
+                <label for="cantidad">Cantidad</label>
+                <input type="text" placeholder="Ingrese cantidad" id="cantidad" name="cantidad" required />
+            </div>
 
-        <div class="form-field">
-          <label for="descripcion">Descripción</label>
-          <input type="text" placeholder="Ingrese descripcion" id="descripcion" name="descripcion" required />
-        </div>
-        <div>
-          <input class="button" type="submit" value="Actualizar" />
-        </div>
-      </form>
+            <div class="form-field">
+                <label for="descripcion">Descripción</label>
+                <input type="text" placeholder="Ingrese descripcion" id="descripcion" name="descripcion" required />
+            </div>
+            <div>
+                <input class="button" type="submit" value="Actualizar" />
+            </div>
+        </form>
 
         <hr class="my-4">
 
@@ -160,7 +159,7 @@
     <footer>
         <div class="copyright">
             <div class="bd-container">
-                <p>💙 © 2023 Techlogistic. Todos los derechos reservados. 💚</p>
+                <p>💙 © 2024 Techlogistic. Todos los derechos reservados. 💚</p>
                 <p><a href="../../HTML/terminos-y-condiciones.html">Términos y Condiciones</a> · <a href="../../HTML/politica-de-privacidad.html">Política de Privacidad</a></p>
             </div>
         </div>

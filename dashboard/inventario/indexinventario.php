@@ -170,7 +170,7 @@ $datos = $conexion->query($sql);
   </main>
   <div class="copyright">
     <div class="bd-container">
-      <p>💙 © 2023 Techlogistic. Todos los derechos reservados. 💚</p>
+      <p>💙 © 2024 Techlogistic. Todos los derechos reservados. 💚</p>
       <p><a href="../../HTML/terminos-y-condiciones.html">Términos y Condiciones</a> · <a
           href="../../HTML/politica-de-privacidad.html">Política de Privacidad</a></p>
     </div>

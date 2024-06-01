@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <!--provando conexion con git hub-->
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,8 +26,8 @@
   <header class="header" id="header">
     <nav class="navigation bd-container">
       <div class="navigation__container-logo">
-        <a href="indexprincipal.html" class="navigation__logo" title="Techlogistic"><img src="../IMAGES/favicon.png" alt="logo"
-            class="navigation__image">Techlogistic</a>
+        <a href="../index.html" class="navigation__logo" title="Techlogistic"><img src="../IMAGES/favicon.png"
+            alt="logo" class="navigation__image">Techlogistic</a>
       </div>
       </div>
       <div class="navigation__toggle" id="navigation-toggle">
@@ -39,32 +40,20 @@
     <section class="section section-auth">
       <div class="wrapper-box">
         <h3 class="title">Iniciar sesión</h3>
-        <form class="form" action="../PHP/loginprincipal.php" method="POST" id="sign-in-form" >
+        <form class="form" action="../PHP/loginprincipal.php" method="POST" id="sign-in-form">
           <div class="form-field">
             <label for="sign-in-form-email">Correo electrónico</label>
-            <input
-              type="email"
-              placeholder="Ingresa tu correo electrónico"
-              id="sign-in-form-email"
-              name="sign-in-form-email"
-              class="js-email-input"
-              pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
-              required
-            />
+            <input type="email" placeholder="Ingresa tu correo electrónico" id="sign-in-form-email"
+              name="sign-in-form-email" class="js-email-input" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+              required />
           </div>
           <div class="form-field">
             <label for="sign-in-form-password">Contraseña</label>
-            <input
-              type="password"
-              placeholder="Ingresa tu contraseña"
-              id="sign-in-form-password"
-              name="sign-in-form-password"
-              pattern=".{8,}"
-              required
-            />
+            <input type="password" placeholder="Ingresa tu contraseña" id="sign-in-form-password"
+              name="sign-in-form-password" pattern=".{8,}" required />
           </div>
           <input class="button mb-1" type="submit" value="Iniciar sesión">
-          
+
           <p class="block text-center">
             Si has olvidado tu contraseña debes informale a tu jefe inmediato para que sea reestablecida.
           </p>
@@ -74,8 +63,8 @@
     <footer class="copyright">
       <div class="bd-container">
         <p>💙 © 2023 Techlogistic. Todos los derechos reservados. 💚</p>
-        <p><a href="../HTML/terminos-y-condiciones.html">Términos y Condiciones</a> · <a
-            href="../HTML/politica-de-privacidad.html">Política de Privacidad</a></p>
+        <p><a href="../terminos-y-condiciones.html">Términos y Condiciones</a> · <a
+            href="../politica-de-privacidad.html">Política de Privacidad</a></p>
       </div>
     </footer>
   </main>
@@ -83,7 +72,7 @@
   <!-- Scroll reveal -->
   <script src="https://unpkg.com/scrollreveal"></script>
   <!-- Main JS-->
-  <script src="../JS/techlogistic.js"></script>
+  <script src="./JS/techlogistic.js"></script>
 </body>
 
 </html>

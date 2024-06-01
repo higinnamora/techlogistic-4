@@ -1,4 +1,4 @@
 <?php
 session_start();
 session_destroy();
-header("Location: ../HTML/indexprincipal.html");
+header("Location: ../index.html");

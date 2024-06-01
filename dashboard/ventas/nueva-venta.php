@@ -163,26 +163,26 @@ if ($_SESSION['tipo_usuario']) {
                     <?php } ?>
                 </select>
             `;
-            productosContainer.appendChild(newDiv);
-        }
-
-        productosContainer.addEventListener('change', (event) => {
-            if (event.target.classList.contains('product-select') && event.target.value !== '') {
-                // Verificar si no se ha agregado un nuevo campo aún
-                const selects = productosContainer.getElementsByClassName('product-select');
-                if (selects[selects.length - 1] === event.target) {
-                    addProductSelect();
-                }
+                productosContainer.appendChild(newDiv);
             }
-        });
 
-        // Agregar el primer campo de producto al cargar la página
-        addProductSelect();
-    });
-</script>
+            productosContainer.addEventListener('change', (event) => {
+                if (event.target.classList.contains('product-select') && event.target.value !== '') {
+                    // Verificar si no se ha agregado un nuevo campo aún
+                    const selects = productosContainer.getElementsByClassName('product-select');
+                    if (selects[selects.length - 1] === event.target) {
+                        addProductSelect();
+                    }
+                }
+            });
+
+            // Agregar el primer campo de producto al cargar la página
+            addProductSelect();
+        });
+    </script>
     <div class="copyright">
         <div class="bd-container">
-            <p>💙 © 2023 Techlogistic. Todos los derechos reservados. 💚</p>
+            <p>💙 © 2024 Techlogistic. Todos los derechos reservados. 💚</p>
             <p><a href="../../HTML/terminos-y-condiciones.html">Términos y Condiciones</a> · <a href="../../HTML/politica-de-privacidad.html">Política de Privacidad</a></p>
         </div>
     </div>

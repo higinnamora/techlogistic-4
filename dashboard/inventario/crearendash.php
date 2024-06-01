@@ -26,14 +26,3 @@ if ($conexion->query($sql) === TRUE) {
 
 
 $conexion->close();
-
-
-
-
-
-
-
-
-
-
-?>
