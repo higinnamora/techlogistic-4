@@ -11,12 +11,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $contra = $_POST["sign-up-form-password"];
     $confcontra = $_POST["sign-up-form-password-confirm"];
     try {
-        // Verificar los datos recibidos
         if (empty($id_persona) || empty($horario) || empty($salario) || empty($cargo) || empty($email) || empty($contra) || empty($confcontra)) {
             throw new Exception("Alguno de los campos está vacío.");
         }
-        
-        // Insertar datos en la base de datos
         $sql = "INSERT INTO funcionario(id_persona, horario, salario, roles_id_rol) VALUES ('$id_persona', '$horario', '$salario', '$cargo')";
         $sql2 = "INSERT INTO correos ( id_persona, correo, password) values( '$id_persona', '$email', '$contra')";
         
@@ -35,5 +32,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error: " . $e->getMessage();
     }
 }
-
 $conexion->close();

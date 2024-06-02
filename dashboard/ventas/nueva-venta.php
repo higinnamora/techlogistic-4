@@ -91,13 +91,17 @@ if ($_SESSION['tipo_usuario']) {
             }
             ?>
             <div class="form-field">
-                <label for="nombrecliente" class="form-label">Nombre del cliente</label>
-                <input type="text" name="nombrecliente" class="form-control" id="nombrecliente" placeholder="Ingrese nombre del cliente" required>
+            <label class="form-label" for="documento">Número de documento</label>
+            <input class="form-control" type="text" id="documento" name="documento" placeholder="Ingrese el número de documento" required />
+          </div>
+            <div class="form-field">
+                <label for="primer_nombre" class="form-label">Nombre del cliente</label>
+                <input type="text" name="primer_nombre" class="form-control" id="primer_nombre" readonly>
             </div>
             <div class="form-field">
-                <label for="documento" class="form-label">Documento de identidad</label>
-                <input type="number" name="documento" class="form-control" id="documento" placeholder="Ingrese cantidad de productos" required>
-            </div>
+            <label class="form-label" for="primer_apellido">Apellido del cliente</label>
+            <input class="form-control" type="text" id="primer_apellido" name="primer_apellido" readonly />
+          </div>
             <div class="form-field">
                 <label class="form-label" for="descripcion">Producto</label>
                 <select name="descripcion" class="form-select" required>
@@ -154,7 +158,26 @@ if ($_SESSION['tipo_usuario']) {
     </div>
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="../../js/techlogistic.js"></script>
+    <script>
+    document.getElementById('documento').addEventListener('change', function() {
+      var documento = this.value;
+      if (documento.trim() !== '') {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '../../PHP/obtener_persona.php?id=' + documento, true);
+        xhr.onload = function() {
+          if (xhr.status == 200) {
+            var data = JSON.parse(xhr.responseText);
+            document.getElementById('primer_nombre').value = data.primer_nombre;
+            document.getElementById('primer_apellido').value = data.primer_apellido;
+          }
+        };
+        xhr.send();
+      } else {
+        document.getElementById('primer_nombre').value = '';
+        document.getElementById('primer_apellido').value = '';
+      }
+    });
+  </script>
 </body>
 
 </html>
