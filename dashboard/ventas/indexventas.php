@@ -1,10 +1,5 @@
-<!-- Estamos validando que el usuario si tenga una sesion iniciada, de lo contrario se enviara a login-->
-
 <?php
-
 session_start();
-
-
 if (!isset($_SESSION['tipo_usuario'])) {
   header("Location: ../../HTML/sign-in.html");
   exit;
@@ -14,8 +9,6 @@ include_once "../../PHP/conexion_a_la_DB.php";
 $sql = "SELECT numero_orden_venta, id_funcionario, id_cliente, id_medio_pago, cantidad_productos, descuento, fecha_factura, observacion, subtotal, valor_Total FROM orden_venta;";
 $datos = $conexion->query($sql);
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="es">
@@ -50,7 +43,12 @@ $datos = $conexion->query($sql);
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="../../PHP/indexdash.php">Inicio</a>
           </li>
-
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="./nueva-venta.php">Nueva venta</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="../../HTML/sign-up.html">Agregar persona</a>
+          </li>
           <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
           <li class="nav-item dropdown">
             <div class="dropdown" role="group">
@@ -72,9 +70,6 @@ $datos = $conexion->query($sql);
   <main class="container my-5 h-100">
     <div class="d-flex flex-column flex-md-row justify-content-between">
       <h4 class="text-md-start text-left">Ventas</h4>
-      <div class="d-flex flex-column flex-md-row gap-2">
-        <a href="./nueva-venta.php"><button class="button w-auto">Agregar venta</button></a>
-      </div>
       <div>
         <form class="search-box" action="buscarDevolucion.php" method="POST">
           <input type="text" name="query" placeholder="Buscar devolucion">

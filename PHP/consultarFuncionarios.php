@@ -1,3 +1,18 @@
+<?php
+session_start();
+if (!isset($_SESSION['tipo_usuario'])) {
+  header("Location: ../../HTML/sign-in.html");
+  exit;
+}
+$conexion;
+include_once "conexion_a_la_DB.php";
+$sql = "SELECT p.primer_nombre, p.primer_apellido, c.correo, f.horario, f.salario
+        FROM funcionario f
+        JOIN personas p ON f.id_persona = p.id_persona
+        JOIN correos c ON f.id_persona = c.id_persona;";
+$datos = $conexion->query($sql);
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -23,7 +38,7 @@
   <!-- Header -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
-      <a href="../indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../IMAGES/favicon.png" width="50"
+      <a href="indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../IMAGES/favicon.png" width="50"
           height="50" alt="" class="navigation__image">Techlogistic</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,11 +57,6 @@
                   class="rounded-circle" width="38" height="38" />
               </a>
               <ul class="dropdown-menu dropdown-menu-lg-end">
-                <!--<li><a class="dropdown-item" href="#">Mi perfil</a></li>-->
-                <!--<li><a class="dropdown-item" href="#">Configuración</a></li>-->
-                <!--<li>
-                  <hr class="dropdown-divider">
-                </li>-->
                 <li><a class="dropdown-item" href="../../cerrar_sesion.php">Cerrar sesión</a></li>
               </ul>
             </div>
@@ -63,66 +73,30 @@
     </div>
     <hr>
     <div class="table-responsive">
-
-      <?php
-      $conexion;
-      include_once "./conexion_a_la_DB.php";
-
-      $sql = "CALL obtener_persona()";
-      if ($stmt = $conexion->prepare($sql)) {
-        if ($stmt->execute()) {
-          $result = $stmt->get_result();
-
-          echo '
-            <table class="table">
-            <thead>
-              <tr> 
-                <th>Id Persona</th>
-                <th>No Documento</th>
-                <th>Primer Nombre</th>
-                <th>Segundo Nombre</th>
-                <th>Primer Apellido</th>
-                <th>Segundo Apellido</th>
-                <th>Correo</th>
-                <th>Rol</th>
-              </tr>
-            </thead>
-            <tbody>
-            ';
-
-          while ($fila = $result->fetch_assoc()) {
-
-            $id = $fila["id_persona"];
-            $ndoc = $fila["no_documento"];
-            $PrimerNombr = $fila["primer_nombre"];
-            $SegundoNombr = $fila["segundo_nombre"];
-            $primerApell = $fila["primer_apellido"];
-            $segundoApell = $fila["segundo_apellido"];
-            $correo = $fila["correo"];
-            $rol = $fila["descripcion_rol"];
-            echo "
-        <tr>
-          <td>$id</td>
-          <td>$ndoc</td>
-          <td>$PrimerNombr</td>
-          <td>$SegundoNombr</td>
-          <td>$primerApell</td> 
-          <td>$segundoApell</td>
-          <td>$correo</td>
-          <td>$rol</td>
-        </tr>";
+      <table id="ventas" class="table table-striped overflow-x-auto">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Horario</th>
+            <th scope="col">Salario</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
+          // Itera sobre los datos y genera las filas de la tabla
+          foreach ($datos as $fila) {
+            echo "<tr>";
+            foreach ($fila as $valor) {
+              echo "<td>$valor</td>";
+            }
+          ?>
+          <?php echo "</tr>";
           }
-          echo "</tbody></table>";
-          $stmt->close();
-        } else {
-          die("Error en la ejecución del procedimiento almacenado: " . $stmt->error);
-        }
-      } else {
-        die("Error en la preparación del procedimiento almacenado: " . $conex->error);
-      }
-      //mysqli_close($conn);
-      ?>
-
+          ?>
+        </tbody>
+      </table>
     </div>
 
   </main>
@@ -130,7 +104,7 @@
   <footer>
     <div class="copyright">
       <div class="bd-container">
-        <p>💙 © 2023 Techlogistic. Todos los derechos reservados. 💚</p>
+        <p>💙 © 2024 Techlogistic. Todos los derechos reservados. 💚</p>
         <p><a href="../terminos-y-condiciones.html">Términos y Condiciones</a> · <a
             href="../politica-de-privacidad.html">Política de Privacidad</a></p>
       </div>

@@ -39,6 +39,12 @@ if ($_SESSION['tipo_usuario']) {
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="../../PHP/indexdash.php">Inicio</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="./indexventas.php">Ventas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="../../HTML/sign-up.html">Agregar persona</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <div class="dropdown" role="group">
                             <a class="dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
@@ -60,15 +66,6 @@ if ($_SESSION['tipo_usuario']) {
                 <label class="form-label" for="sign-up-form-numcargo">Venta realizada por</label>
                 <input type="text" class="form-control" name="vendedor" id="vendedor" value="<?php echo $nombre_usuario; ?>" readonly>
                 <input type="hidden" name="funcionario" value="<?php echo $tipo_usuario; ?>">
-            </div>
-            <!-- Otros campos del formulario -->
-            <div class="form-field">
-                <label class="form-label" for="sign-up-form-numcargo">Género cliente</label>
-                <select name="tipocliente" class="form-select" required>
-                    <option value="" disabled selected hidden>Seleccione</option>
-                    <option value="2">Masculino</option>
-                    <option value="3">Femenino</option>
-                </select>
             </div>
             <div class="form-field">
                 <label class="form-label" for="sign-up-form-numcargo">Medio de pago</label>
@@ -93,23 +90,26 @@ if ($_SESSION['tipo_usuario']) {
                 }
             }
             ?>
-            <div id="productos-container">
-                <div class="form-field product-div">
-                    <label class="form-label" for="descripcion">Producto</label>
-                    <select name="descripcion[]" class="form-select product-select" required>
-                        <option value="" disabled selected hidden>Seleccione</option>
-                        <?php foreach ($productos as $producto) { ?>
-                            <option value="<?php echo $producto; ?>"><?php echo $producto; ?></option>
-                        <?php } ?>
-                    </select>
-                </div>
-                <div class="form-field product-div">
-                    <label for="cantidadpro" class="form-label">Cantidad de productos</label>
-                    <input type="number" name="cantidadpro[]" class="form-control" placeholder="Ingrese cantidad de productos" required>
-                </div>
+            <div class="form-field">
+                <label for="nombrecliente" class="form-label">Nombre del cliente</label>
+                <input type="text" name="nombrecliente" class="form-control" id="nombrecliente" placeholder="Ingrese nombre del cliente" required>
             </div>
             <div class="form-field">
-                <button type="button" id="addProduct" class="btn btn-primary">Agregar Producto</button>
+                <label for="documento" class="form-label">Documento de identidad</label>
+                <input type="number" name="documento" class="form-control" id="documento" placeholder="Ingrese cantidad de productos" required>
+            </div>
+            <div class="form-field">
+                <label class="form-label" for="descripcion">Producto</label>
+                <select name="descripcion" class="form-select" required>
+                    <?php foreach ($productos as $producto) { ?>
+                        <option value="" disabled selected hidden>Seleccione</option>
+                        <option value="<?php echo $producto; ?>"><?php echo $producto; ?></option>
+                    <?php } ?>
+                </select>
+            </div>
+            <div class="form-field">
+                <label for="cantidadpro" class="form-label">Cantidad de productos</label>
+                <input type="number" name="cantidadpro" class="form-control" id="cantidadpro" placeholder="Ingrese cantidad de productos" required>
             </div>
             <div class="form-field">
                 <label for="descuento" class="form-label">Descuento</label>
@@ -146,43 +146,9 @@ if ($_SESSION['tipo_usuario']) {
             </div>
         </div>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const productosContainer = document.getElementById('productos-container');
-            const addProductButton = document.getElementById('addProduct');
-
-            function addProductDiv() {
-                const newDiv = document.createElement('div');
-                newDiv.className = 'form-field product-div';
-                newDiv.innerHTML = `
-                    <label class="form-label" for="descripcion">Producto</label>
-                    <select name="descripcion[]" class="form-select product-select" required>
-                        <option value="" disabled selected hidden>Seleccione</option>
-                        <?php foreach ($productos as $producto) { ?>
-                            <option value="<?php echo $producto; ?>"><?php echo $producto; ?></option
-                    <?php } ?>
-                </select>
-            `;
-                productosContainer.appendChild(newDiv);
-            }
-
-            productosContainer.addEventListener('change', (event) => {
-                if (event.target.classList.contains('product-select') && event.target.value !== '') {
-                    // Verificar si no se ha agregado un nuevo campo aún
-                    const selects = productosContainer.getElementsByClassName('product-select');
-                    if (selects[selects.length - 1] === event.target) {
-                        addProductSelect();
-                    }
-                }
-            });
-
-            // Agregar el primer campo de producto al cargar la página
-            addProductSelect();
-        });
-    </script>
     <div class="copyright">
         <div class="bd-container">
-            <p>💙 © 2024 Techlogistic. Todos los derechos reservados. 💚</p>
+            <p>💙 © 2023 Techlogistic. Todos los derechos reservados. 💚</p>
             <p><a href="../../HTML/terminos-y-condiciones.html">Términos y Condiciones</a> · <a href="../../HTML/politica-de-privacidad.html">Política de Privacidad</a></p>
         </div>
     </div>
