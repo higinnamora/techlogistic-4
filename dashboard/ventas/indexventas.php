@@ -4,10 +4,6 @@ if (!isset($_SESSION['tipo_usuario'])) {
   header("Location: ../../HTML/sign-in.html");
   exit;
 }
-$conexion;
-include_once "../../PHP/conexion_a_la_DB.php";
-$sql = "SELECT numero_orden_venta, id_funcionario, id_cliente, id_medio_pago, cantidad_productos, descuento, fecha_factura, observacion, subtotal, valor_Total FROM orden_venta;";
-$datos = $conexion->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -78,38 +74,50 @@ $datos = $conexion->query($sql);
       </div>
     </div>
     <hr>
-    <!-- Tabla de Ventas -->
     <div class="table-responsive">
-      <table id="ventas" class="table table-striped overflow-x-auto">
-        <thead>
-          <tr>
-            <th scope="col">Número orden de venta</th>
-            <th scope="col">Id Cliente</th>
-            <th scope="col">Nombre del cliente</th>
-            <th scope="col">id medio de pago</th>
-            <th scope="col">Cantidad</th>
-            <th scope="col">Descuento</th>
-            <th scope="col">Fecha factura</th>
-            <th scope="col">Observación</th>
-            <th scope="col">Subtotal</th>
-            <th scope="col">Total a pagar</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php
-          // Itera sobre los datos y genera las filas de la tabla
-          foreach ($datos as $fila) {
-            echo "<tr>";
-            foreach ($fila as $valor) {
-              echo "<td>$valor</td>";
+
+            <?php
+            $conexion;
+            include_once "../../PHP/conexion_a_la_DB.php";
+            $sql = "SELECT fecha_factura, doc_identidad, nombre_cliente, producto, cantidad_productos, valor_Total FROM orden_venta;";
+            $datos = $conexion->query($sql);
+            $result = mysqli_query($conexion, $sql);
+
+            echo '<table class="table">
+            <thead>
+                <tr> 
+                    <th scope="scope" >Fecha de factura</th>
+                    <th scope="scope" >Doc. Identificación</th>
+                    <th scope="scope" >Nombre cliente</th>
+                    <th scope="scope" >Producto</th>
+                    <th scope="scope" >Cantidad</th>
+                    <th scope="scope" >Total</th>
+                </tr>
+            </thead>
+            <tbody>';
+            if ($rta = $conexion->query($sql)) {
+                while ($row = $rta->fetch_assoc()) {
+                    $fecha = $row["fecha_factura"];
+                    $documento = $row["doc_identidad"];
+                    $nombre = $row["nombre_cliente"];
+                    $producto = $row["producto"];
+                    $cantidad = $row["cantidad_productos"];
+                    $total = $row["valor_Total"];
+                    echo "
+            <tr>
+                <td>$fecha</td>
+                <td>$documento</td>
+                <td>$nombre</td>
+                <td>$producto</td>
+                <td>$cantidad</td>
+                <td>$total</td>
+            </tr>";
+                }
+                echo "</tbody></table>\n";
+                $rta->free();
             }
-          ?>
-          <?php echo "</tr>";
-          }
-          ?>
-        </tbody>
-      </table>
-    </div>
+            ?>
+        </div>
 
     <hr class="my-5">
 

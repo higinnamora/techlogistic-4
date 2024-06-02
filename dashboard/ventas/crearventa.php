@@ -6,21 +6,20 @@ include_once "../../PHP/conexion_a_la_DB.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $funcionario = $_POST["funcionario"];
-    $tipocliente = $_POST["tipocliente"];
+    $id_persona = $_POST["id_persona"];
     $mediopago = $_POST["mediodepago"];
-    $nombrecliente = $_POST["nombrecliente"];
-    $documento = $_POST["documento"];
-    $cantidad = $_POST["cantidadpro"];
-    $descuento = $_POST["descuento"];
     $fechafactura = $_POST["fechafactura"];
-    $observa = $_POST["descripcion"];
+    $documento = $_POST["documento"];
+    $nombrecliente = $_POST["primer_nombre"];
+    $producto = $_POST["descripcion"];
+    $cantidad = $_POST["cantidadpro"];
     $subtotal = $_POST["subtotal"];
-    $total = $_POST["total"];
+    $total = $_POST["total"];  
 }
 
 
-$sql = "INSERT INTO orden_venta(id_funcionario, id_cliente, id_medio_pago, nombre_cliente, doc_identidad, cantidad_productos, descuento, fecha_factura, observacion, subtotal, valor_Total)   
-VALUES ('$funcionario', '1', '$mediopago', '$nombrecliente', '$documento', '$cantidad', '$descuento', '$fechafactura', '$observa', '$subtotal', '$total');";
+$sql = "INSERT INTO orden_venta(id_funcionario, id_persona, id_medio_pago, fecha_factura, doc_identidad, nombre_cliente, producto, cantidad_productos, valor_Total)   
+VALUES ('$funcionario', '$id_persona', '$mediopago', '$fechafactura', '$documento', '$nombrecliente', '$producto', '$cantidad', '$total');";
 
 if ($conexion->query($sql) === TRUE) {
     header("Location: registro-venta-exitosa.php");

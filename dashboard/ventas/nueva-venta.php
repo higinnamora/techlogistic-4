@@ -68,6 +68,10 @@ if ($_SESSION['tipo_usuario']) {
                 <input type="hidden" name="funcionario" value="<?php echo $tipo_usuario; ?>">
             </div>
             <div class="form-field">
+                <label for="codigoProducto" class="form-label">Fecha de compra</label>
+                <input type="date" class="form-control" name="fechafactura" id="fechafactura" required>
+            </div>
+            <div class="form-field">
                 <label class="form-label" for="sign-up-form-numcargo">Medio de pago</label>
                 <select name="mediodepago" class="form-select" required>
                     <option value="" disabled selected hidden>Seleccione</option>
@@ -91,17 +95,20 @@ if ($_SESSION['tipo_usuario']) {
             }
             ?>
             <div class="form-field">
-            <label class="form-label" for="documento">Número de documento</label>
-            <input class="form-control" type="text" id="documento" name="documento" placeholder="Ingrese el número de documento" required />
-          </div>
+                <label class="form-label" for="documento">Número de documento</label>
+                <input class="form-control" type="text" id="documento" name="documento" placeholder="Ingrese el número de documento" required />
+            </div>
+            <div class="form-field">
+                <input class="form-control" type="hidden" id="id_persona" name="id_persona" readonly />
+            </div>
             <div class="form-field">
                 <label for="primer_nombre" class="form-label">Nombre del cliente</label>
                 <input type="text" name="primer_nombre" class="form-control" id="primer_nombre" readonly>
             </div>
             <div class="form-field">
-            <label class="form-label" for="primer_apellido">Apellido del cliente</label>
-            <input class="form-control" type="text" id="primer_apellido" name="primer_apellido" readonly />
-          </div>
+                <label class="form-label" for="primer_apellido">Apellido del cliente</label>
+                <input class="form-control" type="text" id="primer_apellido" name="primer_apellido" readonly />
+            </div>
             <div class="form-field">
                 <label class="form-label" for="descripcion">Producto</label>
                 <select name="descripcion" class="form-select" required>
@@ -114,14 +121,6 @@ if ($_SESSION['tipo_usuario']) {
             <div class="form-field">
                 <label for="cantidadpro" class="form-label">Cantidad de productos</label>
                 <input type="number" name="cantidadpro" class="form-control" id="cantidadpro" placeholder="Ingrese cantidad de productos" required>
-            </div>
-            <div class="form-field">
-                <label for="descuento" class="form-label">Descuento</label>
-                <input type="text" class="form-control" name="descuento" id="descuento" placeholder="Ingrese descuento" required>
-            </div>
-            <div class="form-field">
-                <label for="codigoProducto" class="form-label">Fecha de compra</label>
-                <input type="date" class="form-control" name="fechafactura" id="fechafactura" required>
             </div>
             <div class="form-field">
                 <label for="subtotal" class="form-label">Subtotal ($)</label>
@@ -159,25 +158,27 @@ if ($_SESSION['tipo_usuario']) {
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
     <script>
-    document.getElementById('documento').addEventListener('change', function() {
-      var documento = this.value;
-      if (documento.trim() !== '') {
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', '../../PHP/obtener_persona.php?id=' + documento, true);
-        xhr.onload = function() {
-          if (xhr.status == 200) {
-            var data = JSON.parse(xhr.responseText);
-            document.getElementById('primer_nombre').value = data.primer_nombre;
-            document.getElementById('primer_apellido').value = data.primer_apellido;
-          }
-        };
-        xhr.send();
-      } else {
-        document.getElementById('primer_nombre').value = '';
-        document.getElementById('primer_apellido').value = '';
-      }
-    });
-  </script>
+        document.getElementById('documento').addEventListener('change', function() {
+            var documento = this.value;
+            if (documento.trim() !== '') {
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', '../../PHP/obtener_persona.php?id=' + documento, true);
+                xhr.onload = function() {
+                    if (xhr.status == 200) {
+                        var data = JSON.parse(xhr.responseText);
+                        document.getElementById('id_persona').value = data.id_persona;
+                        document.getElementById('primer_nombre').value = data.primer_nombre;
+                        document.getElementById('primer_apellido').value = data.primer_apellido;
+                    }
+                };
+                xhr.send();
+            } else {
+                document.getElementById('id_persona').value = '';
+                document.getElementById('primer_nombre').value = '';
+                document.getElementById('primer_apellido').value = '';
+            }
+        });
+    </script>
 </body>
 
 </html>
