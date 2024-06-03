@@ -109,23 +109,28 @@ if ($_SESSION['tipo_usuario']) {
                 <label class="form-label" for="primer_apellido">Apellido del cliente</label>
                 <input class="form-control" type="text" id="primer_apellido" name="primer_apellido" readonly />
             </div>
-            <div class="form-field">
-                <label class="form-label" for="descripcion">Producto</label>
-                <select name="descripcion" class="form-select" required>
-                    <?php foreach ($productos as $producto) { ?>
-                        <option value="" disabled selected hidden>Seleccione</option>
-                        <option value="<?php echo $producto; ?>"><?php echo $producto; ?></option>
-                    <?php } ?>
-                </select>
+            <div id="productos-container">
+                <div class="producto">
+                    <div class="form-field">
+                        <label class="form-label" for="producto">Producto</label>
+                        <select name="productos[]" class="form-select" required>
+                            <option value="" disabled selected hidden>Seleccione</option>
+                            <?php foreach ($productos as $producto) { ?>
+                                <option value="<?php echo $producto; ?>"><?php echo $producto; ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label class="form-label" for="cantidad">Cantidad</label>
+                        <input type="number" class="form-control" name="cantidades[]" placeholder="Cantidad" required>
+                    </div>
+                    <div class="form-field">
+                        <label class="form-label" for="subtotal">Subtotal ($)</label>
+                        <input type="text" class="form-control" name="subtotales[]" placeholder="Subtotal" required>
+                    </div>
+                </div>
             </div>
-            <div class="form-field">
-                <label for="cantidadpro" class="form-label">Cantidad de productos</label>
-                <input type="number" name="cantidadpro" class="form-control" id="cantidadpro" placeholder="Ingrese cantidad de productos" required>
-            </div>
-            <div class="form-field">
-                <label for="subtotal" class="form-label">Subtotal ($)</label>
-                <input type="text" class="form-control" name="subtotal" id="subtotal" placeholder="0" required>
-            </div>
+            <button type="button" id="agregar-producto" class="btn btn-success">Agregar otro producto</button>
             <div class="form-field">
                 <label for="total" class="form-label">Total ($)</label>
                 <input type="text" class="form-control" name="total" id="total" placeholder="0" required>
@@ -177,6 +182,31 @@ if ($_SESSION['tipo_usuario']) {
                 document.getElementById('primer_nombre').value = '';
                 document.getElementById('primer_apellido').value = '';
             }
+        });
+        document.getElementById('agregar-producto').addEventListener('click', function() {
+            var productosContainer = document.getElementById('productos-container');
+            var nuevoProducto = document.createElement('div');
+            nuevoProducto.classList.add('producto');
+            nuevoProducto.innerHTML = `
+            <div class="form-field">
+                <label class="form-label" for="producto">Producto</label>
+                <select name="productos[]" class="form-select" required>
+                    <option value="" disabled selected hidden>Seleccione</option>
+                    <?php foreach ($productos as $producto) { ?>
+                        <option value="<?php echo $producto; ?>"><?php echo $producto; ?></option>
+                    <?php } ?>
+                </select>
+            </div>
+            <div class="form-field">
+                <label class="form-label" for="cantidad">Cantidad</label>
+                <input type="number" class="form-control" name="cantidades[]" placeholder="Cantidad" required>
+            </div>
+            <div class="form-field">
+                <label class="form-label" for="subtotal">Subtotal ($)</label>
+                <input type="text" class="form-control" name="subtotales[]" placeholder="Subtotal" required>
+            </div>
+        `;
+            productosContainer.appendChild(nuevoProducto);
         });
     </script>
 </body>

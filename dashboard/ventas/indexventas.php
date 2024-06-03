@@ -76,16 +76,17 @@ if (!isset($_SESSION['tipo_usuario'])) {
     <hr>
     <div class="table-responsive">
 
-            <?php
-            $conexion;
-            include_once "../../PHP/conexion_a_la_DB.php";
-            $sql = "SELECT fecha_factura, doc_identidad, nombre_cliente, producto, cantidad_productos, valor_Total FROM orden_venta;";
-            $datos = $conexion->query($sql);
-            $result = mysqli_query($conexion, $sql);
+      <?php
+      $conexion;
+      include_once "../../PHP/conexion_a_la_DB.php";
+      $sql = "SELECT numero_orden_venta, fecha_factura, doc_identidad, nombre_cliente FROM orden_venta;";
+      $datos = $conexion->query($sql);
+      $result = mysqli_query($conexion, $sql);
 
-            echo '<table class="table">
+      echo '<table class="table">
             <thead>
                 <tr> 
+                    <th scope="scope" >Número Orden de venta</th>
                     <th scope="scope" >Fecha de factura</th>
                     <th scope="scope" >Doc. Identificación</th>
                     <th scope="scope" >Nombre cliente</th>
@@ -95,29 +96,25 @@ if (!isset($_SESSION['tipo_usuario'])) {
                 </tr>
             </thead>
             <tbody>';
-            if ($rta = $conexion->query($sql)) {
-                while ($row = $rta->fetch_assoc()) {
-                    $fecha = $row["fecha_factura"];
-                    $documento = $row["doc_identidad"];
-                    $nombre = $row["nombre_cliente"];
-                    $producto = $row["producto"];
-                    $cantidad = $row["cantidad_productos"];
-                    $total = $row["valor_Total"];
-                    echo "
+      if ($rta = $conexion->query($sql)) {
+        while ($row = $rta->fetch_assoc()) {
+          $numero = $row["numero_orden_venta"];
+          $fecha = $row["fecha_factura"];
+          $documento = $row["doc_identidad"];
+          $nombre = $row["nombre_cliente"];
+          echo "
             <tr>
+                <td>$numero</td>
                 <td>$fecha</td>
                 <td>$documento</td>
                 <td>$nombre</td>
-                <td>$producto</td>
-                <td>$cantidad</td>
-                <td>$total</td>
             </tr>";
-                }
-                echo "</tbody></table>\n";
-                $rta->free();
-            }
-            ?>
-        </div>
+        }
+        echo "</tbody></table>\n";
+        $rta->free();
+      }
+      ?>
+    </div>
 
     <hr class="my-5">
 
