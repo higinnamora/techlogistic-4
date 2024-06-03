@@ -115,8 +115,14 @@ if ($_SESSION['tipo_usuario']) {
                         <label class="form-label" for="producto">Producto</label>
                         <select name="productos[]" class="form-select" required>
                             <option value="" disabled selected hidden>Seleccione</option>
-                            <?php foreach ($productos as $producto) { ?>
-                                <option value="<?php echo $producto; ?>"><?php echo $producto; ?></option>
+                            <?php
+                            foreach ($productos as $producto) {
+                                $sql = "SELECT precio FROM producto WHERE nombre_producto = '$producto'";
+                                $resultadoPrecio = mysqli_query($conexion, $sql);
+                                $filaPrecio = $resultadoPrecio->fetch_assoc();
+                                $precio = $filaPrecio["precio"];
+                            ?>
+                                <option value="<?php echo $producto . ',' . $precio; ?>"><?php echo $producto; ?></option>
                             <?php } ?>
                         </select>
                     </div>
@@ -126,14 +132,14 @@ if ($_SESSION['tipo_usuario']) {
                     </div>
                     <div class="form-field">
                         <label class="form-label" for="subtotal">Subtotal ($)</label>
-                        <input type="text" class="form-control" name="subtotales[]" placeholder="Subtotal" required>
+                        <input type="text" class="form-control" name="subtotales[]" placeholder="0" readonly>
                     </div>
                 </div>
             </div>
             <button type="button" id="agregar-producto" class="btn btn-success">Agregar otro producto</button>
             <div class="form-field">
                 <label for="total" class="form-label">Total ($)</label>
-                <input type="text" class="form-control" name="total" id="total" placeholder="0" required>
+                <input type="text" class="form-control" name="total" id="total" placeholder="0" readonly>
             </div>
             <input type="submit" class="button" value="Agregar venta" />
         </form>
@@ -163,10 +169,42 @@ if ($_SESSION['tipo_usuario']) {
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
     <script>
-        var fechaActual = new Date().toISOString().split('T')[0];
-        document.getElementById("fechafactura").value = fechaActual;
-        document.getElementById("fechafactura").disabled = true;
-        
+        //var fechaActual = new Date().toISOString().split('T')[0];
+        //document.getElementById("fechafactura").value = fechaActual;
+        //document.getElementById("fechafactura").disabled = true;
+
+        function calcularSubtotal() {
+            var producto = this.parentNode.previousElementSibling.querySelector('select[name="productos[]"]');
+            var option = producto.options[producto.selectedIndex];
+            var precio = parseFloat(option.value.split(',')[1]);
+            var cantidad = parseFloat(this.value);
+            var subtotal = precio * cantidad;
+            if (isNaN(cantidad)) {
+                subtotal = 0;
+            } else {
+                subtotal = precio * cantidad;
+            }
+            this.parentNode.nextElementSibling.querySelector('input[name="subtotales[]"]').value = subtotal.toFixed(2);
+            actualizarTotal();
+            return subtotal;
+        }
+
+        function asignarEventListeners() {
+            var productosSelect = document.querySelectorAll('select[name="productos[]"]');
+            productosSelect.forEach(function(select) {
+                select.addEventListener('change', calcularSubtotal);
+            });
+
+            var cantidadesInput = document.querySelectorAll('input[name="cantidades[]"]');
+            cantidadesInput.forEach(function(input) {
+                input.addEventListener('input', calcularSubtotal);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            asignarEventListeners();
+        });
+
         document.getElementById('documento').addEventListener('change', function() {
             var documento = this.value;
             if (documento.trim() !== '') {
@@ -196,8 +234,14 @@ if ($_SESSION['tipo_usuario']) {
                 <label class="form-label" for="producto">Producto</label>
                 <select name="productos[]" class="form-select" required>
                     <option value="" disabled selected hidden>Seleccione</option>
-                    <?php foreach ($productos as $producto) { ?>
-                        <option value="<?php echo $producto; ?>"><?php echo $producto; ?></option>
+                    <?php
+                    foreach ($productos as $producto) {
+                        $sql = "SELECT precio FROM producto WHERE nombre_producto = '$producto'";
+                        $resultadoPrecio = mysqli_query($conexion, $sql);
+                        $filaPrecio = $resultadoPrecio->fetch_assoc();
+                        $precio = $filaPrecio["precio"];
+                    ?>
+                        <option value="<?php echo $producto . ',' . $precio; ?>"><?php echo $producto; ?></option>
                     <?php } ?>
                 </select>
             </div>
@@ -207,11 +251,25 @@ if ($_SESSION['tipo_usuario']) {
             </div>
             <div class="form-field">
                 <label class="form-label" for="subtotal">Subtotal ($)</label>
-                <input type="text" class="form-control" name="subtotales[]" placeholder="Subtotal" required>
+                <input type="text" class="form-control" name="subtotales[]" placeholder="Subtotal" readonly>
             </div>
         `;
             productosContainer.appendChild(nuevoProducto);
+            asignarEventListeners();
         });
+
+        function actualizarTotal() {
+            var subtotales = document.querySelectorAll('input[name="subtotales[]"]');
+            var total = 0;
+            if (isNaN(total)) {
+                total = 0;
+            } else {
+                subtotales.forEach(function(subtotal) {
+                    total += parseFloat(subtotal.value);
+                });
+            }
+            document.getElementById('total').value = total.toFixed(2);
+        }
     </script>
 </body>
 
