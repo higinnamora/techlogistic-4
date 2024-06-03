@@ -69,7 +69,7 @@ if ($_SESSION['tipo_usuario']) {
             </div>
             <div class="form-field">
                 <label for="codigoProducto" class="form-label">Fecha de compra</label>
-                <input type="date" class="form-control" name="fechafactura" id="fechafactura" required>
+                <input type="date" class="form-control" name="fechafactura" id="fechafactura" readonly>
             </div>
             <div class="form-field">
                 <label class="form-label" for="sign-up-form-numcargo">Medio de pago</label>
@@ -169,9 +169,8 @@ if ($_SESSION['tipo_usuario']) {
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
     <script>
-        //var fechaActual = new Date().toISOString().split('T')[0];
-        //document.getElementById("fechafactura").value = fechaActual;
-        //document.getElementById("fechafactura").disabled = true;
+        var fechaActual = new Date().toISOString().split('T')[0];
+        document.getElementById("fechafactura").value = fechaActual;
 
         function calcularSubtotal() {
             var producto = this.parentNode.previousElementSibling.querySelector('select[name="productos[]"]');
