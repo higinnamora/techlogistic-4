@@ -90,9 +90,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
                     <th scope="scope" >Fecha de factura</th>
                     <th scope="scope" >Doc. Identificación</th>
                     <th scope="scope" >Nombre cliente</th>
-                    <th scope="scope" >Producto</th>
-                    <th scope="scope" >Cantidad</th>
-                    <th scope="scope" >Total</th>
+                    <th scope="scope">Detalle</th>
                 </tr>
             </thead>
             <tbody>';
@@ -108,6 +106,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
                 <td>$fecha</td>
                 <td>$documento</td>
                 <td>$nombre</td>
+                <td><button class='button' onclick='generarFactura($numero)' data-numero-orden='$numero'>Ver</button></td>
             </tr>";
         }
         echo "</tbody></table>\n";
@@ -115,7 +114,6 @@ if (!isset($_SESSION['tipo_usuario'])) {
       }
       ?>
     </div>
-
     <hr class="my-5">
 
     <div>
@@ -198,6 +196,11 @@ if (!isset($_SESSION['tipo_usuario'])) {
       ]
     });
   });
+
+  function generarFactura(numeroVenta) {
+    const numeroOrdenVenta = numeroVenta || $(this).data('numero-orden');
+    window.location.href = "generar_factura.php?numero_orden_venta=" + numeroOrdenVenta;
+}
 </script>
 
 </html>
