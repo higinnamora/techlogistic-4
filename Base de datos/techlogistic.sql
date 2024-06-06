@@ -1,864 +1,563 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
+-- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 20-05-2024 a las 19:47:18
--- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.0.30
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
+-- Host: localhost    Database: techlogistic
+-- ------------------------------------------------------
+-- Server version	8.0.36
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Base de datos: `techlogistic`
+-- Table structure for table `categoria_materia`
 --
 
-DELIMITER $$
---
--- Procedimientos
---
-CREATE DEFINER=`root`@`localhost` PROCEDURE `obtener_persona` ()   BEGIN
-    SELECT 
-        p.id_persona,
-        p.no_documento,
-        p.primer_nombre,
-        p.segundo_nombre,
-        p.primer_apellido,
-        p.segundo_apellido,
-        c.correo,
-        r.descripcion_rol
-    FROM 
-        personas p
-    LEFT JOIN 
-        correos c ON p.id_persona = c.id_persona
-    LEFT JOIN 
-        roles r ON p.id_rol = r.id_rol;
-END$$
-
-DELIMITER ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `categoria_materia`
---
-
+DROP TABLE IF EXISTS `categoria_materia`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `categoria_materia` (
-  `id_categoria` int(11) NOT NULL,
-  `descripcion` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `id_categoria` int NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id_categoria`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Volcado de datos para la tabla `categoria_materia`
+-- Dumping data for table `categoria_materia`
 --
 
-INSERT INTO `categoria_materia` (`id_categoria`, `descripcion`) VALUES
-(1, 'Algodon'),
-(2, 'Lana');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `cliente`
---
-
-CREATE TABLE `cliente` (
-  `id_cliente` int(11) NOT NULL,
-  `id_persona` int(11) NOT NULL,
-  `medidas` float NOT NULL,
-  `estado_cliente` varchar(15) NOT NULL,
-  `tipo_cliente` varchar(20) NOT NULL,
-  `genero` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+LOCK TABLES `categoria_materia` WRITE;
+/*!40000 ALTER TABLE `categoria_materia` DISABLE KEYS */;
+INSERT INTO `categoria_materia` VALUES (1,'Algodon'),(2,'Lana');
+/*!40000 ALTER TABLE `categoria_materia` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Volcado de datos para la tabla `cliente`
+-- Table structure for table `correos`
 --
 
-INSERT INTO `cliente` (`id_cliente`, `id_persona`, `medidas`, `estado_cliente`, `tipo_cliente`, `genero`) VALUES
-(1, 3, 10, 'Activo', 'Natural', 'Femenino');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `correos`
---
-
+DROP TABLE IF EXISTS `correos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `correos` (
-  `id_correo` int(11) NOT NULL,
-  `id_persona` int(11) NOT NULL,
-  `correo` varchar(50) NOT NULL,
-  `password` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `id_correo` int NOT NULL AUTO_INCREMENT,
+  `id_persona` int NOT NULL,
+  `correo` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id_correo`),
+  KEY `id_persona` (`id_persona`),
+  CONSTRAINT `correo_ibfk_1` FOREIGN KEY (`id_persona`) REFERENCES `personas` (`id_persona`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Volcado de datos para la tabla `correos`
+-- Dumping data for table `correos`
 --
 
-INSERT INTO `correos` (`id_correo`, `id_persona`, `correo`, `password`) VALUES
-(1, 1, 'dayana@correo.com', 'dayana12345'),
-(2, 2, 'sandra@correo.com', '12345678'),
-(3, 3, 'diana@correo.com', '3a23bb515e06d0e944ff916e79a7775c'),
-(4, 4, 'cesar_a_mar_@hotmail.com', 'cesar'),
-(5, 5, 'sanabria.ruben.sena@gmail.com', 'cesar');
-
--- --------------------------------------------------------
+LOCK TABLES `correos` WRITE;
+/*!40000 ALTER TABLE `correos` DISABLE KEYS */;
+INSERT INTO `correos` VALUES (1,1,'dayana@correo.com','dayana'),(2,2,'sandra@correo.com','f40a37048732da05928c3d374549c832'),(10,3,'diana@correo.com','12345678');
+/*!40000 ALTER TABLE `correos` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Estructura de tabla para la tabla `cotizaciones`
+-- Table structure for table `cotizaciones`
 --
 
+DROP TABLE IF EXISTS `cotizaciones`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `cotizaciones` (
-  `codigo_cotizacion` int(11) NOT NULL,
-  `id_cliente` int(11) NOT NULL,
-  `codigo_producto` int(11) NOT NULL,
-  `tipo_cotizacion` varchar(20) NOT NULL,
+  `codigo_cotizacion` int NOT NULL AUTO_INCREMENT,
+  `id_persona` int NOT NULL,
+  `codigo_producto` int NOT NULL,
+  `tipo_cotizacion` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `valor_unitario` float NOT NULL,
   `fecha_cotizacion` date NOT NULL,
-  `cantidad_producto` int(11) NOT NULL,
-  `valor_total_cot` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `cantidad_producto` int NOT NULL,
+  `valor_total_cot` float NOT NULL,
+  `observaciones` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`codigo_cotizacion`),
+  KEY `codigo_producto` (`codigo_producto`),
+  KEY `cotizacion_ibfk_1_idx` (`id_persona`),
+  CONSTRAINT `cotizacion_ibfk_1` FOREIGN KEY (`id_persona`) REFERENCES `personas` (`id_persona`),
+  CONSTRAINT `cotizacion_ibfk_2` FOREIGN KEY (`codigo_producto`) REFERENCES `producto` (`codigo_producto`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Volcado de datos para la tabla `cotizaciones`
+-- Dumping data for table `cotizaciones`
 --
 
-INSERT INTO `cotizaciones` (`codigo_cotizacion`, `id_cliente`, `codigo_producto`, `tipo_cotizacion`, `valor_unitario`, `fecha_cotizacion`, `cantidad_producto`, `valor_total_cot`) VALUES
-(1, 1, 1, 'Normal', 20000, '2024-02-02', 2, 40000);
-
--- --------------------------------------------------------
+LOCK TABLES `cotizaciones` WRITE;
+/*!40000 ALTER TABLE `cotizaciones` DISABLE KEYS */;
+INSERT INTO `cotizaciones` VALUES (1,1,1,'Normal',20000,'2024-02-02',2,40000,NULL);
+/*!40000 ALTER TABLE `cotizaciones` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Estructura de tabla para la tabla `direcciones`
+-- Table structure for table `detalle_venta`
 --
 
+DROP TABLE IF EXISTS `detalle_venta`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `detalle_venta` (
+  `id_detalle_venta` int NOT NULL AUTO_INCREMENT,
+  `numero_orden_venta` int NOT NULL,
+  `producto` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cantidad` int NOT NULL,
+  `subtotal` float NOT NULL,
+  PRIMARY KEY (`id_detalle_venta`),
+  KEY `numero_orden_venta` (`numero_orden_venta`),
+  CONSTRAINT `detalle_venta_ibfk_1` FOREIGN KEY (`numero_orden_venta`) REFERENCES `orden_venta` (`numero_orden_venta`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `detalle_venta`
+--
+
+LOCK TABLES `detalle_venta` WRITE;
+/*!40000 ALTER TABLE `detalle_venta` DISABLE KEYS */;
+INSERT INTO `detalle_venta` VALUES (1,10001,'Camiseta',2,20000),(2,10001,'Saco',2,30000),(3,10002,'Camiseta',2,10000),(4,10002,'Sudadera',2,20000),(5,10003,'Sudadera,15000',2,30000),(6,10003,'Pantalon,30000',3,90000),(7,10004,'Jean,30000',1,30000),(8,10005,'Sudadera,15000',2,30000),(9,10006,'Sudadera,15000',2,30000),(10,10006,'Sudadera,15000',3,45000);
+/*!40000 ALTER TABLE `detalle_venta` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `direcciones`
+--
+
+DROP TABLE IF EXISTS `direcciones`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `direcciones` (
-  `id_direccion` int(11) NOT NULL,
-  `id_persona` int(11) NOT NULL,
-  `tipo_via` varchar(20) NOT NULL,
-  `numero_via` varchar(10) NOT NULL,
-  `prefijo` varchar(10) NOT NULL,
-  `num_via_veneradora` varchar(10) NOT NULL,
-  `prefijo_via_generadora` varchar(10) NOT NULL,
-  `numero_placa` varchar(10) NOT NULL,
-  `barrio` varchar(20) NOT NULL,
-  `ciudad` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `id_direccion` int NOT NULL AUTO_INCREMENT,
+  `id_persona` int NOT NULL,
+  `tipo_via` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `numero_via` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `prefijo` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `num_via_veneradora` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `prefijo_via_generadora` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `numero_placa` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `barrio` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ciudad` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id_direccion`),
+  KEY `id_persona` (`id_persona`),
+  CONSTRAINT `direccion_ibfk_1` FOREIGN KEY (`id_persona`) REFERENCES `personas` (`id_persona`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Volcado de datos para la tabla `direcciones`
+-- Dumping data for table `direcciones`
 --
 
-INSERT INTO `direcciones` (`id_direccion`, `id_persona`, `tipo_via`, `numero_via`, `prefijo`, `num_via_veneradora`, `prefijo_via_generadora`, `numero_placa`, `barrio`, `ciudad`) VALUES
-(1, 1, 'Carrera', '13', '-', '13', '-', '65', 'Chapinero', 'Bogota');
-
--- --------------------------------------------------------
+LOCK TABLES `direcciones` WRITE;
+/*!40000 ALTER TABLE `direcciones` DISABLE KEYS */;
+INSERT INTO `direcciones` VALUES (1,1,'Carrera','13','-','13','-','65','Chapinero','Bogota');
+/*!40000 ALTER TABLE `direcciones` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Estructura de tabla para la tabla `funcionario`
+-- Table structure for table `funcionario`
 --
 
+DROP TABLE IF EXISTS `funcionario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `funcionario` (
-  `id_funcionario` int(11) NOT NULL,
-  `id_persona` int(11) NOT NULL,
-  `horario` varchar(20) NOT NULL,
+  `id_funcionario` int NOT NULL AUTO_INCREMENT,
+  `id_persona` int NOT NULL,
+  `horario` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `salario` float NOT NULL,
-  `roles_id_rol` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `roles_id_rol` int NOT NULL,
+  PRIMARY KEY (`id_funcionario`),
+  KEY `id_persona` (`id_persona`),
+  KEY `fk_funcionario_roles1_idx` (`roles_id_rol`),
+  CONSTRAINT `fk_funcionario_roles1` FOREIGN KEY (`roles_id_rol`) REFERENCES `roles` (`id_rol`),
+  CONSTRAINT `funcionario_ibfk_1` FOREIGN KEY (`id_persona`) REFERENCES `personas` (`id_persona`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Volcado de datos para la tabla `funcionario`
+-- Dumping data for table `funcionario`
 --
 
-INSERT INTO `funcionario` (`id_funcionario`, `id_persona`, `horario`, `salario`, `roles_id_rol`) VALUES
-(1, 1, '8-5', 13000, 1),
-(2, 2, '8 - 5', 1300, 2),
-(3, 1, '8 - 5', 0, 1);
-
--- --------------------------------------------------------
+LOCK TABLES `funcionario` WRITE;
+/*!40000 ALTER TABLE `funcionario` DISABLE KEYS */;
+INSERT INTO `funcionario` VALUES (1,1,'8-5',13000,1),(2,2,'8 - 5',1300,1),(5,3,'9 - 6',1300,1);
+/*!40000 ALTER TABLE `funcionario` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Estructura de tabla para la tabla `materia_prima`
+-- Table structure for table `materia_prima`
 --
 
+DROP TABLE IF EXISTS `materia_prima`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `materia_prima` (
-  `id_materia_prima` int(11) NOT NULL,
-  `id_funcionario` int(11) NOT NULL,
-  `color_materia` varchar(20) NOT NULL,
+  `id_materia_prima` int NOT NULL AUTO_INCREMENT,
+  `id_funcionario` int NOT NULL,
+  `color_materia` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `precio` float NOT NULL,
   `cantidad_materia` float NOT NULL,
-  `descripcion_materia` varchar(40) NOT NULL,
-  `categoria_materia_id_categoria` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `descripcion_materia` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `categoria_materia_id_categoria` int NOT NULL,
+  PRIMARY KEY (`id_materia_prima`),
+  KEY `id_funcionario` (`id_funcionario`),
+  KEY `fk_materia_prima_categoria_materia1_idx` (`categoria_materia_id_categoria`),
+  CONSTRAINT `fk_materia_prima_categoria_materia1` FOREIGN KEY (`categoria_materia_id_categoria`) REFERENCES `categoria_materia` (`id_categoria`),
+  CONSTRAINT `materia_prima_ibfk_1` FOREIGN KEY (`id_funcionario`) REFERENCES `funcionario` (`id_funcionario`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Volcado de datos para la tabla `materia_prima`
+-- Dumping data for table `materia_prima`
 --
 
-INSERT INTO `materia_prima` (`id_materia_prima`, `id_funcionario`, `color_materia`, `precio`, `cantidad_materia`, `descripcion_materia`, `categoria_materia_id_categoria`) VALUES
-(0, 3, 'Azul', 50000, 6, 'Tela algodón', 2),
-(1, 1, 'Negra', 20000, 5, 'tela camiseta', 1),
-(2, 2, 'Verde', 30000, 2, 'Jean', 2);
+LOCK TABLES `materia_prima` WRITE;
+/*!40000 ALTER TABLE `materia_prima` DISABLE KEYS */;
+INSERT INTO `materia_prima` VALUES (1,1,'Negra',20000,5,'tela camiseta',1),(2,2,'Verde',30000,2,'Jean',2),(3,2,'Negro',15000,3,'Lana',1),(4,2,'Azul',20000,2,'Algodon',1);
+/*!40000 ALTER TABLE `materia_prima` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Disparadores `materia_prima`
---
-DELIMITER $$
-CREATE TRIGGER `actualizar_cantidad_materia_prima` BEFORE INSERT ON `materia_prima` FOR EACH ROW BEGIN
-  DECLARE cantidad_existente INT;
-  
-  -- Verificar si el id_materia_prima ya existe
-  SELECT cantidad_materia INTO cantidad_existente 
-  FROM materia_prima 
-  WHERE descripcion_materia = NEW.descripcion_materia;
-  
-  -- Si el id_materia_prima ya existe, actualizar la cantidad
-  IF cantidad_existente IS NOT NULL THEN
-    UPDATE materia_prima 
-    SET cantidad_materia = cantidad_materia + NEW.cantidad_materia
-    WHERE descripcion_materia = NEW.descripcion_materia;
-    
-    -- Cancelar la inserción original para evitar duplicados
-    SET NEW.descripcion_materia = NULL;
-  END IF;
-END
-$$
-DELIMITER ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `materia_producto`
+-- Table structure for table `materia_producto`
 --
 
+DROP TABLE IF EXISTS `materia_producto`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `materia_producto` (
-  `id_materia_producto` int(11) NOT NULL,
-  `id_materia_prima` int(11) NOT NULL,
-  `codigo_producto` int(11) NOT NULL,
-  `gasto_materia_prima` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `id_materia_producto` int NOT NULL AUTO_INCREMENT,
+  `id_materia_prima` int NOT NULL,
+  `codigo_producto` int NOT NULL,
+  `gasto_materia_prima` float NOT NULL,
+  PRIMARY KEY (`id_materia_producto`),
+  KEY `id_materia_prima` (`id_materia_prima`),
+  KEY `codigo_producto` (`codigo_producto`),
+  CONSTRAINT `materia_producto_ibfk_1` FOREIGN KEY (`id_materia_prima`) REFERENCES `materia_prima` (`id_materia_prima`),
+  CONSTRAINT `materia_producto_ibfk_2` FOREIGN KEY (`codigo_producto`) REFERENCES `producto` (`codigo_producto`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Volcado de datos para la tabla `materia_producto`
+-- Dumping data for table `materia_producto`
 --
 
-INSERT INTO `materia_producto` (`id_materia_producto`, `id_materia_prima`, `codigo_producto`, `gasto_materia_prima`) VALUES
-(1, 1, 1, 50000);
-
--- --------------------------------------------------------
+LOCK TABLES `materia_producto` WRITE;
+/*!40000 ALTER TABLE `materia_producto` DISABLE KEYS */;
+INSERT INTO `materia_producto` VALUES (1,1,1,50000);
+/*!40000 ALTER TABLE `materia_producto` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Estructura de tabla para la tabla `medio_pago`
+-- Table structure for table `medio_pago`
 --
 
+DROP TABLE IF EXISTS `medio_pago`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `medio_pago` (
-  `id_medio_pago` int(11) NOT NULL,
-  `descripcion_pago` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `id_medio_pago` int NOT NULL AUTO_INCREMENT,
+  `descripcion_pago` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id_medio_pago`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Volcado de datos para la tabla `medio_pago`
+-- Dumping data for table `medio_pago`
 --
 
-INSERT INTO `medio_pago` (`id_medio_pago`, `descripcion_pago`) VALUES
-(1, 'Tarjeta'),
-(2, 'Efectivo');
-
--- --------------------------------------------------------
+LOCK TABLES `medio_pago` WRITE;
+/*!40000 ALTER TABLE `medio_pago` DISABLE KEYS */;
+INSERT INTO `medio_pago` VALUES (1,'Tarjeta'),(2,'Efectivo');
+/*!40000 ALTER TABLE `medio_pago` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Estructura de tabla para la tabla `orden_venta`
+-- Table structure for table `orden_venta`
 --
 
+DROP TABLE IF EXISTS `orden_venta`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `orden_venta` (
-  `numero_orden_venta` int(11) NOT NULL,
-  `id_funcionario` int(11) NOT NULL,
-  `id_cliente` int(11) NOT NULL,
-  `id_medio_pago` int(11) NOT NULL,
-  `cantidad_productos` int(11) NOT NULL,
-  `descuento` float NOT NULL,
+  `numero_orden_venta` int NOT NULL AUTO_INCREMENT,
+  `id_funcionario` int NOT NULL,
+  `id_persona` int NOT NULL,
+  `id_medio_pago` int NOT NULL,
   `fecha_factura` date NOT NULL,
-  `observacion` varchar(50) NOT NULL,
-  `subtotal` float NOT NULL,
-  `valor_Total` float NOT NULL,
-  `devolucion` tinyint(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `doc_identidad` int NOT NULL,
+  `nombre_cliente` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`numero_orden_venta`),
+  KEY `id_medio_pago` (`id_medio_pago`),
+  KEY `id_funcionario` (`id_funcionario`),
+  KEY `id_persona` (`id_persona`) /*!80000 INVISIBLE */,
+  CONSTRAINT `orden_venta_ibfk_1` FOREIGN KEY (`id_medio_pago`) REFERENCES `medio_pago` (`id_medio_pago`),
+  CONSTRAINT `orden_venta_ibfk_2` FOREIGN KEY (`id_funcionario`) REFERENCES `funcionario` (`id_funcionario`),
+  CONSTRAINT `orden_venta_ibfk_3` FOREIGN KEY (`id_persona`) REFERENCES `personas` (`id_persona`)
+) ENGINE=InnoDB AUTO_INCREMENT=10007 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Volcado de datos para la tabla `orden_venta`
+-- Dumping data for table `orden_venta`
 --
 
-INSERT INTO `orden_venta` (`numero_orden_venta`, `id_funcionario`, `id_cliente`, `id_medio_pago`, `cantidad_productos`, `descuento`, `fecha_factura`, `observacion`, `subtotal`, `valor_Total`, `devolucion`) VALUES
-(1, 1, 1, 1, 2, 0, '2024-02-02', 'Camista', 40000, 40000, 0);
+LOCK TABLES `orden_venta` WRITE;
+/*!40000 ALTER TABLE `orden_venta` DISABLE KEYS */;
+INSERT INTO `orden_venta` VALUES (10001,1,1,1,'2024-06-02',12345,'Iris'),(10002,1,1,1,'2024-06-03',12345,'Iris'),(10003,1,4,1,'2024-06-03',85214,'Aura'),(10004,1,1,1,'2024-06-03',12345,'Iris'),(10005,1,4,1,'2024-06-03',85214,'Aura'),(10006,1,1,1,'2024-06-05',12345,'Iris');
+/*!40000 ALTER TABLE `orden_venta` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Disparadores `orden_venta`
---
-DELIMITER $$
-CREATE TRIGGER `devolucion` AFTER UPDATE ON `orden_venta` FOR EACH ROW BEGIN
-    IF NEW.devolucion = TRUE AND OLD.devolucion = FALSE THEN
-        -- Actualizar la cantidad de productos en la tabla productos
-        UPDATE producto
-        SET cantidad = cantidad + NEW.cantidad_productos
-        WHERE codigo_producto = NEW.numero_orden_venta;
-    END IF;
-END
-$$
-DELIMITER ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `orden_venta_producto`
+-- Table structure for table `orden_venta_producto`
 --
 
+DROP TABLE IF EXISTS `orden_venta_producto`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `orden_venta_producto` (
-  `id_factura_producto` int(11) NOT NULL,
-  `numero_orden_venta` int(11) NOT NULL,
-  `codigo_producto` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `id_factura_producto` int NOT NULL AUTO_INCREMENT,
+  `numero_orden_venta` int NOT NULL,
+  `codigo_producto` int NOT NULL,
+  PRIMARY KEY (`id_factura_producto`),
+  KEY `numero_orden_venta` (`numero_orden_venta`),
+  KEY `codigo_producto` (`codigo_producto`),
+  CONSTRAINT `orden_venta_producto_ibfk_1` FOREIGN KEY (`numero_orden_venta`) REFERENCES `orden_venta` (`numero_orden_venta`),
+  CONSTRAINT `orden_venta_producto_ibfk_2` FOREIGN KEY (`codigo_producto`) REFERENCES `producto` (`codigo_producto`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Volcado de datos para la tabla `orden_venta_producto`
+-- Dumping data for table `orden_venta_producto`
 --
 
-INSERT INTO `orden_venta_producto` (`id_factura_producto`, `numero_orden_venta`, `codigo_producto`) VALUES
-(1, 1, 1);
+LOCK TABLES `orden_venta_producto` WRITE;
+/*!40000 ALTER TABLE `orden_venta_producto` DISABLE KEYS */;
+/*!40000 ALTER TABLE `orden_venta_producto` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Disparadores `orden_venta_producto`
---
-DELIMITER $$
-CREATE TRIGGER `actualizar_productos_despues_venta` AFTER INSERT ON `orden_venta_producto` FOR EACH ROW BEGIN
-    DECLARE cantidad_producto INT;
-    DECLARE codigo_producto INT;
-
-    -- Obtener la cantidad y el código del producto vendido
-    SELECT cantidad, codigo_producto INTO cantidad_producto, codigo_producto
-    FROM producto
-    WHERE codigo_producto = NEW.codigo_producto;
-
-    -- Actualizar la cantidad en la tabla producto
-    UPDATE producto
-    SET cantidad = cantidad - cantidad_producto
-    WHERE codigo_producto = NEW.codigo_producto;
-END
-$$
-DELIMITER ;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `pedidos`
+-- Table structure for table `pedidos`
 --
 
+DROP TABLE IF EXISTS `pedidos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `pedidos` (
-  `id_pedido` int(11) NOT NULL,
-  `id_materia_prima` int(11) NOT NULL,
-  `id_proveedor` int(11) NOT NULL,
-  `numero_orden` int(11) NOT NULL,
-  `cantidad_pedido` int(11) NOT NULL,
+  `id_pedido` int NOT NULL AUTO_INCREMENT,
+  `id_materia_prima` int NOT NULL,
+  `id_proveedor` int NOT NULL,
+  `numero_orden` int NOT NULL,
+  `cantidad_pedido` int NOT NULL,
   `fecha_pedido` date NOT NULL,
-  `devolucion` tinyint(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `devolucion` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id_pedido`),
+  UNIQUE KEY `numero_orden_UNIQUE` (`numero_orden`),
+  KEY `id_proveedor` (`id_proveedor`),
+  KEY `id_materia_prima` (`id_materia_prima`),
+  CONSTRAINT `pedido_ibfk_1` FOREIGN KEY (`id_proveedor`) REFERENCES `proveedores` (`id_proveedor`),
+  CONSTRAINT `pedido_ibfk_2` FOREIGN KEY (`id_materia_prima`) REFERENCES `materia_prima` (`id_materia_prima`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Volcado de datos para la tabla `pedidos`
+-- Dumping data for table `pedidos`
 --
 
-INSERT INTO `pedidos` (`id_pedido`, `id_materia_prima`, `id_proveedor`, `numero_orden`, `cantidad_pedido`, `fecha_pedido`, `devolucion`) VALUES
-(1, 1, 1, 1, 5, '2024-02-02', NULL);
-
--- --------------------------------------------------------
+LOCK TABLES `pedidos` WRITE;
+/*!40000 ALTER TABLE `pedidos` DISABLE KEYS */;
+INSERT INTO `pedidos` VALUES (1,1,1,1,5,'2024-02-02',NULL);
+/*!40000 ALTER TABLE `pedidos` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Estructura de tabla para la tabla `personas`
+-- Table structure for table `personas`
 --
 
+DROP TABLE IF EXISTS `personas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `personas` (
-  `id_persona` int(11) NOT NULL,
-  `no_documento` varchar(10) NOT NULL,
-  `primer_nombre` varchar(30) NOT NULL,
-  `segundo_nombre` varchar(30) DEFAULT NULL,
-  `primer_apellido` varchar(30) NOT NULL,
-  `segundo_apellido` varchar(30) DEFAULT NULL,
-  `id_rol` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `id_persona` int NOT NULL AUTO_INCREMENT,
+  `no_documento` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `primer_nombre` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `segundo_nombre` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `primer_apellido` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `segundo_apellido` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id_persona`)
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Volcado de datos para la tabla `personas`
+-- Dumping data for table `personas`
 --
 
-INSERT INTO `personas` (`id_persona`, `no_documento`, `primer_nombre`, `segundo_nombre`, `primer_apellido`, `segundo_apellido`, `id_rol`) VALUES
-(1, '12345', 'Iris', 'Dayana', 'Sanchez', 'Perez', NULL),
-(2, '98765', 'Sandra', 'Liliana', 'Collazos', 'Gomez', NULL),
-(3, '15964', 'Diana', 'Carolina', 'Pinzon', 'Gonzalez', NULL),
-(4, '85214', 'Aura', 'Cristina', 'Vela', 'Gonzalez', NULL),
-(5, '6876416', 'Ana', 'Esperanza', 'Gomez', 'Anturi', NULL),
-(6, '9674616', 'Carmen', 'Liliana', 'Ramirez', 'pinzon', NULL),
-(7, '100456', 'Carlos', 'Andres', 'Vanegas', 'Guerrero', NULL),
-(10, '100457', 'Martha', 'Edilma', 'Puentes', 'Correo', NULL),
-(13, '100567', 'Ginna', 'Marcela', 'Mora', 'Diaz', NULL),
-(14, '100568', 'Aura', 'Cristina', 'Vela', 'Gonzalez', NULL),
-(15, '100569', 'Ana', 'Marcela', 'Cruz', 'Diaz', NULL),
-(16, '100570', 'Maria', 'Cristina', 'Muñoz', 'Gonzalez', NULL);
-
--- --------------------------------------------------------
+LOCK TABLES `personas` WRITE;
+/*!40000 ALTER TABLE `personas` DISABLE KEYS */;
+INSERT INTO `personas` VALUES (1,'12345','Iris','Dayana','Sanchez','Perez'),(2,'98765','Sandra','Liliana','Collazos','Gomez'),(3,'15964','Diana','Carolina','Pinzon','Gonzalez'),(4,'85214','Aura','Cristina','Vela','Gonzalez'),(5,'6876416','Ana','Esperanza','Gomez','Anturi'),(6,'9674616','Carmen','Liliana','Ramirez','pinzon'),(7,'100456','Carlos','Andres','Vanegas','Guerrero'),(10,'100457','Martha','Edilma','Puentes','Correo'),(13,'100567','Ginna','Marcela','Mora','Diaz'),(14,'100568','Aura','Cristina','Vela','Gonzalez'),(15,'100569','Ana','Marcela','Cruz','Diaz'),(16,'100570','Maria','Cristina','Muñoz','Gonzalez'),(21,'','','','',''),(22,'','','','',''),(23,'','','','',''),(24,'','','','',''),(25,'','','','','');
+/*!40000 ALTER TABLE `personas` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Estructura de tabla para la tabla `producto`
+-- Table structure for table `producto`
 --
 
+DROP TABLE IF EXISTS `producto`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `producto` (
-  `codigo_producto` int(11) NOT NULL,
-  `id_funcionario` int(11) NOT NULL,
-  `cantidad` int(11) NOT NULL,
-  `nombre_producto` varchar(60) NOT NULL,
-  `material` varchar(60) NOT NULL,
+  `codigo_producto` int NOT NULL AUTO_INCREMENT,
+  `id_funcionario` int NOT NULL,
+  `cantidad` int NOT NULL,
+  `nombre_producto` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `material` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
   `precio` float NOT NULL,
-  `talla` varchar(50) NOT NULL,
-  `color_producto` varchar(20) NOT NULL,
-  `ubicacion` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `talla` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `color_producto` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ubicacion` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`codigo_producto`),
+  KEY `id_funcionario` (`id_funcionario`),
+  CONSTRAINT `producto_ibfk_1` FOREIGN KEY (`id_funcionario`) REFERENCES `funcionario` (`id_funcionario`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Volcado de datos para la tabla `producto`
+-- Dumping data for table `producto`
 --
 
-INSERT INTO `producto` (`codigo_producto`, `id_funcionario`, `cantidad`, `nombre_producto`, `material`, `precio`, `talla`, `color_producto`, `ubicacion`) VALUES
-(1, 1, 10, 'Camista', 'Algodon', 20000, 's', 'Gris', 'Bodega'),
-(2, 1, 20, 'Saco', 'Lana', 30000, 's', 'Negro', 'Bodega'),
-(3, 2, 30, 'Sudadera', 'Algodon', 15000, 's', 'Cafe', 'Bodega'),
-(4, 1, 40, 'Jean', 'Algodon', 30000, 's', 'Azul', 'Bodega');
-
--- --------------------------------------------------------
+LOCK TABLES `producto` WRITE;
+/*!40000 ALTER TABLE `producto` DISABLE KEYS */;
+INSERT INTO `producto` VALUES (1,1,0,'Camiseta','Algodon',20000,'s','Gris','Bodega'),(2,1,0,'Saco','Lana',30000,'s','Negro','Bodega'),(3,2,0,'Sudadera','Algodon',15000,'s','Cafe','Bodega'),(4,1,0,'Jean','Algodon',30000,'s','Azul','Bodega'),(5,2,1,'Pantalon','Algodon',30000,'m','Gris','Bodega');
+/*!40000 ALTER TABLE `producto` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Estructura de tabla para la tabla `proveedores`
+-- Table structure for table `proveedor_materia`
 --
 
-CREATE TABLE `proveedores` (
-  `id_proveedor` int(11) NOT NULL,
-  `id_persona` int(11) NOT NULL,
-  `nit` varchar(20) NOT NULL,
-  `razon_social` varchar(60) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Volcado de datos para la tabla `proveedores`
---
-
-INSERT INTO `proveedores` (`id_proveedor`, `id_persona`, `nit`, `razon_social`) VALUES
-(1, 4, '123', '3');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `proveedor_materia`
---
-
+DROP TABLE IF EXISTS `proveedor_materia`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `proveedor_materia` (
-  `id_proveedor_materia` int(11) NOT NULL,
-  `id_materia_prima` int(11) NOT NULL,
-  `id_proveedor` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `id_proveedor_materia` int NOT NULL AUTO_INCREMENT,
+  `id_materia_prima` int NOT NULL,
+  `id_proveedor` int NOT NULL,
+  PRIMARY KEY (`id_proveedor_materia`),
+  KEY `id_materia_prima` (`id_materia_prima`),
+  KEY `id_proveedor` (`id_proveedor`),
+  CONSTRAINT `proveedor_materia_ibfk_1` FOREIGN KEY (`id_materia_prima`) REFERENCES `materia_prima` (`id_materia_prima`),
+  CONSTRAINT `proveedor_materia_ibfk_2` FOREIGN KEY (`id_proveedor`) REFERENCES `proveedores` (`id_proveedor`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Volcado de datos para la tabla `proveedor_materia`
+-- Dumping data for table `proveedor_materia`
 --
 
-INSERT INTO `proveedor_materia` (`id_proveedor_materia`, `id_materia_prima`, `id_proveedor`) VALUES
-(1, 1, 1);
-
--- --------------------------------------------------------
+LOCK TABLES `proveedor_materia` WRITE;
+/*!40000 ALTER TABLE `proveedor_materia` DISABLE KEYS */;
+INSERT INTO `proveedor_materia` VALUES (1,1,1);
+/*!40000 ALTER TABLE `proveedor_materia` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Estructura de tabla para la tabla `roles`
+-- Table structure for table `proveedores`
 --
 
+DROP TABLE IF EXISTS `proveedores`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `proveedores` (
+  `id_proveedor` int NOT NULL AUTO_INCREMENT,
+  `id_persona` int NOT NULL,
+  `nit` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `razon_social` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id_proveedor`),
+  KEY `id_persona` (`id_persona`),
+  CONSTRAINT `proveedor_ibfk_1` FOREIGN KEY (`id_persona`) REFERENCES `personas` (`id_persona`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `proveedores`
+--
+
+LOCK TABLES `proveedores` WRITE;
+/*!40000 ALTER TABLE `proveedores` DISABLE KEYS */;
+INSERT INTO `proveedores` VALUES (1,4,'14','Telas Don Ramón');
+/*!40000 ALTER TABLE `proveedores` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `roles`
+--
+
+DROP TABLE IF EXISTS `roles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `roles` (
-  `id_rol` int(11) NOT NULL,
-  `descripcion_rol` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `id_rol` int NOT NULL AUTO_INCREMENT,
+  `descripcion_rol` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id_rol`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Volcado de datos para la tabla `roles`
+-- Dumping data for table `roles`
 --
 
-INSERT INTO `roles` (`id_rol`, `descripcion_rol`) VALUES
-(1, 'Administrador'),
-(2, 'Vendedor'),
-(3, 'Costurero');
-
--- --------------------------------------------------------
+LOCK TABLES `roles` WRITE;
+/*!40000 ALTER TABLE `roles` DISABLE KEYS */;
+INSERT INTO `roles` VALUES (1,'Administrador'),(2,'Vendedor'),(3,'Costurero');
+/*!40000 ALTER TABLE `roles` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Estructura de tabla para la tabla `stock`
+-- Table structure for table `stock`
 --
 
+DROP TABLE IF EXISTS `stock`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `stock` (
-  `id_stock` int(11) NOT NULL,
-  `codigo_producto` int(11) NOT NULL,
-  `cantidad_stock` int(11) NOT NULL,
-  `descripcion_stock` varchar(50) NOT NULL,
-  `estado` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `id_stock` int NOT NULL AUTO_INCREMENT,
+  `codigo_producto` int NOT NULL,
+  `cantidad_stock` int NOT NULL,
+  `descripcion_stock` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `estado` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id_stock`),
+  KEY `codigo_producto` (`codigo_producto`),
+  CONSTRAINT `stock_ibfk_1` FOREIGN KEY (`codigo_producto`) REFERENCES `producto` (`codigo_producto`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Volcado de datos para la tabla `stock`
+-- Dumping data for table `stock`
 --
 
-INSERT INTO `stock` (`id_stock`, `codigo_producto`, `cantidad_stock`, `descripcion_stock`, `estado`) VALUES
-(1, 1, 8, 'Camiseta', 'Activo');
+LOCK TABLES `stock` WRITE;
+/*!40000 ALTER TABLE `stock` DISABLE KEYS */;
+INSERT INTO `stock` VALUES (1,1,8,'Camiseta','Activo');
+/*!40000 ALTER TABLE `stock` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `categoria_materia`
---
-ALTER TABLE `categoria_materia`
-  ADD PRIMARY KEY (`id_categoria`);
-
---
--- Indices de la tabla `cliente`
---
-ALTER TABLE `cliente`
-  ADD PRIMARY KEY (`id_cliente`),
-  ADD KEY `id_persona` (`id_persona`);
-
---
--- Indices de la tabla `correos`
---
-ALTER TABLE `correos`
-  ADD PRIMARY KEY (`id_correo`),
-  ADD KEY `id_persona` (`id_persona`);
-
---
--- Indices de la tabla `cotizaciones`
---
-ALTER TABLE `cotizaciones`
-  ADD PRIMARY KEY (`codigo_cotizacion`),
-  ADD KEY `id_cliente` (`id_cliente`),
-  ADD KEY `codigo_producto` (`codigo_producto`);
-
---
--- Indices de la tabla `direcciones`
---
-ALTER TABLE `direcciones`
-  ADD PRIMARY KEY (`id_direccion`),
-  ADD KEY `id_persona` (`id_persona`);
-
---
--- Indices de la tabla `funcionario`
---
-ALTER TABLE `funcionario`
-  ADD PRIMARY KEY (`id_funcionario`),
-  ADD KEY `id_persona` (`id_persona`),
-  ADD KEY `fk_funcionario_roles1_idx` (`roles_id_rol`);
-
---
--- Indices de la tabla `materia_prima`
---
-ALTER TABLE `materia_prima`
-  ADD PRIMARY KEY (`id_materia_prima`),
-  ADD KEY `id_funcionario` (`id_funcionario`),
-  ADD KEY `fk_materia_prima_categoria_materia1_idx` (`categoria_materia_id_categoria`);
-
---
--- Indices de la tabla `materia_producto`
---
-ALTER TABLE `materia_producto`
-  ADD PRIMARY KEY (`id_materia_producto`),
-  ADD KEY `id_materia_prima` (`id_materia_prima`),
-  ADD KEY `codigo_producto` (`codigo_producto`);
-
---
--- Indices de la tabla `medio_pago`
---
-ALTER TABLE `medio_pago`
-  ADD PRIMARY KEY (`id_medio_pago`);
-
---
--- Indices de la tabla `orden_venta`
---
-ALTER TABLE `orden_venta`
-  ADD PRIMARY KEY (`numero_orden_venta`),
-  ADD KEY `id_medio_pago` (`id_medio_pago`),
-  ADD KEY `id_funcionario` (`id_funcionario`),
-  ADD KEY `id_cliente` (`id_cliente`);
-
---
--- Indices de la tabla `orden_venta_producto`
---
-ALTER TABLE `orden_venta_producto`
-  ADD PRIMARY KEY (`id_factura_producto`),
-  ADD KEY `numero_orden_venta` (`numero_orden_venta`),
-  ADD KEY `codigo_producto` (`codigo_producto`);
-
---
--- Indices de la tabla `pedidos`
---
-ALTER TABLE `pedidos`
-  ADD PRIMARY KEY (`id_pedido`),
-  ADD UNIQUE KEY `numero_orden_UNIQUE` (`numero_orden`),
-  ADD KEY `id_proveedor` (`id_proveedor`),
-  ADD KEY `id_materia_prima` (`id_materia_prima`);
-
---
--- Indices de la tabla `personas`
---
-ALTER TABLE `personas`
-  ADD PRIMARY KEY (`id_persona`);
-
---
--- Indices de la tabla `producto`
---
-ALTER TABLE `producto`
-  ADD PRIMARY KEY (`codigo_producto`),
-  ADD KEY `id_funcionario` (`id_funcionario`);
-
---
--- Indices de la tabla `proveedores`
---
-ALTER TABLE `proveedores`
-  ADD PRIMARY KEY (`id_proveedor`),
-  ADD KEY `id_persona` (`id_persona`);
-
---
--- Indices de la tabla `proveedor_materia`
---
-ALTER TABLE `proveedor_materia`
-  ADD PRIMARY KEY (`id_proveedor_materia`),
-  ADD KEY `id_materia_prima` (`id_materia_prima`),
-  ADD KEY `id_proveedor` (`id_proveedor`);
-
---
--- Indices de la tabla `roles`
---
-ALTER TABLE `roles`
-  ADD PRIMARY KEY (`id_rol`);
-
---
--- Indices de la tabla `stock`
---
-ALTER TABLE `stock`
-  ADD PRIMARY KEY (`id_stock`),
-  ADD KEY `codigo_producto` (`codigo_producto`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `categoria_materia`
---
-ALTER TABLE `categoria_materia`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT de la tabla `cliente`
---
-ALTER TABLE `cliente`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de la tabla `correos`
---
-ALTER TABLE `correos`
-  MODIFY `id_correo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT de la tabla `cotizaciones`
---
-ALTER TABLE `cotizaciones`
-  MODIFY `codigo_cotizacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de la tabla `direcciones`
---
-ALTER TABLE `direcciones`
-  MODIFY `id_direccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de la tabla `funcionario`
---
-ALTER TABLE `funcionario`
-  MODIFY `id_funcionario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT de la tabla `materia_producto`
---
-ALTER TABLE `materia_producto`
-  MODIFY `id_materia_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de la tabla `medio_pago`
---
-ALTER TABLE `medio_pago`
-  MODIFY `id_medio_pago` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT de la tabla `orden_venta`
---
-ALTER TABLE `orden_venta`
-  MODIFY `numero_orden_venta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de la tabla `orden_venta_producto`
---
-ALTER TABLE `orden_venta_producto`
-  MODIFY `id_factura_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de la tabla `pedidos`
---
-ALTER TABLE `pedidos`
-  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de la tabla `personas`
---
-ALTER TABLE `personas`
-  MODIFY `id_persona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
---
--- AUTO_INCREMENT de la tabla `producto`
---
-ALTER TABLE `producto`
-  MODIFY `codigo_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT de la tabla `proveedores`
---
-ALTER TABLE `proveedores`
-  MODIFY `id_proveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de la tabla `proveedor_materia`
---
-ALTER TABLE `proveedor_materia`
-  MODIFY `id_proveedor_materia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de la tabla `roles`
---
-ALTER TABLE `roles`
-  MODIFY `id_rol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT de la tabla `stock`
---
-ALTER TABLE `stock`
-  MODIFY `id_stock` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `cliente`
---
-ALTER TABLE `cliente`
-  ADD CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`id_persona`) REFERENCES `personas` (`id_persona`);
-
---
--- Filtros para la tabla `correos`
---
-ALTER TABLE `correos`
-  ADD CONSTRAINT `correo_ibfk_1` FOREIGN KEY (`id_persona`) REFERENCES `personas` (`id_persona`);
-
---
--- Filtros para la tabla `cotizaciones`
---
-ALTER TABLE `cotizaciones`
-  ADD CONSTRAINT `cotizacion_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id_cliente`),
-  ADD CONSTRAINT `cotizacion_ibfk_2` FOREIGN KEY (`codigo_producto`) REFERENCES `producto` (`codigo_producto`);
-
---
--- Filtros para la tabla `direcciones`
---
-ALTER TABLE `direcciones`
-  ADD CONSTRAINT `direccion_ibfk_1` FOREIGN KEY (`id_persona`) REFERENCES `personas` (`id_persona`);
-
---
--- Filtros para la tabla `funcionario`
---
-ALTER TABLE `funcionario`
-  ADD CONSTRAINT `fk_funcionario_roles1` FOREIGN KEY (`roles_id_rol`) REFERENCES `roles` (`id_rol`),
-  ADD CONSTRAINT `funcionario_ibfk_1` FOREIGN KEY (`id_persona`) REFERENCES `personas` (`id_persona`);
-
---
--- Filtros para la tabla `materia_prima`
---
-ALTER TABLE `materia_prima`
-  ADD CONSTRAINT `fk_materia_prima_categoria_materia1` FOREIGN KEY (`categoria_materia_id_categoria`) REFERENCES `categoria_materia` (`id_categoria`),
-  ADD CONSTRAINT `materia_prima_ibfk_1` FOREIGN KEY (`id_funcionario`) REFERENCES `funcionario` (`id_funcionario`);
-
---
--- Filtros para la tabla `materia_producto`
---
-ALTER TABLE `materia_producto`
-  ADD CONSTRAINT `materia_producto_ibfk_1` FOREIGN KEY (`id_materia_prima`) REFERENCES `materia_prima` (`id_materia_prima`),
-  ADD CONSTRAINT `materia_producto_ibfk_2` FOREIGN KEY (`codigo_producto`) REFERENCES `producto` (`codigo_producto`);
-
---
--- Filtros para la tabla `orden_venta`
---
-ALTER TABLE `orden_venta`
-  ADD CONSTRAINT `orden_venta_ibfk_1` FOREIGN KEY (`id_medio_pago`) REFERENCES `medio_pago` (`id_medio_pago`),
-  ADD CONSTRAINT `orden_venta_ibfk_2` FOREIGN KEY (`id_funcionario`) REFERENCES `funcionario` (`id_funcionario`),
-  ADD CONSTRAINT `orden_venta_ibfk_3` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id_cliente`);
-
---
--- Filtros para la tabla `orden_venta_producto`
---
-ALTER TABLE `orden_venta_producto`
-  ADD CONSTRAINT `orden_venta_producto_ibfk_1` FOREIGN KEY (`numero_orden_venta`) REFERENCES `orden_venta` (`numero_orden_venta`),
-  ADD CONSTRAINT `orden_venta_producto_ibfk_2` FOREIGN KEY (`codigo_producto`) REFERENCES `producto` (`codigo_producto`);
-
---
--- Filtros para la tabla `pedidos`
---
-ALTER TABLE `pedidos`
-  ADD CONSTRAINT `pedido_ibfk_1` FOREIGN KEY (`id_proveedor`) REFERENCES `proveedores` (`id_proveedor`),
-  ADD CONSTRAINT `pedido_ibfk_2` FOREIGN KEY (`id_materia_prima`) REFERENCES `materia_prima` (`id_materia_prima`);
-
---
--- Filtros para la tabla `producto`
---
-ALTER TABLE `producto`
-  ADD CONSTRAINT `producto_ibfk_1` FOREIGN KEY (`id_funcionario`) REFERENCES `funcionario` (`id_funcionario`);
-
---
--- Filtros para la tabla `proveedores`
---
-ALTER TABLE `proveedores`
-  ADD CONSTRAINT `proveedor_ibfk_1` FOREIGN KEY (`id_persona`) REFERENCES `personas` (`id_persona`);
-
---
--- Filtros para la tabla `proveedor_materia`
---
-ALTER TABLE `proveedor_materia`
-  ADD CONSTRAINT `proveedor_materia_ibfk_1` FOREIGN KEY (`id_materia_prima`) REFERENCES `materia_prima` (`id_materia_prima`),
-  ADD CONSTRAINT `proveedor_materia_ibfk_2` FOREIGN KEY (`id_proveedor`) REFERENCES `proveedores` (`id_proveedor`);
-
---
--- Filtros para la tabla `stock`
---
-ALTER TABLE `stock`
-  ADD CONSTRAINT `stock_ibfk_1` FOREIGN KEY (`codigo_producto`) REFERENCES `producto` (`codigo_producto`);
-COMMIT;
-
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2024-06-05 19:31:16
