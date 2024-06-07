@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
 use PhpOffice\PhpSpreadsheet\IOFactory;
-require '../../vendor/autoload.php';
+require '../../composer/vendor/autoload.php';
 
 $conexion;
 include_once "../../PHP/conexion_a_la_DB.php";
