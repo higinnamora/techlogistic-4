@@ -21,16 +21,16 @@ if ($_SESSION['tipo_usuario']) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Techlogistic</title>
     <meta name="description" content="">
-    <link rel="icon" href="../../IMAGES/favicon.png">
+    <link rel="icon" href="../../images/favicon.png">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../STYLES/techlogistic.css">
+    <link rel="stylesheet" href="../../HTML/styles/techlogistic.css">
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container">
-            <a href="../../PHP/indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../../IMAGES/favicon.png" alt="" class="navigation__image">Techlogistic</a>
+            <a href="../../PHP/indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../../images/favicon.png" alt="" class="navigation__image">Techlogistic</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
