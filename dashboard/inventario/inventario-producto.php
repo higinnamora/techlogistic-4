@@ -9,7 +9,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
 }
 $conexion;
 include_once "../../PHP/conexion_a_la_DB.php";
-$sql = "SELECT color_materia, precio, cantidad_materia, descripcion_materia FROM materia_prima;";
+$sql = "SELECT cantidad, nombre_producto, material, precio, talla, color_producto, ubicacion FROM producto;";
 $datos = $conexion->query($sql);
 ?>
 
@@ -23,7 +23,7 @@ $datos = $conexion->query($sql);
   <title>Techlogistic</title>
   <meta name="description" content="">
   <!-- Favicon -->
-  <link rel="icon" href="../../IMAGES/favicon.png">
+  <link rel="x" href="../../images/favicon.png">
   <!-- Box icons-->
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <!-- Bootstrap 5 -->
@@ -46,9 +46,9 @@ $datos = $conexion->query($sql);
         <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="../../PHP/indexdash.php">Inicio</a>
+          </li>
 
-
-            <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
+          <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
           <li class="nav-item dropdown">
             <div class="dropdown" role="group">
               <a class="dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
@@ -58,43 +58,48 @@ $datos = $conexion->query($sql);
                 <!--<li><a class="dropdown-item" href="../../502.html" target="_blank">Mi perfil</a></li>
                 <li><a class="dropdown-item" href="../../502.html" target="_blank">Configuración</a></li>
                 <li>
-                  <hr class="dropdown-divider">
-                </li>-->
-                <li><a class="dropdown-item" href="../../PHP/cerrar_sesion.php">Cerrar sesión</a></li>
-              </ul>
-            </div>
+                  <hr class="dropdown-divider">–-->
           </li>
+          <li><a class="dropdown-item" href="../../PHP/cerrar_sesion.php">Cerrar sesión</a></li>
         </ul>
       </div>
+      </li>
+      </ul>
+    </div>
     </div>
   </nav>
 
   <!-- Main -->
   <main class="container my-5 h-100">
-    <div class="d-flex flex-column flex-md-row justify-content-between">
+    <div class="d-flex flex-column flex-md-row justify-content-between gap-2">
       <h4 class="text-md-start text-left">Inventario</h4>
     </div>
     <hr>
-    <ul class="nav nav-tabs mb-4">
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Materia Prima</a>
+    <ul class="nav nav-tabs mb-2">
+    <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="indexinventario.php">Materia Prima</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="inventario-producto.php">Productos</a>
+        <a class="nav-link active" aria-current="page" href="inventario-producto.php">Productos</a>
       </li>
     </ul>
     <div class="table-responsive">
       <table id="productos" class="table">
         <thead>
           <tr>
-            <th scope="col">Color Materia</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Producto</th>
+            <th scope="col">Material</th>
             <th scope="col">Precio</th>
-            <th scope="col">Cantidad Materia</th>
-            <th scope="col">Descripción Materia</th>
+            <th scope="col">Talla</th>
+            <th scope="col">Color producto</th>
+            <th scope="col">Ubicación</th>
           </tr>
         </thead>
         <tbody>
+
           <?php
+          // Itera sobre los datos y genera las filas de la tabla
           foreach ($datos as $fila) {
             echo "<tr>";
             foreach ($fila as $valor) {
@@ -106,20 +111,20 @@ $datos = $conexion->query($sql);
         </tbody>
       </table>
     </div>
-    <hr class="my-4">
-
+    <hr class="my-4" />
+   
   </main>
-  <div class="copyright">
-    <div class="bd-container">
-      <p>💙 © 2024 Techlogistic. Todos los derechos reservados. 💚</p>
-      <p><a href="../../HTML/terminos-y-condiciones.html">Términos y Condiciones</a> · <a href="../../HTML/politica-de-privacidad.html">Política de Privacidad</a></p>
+  <footer>
+    <div class="copyright">
+      <div class="bd-container">
+        <p>💙 © 2024 Techlogistic. Todos los derechos reservados. 💚</p>
+        <p><a href="../../HTML/terminos-y-condiciones.html">Términos y Condiciones</a> · <a href="../../HTML/politica-de-privacidad.html">Política de Privacidad</a></p>
+      </div>
     </div>
-  </div>
   </footer>
-
-  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-
 </body>
+
+<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script>
@@ -127,7 +132,7 @@ $datos = $conexion->query($sql);
 <script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.html5.min.js"></script>
 <script>
   $(document).ready(function() {
-    $('#stock').DataTable({
+    $('#productos').DataTable({
       dom: 'Bfrtip',
       buttons: [
         'excel', 'csv'

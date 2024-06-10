@@ -56,9 +56,9 @@
     <main class="container my-5 h-100">
         <div class="d-flex flex-column flex-md-row justify-content-between">
             <h4 class="text-md-start text-left">Materia prima</h4>
-        </div>
-        <div class="d-flex flex-column flex-md-row gap-2">
-            <a href="registrarMateria.html"> <button class="button w-auto">Agregar materia prima</button></a>
+            <div class="d-flex flex-column flex-md-row gap-2">
+                <a href="registrarMateria.html"> <button class="button w-auto">Agregar materia prima</button></a>
+            </div>
         </div>
         <hr>
         <!-- Tabla de proveedores -->
