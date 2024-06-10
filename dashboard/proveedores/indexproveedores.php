@@ -37,12 +37,15 @@ $datos = $conexion->query($sql);
   <!-- Header -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
-      <a href="../../PHP/indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../../IMAGES/favicon.png" alt="" class="navigation__image">Techlogistic</a>
+    <a href="../../PHP/indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../../IMAGES/favicon.png" alt="" class="navigation__image">Techlogistic</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
+        <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="registrarProveedor.html">Agregar proveedor</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="../../PHP/indexdash.php">Inicio</a>
           </li>
@@ -78,9 +81,6 @@ $datos = $conexion->query($sql);
         <input type="file" name="archivo" accept=".xlsx, .xls" />
         <input type="submit" value="Enviar" />
       </form>-->
-      <div class="d-flex flex-column flex-md-row gap-2">
-        <a href="registrarProveedor.html"> <button class="button w-auto">Agregar proveedor</button></a>
-      </div>
     </div>
     <hr>
     <!-- Tabla de proveedores -->
@@ -151,8 +151,8 @@ $datos = $conexion->query($sql);
     <form class="newsletter-form" action="eliminarProveedor.php" id="newsletter-form" method="POST">
       <div class="form-field">
         <input type="text" name="eliminarProveedor" placeholder="Nit " class="newsletter-input" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
+        <button class="button" type="submit">Eliminar</button>
       </div>
-      <button class="button" type="submit">Eliminar</button>
     </form>
   </main>
 

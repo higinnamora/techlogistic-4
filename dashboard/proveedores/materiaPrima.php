@@ -19,46 +19,38 @@
 </head>
 
 <body class="vh-100">
-    <!-- Header -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container">
-            <a href="../../PHP/indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../../IMAGES/favicon.png" alt="" class="navigation__image">Techlogistic</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../../PHP/indexdash.php">Inicio</a>
-                    </li>
-                    <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
-                    <li class="nav-item dropdown">
-                        <div class="dropdown" role="group">
-                            <a class="dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="https://higinnamora.github.io/techlogistic/images/profile/profile.png" alt="mdo" class="rounded-circle" width="38" height="38" />
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-lg-end">
-                                <!--<li><a class="dropdown-item" href="#">Mi perfil</a></li>-->
-                                <!--<li><a class="dropdown-item" href="#">Configuración</a></li>-->
-                                <!--<li>
-                  <hr class="dropdown-divider">
-                </li>-->
-                                <li><a class="dropdown-item" href="../../PHP/cerrar_sesion.php">Cerrar sesión</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container">
+      <a href="../../PHP/indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../../IMAGES/favicon.png" alt="" class="navigation__image">Techlogistic</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="./registrarMateria.html">Registrar materia</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="../../PHP/indexdash.php">Inicio</a>
+          </li>
+          <li class="nav-item dropdown">
+            <div class="dropdown" role="group">
+              <a class="dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://higinnamora.github.io/techlogistic/images/profile/profile.png" alt="mdo"
+                  class="rounded-circle" width="38" height="38" />
+              </a>
+              <ul class="dropdown-menu dropdown-menu-lg-end">
+                <li><a class="dropdown-item" href="../../PHP/cerrar_sesion.php">Cerrar sesión</a></li>
+              </ul>
             </div>
-        </div>
-    </nav>
-
-    <!-- Main -->
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
     <main class="container my-5 h-100">
         <div class="d-flex flex-column flex-md-row justify-content-between">
             <h4 class="text-md-start text-left">Materia prima</h4>
-            <div class="d-flex flex-column flex-md-row gap-2">
-                <a href="registrarMateria.html"> <button class="button w-auto">Agregar materia prima</button></a>
-            </div>
         </div>
         <hr>
         <!-- Tabla de proveedores -->
@@ -143,6 +135,7 @@
                 <label for="descripcion">Descripción</label>
                 <input type="text" placeholder="Ingrese descripcion" id="descripcion" name="descripcion" required />
             </div>
+            <div></div>
             <div>
                 <input class="button" type="submit" value="Actualizar" />
             </div>
@@ -154,8 +147,8 @@
         <form class="newsletter-form" action="eliminarmateria.php" id="newsletter-form" method="POST">
             <div class="form-field">
                 <input type="text" name="eliminarmateria" placeholder="Id " class="newsletter-input" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
+                <button class="button" type="submit">Eliminar</button>
             </div>
-            <button class="button" type="submit">Eliminar</button>
         </form>
     </main><br><br>
     <br><br>

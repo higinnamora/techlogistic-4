@@ -35,8 +35,7 @@ $datos = $conexion->query($sql);
 </head>
 
 <body>
-  <!-- Header -->
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
       <a href="../../PHP/indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../../IMAGES/favicon.png" alt="" class="navigation__image">Techlogistic</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,37 +44,29 @@ $datos = $conexion->query($sql);
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
           <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="./nuevoProductoExterno.php">Agregar producto</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="../../PHP/indexdash.php">Inicio</a>
           </li>
-
-          <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
           <li class="nav-item dropdown">
             <div class="dropdown" role="group">
               <a class="dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="https://higinnamora.github.io/techlogistic/images/profile/profile.png" alt="mdo" class="rounded-circle" width="38" height="38" />
+                <img src="https://higinnamora.github.io/techlogistic/images/profile/profile.png" alt="mdo"
+                  class="rounded-circle" width="38" height="38" />
               </a>
               <ul class="dropdown-menu dropdown-menu-lg-end">
-                <!--<li><a class="dropdown-item" href="../../502.html" target="_blank">Mi perfil</a></li>
-                <li><a class="dropdown-item" href="../../502.html" target="_blank">Configuración</a></li>
-                <li>
-                  <hr class="dropdown-divider">–-->
+                <li><a class="dropdown-item" href="../../PHP/cerrar_sesion.php">Cerrar sesión</a></li>
+              </ul>
+            </div>
           </li>
-          <li><a class="dropdown-item" href="../../PHP/cerrar_sesion.php">Cerrar sesión</a></li>
         </ul>
       </div>
-      </li>
-      </ul>
-    </div>
     </div>
   </nav>
-
-  <!-- Main -->
   <main class="container my-5 h-100">
     <div class="d-flex flex-column flex-md-row justify-content-between gap-2">
       <h4 class="text-md-start text-left">Producción</h4>
-      <div class="d-flex flex-column ms-auto flex-md-row gap-2">
-        <a href="nuevoProductoExterno.php"> <button class="button w-auto">Agregar producto</button></a>
-      </div>
     </div>
     <hr>
     <!-- Tabla de Producción -->

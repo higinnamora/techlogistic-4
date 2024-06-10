@@ -30,23 +30,35 @@ if (!isset($_SESSION['tipo_usuario'])) {
 
 
 <body>
-  <!-- Scroll top -->
-  <a href="#" class="scrolltop" id="scroll-top" title="Scroll top">
-    <i class='bx bx-chevron-up scrolltop__icon'></i>
-  </a>
-  <!-- Header -->
-  <header class="header" id="header">
-    <nav class="navigation bd-container">
-      <div class="navigation__container-logo">
-        <a href="../../PHP/indexdash.php" class="navigation__logo" title="Techlogistic"><img src="../../IMAGES/favicon.png" alt="" class="navigation__image">Techlogistic</a>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container">
+      <a href="../../PHP/indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../../IMAGES/favicon.png" alt="" class="navigation__image">Techlogistic</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="./indexproduccion.php">Productos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="../../PHP/indexdash.php">Inicio</a>
+          </li>
+          <li class="nav-item dropdown">
+            <div class="dropdown" role="group">
+              <a class="dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://higinnamora.github.io/techlogistic/images/profile/profile.png" alt="mdo"
+                  class="rounded-circle" width="38" height="38" />
+              </a>
+              <ul class="dropdown-menu dropdown-menu-lg-end">
+                <li><a class="dropdown-item" href="../../PHP/cerrar_sesion.php">Cerrar sesión</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
       </div>
-
-      <div class="navigation__toggle" id="navigation-toggle">
-        <i class='bx bx-menu'></i>
-      </div>
-    </nav>
-  </header>
-  <!-- Main-->
+    </div>
+  </nav>
   <main class="main">
     <section class="section section-auth">
       <div class="wrapper-box">
