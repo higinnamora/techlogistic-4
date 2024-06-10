@@ -55,10 +55,10 @@
     <!-- Main -->
     <main class="container my-5 h-100">
         <div class="d-flex flex-column flex-md-row justify-content-between">
-            <h4 class="text-md-start text-left">Materia prima</h4>
+            <h4 class="text-md-start text-left">Pedidos</h4>
         </div>
         <div class="d-flex flex-column flex-md-row gap-2">
-            <a href="registrarMateria.html"> <button class="button w-auto">Agregar materia prima</button></a>
+            <a href="registrarMateria.html"> <button class="button w-auto">Agregar pedido</button></a>
         </div>
         <hr>
         <!-- Tabla de proveedores -->
@@ -67,12 +67,11 @@
                 <a class="nav-link" aria-current="page" href="indexproveedores.php">Proveedores</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="materiaPrima.php">Materia Prima</a>
+                <a class="nav-link" href="materiaPrima.php">Materia Prima</a>
             </li>
-            <!-- Pedidos
             <li class="nav-item">
-                <a class="nav-link" href="pedidos.php">Pedidos</a>
-            </li> -->
+                <a class="nav-link  active" href="pedidos.php">Pedidos</a>
+            </li>
         </ul>
 
         <div class="table-responsive">
@@ -81,34 +80,40 @@
             $conexion;
             include_once "../../PHP/conexion_a_la_DB.php";
 
-            $sql = "SELECT * FROM materia_prima;";
+            $sql = "SELECT * FROM pedidos;";
             $result = mysqli_query($conexion, $sql);
 
             echo '<table class="table">
             <thead>
                 <tr> 
-                    <th scope="scope" >Id Materia Prima</th>
-                    <th scope="scope" >Color Materia</th>
-                    <th scope="scope" >Precio</th>
-                    <th scope="scope" >Cantidad Materia</th>
-                    <th scope="scope" >Descripción Materia</th>
+                    <th scope="scope" >Id Pedido</th>
+                    <th scope="scope" >Id Materia prima</th>
+                    <th scope="scope" >Id Proveedor</th>
+                    <th scope="scope" >Número de orden</th>
+                    <th scope="scope" >Cantidad pedido</th>
+                    <th scope="scope" >Fecha Pedido</th>
+                    <th scope="scope" >Devolución</th>
                 </tr>
             </thead>
             <tbody>';
             if ($rta = $conexion->query($sql)) {
                 while ($row = $rta->fetch_assoc()) {
-                    $idMateriaPrima = $row["id_materia_prima"];
-                    $colorMateria = $row["color_materia"];
-                    $precio = $row["precio"];
-                    $cantidadMateria = $row["cantidad_materia"];
-                    $descripcionMateria = $row["descripcion_materia"];
+                    $idPedido = $row["id_pedido"];
+                    $IdMateria = $row["id_materia_prima"];
+                    $idProveedor = $row["id_proveedor"];
+                    $numeroOrden = $row["numero_orden"];
+                    $cantidad = $row["cantidad_pedido"];
+                    $fecha = $row["fecha_pedido"];
+                    $devolucion = $row["devolucion"];
                     echo "
             <tr>
-                <td>$idMateriaPrima</td>
-                <td>$colorMateria</td>
-                <td>$precio</td>
-                <td>$cantidadMateria</td>
-                <td>$descripcionMateria</td>
+                <td>$idPedido</td>
+                <td>$IdMateria</td>
+                <td>$idProveedor</td>
+                <td>$numeroOrden</td>
+                <td>$cantidad</td>
+                <td>$fecha</td>
+                <td>$devolucion</td>
             </tr>";
                 }
                 echo "</tbody></table>\n";
