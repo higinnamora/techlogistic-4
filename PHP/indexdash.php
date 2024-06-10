@@ -46,61 +46,69 @@ if ($_SESSION['nombre_usuario']) {
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link">Vendedor</a>
+              <a class="nav-link active" aria-current="page" href="indexdash.php">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="../HTML/sign-up.html">Registrar persona</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><?php echo $nombre_usuario; ?></a>
+            </li>
+          <?php } ?>
 
-            <?php } ?>
+          <?php if ($_SESSION['tipo_usuario'] == 3) { ?>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="indexdash.php">Inicio</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#"><?php echo $nombre_usuario; ?></a>
+                <?php } ?>
 
-            <?php if ($_SESSION['tipo_usuario'] == 3) { ?>
-              <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
+                <?php if ($_SESSION['tipo_usuario'] == 1) { ?>
 
-                  <li class="nav-item">
-                    <a class="nav-link">Costurero</a>
-                  <?php } ?>
+                  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
+                      <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="indexdash.php">Inicio</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="../HTML/sign-up.html">Registrar persona</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="./registroFuncionario.php">Registrar funcionario</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="../PHP/consultarFuncionarios.php">Consultar funcionarios</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#"><?php echo $nombre_usuario; ?></a>
+                      </li>
 
-                  <?php if ($_SESSION['tipo_usuario'] == 1) { ?>
+                    <?php } ?>
 
-                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                      <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
-                        <li class="nav-item">
-                          <a class="nav-link" aria-current="page" href="indexdash.php">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" aria-current="page" href="../HTML/sign-up.html">Registrar usuario</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" aria-current="page" href="./registroFuncionario.php">Registrar funcionario</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" aria-current="page" href="../PHP/consultarFuncionarios.php">Consultar funcionarios</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#"><?php echo $nombre_usuario; ?></a>
-                        </li>
+                    <?php if ($_SESSION['tipo_usuario'] == 1 or $_SESSION['tipo_usuario'] == 2 or $_SESSION['tipo_usuario'] == 3) { ?>
 
-                      <?php } ?>
-
-                      <?php if ($_SESSION['tipo_usuario'] == 1 or $_SESSION['tipo_usuario'] == 2 or $_SESSION['tipo_usuario'] == 3) { ?>
-
-                        <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
-                        <li class="nav-item dropdown">
-                          <div class="dropdown" role="group">
-                            <a class="dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                              <img src="https://higinnamora.github.io/techlogistic/images/profile/profile.png" alt="mdo" class="rounded-circle" width="38" height="38" />
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-lg-end">
+                      <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
+                      <li class="nav-item dropdown">
+                        <div class="dropdown" role="group">
+                          <a class="dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="https://higinnamora.github.io/techlogistic/images/profile/profile.png" alt="mdo" class="rounded-circle" width="38" height="38" />
+                          </a>
+                          <ul class="dropdown-menu dropdown-menu-lg-end">
 
 
-                              <li><a class="dropdown-item" href="cerrar_sesion.php">Cerrar sesión</a></li>
-                            </ul>
-                          </div>
-                        </li>
+                            <li><a class="dropdown-item" href="cerrar_sesion.php">Cerrar sesión</a></li>
+                          </ul>
+                        </div>
+                      </li>
 
-                      <?php } ?>
+                    <?php } ?>
 
-                      </ul>
-                    </div>
-              </div>
+                    </ul>
+                  </div>
+            </div>
     </nav>
 
     <?php if ($_SESSION['tipo_usuario'] == 1 or $_SESSION['tipo_usuario'] == 3 or $_SESSION['tipo_usuario'] == 2) { ?>

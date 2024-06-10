@@ -37,17 +37,17 @@ $datos = $conexion->query($sql);
   <!-- Header -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
-    <a href="../../PHP/indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../../IMAGES/favicon.png" alt="" class="navigation__image">Techlogistic</a>
+      <a href="../../PHP/indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../../IMAGES/favicon.png" alt="" class="navigation__image">Techlogistic</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
-        <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="registrarProveedor.html">Agregar proveedor</a>
-          </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="../../PHP/indexdash.php">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="registrarProveedor.html">Agregar proveedor</a>
           </li>
           <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
           <li class="nav-item dropdown">

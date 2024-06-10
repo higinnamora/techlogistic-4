@@ -37,13 +37,13 @@ if (!isset($_SESSION['tipo_usuario'])) {
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
           <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="../../PHP/indexdash.php">Inicio</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" aria-current="page" href="./nueva-venta.php">Nueva venta</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="../../HTML/sign-up.html">Agregar persona</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="../../PHP/indexdash.php">Inicio</a>
           </li>
           <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
           <li class="nav-item dropdown">
