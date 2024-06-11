@@ -3,7 +3,7 @@
 
 $user = "root";
 $server = "localhost";
-$password = "admin";
+$password = "";
 $db = "techlogistic";
 
 //Conexion al servidor

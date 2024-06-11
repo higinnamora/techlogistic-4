@@ -70,7 +70,7 @@
                 <a class="nav-link" href="materiaPrima.php">Materia Prima</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link  active" href="pedidos.php">Pedidos</a>
+                <a class="nav-link  active" aria-current="page" href="#">Pedidos</a>
             </li>
         </ul>
 
@@ -83,7 +83,7 @@
             $sql = "SELECT * FROM pedidos;";
             $result = mysqli_query($conexion, $sql);
 
-            echo '<table class="table">
+            echo '<table id="pedidos" class="table">
             <thead>
                 <tr> 
                     <th scope="scope" >Id Pedido</th>
@@ -176,10 +176,24 @@
 
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.print.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script>
+  $(document).ready(function() {
+    $('#pedidos').DataTable({
+      dom: 'Bfrtip',
+      buttons: [
+        'excel', 'csv', 'pdf'
+      ]
+    });
+  });
+</script>
 
 </html>

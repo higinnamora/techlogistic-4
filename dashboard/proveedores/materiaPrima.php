@@ -59,24 +59,23 @@
                 <a class="nav-link" aria-current="page" href="indexproveedores.php">Proveedores</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="materiaPrima.php">Materia Prima</a>
+                <a class="nav-link active" aria-current="page" href="#">Materia prima</a>
             </li>
-            <!-- Pedidos
             <li class="nav-item">
                 <a class="nav-link" href="pedidos.php">Pedidos</a>
-            </li> -->
+            </li> 
         </ul>
-
         <div class="table-responsive">
 
             <?php
             $conexion;
             include_once "../../PHP/conexion_a_la_DB.php";
-
-            $sql = "SELECT * FROM materia_prima;";
+            $sql = "SELECT id_materia_prima, color_materia, precio, cantidad_materia, descripcion_materia FROM materia_prima;";
+            $datos = $conexion->query($sql);
             $result = mysqli_query($conexion, $sql);
+            
 
-            echo '<table class="table">
+            echo '<table id="materia_prima" class="table">
             <thead>
                 <tr> 
                     <th scope="scope" >Id Materia Prima</th>
@@ -108,6 +107,8 @@
             }
             ?>
         </div>
+        <hr class="my-5">
+
         <h4>Actualizar Materia prima</h4>
         <form class="form" id="sign-up-form" action="actualizarmateriaprima.php" method="POST">
 
@@ -152,7 +153,6 @@
         </form>
     </main><br><br>
     <br><br>
-
     <footer>
         <div class="copyright">
             <div class="bd-container">
@@ -161,13 +161,26 @@
             </div>
         </div>
     </footer>
-
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.print.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script>
+  $(document).ready(function() {
+    $('#materia_prima').DataTable({
+      dom: 'Bfrtip',
+      buttons: [
+        'excel', 'csv', 'pdf'
+      ]
+    });
+  });
+</script>
 
 </html>
