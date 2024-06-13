@@ -37,20 +37,9 @@ if (!isset($_SESSION['tipo_usuario'])) {
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="../../PHP/indexdash.php">  Inicio  </a>
+            <a class="nav-link active" aria-current="page" href="indexventas.php">Inicio</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="./nueva-venta.php">  Nueva venta  </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="indexventasActualizacion.php">  Actualizar venta  </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="indexventasEliminar.php">  Eliminar venta  </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="../../HTML/sign-up.html">  Agregar persona  </a>
-          </li>
+         
           <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
           <li class="nav-item dropdown">
             <div class="dropdown" role="group">
@@ -72,60 +61,14 @@ if (!isset($_SESSION['tipo_usuario'])) {
   <main class="container my-5 h-100">
     <div class="d-flex flex-column flex-md-row justify-content-between">
       <h4 class="text-md-start text-left">Ventas</h4>
-      <div>
-        <form class="search-box" action="buscarDevolucion.php" method="POST">
-          <input type="text" name="query" placeholder="Buscar devolucion">
-          <button class="button w-auto" type="submit">Devolucion</button>
-        </form>
-      </div>
     </div>
     <hr>
-    <ul class="nav nav-tabs mb-2">
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Ventas</a>
-      </li>
-    </ul>
-    <div class="table-responsive">
-      <?php
-      $conexion;
-      include_once "../../PHP/conexion_a_la_DB.php";
-      $sql = "SELECT numero_orden_venta, fecha_factura, doc_identidad, nombre_cliente FROM orden_venta;";
-      $datos = $conexion->query($sql);
-      $result = mysqli_query($conexion, $sql);
-
-      echo '<table class="table">
-            <thead>
-                <tr> 
-                    <th scope="scope" >Número Orden de venta</th>
-                    <th scope="scope" >Fecha de factura</th>
-                    <th scope="scope" >Doc. Identificación</th>
-                    <th scope="scope" >Nombre cliente</th>
-                    <th scope="scope">Detalle</th>
-                </tr>
-            </thead>
-            <tbody>';
-      if ($rta = $conexion->query($sql)) {
-        while ($row = $rta->fetch_assoc()) {
-          $numero = $row["numero_orden_venta"];
-          $fecha = $row["fecha_factura"];
-          $documento = $row["doc_identidad"];
-          $nombre = $row["nombre_cliente"];
-          echo "
-            <tr>
-                <td>$numero</td>
-                <td>$fecha</td>
-                <td>$documento</td>
-                <td>$nombre</td>
-                <td><button class='button' onclick='generarFactura($numero)' data-numero-orden='$numero'>Ver</button></td>
-            </tr>";
-        }
-        echo "</tbody></table>\n";
-        $rta->free();
-      }
-      ?>
-    </div>
-
-   
+    <h4>Eliminar orden de venta</h4>
+    <form class="newsletter-form" action="eliminarventa.php" id="newsletter-form" method="POST">
+      <div class="form-field">
+        <input type="number" name="eliminar_venta" placeholder="Numero de orden " class="newsletter-input" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
+        <button class="button" type="submit">Eliminar</button>
+    </form>
     <hr class="my-5">
   </main>
   <div class="copyright">
