@@ -47,13 +47,7 @@ $datos = $conexion->query($sql);
             <a class="nav-link active" aria-current="page" href="../../PHP/indexdash.php">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="registrarProveedor.html">registrar proveedor</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="indexActualizarproveedor.php">Actualizar proveedor</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="indexEliminarProveedor.php">Eliminar proveedor</a>
+            <a class="nav-link" aria-current="page" href="registrarProveedor.html">Agregar proveedor</a>
           </li>
           <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
           <li class="nav-item dropdown">
@@ -89,43 +83,19 @@ $datos = $conexion->query($sql);
       </form>-->
     </div>
     <hr>
-    <!-- Tabla de proveedores -->
-    <ul class="nav nav-tabs mb-4">
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Proveedores</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="materiaPrima.php">Materia Prima</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="pedidos.php">Pedidos</a>
-      </li> 
-    </ul>
+    
 
-    <div class="table-responsive">
-      <table id="proveedor" class="table">
-        <thead>
-          <tr>
-            <th scope="col">Nit</th>
-            <th scope="col">Id persona</th>
-            <th scope="col">Razon social</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php
-          // Itera sobre los datos y genera las filas de la tabla
-          foreach ($datos as $fila) {
-            echo "<tr>";
-            foreach ($fila as $valor) {
-              echo "<td>$valor</td>";
-            }
-            echo "</tr>";
-          }
-          ?>
-        </tbody>
-      </table>
-    </div>
+    <h4>Eliminar proveedor</h4>
+    <form class="newsletter-form" action="eliminarProveedor.php" id="newsletter-form" method="POST">
+      <div class="form-field">
+        <input type="text" name="eliminarProveedor" placeholder="Nit " class="newsletter-input" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
+        <button class="button" type="submit">Eliminar</button>
+      </div>
+    </form>
+    
     <hr class="my-4">
+
+    
   </main>
 
   <footer>

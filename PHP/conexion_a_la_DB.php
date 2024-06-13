@@ -4,7 +4,7 @@
 $user = "root";
 $server = "localhost";
 $password = "";
-$db = "techlogistic";
+$db = "educand4_techlogistic";
 
 //Conexion al servidor
 /*

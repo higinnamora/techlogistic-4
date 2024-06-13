@@ -47,13 +47,7 @@ $datos = $conexion->query($sql);
             <a class="nav-link active" aria-current="page" href="../../PHP/indexdash.php">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="registrarProveedor.html">registrar proveedor</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="indexActualizarproveedor.php">Actualizar proveedor</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="indexEliminarProveedor.php">Eliminar proveedor</a>
+            <a class="nav-link" aria-current="page" href="registrarProveedor.html">Agregar proveedor</a>
           </li>
           <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
           <li class="nav-item dropdown">
@@ -89,43 +83,32 @@ $datos = $conexion->query($sql);
       </form>-->
     </div>
     <hr>
-    <!-- Tabla de proveedores -->
-    <ul class="nav nav-tabs mb-4">
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Proveedores</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="materiaPrima.php">Materia Prima</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="pedidos.php">Pedidos</a>
-      </li> 
-    </ul>
+    
 
-    <div class="table-responsive">
-      <table id="proveedor" class="table">
-        <thead>
-          <tr>
-            <th scope="col">Nit</th>
-            <th scope="col">Id persona</th>
-            <th scope="col">Razon social</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php
-          // Itera sobre los datos y genera las filas de la tabla
-          foreach ($datos as $fila) {
-            echo "<tr>";
-            foreach ($fila as $valor) {
-              echo "<td>$valor</td>";
-            }
-            echo "</tr>";
-          }
-          ?>
-        </tbody>
-      </table>
-    </div>
+    <h4>Actualizar Proveedor</h4>
+    <form class="form" id="sign-up-form" action="editarProveedor.php" method="POST">
+
+      <div class="form-field">
+        <label for="nit">Nit</label>
+        <input type="text" placeholder="ingrese el nit del proveedor" id="nit" name="nit" required />
+      </div>
+      <div class="form-field">
+        <label for="idPersona">Id Persona</label>
+        <input type="number" placeholder="ingrese id Persona" id="idPersona" name="idPersona" required />
+      </div>
+      <div class="form-field">
+        <label for="razonSocial">Razón social</label>
+        <input type="text" placeholder="ingrese Razón social" id="razonSocial" name="razonSocial" required />
+      </div>
+      <div></div>
+      <div>
+        <input class="button" type="submit" value="Actualizar" />
+      </div>
+    </form>
+
     <hr class="my-4">
+
+    
   </main>
 
   <footer>

@@ -31,12 +31,6 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="pedidos.php">Inicio</a>
                     </li>
-                    <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="./pedidosActualizacion.php">Actualizar pedidos</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="./pedidosEliminar.php">Eliminar pedidos</a>
-                    </li>
                     <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
                     <li class="nav-item dropdown">
                         <div class="dropdown" role="group">
@@ -63,73 +57,20 @@
         <div class="d-flex flex-column flex-md-row justify-content-between">
             <h4 class="text-md-start text-left">Pedidos</h4>
         </div>
-        <div class="d-flex flex-column flex-md-row gap-2">
-            <a href="registrarMateria.html"> <button class="button w-auto">Agregar pedido</button></a>
-        </div>
         <hr>
-        <!-- Tabla de proveedores -->
-        <ul class="nav nav-tabs mb-4">
-            <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="indexproveedores.php">Proveedores</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="materiaPrima.php">Materia Prima</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link  active" aria-current="page" href="#">Pedidos</a>
-            </li>
-        </ul>
+        
+        
 
-        <div class="table-responsive">
-
-            <?php
-            $conexion;
-            include_once "../../PHP/conexion_a_la_DB.php";
-
-            $sql = "SELECT * FROM pedidos;";
-            $result = mysqli_query($conexion, $sql);
-
-            echo '<table id="pedidos" class="table">
-            <thead>
-                <tr> 
-                    <th scope="scope" >Id Pedido</th>
-                    <th scope="scope" >Id Materia prima</th>
-                    <th scope="scope" >Id Proveedor</th>
-                    <th scope="scope" >Número de orden</th>
-                    <th scope="scope" >Cantidad pedido</th>
-                    <th scope="scope" >Fecha Pedido</th>
-                    <th scope="scope" >Devolución</th>
-                </tr>
-            </thead>
-            <tbody>';
-            if ($rta = $conexion->query($sql)) {
-                while ($row = $rta->fetch_assoc()) {
-                    $idPedido = $row["id_pedido"];
-                    $IdMateria = $row["id_materia_prima"];
-                    $idProveedor = $row["id_proveedor"];
-                    $numeroOrden = $row["numero_orden"];
-                    $cantidad = $row["cantidad_pedido"];
-                    $fecha = $row["fecha_pedido"];
-                    $devolucion = $row["devolucion"];
-                    echo "
-            <tr>
-                <td>$idPedido</td>
-                <td>$IdMateria</td>
-                <td>$idProveedor</td>
-                <td>$numeroOrden</td>
-                <td>$cantidad</td>
-                <td>$fecha</td>
-                <td>$devolucion</td>
-            </tr>";
-                }
-                echo "</tbody></table>\n";
-                $rta->free();
-            }
-            ?>
-        </div>
+        <h4>Eliminar pedidos</h4>
+        <form class="newsletter-form" action="eliminarmateria.php" id="newsletter-form" method="POST">
+            <div class="form-field">
+                <input type="text" name="eliminarmateria" placeholder="Id " class="newsletter-input" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
+            </div>
+            <button class="button" type="submit">Eliminar</button>
+        </form>
         <hr class="my-4">
     </main><br><br>
-    <br><br>
+    <hr class="my-5">
 
     <footer>
         <div class="copyright">

@@ -30,15 +30,6 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="../../PHP/indexdash.php">Inicio</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="./registrarMateria.html">Registrar materia</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="./materiaPrimaActualizacion.php">Actualizar materia</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="./materiaPrimaEliminar.php">Eliminar materia</a>
-          </li>
           <li class="nav-item dropdown">
             <div class="dropdown" role="group">
               <a class="dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
@@ -58,62 +49,17 @@
         <div class="d-flex flex-column flex-md-row justify-content-between">
             <h4 class="text-md-start text-left">Materia prima</h4>
         </div>
-        <hr>
-        <!-- Tabla de proveedores -->
-        <ul class="nav nav-tabs mb-4">
-            <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="indexproveedores.php">Proveedores</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Materia prima</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="pedidos.php">Pedidos</a>
-            </li> 
-        </ul>
-        <div class="table-responsive">
+        
+        <hr class="my-4">
 
-            <?php
-            $conexion;
-            include_once "../../PHP/conexion_a_la_DB.php";
-            $sql = "SELECT id_materia_prima, color_materia, precio, cantidad_materia, descripcion_materia FROM materia_prima;";
-            $datos = $conexion->query($sql);
-            $result = mysqli_query($conexion, $sql);
-            
-
-            echo '<table id="materia_prima" class="table">
-            <thead>
-                <tr> 
-                    <th scope="scope" >Id Materia Prima</th>
-                    <th scope="scope" >Color Materia</th>
-                    <th scope="scope" >Precio</th>
-                    <th scope="scope" >Cantidad Materia</th>
-                    <th scope="scope" >Descripción Materia</th>
-                </tr>
-            </thead>
-            <tbody>';
-            if ($rta = $conexion->query($sql)) {
-                while ($row = $rta->fetch_assoc()) {
-                    $idMateriaPrima = $row["id_materia_prima"];
-                    $colorMateria = $row["color_materia"];
-                    $precio = $row["precio"];
-                    $cantidadMateria = $row["cantidad_materia"];
-                    $descripcionMateria = $row["descripcion_materia"];
-                    echo "
-            <tr>
-                <td>$idMateriaPrima</td>
-                <td>$colorMateria</td>
-                <td>$precio</td>
-                <td>$cantidadMateria</td>
-                <td>$descripcionMateria</td>
-            </tr>";
-                }
-                echo "</tbody></table>\n";
-                $rta->free();
-            }
-            ?>
-        </div>
-        <hr class="my-5">
+        <h4>Eliminar materia prima</h4>
+        <form class="newsletter-form" action="eliminarmateria.php" id="newsletter-form" method="POST">
+            <div class="form-field">
+                <input type="text" name="eliminarmateria" placeholder="Id " class="newsletter-input" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
+                <button class="button" type="submit">Eliminar</button>
+            </div>
+        </form>
+        <hr class="my-4">
     </main><br><br>
     <br><br>
     <footer>

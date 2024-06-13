@@ -31,12 +31,6 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="pedidos.php">Inicio</a>
                     </li>
-                    <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="./pedidosActualizacion.php">Actualizar pedidos</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="./pedidosEliminar.php">Eliminar pedidos</a>
-                    </li>
                     <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
                     <li class="nav-item dropdown">
                         <div class="dropdown" role="group">
@@ -63,9 +57,7 @@
         <div class="d-flex flex-column flex-md-row justify-content-between">
             <h4 class="text-md-start text-left">Pedidos</h4>
         </div>
-        <div class="d-flex flex-column flex-md-row gap-2">
-            <a href="registrarMateria.html"> <button class="button w-auto">Agregar pedido</button></a>
-        </div>
+        
         <hr>
         <!-- Tabla de proveedores -->
         <ul class="nav nav-tabs mb-4">
@@ -80,54 +72,41 @@
             </li>
         </ul>
 
-        <div class="table-responsive">
+        <h4>Actualizar Materia prima</h4>
+        <form class="form" id="sign-up-form" action="actualizarmateriaprima.php" method="POST">
 
-            <?php
-            $conexion;
-            include_once "../../PHP/conexion_a_la_DB.php";
+            <div class="form-field">
+                <label for="idmateriaprima">Id</label>
+                <input type="text" placeholder="Ingrese el id a actualizar" id="idmateriaprima" name="idmateriaprima" required />
+            </div>
 
-            $sql = "SELECT * FROM pedidos;";
-            $result = mysqli_query($conexion, $sql);
+            <div class="form-field">
+                <label for="colormateria">Color materia</label>
+                <input type="text" placeholder="Ingrese color" id="colormateria" name="colormateria" required />
+            </div>
 
-            echo '<table id="pedidos" class="table">
-            <thead>
-                <tr> 
-                    <th scope="scope" >Id Pedido</th>
-                    <th scope="scope" >Id Materia prima</th>
-                    <th scope="scope" >Id Proveedor</th>
-                    <th scope="scope" >Número de orden</th>
-                    <th scope="scope" >Cantidad pedido</th>
-                    <th scope="scope" >Fecha Pedido</th>
-                    <th scope="scope" >Devolución</th>
-                </tr>
-            </thead>
-            <tbody>';
-            if ($rta = $conexion->query($sql)) {
-                while ($row = $rta->fetch_assoc()) {
-                    $idPedido = $row["id_pedido"];
-                    $IdMateria = $row["id_materia_prima"];
-                    $idProveedor = $row["id_proveedor"];
-                    $numeroOrden = $row["numero_orden"];
-                    $cantidad = $row["cantidad_pedido"];
-                    $fecha = $row["fecha_pedido"];
-                    $devolucion = $row["devolucion"];
-                    echo "
-            <tr>
-                <td>$idPedido</td>
-                <td>$IdMateria</td>
-                <td>$idProveedor</td>
-                <td>$numeroOrden</td>
-                <td>$cantidad</td>
-                <td>$fecha</td>
-                <td>$devolucion</td>
-            </tr>";
-                }
-                echo "</tbody></table>\n";
-                $rta->free();
-            }
-            ?>
-        </div>
+            <div class="form-field">
+                <label for="precio">Precio</label>
+                <input type="number" placeholder="Ingrese el precio" id="precio" name="precio" required />
+            </div>
+
+            <div class="form-field">
+                <label for="cantidad">Cantidad</label>
+                <input type="text" placeholder="Ingrese cantidad" id="cantidad" name="cantidad" required />
+            </div>
+
+            <div class="form-field">
+                <label for="descripcion">Descripción</label>
+                <input type="text" placeholder="Ingrese descripcion" id="descripcion" name="descripcion" required />
+            </div><hr>
+            <div>
+                <input class="button" type="submit" value="Actualizar" />
+            </div>
+        </form>
+
         <hr class="my-4">
+
+       
     </main><br><br>
     <br><br>
 
