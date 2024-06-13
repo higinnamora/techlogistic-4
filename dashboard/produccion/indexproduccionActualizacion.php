@@ -44,16 +44,7 @@ $datos = $conexion->query($sql);
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="../../PHP/indexdash.php">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="./nuevoProductoExterno.php">Agregar producto</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="./indexproduccionActualizacion.php">Actualizar producto</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="./indexproduccionEliminar.php">Eliminar producto</a>
+            <a class="nav-link active" aria-current="page" href="indexproduccion.php">Inicio</a>
           </li>
           <li class="nav-item dropdown">
             <div class="dropdown" role="group">
@@ -75,42 +66,45 @@ $datos = $conexion->query($sql);
       <h4 class="text-md-start text-left">Producción</h4>
     </div>
     <hr>
-    <!-- Tabla de Producción -->
-    <ul class="nav nav-tabs mb-2">
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Productos</a>
-      </li>
-    </ul>
-    <div class="table-responsive">
-      <table id="productos" class="table">
-        <thead>
-          <tr>
-            <th scope="col">Código de producto</th>
-            <th scope="col">id funcionario</th>
-            <th scope="col">Cantidad</th>
-            <th scope="col">Producto</th>
-            <th scope="col">Material</th>
-            <th scope="col">Precio</th>
-            <th scope="col">Talla</th>
-            <th scope="col">Color producto</th>
-            <th scope="col">Ubicación</th>
-          </tr>
-        </thead>
-        <tbody>
-
-          <?php
-          // Itera sobre los datos y genera las filas de la tabla
-          foreach ($datos as $fila) {
-            echo "<tr>";
-            foreach ($fila as $valor) {
-              echo "<td>$valor</td>";
-            }
-            echo "</tr>";
-          }
-          ?>
-        </tbody>
-      </table>
-    </div>
+    <h4>Actualizar Producto</h4>
+    <form class="form" id="sign-up-form" action="editarProducto.php" method="POST">
+      <div class="form-field" style="display: none;">
+        <label for="funcionario">Funcionario/label>
+          <input type="number" value="2" id="funcionario" name="funcionario" required />
+      </div>
+      <div class="form-field">
+        <label for="producto">Código Producto</label>
+        <input type="number" placeholder="ingrese código producto" id="producto" name="producto" required />
+      </div>
+      <div class="form-field">
+        <label for="material">Material</label>
+        <input type="text" placeholder="ingrese material" id="material" name="material" required />
+      </div>
+      <div class="form-field">
+        <label for="modelo">Módelo</label>
+        <input type="text" placeholder="ingrese módelo" id="modelo" name="modelo" required />
+      </div>
+      <div class="form-field">
+        <label for="precio">Precio</label>
+        <input type="number" placeholder="ingrese precio" id="precio" name="precio" required />
+      </div>
+      <div class="form-field">
+        <label for="talla">Talla</label>
+        <input type="text" placeholder="ingrese talla" id="talla" name="talla" required />
+      </div>
+      <div class="form-field">
+        <label for="color">Color Producto</label>
+        <input type="text" placeholder="ingrese color producto" id="color" name="color" required />
+      </div>
+      <div class="form-field">
+        <label for="ubicacion">Ubicación</label>
+        <input type="text" placeholder="ingrese ubicación" id="ubicacion" name="ubicacion" required />
+      </div>
+      <div></div>
+      <div>
+        <input class="button" type="submit" value="Actualizar" />
+      </div>
+    </form>
     <hr class="my-4" />
   </main>
   <footer>
