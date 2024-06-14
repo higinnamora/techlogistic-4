@@ -1,11 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION['tipo_usuario'])) {
-  header("Location: ../../HTML/sign-in.html");
-  exit;
-}
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -93,7 +85,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
       $datos = $conexion->query($sql);
       $result = mysqli_query($conexion, $sql);
 
-      echo '<table class="table">
+      echo '<table id="ventas" class="table">
             <thead>
                 <tr> 
                     <th scope="scope" >Número Orden de venta</th>
@@ -143,12 +135,15 @@ if (!isset($_SESSION['tipo_usuario'])) {
 <script src="https://cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.print.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
 <script>
   $(document).ready(function() {
     $('#ventas').DataTable({
       dom: 'Bfrtip',
       buttons: [
-        'excel', 'csv'
+        'excel', 'csv', 'pdf'
       ]
     });
   });
