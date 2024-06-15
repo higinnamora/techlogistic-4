@@ -98,6 +98,9 @@
                     <th scope="scope" >Número de orden</th>
                     <th scope="scope" >Cantidad pedido</th>
                     <th scope="scope" >Fecha Pedido</th>
+                    <th scope="scope" >Valor bruto</th>
+                    <th scope="scope" >Iva</th>
+                    <th scope="scope" >Valor Total</th>
                     <th scope="scope" >Devolución</th>
                 </tr>
             </thead>
@@ -110,7 +113,11 @@
                     $numeroOrden = $row["numero_orden"];
                     $cantidad = $row["cantidad_pedido"];
                     $fecha = $row["fecha_pedido"];
+                    $valorBruto = $row["valor_bruto"];
+                    $iva = $row["iva"];
+                    $valor_total = $row["valor_total"];
                     $devolucion = $row["devolucion"];
+                    $devolucionTexto = ($devolucion == 1) ? "SI" : "NO";
                     echo "
             <tr>
                 <td>$idPedido</td>
@@ -119,7 +126,10 @@
                 <td>$numeroOrden</td>
                 <td>$cantidad</td>
                 <td>$fecha</td>
-                <td>$devolucion</td>
+                <td>$valorBruto</td>
+                <td>$iva</td>
+                <td>$valor_total</td>
+                <td>$devolucionTexto</td>
             </tr>";
                 }
                 echo "</tbody></table>\n";
@@ -157,7 +167,35 @@
       dom: 'Bfrtip',
       buttons: [
         'excel', 'csv', 'pdf'
-      ]
+      ],
+      language: {
+        "sProcessing": "Procesando...",
+        "sLengthMenu": "Mostrar MENU registros",
+        "sZeroRecords": "No se encontraron resultados",
+        "sEmptyTable": "Ningún dato disponible en esta tabla",
+        "sInfo": "Mostrando _START_ a _END_ de _TOTAL_ registros",
+        "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+        "sInfoFiltered": "(filtrado de un total de MAX registros)",
+        "sInfoPostFix": "",
+        "sSearch": "Buscar:",
+        "sUrl": "",
+        "sInfoThousands": ",",
+        "sLoadingRecords": "Cargando...",
+        "oPaginate": {
+          "sFirst": "Primero",
+          "sLast": "Último",
+          "sNext": "Siguiente",
+          "sPrevious": "Anterior"
+        },
+        "oAria": {
+          "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+          "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+        },
+        "buttons": {
+          "copy": "Copiar",
+          "colvis": "Visibilidad"
+        }
+      }
     });
   });
 </script>

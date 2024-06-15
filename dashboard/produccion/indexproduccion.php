@@ -94,6 +94,7 @@ $datos = $conexion->query($sql);
             <th scope="col">Talla</th>
             <th scope="col">Color producto</th>
             <th scope="col">Ubicación</th>
+            <th scope="col">Opciones</th>
           </tr>
         </thead>
         <tbody>
@@ -105,6 +106,7 @@ $datos = $conexion->query($sql);
             foreach ($fila as $valor) {
               echo "<td>$valor</td>";
             }
+            echo "<td><a class='btn btn-outline-success' href='#'>Eliminar</a></td>";
             echo "</tr>";
           }
           ?>
@@ -138,7 +140,35 @@ $datos = $conexion->query($sql);
       dom: 'Bfrtip',
       buttons: [
         'excel', 'csv', 'pdf'
-      ]
+      ],
+      language: {
+        "sProcessing": "Procesando...",
+        "sLengthMenu": "Mostrar MENU registros",
+        "sZeroRecords": "No se encontraron resultados",
+        "sEmptyTable": "Ningún dato disponible en esta tabla",
+        "sInfo": "Mostrando _START_ a _END_ de _TOTAL_ registros",
+        "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+        "sInfoFiltered": "(filtrado de un total de MAX registros)",
+        "sInfoPostFix": "",
+        "sSearch": "Buscar:",
+        "sUrl": "",
+        "sInfoThousands": ",",
+        "sLoadingRecords": "Cargando...",
+        "oPaginate": {
+          "sFirst": "Primero",
+          "sLast": "Último",
+          "sNext": "Siguiente",
+          "sPrevious": "Anterior"
+        },
+        "oAria": {
+          "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+          "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+        },
+        "buttons": {
+          "copy": "Copiar",
+          "colvis": "Visibilidad"
+        }
+      }
     });
   });
 </script>

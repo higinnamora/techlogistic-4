@@ -63,7 +63,7 @@ CREATE TABLE `correos` (
 
 LOCK TABLES `correos` WRITE;
 /*!40000 ALTER TABLE `correos` DISABLE KEYS */;
-INSERT INTO `correos` VALUES (1,1,'dayana@correo.com','dayana'),(2,2,'sandra@correo.com','f40a37048732da05928c3d374549c832'),(10,3,'diana@correo.com','12345678');
+INSERT INTO `correos` VALUES (1,1,'dayana@correo.com','dayana12345'),(2,2,'sandra@correo.com','f40a37048732da05928c3d374549c832'),(10,3,'diana@correo.com','12345678');
 /*!40000 ALTER TABLE `correos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -118,7 +118,7 @@ CREATE TABLE `detalle_venta` (
   PRIMARY KEY (`id_detalle_venta`),
   KEY `numero_orden_venta` (`numero_orden_venta`),
   CONSTRAINT `detalle_venta_ibfk_1` FOREIGN KEY (`numero_orden_venta`) REFERENCES `orden_venta` (`numero_orden_venta`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -127,7 +127,7 @@ CREATE TABLE `detalle_venta` (
 
 LOCK TABLES `detalle_venta` WRITE;
 /*!40000 ALTER TABLE `detalle_venta` DISABLE KEYS */;
-INSERT INTO `detalle_venta` VALUES (1,10001,'Camiseta',2,20000),(2,10001,'Saco',2,30000),(3,10002,'Camiseta',2,10000),(4,10002,'Sudadera',2,20000),(5,10003,'Sudadera,15000',2,30000),(6,10003,'Pantalon,30000',3,90000),(7,10004,'Jean,30000',1,30000),(8,10005,'Sudadera,15000',2,30000),(9,10006,'Sudadera,15000',2,30000),(10,10006,'Sudadera,15000',3,45000);
+INSERT INTO `detalle_venta` VALUES (1,10001,'Camiseta',2,20000),(2,10001,'Saco',2,30000),(3,10002,'Camiseta',2,10000),(4,10002,'Sudadera',2,20000),(5,10003,'Sudadera,15000',2,30000),(6,10003,'Pantalon,30000',3,90000),(7,10004,'Jean,30000',1,30000),(8,10005,'Sudadera,15000',2,30000),(9,10006,'Sudadera,15000',2,30000),(10,10006,'Sudadera,15000',3,45000),(11,10007,'Pantalon,30000',2,60000),(12,10007,'Saco,30000',3,90000);
 /*!40000 ALTER TABLE `detalle_venta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -192,7 +192,7 @@ CREATE TABLE `funcionario` (
 
 LOCK TABLES `funcionario` WRITE;
 /*!40000 ALTER TABLE `funcionario` DISABLE KEYS */;
-INSERT INTO `funcionario` VALUES (1,1,'8-5',13000,1),(2,2,'8 - 5',1300,1),(5,3,'9 - 6',1300,1);
+INSERT INTO `funcionario` VALUES (1,1,'8-5',13000,1),(2,2,'8 - 5',1300,2),(5,3,'9 - 6',1300,3);
 /*!40000 ALTER TABLE `funcionario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -305,7 +305,7 @@ CREATE TABLE `orden_venta` (
   CONSTRAINT `orden_venta_ibfk_1` FOREIGN KEY (`id_medio_pago`) REFERENCES `medio_pago` (`id_medio_pago`),
   CONSTRAINT `orden_venta_ibfk_2` FOREIGN KEY (`id_funcionario`) REFERENCES `funcionario` (`id_funcionario`),
   CONSTRAINT `orden_venta_ibfk_3` FOREIGN KEY (`id_persona`) REFERENCES `personas` (`id_persona`)
-) ENGINE=InnoDB AUTO_INCREMENT=10007 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10008 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -314,7 +314,7 @@ CREATE TABLE `orden_venta` (
 
 LOCK TABLES `orden_venta` WRITE;
 /*!40000 ALTER TABLE `orden_venta` DISABLE KEYS */;
-INSERT INTO `orden_venta` VALUES (10001,1,1,1,'2024-06-02',12345,'Iris'),(10002,1,1,1,'2024-06-03',12345,'Iris'),(10003,1,4,1,'2024-06-03',85214,'Aura'),(10004,1,1,1,'2024-06-03',12345,'Iris'),(10005,1,4,1,'2024-06-03',85214,'Aura'),(10006,1,1,1,'2024-06-05',12345,'Iris');
+INSERT INTO `orden_venta` VALUES (10001,1,1,1,'2024-06-02',12345,'Iris'),(10002,1,1,1,'2024-06-03',12345,'Iris'),(10003,1,4,1,'2024-06-03',85214,'Aura'),(10004,1,1,1,'2024-06-03',12345,'Iris'),(10005,1,4,1,'2024-06-03',85214,'Aura'),(10006,1,1,1,'2024-06-05',12345,'Iris'),(10007,1,4,1,'2024-06-07',85214,'Aura');
 /*!40000 ALTER TABLE `orden_venta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -360,6 +360,9 @@ CREATE TABLE `pedidos` (
   `numero_orden` int NOT NULL,
   `cantidad_pedido` int NOT NULL,
   `fecha_pedido` date NOT NULL,
+  `valor_bruto` float NOT NULL,
+  `iva` float NOT NULL,
+  `valor_total` float NOT NULL,
   `devolucion` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id_pedido`),
   UNIQUE KEY `numero_orden_UNIQUE` (`numero_orden`),
@@ -376,7 +379,7 @@ CREATE TABLE `pedidos` (
 
 LOCK TABLES `pedidos` WRITE;
 /*!40000 ALTER TABLE `pedidos` DISABLE KEYS */;
-INSERT INTO `pedidos` VALUES (1,1,1,1,5,'2024-02-02',NULL);
+INSERT INTO `pedidos` VALUES (1,1,1,1,5,'2024-02-02',100000,19000,11900,0);
 /*!40000 ALTER TABLE `pedidos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -437,7 +440,7 @@ CREATE TABLE `producto` (
 
 LOCK TABLES `producto` WRITE;
 /*!40000 ALTER TABLE `producto` DISABLE KEYS */;
-INSERT INTO `producto` VALUES (1,1,0,'Camiseta','Algodon',20000,'s','Gris','Bodega'),(2,1,0,'Saco','Lana',30000,'s','Negro','Bodega'),(3,2,0,'Sudadera','Algodon',15000,'s','Cafe','Bodega'),(4,1,0,'Jean','Algodon',30000,'s','Azul','Bodega'),(5,2,1,'Pantalon','Algodon',30000,'m','Gris','Bodega');
+INSERT INTO `producto` VALUES (1,1,10,'Camiseta-s-gris','Algodon',20000,'s','Gris','Bodega'),(2,1,10,'Saco-s-negro','Lana',30000,'s','Negro','Bodega'),(3,2,10,'Sudadera-s-cafe','Algodon',15000,'s','Cafe','Bodega'),(4,1,10,'Jean-s-azul','Algodon',30000,'s','Azul','Bodega'),(5,2,10,'Pantalon-s-gris','Algodon',30000,'s','Gris','Bodega');
 /*!40000 ALTER TABLE `producto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -560,4 +563,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-05 19:31:16
+-- Dump completed on 2024-06-15 16:58:05
