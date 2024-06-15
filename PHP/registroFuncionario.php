@@ -77,7 +77,7 @@ if ($_SESSION['tipo_usuario']) {
         <form class="form" id="sign-up-form" action="crearFuncionario.php" method="POST">
           <div class="form-field">
             <label class="form-label" for="sign-up-form-numcargo">Cargo</label>
-            <select name="sign-up-form-numcargo" class="form-select">>
+            <select name="sign-up-form-numcargo" class="form-select">
               <option value="1">1 Administrador</option>
               <option value="2">2 Vendedor</option>
               <option value="3">3 Costurero</option>
