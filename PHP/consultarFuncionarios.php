@@ -65,6 +65,16 @@ $datos = $conexion->query($sql);
       </div>
     </div>
   </nav>
+<!-- Tabla de proveedores -->
+  <ul class="nav nav-tabs mb-4">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#">Consultar funcionarios</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="registroFuncionario.php">Registrar funcionario</a>
+      </li>
+    </ul>
+
 
   <!-- Main -->
   <main class="container my-5 h-100">

@@ -77,10 +77,7 @@ if ($_SESSION['nombre_usuario']) {
                         <a class="nav-link" aria-current="page" href="../HTML/sign-up.html">Registrar persona</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="./registroFuncionario.php">Registrar funcionario</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="../PHP/consultarFuncionarios.php">Consultar funcionarios</a>
+                        <a class="nav-link" aria-current="page" href="../PHP/consultarFuncionarios.php">funcionarios</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="#"><?php echo $nombre_usuario; ?></a>
