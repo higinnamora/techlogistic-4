@@ -98,6 +98,9 @@
                     <th scope="scope" >Número de orden</th>
                     <th scope="scope" >Cantidad pedido</th>
                     <th scope="scope" >Fecha Pedido</th>
+                    <th scope="scope" >Valor bruto</th>
+                    <th scope="scope" >Iva</th>
+                    <th scope="scope" >Valor Total</th>
                     <th scope="scope" >Devolución</th>
                 </tr>
             </thead>
@@ -110,7 +113,11 @@
                     $numeroOrden = $row["numero_orden"];
                     $cantidad = $row["cantidad_pedido"];
                     $fecha = $row["fecha_pedido"];
+                    $valorBruto = $row["valor_bruto"];
+                    $iva = $row["iva"];
+                    $valor_total = $row["valor_total"];
                     $devolucion = $row["devolucion"];
+                    $devolucionTexto = ($devolucion == 1) ? "SI" : "NO";
                     echo "
             <tr>
                 <td>$idPedido</td>
@@ -119,7 +126,10 @@
                 <td>$numeroOrden</td>
                 <td>$cantidad</td>
                 <td>$fecha</td>
-                <td>$devolucion</td>
+                <td>$valorBruto</td>
+                <td>$iva</td>
+                <td>$valor_total</td>
+                <td>$devolucionTexto</td>
             </tr>";
                 }
                 echo "</tbody></table>\n";

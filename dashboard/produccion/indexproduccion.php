@@ -94,6 +94,7 @@ $datos = $conexion->query($sql);
             <th scope="col">Talla</th>
             <th scope="col">Color producto</th>
             <th scope="col">Ubicación</th>
+            <th scope="col">Opciones</th>
           </tr>
         </thead>
         <tbody>
@@ -105,6 +106,7 @@ $datos = $conexion->query($sql);
             foreach ($fila as $valor) {
               echo "<td>$valor</td>";
             }
+            echo "<td><a class='btn btn-outline-success' href='#'>Eliminar</a></td>";
             echo "</tr>";
           }
           ?>
