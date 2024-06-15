@@ -74,7 +74,10 @@
     <hr>
     <ul class="nav nav-tabs mb-2">
       <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Ventas</a>
+        <a class="nav-link active" aria-current="page" href="indexventas.php">Ventas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="cotizacion.php">Cotización</a>
       </li>
     </ul>
     <div class="table-responsive">
