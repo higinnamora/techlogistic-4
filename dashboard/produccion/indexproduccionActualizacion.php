@@ -1,11 +1,15 @@
-<!-- Estamos validando que el usuario si tenga una sesion iniciada, de lo contrario se enviara a login-->
 <?php
 session_start();
+if ($_SESSION['nombre_usuario']) {
+  $nombre_usuario = $_SESSION['nombre_usuario'];
+} else {
+  $nombre_usuario = "Nombre de usuario no definido";
+}
 
-
-if (!isset($_SESSION['tipo_usuario'])) {
-  header("Location: ../../HTML/sign-in.html");
-  exit;
+if ($_SESSION['tipo_usuario']) {
+  $tipo_usuario = $_SESSION['tipo_usuario'];
+} else {
+  $tipo_usuario = "Tipo de usuario no definido";
 }
 $conexion;
 include_once "../../PHP/conexion_a_la_DB.php";
@@ -35,7 +39,7 @@ $datos = $conexion->query($sql);
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
       <a href="../../PHP/indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../../IMAGES/favicon.png" alt="" class="navigation__image">Techlogistic</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,8 +53,7 @@ $datos = $conexion->query($sql);
           <li class="nav-item dropdown">
             <div class="dropdown" role="group">
               <a class="dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="https://higinnamora.github.io/techlogistic/images/profile/profile.png" alt="mdo"
-                  class="rounded-circle" width="38" height="38" />
+                <img src="https://higinnamora.github.io/techlogistic/images/profile/profile.png" alt="mdo" class="rounded-circle" width="38" height="38" />
               </a>
               <ul class="dropdown-menu dropdown-menu-lg-end">
                 <li><a class="dropdown-item" href="../../PHP/cerrar_sesion.php">Cerrar sesión</a></li>
@@ -67,43 +70,67 @@ $datos = $conexion->query($sql);
     </div>
     <hr>
     <h4>Actualizar Producto</h4>
-    <form class="form" id="sign-up-form" action="editarProducto.php" method="POST">
-      <div class="form-field" style="display: none;">
-        <label for="funcionario">Funcionario/label>
-          <input type="number" value="2" id="funcionario" name="funcionario" required />
+    <form id="update-form" action="editarProducto.php" method="POST" style="margin: 0 auto; width: 580px;">
+      <div class="form-field">
+        <label class="form-label" for="numcargo">Funcionario</label>
+        <input type="text" class="form-control" name="usuario" id="usuario" value="<?php echo $nombre_usuario; ?>" readonly>
+        <input type="hidden" name="funcionario" value="<?php echo $tipo_usuario; ?>">
       </div>
       <div class="form-field">
-        <label for="producto">Código Producto</label>
-        <input type="number" placeholder="ingrese código producto" id="producto" name="producto" required />
+        <label for="codigo_producto">Código Producto</label>
+        <input type="number" placeholder="ingrese código producto" id="codigo_producto" name="codigo_producto" required />
+      </div>
+      <!-- Codigo para cuando se solucione la llave foranea con materia prima, funciona pero lo ideal es que tenga lalve foranea -->
+      <!--
+          <div class="form-field">
+            <label for="material">Materia Prima</label>
+            <select id="material" name="material" class="form-control" required>
+              <option value="" disabled selected hidden>Seleccione</option>
+              <?php
+              $conexion;
+              include_once "../../PHP/conexion_a_la_DB.php";
+              if ($conexion->connect_error) {
+                die("Connection failed: " . $conexion->connect_error);
+              }
+              $sql = "SELECT id_materia_prima, descripcion_materia FROM materia_prima";
+              $result = $conexion->query($sql);
+              if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                  echo "<option value='" . $row['id_materia_prima'] . "'>" . $row['descripcion_materia'] . "</option>";
+                }
+              }
+              ?>
+            </select>
+          </div> -->
+      <div class="form-field">
+        <label for="material">Materia Prima</label>
+        <input type="text" placeholder="Ingrese nombre producto" id="material" name="material" required />
       </div>
       <div class="form-field">
-        <label for="material">Material</label>
-        <input type="text" placeholder="ingrese material" id="material" name="material" required />
+        <label for="producto">Nombre producto</label>
+        <input type="text" placeholder="Ingrese nombre producto" id="producto" name="producto" required />
       </div>
       <div class="form-field">
-        <label for="modelo">Módelo</label>
-        <input type="text" placeholder="ingrese módelo" id="modelo" name="modelo" required />
+        <label for="cantidad">Cantidad de productos</label>
+        <input type="number" placeholder="Ingrese cantidad de productos" id="cantidad" name="cantidad" required />
       </div>
       <div class="form-field">
         <label for="precio">Precio</label>
-        <input type="number" placeholder="ingrese precio" id="precio" name="precio" required />
+        <input type="number" placeholder="Ingrese precio" id="precio" name="precio" required />
       </div>
       <div class="form-field">
         <label for="talla">Talla</label>
-        <input type="text" placeholder="ingrese talla" id="talla" name="talla" required />
+        <input type="text" placeholder="Ingrese talla" id="talla" name="talla" required />
       </div>
       <div class="form-field">
-        <label for="color">Color Producto</label>
-        <input type="text" placeholder="ingrese color producto" id="color" name="color" required />
+        <label for="color">Color</label>
+        <input type="text" placeholder="Ingrese color" id="color" name="color" required />
       </div>
       <div class="form-field">
         <label for="ubicacion">Ubicación</label>
-        <input type="text" placeholder="ingrese ubicación" id="ubicacion" name="ubicacion" required />
+        <input type="text" placeholder="Ingrese ubicacion" id="ubicacion" name="ubicacion" required />
       </div>
-      <div></div>
-      <div>
-        <input class="button" type="submit" value="Actualizar" />
-      </div>
+      <input class="button mb-1" type="submit" value="Actualizar Producto" />
     </form>
     <hr class="my-4" />
   </main>

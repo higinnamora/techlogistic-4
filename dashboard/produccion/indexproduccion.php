@@ -47,13 +47,13 @@ $datos = $conexion->query($sql);
             <a class="nav-link active" aria-current="page" href="../../PHP/indexdash.php">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="./nuevoProductoExterno.php">Agregar producto</a>
+            <a class="nav-link" aria-current="page" href="./nuevoProducto.php">Registrar</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="./indexproduccionActualizacion.php">Actualizar producto</a>
+            <a class="nav-link" aria-current="page" href="./indexproduccionActualizacion.php">Actualizar</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="./indexproduccionEliminar.php">Eliminar producto</a>
+            <a class="nav-link" aria-current="page" href="./indexproduccionEliminar.php">Eliminar</a>
           </li>
           <li class="nav-item dropdown">
             <div class="dropdown" role="group">
@@ -94,7 +94,6 @@ $datos = $conexion->query($sql);
             <th scope="col">Talla</th>
             <th scope="col">Color producto</th>
             <th scope="col">Ubicación</th>
-            <th scope="col">Opciones</th>
           </tr>
         </thead>
         <tbody>
@@ -106,7 +105,6 @@ $datos = $conexion->query($sql);
             foreach ($fila as $valor) {
               echo "<td>$valor</td>";
             }
-            echo "<td><a class='btn btn-outline-success' href='#'>Eliminar</a></td>";
             echo "</tr>";
           }
           ?>
