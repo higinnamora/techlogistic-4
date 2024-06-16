@@ -216,7 +216,7 @@ CREATE TABLE `materia_prima` (
   KEY `fk_materia_prima_categoria_materia1_idx` (`categoria_materia_id_categoria`),
   CONSTRAINT `fk_materia_prima_categoria_materia1` FOREIGN KEY (`categoria_materia_id_categoria`) REFERENCES `categoria_materia` (`id_categoria`),
   CONSTRAINT `materia_prima_ibfk_1` FOREIGN KEY (`id_funcionario`) REFERENCES `funcionario` (`id_funcionario`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -225,7 +225,7 @@ CREATE TABLE `materia_prima` (
 
 LOCK TABLES `materia_prima` WRITE;
 /*!40000 ALTER TABLE `materia_prima` DISABLE KEYS */;
-INSERT INTO `materia_prima` VALUES (1,1,'Negra',20000,5,'tela camiseta',1),(2,2,'Verde',30000,2,'Jean',2),(3,2,'Negro',15000,3,'Lana',1),(4,2,'Azul',20000,2,'Algodon',1);
+INSERT INTO `materia_prima` VALUES (1,1,'Negra',20000,10,'Tela Camiseta Negra',1),(2,2,'Verde',30000,10,'Tela Jean Negro',2),(3,2,'Negro',15000,10,'Lana Negra',1),(4,2,'Azul',10000,2,'Lana Azul',1);
 /*!40000 ALTER TABLE `materia_prima` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -357,7 +357,6 @@ CREATE TABLE `pedidos` (
   `id_pedido` int NOT NULL AUTO_INCREMENT,
   `id_materia_prima` int NOT NULL,
   `id_proveedor` int NOT NULL,
-  `numero_orden` int NOT NULL,
   `cantidad_pedido` int NOT NULL,
   `fecha_pedido` date NOT NULL,
   `valor_bruto` float NOT NULL,
@@ -365,12 +364,11 @@ CREATE TABLE `pedidos` (
   `valor_total` float NOT NULL,
   `devolucion` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id_pedido`),
-  UNIQUE KEY `numero_orden_UNIQUE` (`numero_orden`),
   KEY `id_proveedor` (`id_proveedor`),
   KEY `id_materia_prima` (`id_materia_prima`),
   CONSTRAINT `pedido_ibfk_1` FOREIGN KEY (`id_proveedor`) REFERENCES `proveedores` (`id_proveedor`),
   CONSTRAINT `pedido_ibfk_2` FOREIGN KEY (`id_materia_prima`) REFERENCES `materia_prima` (`id_materia_prima`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -379,7 +377,7 @@ CREATE TABLE `pedidos` (
 
 LOCK TABLES `pedidos` WRITE;
 /*!40000 ALTER TABLE `pedidos` DISABLE KEYS */;
-INSERT INTO `pedidos` VALUES (1,1,1,1,5,'2024-02-02',100000,19000,11900,0);
+INSERT INTO `pedidos` VALUES (1,1,1,5,'2024-02-02',100000,19000,11900,0),(3,1,1,10,'2024-06-16',200000,38000,238000,NULL),(5,3,3,10,'2024-06-16',40500,9500,50000,NULL);
 /*!40000 ALTER TABLE `pedidos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -488,7 +486,7 @@ CREATE TABLE `proveedores` (
   PRIMARY KEY (`id_proveedor`),
   KEY `id_persona` (`id_persona`),
   CONSTRAINT `proveedor_ibfk_1` FOREIGN KEY (`id_persona`) REFERENCES `personas` (`id_persona`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -497,7 +495,7 @@ CREATE TABLE `proveedores` (
 
 LOCK TABLES `proveedores` WRITE;
 /*!40000 ALTER TABLE `proveedores` DISABLE KEYS */;
-INSERT INTO `proveedores` VALUES (1,4,'14','Telas Don Ramón');
+INSERT INTO `proveedores` VALUES (1,4,'14','Telas Don Ramón'),(3,1,'12345','Doña Florinda'),(4,1,'4444','Doña María');
 /*!40000 ALTER TABLE `proveedores` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -563,4 +561,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-15 16:58:05
+-- Dump completed on 2024-06-15 23:56:32
