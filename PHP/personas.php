@@ -7,13 +7,13 @@
     <title>Techlogistic</title>
     <meta name="description" content="">
     <!-- Favicon -->
-    <link rel="icon" href="../../images/favicon.png">
+    <link rel="icon" href="../images/favicon.png">
     <!-- Box icons-->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <!-- Estilos CSS -->
-    <link rel="stylesheet" href="../../HTML/styles/techlogistic.css">
+    <link rel="stylesheet" href="../HTML/styles/techlogistic.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
 </head>
@@ -22,23 +22,20 @@
     <!-- Header -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container">
-            <a href="../../PHP/indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../../IMAGES/favicon.png" alt="" class="navigation__image">Techlogistic</a>
+            <a href="indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../images/favicon.png" alt="" class="navigation__image">Techlogistic</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../../PHP/indexdash.php">Inicio</a>
+                        <a class="nav-link active" aria-current="page" href="indexdash.php">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="./registrarPedido.php">Registrar</a>
+                        <a class="nav-link" aria-current="page" href="../HTML/sign-up.html">| Registrar |</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="./pedidosActualizacion.php">Actualizar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="./pedidosEliminar.php">Eliminar</a>
+                        <a class="nav-link" aria-current="page" href="actualizar_persona.php">Actualizar</a>
                     </li>
                     <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
                     <li class="nav-item dropdown">
@@ -64,78 +61,45 @@
     <!-- Main -->
     <main class="container my-5 h-100">
         <div class="d-flex flex-column flex-md-row justify-content-between">
-            <h4 class="text-md-start text-left">Pedidos</h4>
+            <h4 class="text-md-start text-left">Personas</h4>
         </div>
         <hr>
-        <!-- Tabla de proveedores -->
-        <ul class="nav nav-tabs mb-4">
-            <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="indexproveedores.php">Proveedores</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="materiaPrima.php">Materia Prima</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link  active" aria-current="page" href="#">Pedidos</a>
-            </li>
-        </ul>
-
         <div class="table-responsive">
 
             <?php
             $conexion;
-            include_once "../../PHP/conexion_a_la_DB.php";
-            $sql = "SELECT 
-                        pedidos.id_pedido,
-                        pedidos.fecha_pedido,
-                        materia_prima.descripcion_materia AS id_materia_prima,
-                        proveedores.razon_social AS id_proveedor,
-                        pedidos.cantidad_pedido,
-                        pedidos.valor_bruto,
-                        pedidos.iva,
-                        pedidos.valor_total
-                    FROM 
-                        pedidos
-                        JOIN materia_prima ON pedidos.id_materia_prima = materia_prima.id_materia_prima
-                        JOIN proveedores ON pedidos.id_proveedor = proveedores.id_proveedor;";
+            include_once "conexion_a_la_DB.php";
+            $sql = "SELECT * FROM personas;";
             $result = mysqli_query($conexion, $sql);
 
-            echo '<table id="pedidos" class="table">
+            echo '<table id="personas" class="table">
             <thead>
                 <tr> 
-                    <th scope="scope" >Id Pedido</th>
-                    <th scope="scope" >Id Materia prima</th>
-                    <th scope="scope" >Id Proveedor</th>
-                    <th scope="scope" >Cantidad pedido</th>
-                    <th scope="scope" >Fecha Pedido</th>
-                    <th scope="scope" >Valor bruto</th>
-                    <th scope="scope" >Iva</th>
-                    <th scope="scope" >Valor Total</th>
+                    <th scope="scope" style="display: none;">Id</th>
+                    <th scope="scope" >Documento</th>
+                    <th scope="scope" >Primer Nombre</th>
+                    <th scope="scope" >Segundo Nombre</th>
+                    <th scope="scope" >Primer Apellido</th>
+                    <th scope="scope" >Segundo Apellido</th>
                 </tr>
             </thead>
             <tbody>';
             if ($rta = $conexion->query($sql)) {
                 while ($row = $rta->fetch_assoc()) {
-                    $idPedido = $row["id_pedido"];
-                    $IdMateria = $row["id_materia_prima"];
-                    $idProveedor = $row["id_proveedor"];
-                    $cantidad = $row["cantidad_pedido"];
-                    $fecha = $row["fecha_pedido"];
-                    $valorBruto = $row["valor_bruto"];
-                    $iva = $row["iva"];
-                    $valor_total = $row["valor_total"];
-                    #$devolucion = $row["devolucion"];
-                    #$devolucionTexto = ($devolucion == 1) ? "SI" : "NO";
+                    $id = $row["id_persona"];
+                    $noDocumento = $row["no_documento"];
+                    $primerNombre = $row["primer_nombre"];
+                    $segundoNombre = $row["segundo_nombre"];
+                    $primerApellido = $row["primer_apellido"];
+                    $segundoApellido = $row["segundo_apellido"];
                     echo "
             <tr>
-                <td>$idPedido</td>
-                <td>$IdMateria</td>
-                <td>$idProveedor</td>
-                <td>$cantidad</td>
-                <td>$fecha</td>
-                <td>$valorBruto</td>
-                <td>$iva</td>
-                <td>$valor_total</td>
+                <td style='display: none;'>$id</td>
+                <td>$noDocumento</td>
+                <td>$primerNombre</td>
+                <td>$segundoNombre</td>
+                <td>$primerApellido</td>
+                <td>$segundoApellido</td>
             </tr>";
                 }
                 echo "</tbody></table>\n";
@@ -143,19 +107,15 @@
             }
             ?>
         </div>
-        <hr class="my-4">
-    </main><br><br>
-    <br><br>
-
-    <footer>
-        <div class="copyright">
-            <div class="bd-container">
-                <p>💙 © 2024 Techlogistic. Todos los derechos reservados. 💚</p>
-                <p><a href="../../HTML/terminos-y-condiciones.html">Términos y Condiciones</a> · <a href="../../HTML/politica-de-privacidad.html">Política de Privacidad</a></p>
-            </div>
-        </div>
+    </main>
     </footer>
-
+    <div class="copyright">
+        <div class="bd-container">
+            <p>💙 © 2024 Techlogistic. Todos los derechos reservados. 💚</p>
+            <p><a href="../HTML/terminos-y-condiciones.html">Términos y Condiciones</a> · <a href="../HTML/politica-de-privacidad.html">Política de Privacidad</a></p>
+        </div>
+    </div>
+    </footer>
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 

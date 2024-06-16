@@ -395,8 +395,9 @@ CREATE TABLE `personas` (
   `segundo_nombre` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `primer_apellido` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `segundo_apellido` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`id_persona`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  PRIMARY KEY (`id_persona`),
+  UNIQUE KEY `no_documento_UNIQUE` (`no_documento`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -405,7 +406,7 @@ CREATE TABLE `personas` (
 
 LOCK TABLES `personas` WRITE;
 /*!40000 ALTER TABLE `personas` DISABLE KEYS */;
-INSERT INTO `personas` VALUES (1,'12345','Iris','Dayana','Sanchez','Perez'),(2,'98765','Sandra','Liliana','Collazos','Gomez'),(3,'15964','Diana','Carolina','Pinzon','Gonzalez'),(4,'85214','Aura','Cristina','Vela','Gonzalez'),(5,'6876416','Ana','Esperanza','Gomez','Anturi'),(6,'9674616','Carmen','Liliana','Ramirez','pinzon'),(7,'100456','Carlos','Andres','Vanegas','Guerrero'),(10,'100457','Martha','Edilma','Puentes','Correo'),(13,'100567','Ginna','Marcela','Mora','Diaz'),(14,'100568','Aura','Cristina','Vela','Gonzalez'),(15,'100569','Ana','Marcela','Cruz','Diaz'),(16,'100570','Maria','Cristina','Muñoz','Gonzalez'),(21,'','','','',''),(22,'','','','',''),(23,'','','','',''),(24,'','','','',''),(25,'','','','','');
+INSERT INTO `personas` VALUES (1,'12345','Iris','Dayana','Sanchez','Perez'),(2,'98765','Sandra','Liliana','Collazos','Gomez'),(3,'15964','Diana','Carolina','Pinzon','Gonzalez'),(4,'85214','Aura','Cristina','Vela','Gonzalez'),(5,'6876416','Ana','Esperanza','Gomez','Anturi'),(6,'9674616','Carmen','Liliana','Ramirez','pinzon'),(7,'100456','Carlos','Andres','Vanegas','Guerrero'),(10,'100457','Martha','Edilma','Puentes','Correo'),(13,'100567','Ginna','Marcela','Mora','Diaz'),(14,'100568','Aura','Margarita','Vela','Gonzalez'),(15,'100569','Ana','Marcela','Cruz','Diaz'),(16,'100570','Maria','Alejandra','Muñoz','Gonzalez');
 /*!40000 ALTER TABLE `personas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -561,4 +562,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-15 23:56:32
+-- Dump completed on 2024-06-16  1:21:17

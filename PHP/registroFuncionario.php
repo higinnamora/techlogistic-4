@@ -46,6 +46,9 @@ if ($_SESSION['tipo_usuario']) {
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="./indexdash.php">Inicio</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="consultarFuncionarios.php">Funcionarios</a>
+          </li>
           <li class="nav-item dropdown">
             <div class="dropdown" role="group">
               <a class="dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
@@ -61,15 +64,6 @@ if ($_SESSION['tipo_usuario']) {
       </div>
     </div>
   </nav>
-  <!-- Tabla de proveedores -->
-  <ul class="nav nav-tabs mb-4">
-      <li class="nav-item">
-        <a class="nav-link " aria-current="page" href="consultarFuncionarios.php">Consultar funcionarios</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active" href="#">Registrar funcionario</a>
-      </li>
-    </ul>
   <main class="main">
     <section class="section section-auth">
       <div class="wrapper-box">

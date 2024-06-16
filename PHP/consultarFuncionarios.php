@@ -6,10 +6,11 @@ if (!isset($_SESSION['tipo_usuario'])) {
 }
 $conexion;
 include_once "conexion_a_la_DB.php";
-$sql = "SELECT p.primer_nombre, p.primer_apellido, c.correo, f.horario, f.salario
+$sql = "SELECT p.primer_nombre, p.primer_apellido, c.correo, f.horario, f.salario, r.descripcion_rol
         FROM funcionario f
         JOIN personas p ON f.id_persona = p.id_persona
-        JOIN correos c ON f.id_persona = c.id_persona;";
+        JOIN correos c ON f.id_persona = c.id_persona
+        JOIN roles r ON f.roles_id_rol = r.id_rol;";
 $datos = $conexion->query($sql);
 ?>
 
@@ -26,8 +27,7 @@ $datos = $conexion->query($sql);
   <!-- Box icons-->
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <!-- Bootstrap 5 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <!-- Estilos CSS -->
   <link rel="stylesheet" href="../HTML/styles/techlogistic.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
@@ -38,10 +38,8 @@ $datos = $conexion->query($sql);
   <!-- Header -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
-      <a href="indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../IMAGES/favicon.png" width="50"
-          height="50" alt="" class="navigation__image">Techlogistic</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <a href="indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../IMAGES/favicon.png" width="50" height="50" alt="" class="navigation__image">Techlogistic</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -49,12 +47,14 @@ $datos = $conexion->query($sql);
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="./indexdash.php">Inicio</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="registroFuncionario.php">Registrar</a>
+          </li>
           <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
           <li class="nav-item dropdown">
             <div class="dropdown" role="group">
               <a class="dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="https://higinnamora.github.io/techlogistic/images/profile/profile.png" alt="mdo"
-                  class="rounded-circle" width="38" height="38" />
+                <img src="https://higinnamora.github.io/techlogistic/images/profile/profile.png" alt="mdo" class="rounded-circle" width="38" height="38" />
               </a>
               <ul class="dropdown-menu dropdown-menu-lg-end">
                 <li><a class="dropdown-item" href="../../cerrar_sesion.php">Cerrar sesión</a></li>
@@ -65,18 +65,6 @@ $datos = $conexion->query($sql);
       </div>
     </div>
   </nav>
-<!-- Tabla de proveedores -->
-  <ul class="nav nav-tabs mb-4">
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Consultar funcionarios</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="registroFuncionario.php">Registrar funcionario</a>
-      </li>
-    </ul>
-
-
-  <!-- Main -->
   <main class="container my-5 h-100">
     <div class="d-flex flex-column flex-md-row justify-content-between">
       <h4 class="text-md-start text-left">Funcionarios</h4>
@@ -91,6 +79,7 @@ $datos = $conexion->query($sql);
             <th scope="col">Correo</th>
             <th scope="col">Horario</th>
             <th scope="col">Salario</th>
+            <th scope="col">Cargo</th>
           </tr>
         </thead>
         <tbody>
@@ -115,15 +104,12 @@ $datos = $conexion->query($sql);
     <div class="copyright">
       <div class="bd-container">
         <p>💙 © 2024 Techlogistic. Todos los derechos reservados. 💚</p>
-        <p><a href="../terminos-y-condiciones.html">Términos y Condiciones</a> · <a
-            href="../politica-de-privacidad.html">Política de Privacidad</a></p>
+        <p><a href="../terminos-y-condiciones.html">Términos y Condiciones</a> · <a href="../politica-de-privacidad.html">Política de Privacidad</a></p>
       </div>
     </div>
   </footer>
 
-  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-    crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>

@@ -64,7 +64,7 @@
       <h1 class="text-center mb-5">
         Registro exitoso
       </h1>
-      <a href="indexdash.php"><button class="button">Volver a la página de inicio</button></a>
+      <a href="personas.php"><button class="button">Volver a la página de inicio</button></a>
     </section>
     <footer class="copyright">
       <div class="bd-container">
