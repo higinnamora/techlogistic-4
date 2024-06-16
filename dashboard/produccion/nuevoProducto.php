@@ -47,6 +47,12 @@ if ($_SESSION['tipo_usuario']) {
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="./indexproduccion.php">Productos</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="./indexproduccionActualizacion.php">Actualizar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="./indexproduccionEliminar.php">Eliminar</a>
+          </li>
           <li class="nav-item dropdown">
             <div class="dropdown" role="group">
               <a class="dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">

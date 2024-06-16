@@ -48,7 +48,16 @@ $datos = $conexion->query($sql);
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="indexproduccion.php">Inicio</a>
+            <a class="nav-link active" aria-current="page" href="../../PHP/indexdash.php">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="./indexproduccion.php">Productos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="./nuevoProducto.php">Registrar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="./indexproduccionEliminar.php">Eliminar</a>
           </li>
           <li class="nav-item dropdown">
             <div class="dropdown" role="group">
