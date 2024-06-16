@@ -36,17 +36,12 @@
                         <a class="nav-link active" aria-current="page" href="../../PHP/indexdash.php">| Inicio |</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="./nueva-venta.php">| Crear |</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="indexventasActualizacion.php">| Actualizar |</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="CotizacionEliminar.php">| Eliminar |</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="../../HTML/sign-up.html">| Agregar persona |</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">| Registrar |</a>
+                    </li>
+                    
                     <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
                     <li class="nav-item dropdown">
                         <div class="dropdown" role="group">
@@ -70,12 +65,6 @@
     <main class="container my-5 h-100">
         <div class="d-flex flex-column flex-md-row justify-content-between">
             <h4 class="text-md-start text-left">Cotización</h4>
-            <div>
-                <form class="search-box" action="buscarDevolucion.php" method="POST">
-                    <input type="text" name="query" style="height: 40px" placeholder="Buscar devolución">
-                    <a class="button w-auto" style="margin-left: 12px" type="submit">Devolución</a>
-                </form>
-            </div>
         </div>
         <hr>
         <ul class="nav nav-tabs mb-4">

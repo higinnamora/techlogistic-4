@@ -71,7 +71,7 @@ if ($_SESSION['nombre_usuario']) {
                   <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
                       <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="indexdash.php">| Inicio |</a>
+                        <a class="nav-link active" aria-current="page" href="indexdash.php">| Inicio |</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="personas.php">| Personas |</a>
