@@ -30,6 +30,15 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="../../PHP/indexdash.php">Inicio</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="./materiaPrima.php">Materia prima</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="./registrarMateria.html">Registrar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="./materiaPrimaActualizacion.php">Actualizar</a>
+          </li>
           <li class="nav-item dropdown">
             <div class="dropdown" role="group">
               <a class="dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +17,7 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
 </head>
+
 <body class="h-100">
   <!-- Scroll top -->
   <a href="#" class="scrolltop" id="scroll-top" title="Scroll top">
@@ -31,7 +33,7 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="../../indexdash.php">Inicio</a>
+            <a class="nav-link active" aria-current="page" href="../../PHP/indexdash.php">Inicio</a>
           </li>
 
           <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
@@ -54,9 +56,9 @@
     <section class="section section-gif">
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Light_green_check.svg/600px-Light_green_check.svg.png" class="h-25 mx-auto mb-5">
       <h1 class="text-center mb-5">
-        Actualizacion materia prima exitosa
+        Registro pedido exitoso
       </h1>
-      <a href="./materiaPrima.php"><button class="button">Volver a Materia Prima</button></a>
+      <a href="./pedidos.php"><button class="button">Volver a pedidos</button></a>
     </section>
     <footer class="copyright">
       <div class="bd-container">
@@ -65,6 +67,7 @@
       </div>
     </footer>
   </main>
+
   <!-- Scroll reveal -->
   <script src="https://unpkg.com/scrollreveal"></script>
   <!-- Main JS-->

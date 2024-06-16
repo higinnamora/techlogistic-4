@@ -32,10 +32,13 @@
                         <a class="nav-link active" aria-current="page" href="pedidos.php">Inicio</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="./pedidosActualizacion.php">Actualizar pedidos</a>
+                        <a class="nav-link" aria-current="page" href="./registrarPedido.php">Registrar</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="./pedidosEliminar.php">Eliminar pedidos</a>
+                        <a class="nav-link" aria-current="page" href="./pedidosActualizacion.php">Actualizar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="./pedidosEliminar.php">Eliminar</a>
                     </li>
                     <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
                     <li class="nav-item dropdown">
@@ -63,9 +66,6 @@
         <div class="d-flex flex-column flex-md-row justify-content-between">
             <h4 class="text-md-start text-left">Pedidos</h4>
         </div>
-        <div class="d-flex flex-column flex-md-row gap-2">
-            <a href="registrarMateria.html"> <button class="button w-auto">Agregar pedido</button></a>
-        </div>
         <hr>
         <!-- Tabla de proveedores -->
         <ul class="nav nav-tabs mb-4">
@@ -86,7 +86,20 @@
             $conexion;
             include_once "../../PHP/conexion_a_la_DB.php";
 
-            $sql = "SELECT * FROM pedidos;";
+            #$sql = "SELECT * FROM pedidos;";
+            $sql = "SELECT 
+                        pedidos.id_pedido,
+                        pedidos.fecha_pedido,
+                        materia_prima.descripcion_materia AS id_materia_prima,
+                        proveedores.razon_social AS id_proveedor,
+                        pedidos.cantidad_pedido,
+                        pedidos.valor_bruto,
+                        pedidos.iva,
+                        pedidos.valor_total
+                    FROM 
+                        pedidos
+                        JOIN materia_prima ON pedidos.id_materia_prima = materia_prima.id_materia_prima
+                        JOIN proveedores ON pedidos.id_proveedor = proveedores.id_proveedor;";
             $result = mysqli_query($conexion, $sql);
 
             echo '<table id="pedidos" class="table">
@@ -95,13 +108,11 @@
                     <th scope="scope" >Id Pedido</th>
                     <th scope="scope" >Id Materia prima</th>
                     <th scope="scope" >Id Proveedor</th>
-                    <th scope="scope" >Número de orden</th>
                     <th scope="scope" >Cantidad pedido</th>
                     <th scope="scope" >Fecha Pedido</th>
                     <th scope="scope" >Valor bruto</th>
                     <th scope="scope" >Iva</th>
                     <th scope="scope" >Valor Total</th>
-                    <th scope="scope" >Devolución</th>
                 </tr>
             </thead>
             <tbody>';
@@ -110,26 +121,23 @@
                     $idPedido = $row["id_pedido"];
                     $IdMateria = $row["id_materia_prima"];
                     $idProveedor = $row["id_proveedor"];
-                    $numeroOrden = $row["numero_orden"];
                     $cantidad = $row["cantidad_pedido"];
                     $fecha = $row["fecha_pedido"];
                     $valorBruto = $row["valor_bruto"];
                     $iva = $row["iva"];
                     $valor_total = $row["valor_total"];
-                    $devolucion = $row["devolucion"];
-                    $devolucionTexto = ($devolucion == 1) ? "SI" : "NO";
+                    #$devolucion = $row["devolucion"];
+                    #$devolucionTexto = ($devolucion == 1) ? "SI" : "NO";
                     echo "
             <tr>
                 <td>$idPedido</td>
                 <td>$IdMateria</td>
                 <td>$idProveedor</td>
-                <td>$numeroOrden</td>
                 <td>$cantidad</td>
                 <td>$fecha</td>
                 <td>$valorBruto</td>
                 <td>$iva</td>
                 <td>$valor_total</td>
-                <td>$devolucionTexto</td>
             </tr>";
                 }
                 echo "</tbody></table>\n";
@@ -162,42 +170,42 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
 <script>
-  $(document).ready(function() {
-    $('#pedidos').DataTable({
-      dom: 'Bfrtip',
-      buttons: [
-        'excel', 'csv', 'pdf'
-      ],
-      language: {
-        "sProcessing": "Procesando...",
-        "sLengthMenu": "Mostrar MENU registros",
-        "sZeroRecords": "No se encontraron resultados",
-        "sEmptyTable": "Ningún dato disponible en esta tabla",
-        "sInfo": "Mostrando _START_ a _END_ de _TOTAL_ registros",
-        "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-        "sInfoFiltered": "(filtrado de un total de MAX registros)",
-        "sInfoPostFix": "",
-        "sSearch": "Buscar:",
-        "sUrl": "",
-        "sInfoThousands": ",",
-        "sLoadingRecords": "Cargando...",
-        "oPaginate": {
-          "sFirst": "Primero",
-          "sLast": "Último",
-          "sNext": "Siguiente",
-          "sPrevious": "Anterior"
-        },
-        "oAria": {
-          "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-          "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-        },
-        "buttons": {
-          "copy": "Copiar",
-          "colvis": "Visibilidad"
-        }
-      }
+    $(document).ready(function() {
+        $('#pedidos').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'excel', 'csv', 'pdf'
+            ],
+            language: {
+                "sProcessing": "Procesando...",
+                "sLengthMenu": "Mostrar MENU registros",
+                "sZeroRecords": "No se encontraron resultados",
+                "sEmptyTable": "Ningún dato disponible en esta tabla",
+                "sInfo": "Mostrando _START_ a _END_ de _TOTAL_ registros",
+                "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "sInfoFiltered": "(filtrado de un total de MAX registros)",
+                "sInfoPostFix": "",
+                "sSearch": "Buscar:",
+                "sUrl": "",
+                "sInfoThousands": ",",
+                "sLoadingRecords": "Cargando...",
+                "oPaginate": {
+                    "sFirst": "Primero",
+                    "sLast": "Último",
+                    "sNext": "Siguiente",
+                    "sPrevious": "Anterior"
+                },
+                "oAria": {
+                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                },
+                "buttons": {
+                    "copy": "Copiar",
+                    "colvis": "Visibilidad"
+                }
+            }
+        });
     });
-  });
 </script>
 
 </html>

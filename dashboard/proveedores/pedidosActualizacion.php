@@ -31,6 +31,15 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="pedidos.php">Inicio</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="./pedidos.php">Pedidos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="./registrarPedido.html">Registrar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="./pedidosEliminar.php">Eliminar</a>
+                    </li>
                     <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
                     <li class="nav-item dropdown">
                         <div class="dropdown" role="group">
@@ -55,61 +64,76 @@
     <!-- Main -->
     <main class="container my-5 h-100">
         <div class="d-flex flex-column flex-md-row justify-content-between">
-            <h4 class="text-md-start text-left">Pedidos</h4>
+            <h4 class="text-md-start text-left">Actualizar Pedido</h4>
         </div>
-        
         <hr>
-        <!-- Tabla de proveedores -->
-        <ul class="nav nav-tabs mb-4">
-            <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="indexproveedores.php">Proveedores</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="materiaPrima.php">Materia Prima</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link  active" aria-current="page" href="#">Pedidos</a>
-            </li>
-        </ul>
-
-        <h4>Actualizar Materia prima</h4>
-        <form class="form" id="sign-up-form" action="actualizarmateriaprima.php" method="POST">
-
+        <form id="sign-up-form" action="actualizar_pedido.php" method="POST" style="margin: 0 auto; width: 580px;">
             <div class="form-field">
-                <label for="idmateriaprima">Id</label>
-                <input type="text" placeholder="Ingrese el id a actualizar" id="idmateriaprima" name="idmateriaprima" required />
+                <label for="codigoProducto" class="form-label">Fecha de Pedido</label>
+                <input type="date" class="form-control" name="fechafactura" id="fechafactura" readonly>
             </div>
-
             <div class="form-field">
-                <label for="colormateria">Color materia</label>
-                <input type="text" placeholder="Ingrese color" id="colormateria" name="colormateria" required />
+                <label for="id_pedido">Id Pedido</label>
+                <input type="number" placeholder="Ingrese Id" id="id_pedido" name="id_pedido" required />
             </div>
-
             <div class="form-field">
-                <label for="precio">Precio</label>
-                <input type="number" placeholder="Ingrese el precio" id="precio" name="precio" required />
+                <label for="sign-up-form-materia">Materia Prima</label>
+                <select id="sign-up-form-materia" name="sign-up-form-materia" class="form-control" required>
+                    <option value="" disabled selected hidden>Seleccione</option>
+                    <?php
+                    $conexion;
+                    include_once "../../PHP/conexion_a_la_DB.php";
+                    if ($conexion->connect_error) {
+                        die("Connection failed: " . $conexion->connect_error);
+                    }
+                    $sql = "SELECT id_materia_prima, descripcion_materia FROM materia_prima";
+                    $result = $conexion->query($sql);
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<option value='" . $row['id_materia_prima'] . "'>" . $row['descripcion_materia'] . "</option>";
+                        }
+                    }
+                    ?>
+                </select>
             </div>
-
+            <div class="form-field">
+                <label for="sign-up-form-proveedor">Proveedor</label>
+                <select id="sign-up-form-proveedor" name="sign-up-form-proveedor" class="form-control" required>
+                    <option value="" disabled selected hidden>Seleccione</option>
+                    <?php
+                    $conexion;
+                    include_once "../../PHP/conexion_a_la_DB.php";
+                    if ($conexion->connect_error) {
+                        die("Connection failed: " . $conexion->connect_error);
+                    }
+                    $sql = "SELECT id_proveedor, razon_social FROM proveedores";
+                    $result = $conexion->query($sql);
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<option value='" . $row['id_proveedor'] . "'>" . $row['razon_social'] . "</option>";
+                        }
+                    }
+                    $conexion->close();
+                    ?>
+                </select>
+            </div>
             <div class="form-field">
                 <label for="cantidad">Cantidad</label>
-                <input type="text" placeholder="Ingrese cantidad" id="cantidad" name="cantidad" required />
+                <input type="number" placeholder="Ingrese cantidad" id="cantidad" name="cantidad" required />
             </div>
-
             <div class="form-field">
-                <label for="descripcion">Descripción</label>
-                <input type="text" placeholder="Ingrese descripcion" id="descripcion" name="descripcion" required />
-            </div><hr>
-            <div>
-                <input class="button" type="submit" value="Actualizar" />
+                <input type="hidden" id="sign-up-form-siniva" name="sign-up-form-siniva" required />
             </div>
+            <div class="form-field">
+                <input type="hidden" id="sign-up-form-iva" name="sign-up-form-iva" required />
+            </div>
+            <div class="form-field">
+                <label for="sign-up-form-coniva">Valor Total</label>
+                <input type="number" placeholder="0" id="sign-up-form-coniva" name="sign-up-form-coniva" required />
+            </div>
+            <input class="button mb-1" type="submit" value="Actualizar Pediddo" />
         </form>
-
-        <hr class="my-4">
-
-       
-    </main><br><br>
-    <br><br>
-
+    </main>
     <footer>
         <div class="copyright">
             <div class="bd-container">
@@ -131,14 +155,17 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
 <script>
-  $(document).ready(function() {
-    $('#pedidos').DataTable({
-      dom: 'Bfrtip',
-      buttons: [
-        'excel', 'csv', 'pdf'
-      ]
+    var fechaActual = new Date().toISOString().split('T')[0];
+    document.getElementById("fechafactura").value = fechaActual;
+
+    document.getElementById("sign-up-form-coniva").addEventListener("input", function() {
+      var conIva = parseFloat(this.value);
+      var iva = conIva * 0.19;
+      var sinIva = conIva - iva;
+
+      document.getElementById("sign-up-form-iva").value = iva.toFixed(2);
+      document.getElementById("sign-up-form-siniva").value = sinIva.toFixed(2);
     });
-  });
 </script>
 
 </html>

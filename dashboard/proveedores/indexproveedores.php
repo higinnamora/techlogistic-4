@@ -1,17 +1,13 @@
-<!-- Estamos validando que el usuario si tenga una sesion iniciada, de lo contrario se enviara a login-->
 <?php
 session_start();
-
-
 if (!isset($_SESSION['tipo_usuario'])) {
   header("Location: ../../HTML/sign-in.html");
   exit;
 }
 $conexion;
 include_once "../../PHP/conexion_a_la_DB.php";
-$sql = "SELECT nit, id_persona, razon_social FROM proveedores;";
+$sql = "SELECT id_proveedor, nit, razon_social FROM proveedores;";
 $datos = $conexion->query($sql);
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -47,13 +43,13 @@ $datos = $conexion->query($sql);
             <a class="nav-link active" aria-current="page" href="../../PHP/indexdash.php">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="registrarProveedor.html">registrar proveedor</a>
+            <a class="nav-link" aria-current="page" href="registrarProveedor.html">Registrar</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="indexActualizarproveedor.php">Actualizar proveedor</a>
+            <a class="nav-link" aria-current="page" href="indexActualizarproveedor.php">Actualizar</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="indexEliminarProveedor.php">Eliminar proveedor</a>
+            <a class="nav-link" aria-current="page" href="indexEliminarProveedor.php">Eliminar</a>
           </li>
           <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
           <li class="nav-item dropdown">
@@ -106,8 +102,8 @@ $datos = $conexion->query($sql);
       <table id="proveedor" class="table">
         <thead>
           <tr>
+            <th scope="col">Id Proveedor</th>
             <th scope="col">Nit</th>
-            <th scope="col">Id persona</th>
             <th scope="col">Razon social</th>
           </tr>
         </thead>
@@ -184,6 +180,10 @@ $datos = $conexion->query($sql);
       }
     });
   });
+  function editarProveedor(idProveedor) {
+    // Redireccionar a la página de edición con el ID del proveedor
+    window.location.href = `/indexActualizarproveedor.php?id=${idProveedor}`;
+}
 </script>
 
 </html>

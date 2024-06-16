@@ -31,6 +31,15 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="pedidos.php">Inicio</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="./pedidos.php">Pedidos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="./registrarPedido.html">Registrar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="./pedidosActualizacion.php">Actualizar</a>
+                    </li>
                     <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
                     <li class="nav-item dropdown">
                         <div class="dropdown" role="group">
@@ -58,13 +67,10 @@
             <h4 class="text-md-start text-left">Pedidos</h4>
         </div>
         <hr>
-        
-        
-
-        <h4>Eliminar pedidos</h4>
-        <form class="newsletter-form" action="eliminarmateria.php" id="newsletter-form" method="POST">
+        <h4>Eliminar pedido</h4>
+        <form class="newsletter-form" action="eliminar_pedido.php" id="newsletter-form" method="POST">
             <div class="form-field">
-                <input type="text" name="eliminarmateria" placeholder="Id " class="newsletter-input" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
+                <input type="text" name="eliminarpedido" placeholder="Id " class="newsletter-input" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
             </div>
             <button class="button" type="submit">Eliminar</button>
         </form>
@@ -93,14 +99,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
 <script>
-  $(document).ready(function() {
-    $('#pedidos').DataTable({
-      dom: 'Bfrtip',
-      buttons: [
-        'excel', 'csv', 'pdf'
-      ]
+    $(document).ready(function() {
+        $('#pedidos').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'excel', 'csv', 'pdf'
+            ]
+        });
     });
-  });
 </script>
 
 </html>

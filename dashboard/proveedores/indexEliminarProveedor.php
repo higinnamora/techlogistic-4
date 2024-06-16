@@ -47,7 +47,13 @@ $datos = $conexion->query($sql);
             <a class="nav-link active" aria-current="page" href="../../PHP/indexdash.php">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="registrarProveedor.html">Agregar proveedor</a>
+            <a class="nav-link" aria-current="page" href="./indexproveedores.php">Proveedores</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="registrarProveedor.html">Registrar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="indexActualizarproveedor.php">Actualizar</a>
           </li>
           <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
           <li class="nav-item dropdown">

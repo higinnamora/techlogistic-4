@@ -46,8 +46,15 @@ $datos = $conexion->query($sql);
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="../../PHP/indexdash.php">Inicio</a>
           </li>
+
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="registrarProveedor.html">Agregar proveedor</a>
+            <a class="nav-link" aria-current="page" href="./indexproveedores.php">Proveedores</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="registrarProveedor.html">Registrar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="indexEliminarProveedor.php">Eliminar</a>
           </li>
           <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
           <li class="nav-item dropdown">
@@ -70,47 +77,30 @@ $datos = $conexion->query($sql);
     </div>
   </nav>
 
-  <!-- Main -->
   <main class="container my-5 h-100">
     <div class="d-flex flex-column flex-md-row justify-content-between">
-      <h4 class="text-md-start text-left">Proveedores</h4>
-      <!-- subir archivos-->
-      <!--
-      <form action="../../PHP/carga_datos.php" method="post" enctype="multipart/form-data">
-        <h4>Cargar materia prima</h4>
-        <input type="file" name="archivo" accept=".xlsx, .xls" />
-        <input type="submit" value="Enviar" />
-      </form>-->
+      <h4 class="text-md-start text-left">Actualizar Proveedor</h4>
     </div>
     <hr>
-    
-
-    <h4>Actualizar Proveedor</h4>
-    <form class="form" id="sign-up-form" action="editarProveedor.php" method="POST">
-
+    <form id="formulario-proveedor" action="actualizar_proveedor.php" method="POST" style="margin: 0 auto; width: 580px;">
       <div class="form-field">
-        <label for="nit">Nit</label>
-        <input type="text" placeholder="ingrese el nit del proveedor" id="nit" name="nit" required />
+        <label for="id_proveedor">Id Proveedor</label>
+        <input type="number" placeholder="Ingrese Id" id="id_proveedor" name="id_proveedor" required />
       </div>
       <div class="form-field">
-        <label for="idPersona">Id Persona</label>
-        <input type="number" placeholder="ingrese id Persona" id="idPersona" name="idPersona" required />
+        <label for="nit">Nit</label>
+        <input type="text" placeholder="Ingrese el nit del proveedor" id="nit" name="nit" required />
       </div>
       <div class="form-field">
         <label for="razonSocial">Razón social</label>
-        <input type="text" placeholder="ingrese Razón social" id="razonSocial" name="razonSocial" required />
+        <input type="text" placeholder="Ingrese Razón social" id="razonSocial" name="razonSocial" required />
       </div>
-      <div></div>
       <div>
         <input class="button" type="submit" value="Actualizar" />
       </div>
     </form>
-
     <hr class="my-4">
-
-    
   </main>
-
   <footer>
     <div class="copyright">
       <div class="bd-container">
@@ -131,14 +121,19 @@ $datos = $conexion->query($sql);
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
 <script>
-  $(document).ready(function() {
-    $('#proveedor').DataTable({
-      dom: 'Bfrtip',
-      buttons: [
-        'excel', 'csv', 'pdf'
-      ]
-    });
-  });
+  const urlParams = new URLSearchParams(window.location.search);
+  const idProveedor = urlParams.get('id');
+
+  // Realizar una petición AJAX o similar para obtener los datos del proveedor
+  fetch(`/api/proveedores/${idProveedor}`)
+    .then(response => response.json())
+    .then(data => {
+      // Llenar el formulario con los datos del proveedor obtenidos
+      document.getElementById('nit').value = data.nit;
+      document.getElementById('razonSocial').value = data.razonSocial;
+      // Otros campos del formulario...
+    })
+    .catch(error => console.error('Error al obtener datos del proveedor', error));
 </script>
 
 </html>

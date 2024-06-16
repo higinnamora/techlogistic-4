@@ -30,6 +30,15 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="../../PHP/indexdash.php">Inicio</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="./materiaPrima.php">Materia prima</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="./registrarMateria.html">Registrar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="./materiaPrimaEliminar.php">Eliminar</a>
+          </li>
           <li class="nav-item dropdown">
             <div class="dropdown" role="group">
               <a class="dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
@@ -52,7 +61,7 @@
         <hr class="my-5">
 
         <h4>Actualizar Materia prima</h4>
-        <form class="form" id="sign-up-form" action="actualizarmateriaprima.php" method="POST">
+        <form id="sign-up-form" action="actualizarmateriaprima.php" method="POST" style="margin: 0 auto; width: 580px;">
 
             <div class="form-field">
                 <label for="idmateriaprima">Id</label>
