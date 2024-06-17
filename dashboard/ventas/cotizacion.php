@@ -33,15 +33,9 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../../PHP/indexdash.php">| Inicio |</a>
+                        <a class="nav-link active" aria-current="page" href="../../PHP/indexdash.php">Inicio</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="../../HTML/sign-up.html">| Agregar persona |</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">| Registrar |</a>
-                    </li>
-                    
+
                     <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
                     <li class="nav-item dropdown">
                         <div class="dropdown" role="group">
@@ -65,6 +59,16 @@
     <main class="container my-5 h-100">
         <div class="d-flex flex-column flex-md-row justify-content-between">
             <h4 class="text-md-start text-left">Cotización</h4>
+            <div class="actions-table">
+                <div class="action-item">
+                    <a class="button margin-left" aria-current="page" href="./nueva-venta.php">Registrar venta<i
+                            class='bx bx-folder-plus icons-styles'></i></a>
+                </div>
+                <div class="action-item">
+                    <a class="button margin-left" aria-current="page" href="../../HTML/sign-up.html">Agregar persona<i
+                            class='bx bx-folder-plus icons-styles'></i></a>
+                </div>
+            </div>
         </div>
         <hr>
         <ul class="nav nav-tabs mb-4">
@@ -116,7 +120,7 @@
                 <td>$cantidad</td>
                 <td>$valor_total_cot</td>
                 <td>$observa</td>
-                <td><button class='button'>Ver</button></td>
+                <td><button class='button'><i class='bx bx-search-alt-2'></i></button></td>
             </tr>";
                 }
                 echo "</tbody></table>\n";

@@ -34,12 +34,6 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="../../PHP/indexdash.php"> Inicio </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="../../HTML/sign-up.html"> Agregar persona </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="./nueva-venta.php">Registrar</a>
-          </li>
           <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
           <li class="nav-item dropdown">
             <div class="dropdown" role="group">
@@ -70,6 +64,16 @@
         </form>
       </div>
       -->
+      <div class="actions-table">
+        <div class="action-item">
+          <a class="button margin-left" aria-current="page" href="./nueva-venta.php">Registrar venta<i
+              class='bx bx-folder-plus icons-styles'></i></a>
+        </div>
+        <div class="action-item">
+          <a class="button margin-left" aria-current="page" href="../../HTML/sign-up.html">Agregar persona<i
+              class='bx bx-folder-plus icons-styles'></i></a>
+        </div>
+      </div>
     </div>
     <hr>
     <ul class="nav nav-tabs mb-2">
@@ -111,7 +115,7 @@
                 <td>$fecha</td>
                 <td>$documento</td>
                 <td>$nombre</td>
-                <td><a class='btn btn-outline-success' href='./ver_detalle.php?numero=$numero'>Ver</a></td>
+                <td class='text-center'><a class='button' href='./ver_detalle.php?numero=$numero'><i class='bx bx-search-alt-2'></i></a></td>
             </tr>";
         }
         echo "</tbody></table>\n";
