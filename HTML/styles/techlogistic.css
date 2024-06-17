@@ -1092,3 +1092,13 @@ tr:hover {
 .input-width {
   width: 220px;
 }
+.actions-table {
+  display: flex;
+}
+.icons-styles {
+  font-size: 18px; 
+  margin-left: 4px;
+}
+.margin-left {
+  margin-left: 4px;
+}
