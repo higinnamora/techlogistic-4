@@ -111,7 +111,7 @@
                 <td>$fecha</td>
                 <td>$documento</td>
                 <td>$nombre</td>
-                <td><button class='button' onclick='generarFactura($numero)' data-numero-orden='$numero'>Ver</button></td>
+                <td><a class='btn btn-outline-success' href='./ver_detalle.php?numero=$numero'>Ver</a></td>
             </tr>";
         }
         echo "</tbody></table>\n";
