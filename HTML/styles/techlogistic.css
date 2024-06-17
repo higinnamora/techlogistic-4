@@ -6,6 +6,7 @@
 /* Variables CSS */
 :root{
   --header-height: 3rem;
+  --header-height-desktop: 70px;
   /*Colores*/
   --first-color: #017260;
   --first-color-alt: #167C38;
@@ -21,6 +22,7 @@
   --gray-color-001: #D9D9D9;
   --text-color-001: #242B55;
   --text-color-002: #fafafa;
+  --text-color-white: #ffffff;
 
   /* Fuentes y tipografia */
   --body-font: 'Open Sans', sans-serif;  
@@ -144,6 +146,7 @@ img {
 .header {
   background-color: var(--body-color);
   border-bottom: 1px solid #D9D9D9;
+  height: var(--header-height-desktop);
   left: 0;
   position: relative;
   top: 0;
@@ -259,34 +262,52 @@ img {
 /* hero */
 .hero__container {
   align-content: center;
-  background: rgb(255,255,255);
-background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(100,102,233,0.20350146894695376) 100%);
+  /* background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(100,102,233,0.20350146894695376) 100%); */
+  background-color: rgb(255,255,255);
+  background-size: cover;
+  background-position: top center;
+  position: relative;
 }
+.hero__container::after {
+  background: rgba(0, 0, 0, 0.4);
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+}
+
 .hero__data {
   display: flex;
   flex-direction: column;
   /* height: calc(100vh - 48px); */
   margin-top: 48px;
   padding-top: 48px;
+  position: relative;
+  z-index: 10;
 }
 .hero__title {
   border-left: 6px solid var(--first-color);
-  color: var(--title-color);
+  color: var(--text-color-white);
   font-size: 2.2rem;
   line-height: 1.4;
   margin-bottom: var(--m-1);
   padding-left: 1rem;
 } 
 .hero__subtitle {
-  color: var(--title-color);
+  color: var(--text-color-white);
   font-size: var(--normal-font-size);
   font-weight: 600;
   margin-bottom: var(--m-4);
-  padding-left: 1rem;
+  padding-left: 1.5rem;
   width: 80%;
 }
 .hero .buttons {
   margin-bottom: 8px;
+  padding-left: 1.5rem;
 }
 .hero__image {
   margin-top: auto;
@@ -863,8 +884,10 @@ a.button {
     display: none;
   }
   .hero__container {
-    /* height: 100vh; */
+    height: calc(100vh - var(--header-height-desktop));
     justify-items: center;
+    padding: 50px 0;
+    margin-top: var(--header-height-desktop);
   }
   .services__container,
   .menu__container {
@@ -1101,4 +1124,10 @@ tr:hover {
 }
 .margin-left {
   margin-left: 4px;
+}
+
+.carousel-cell {
+  height: 100vh; /* height of carousel */
+  margin-right: 10px;;
+  width: 100%; /* full width */
 }

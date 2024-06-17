@@ -10,12 +10,10 @@
   <link rel="icon" href="./images/favicon.png">
   <!-- Box icons-->
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-  <!-- Normalize -->
-  <link rel="stylesheet" href="./HTML/styles/normalize.css">
+  <!-- Carousel -->
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
   <!-- Estilos CSS -->
-  <link rel="stylesheet" href="./styles/carrusel.css">
   <link rel="stylesheet" href="./HTML/styles/techlogistic.css">
-
 </head>
 
 <body>
@@ -48,22 +46,62 @@
   <!-- Main-->
   <main class="main">
     <!-- hero -->
-    <section class="hero" id="hero">
-      <div class="hero__container">
-        <div class="hero__data bd-container">
-          <h1 class="hero__title">La plataforma definitiva
-            para la logistica de tu negocio</h1>
-          <h2 class="hero__subtitle">Con Techlogistic, podrás optimizar tus operaciones logísticas, reducir costos y
-            elevar la satisfacción del cliente.</h2>
-          <div class="buttons">
-            <a href="#contact" class="button">
-              Solicita demo
-              <i class='icon bx bx-chevron-right'></i>
-            </a>
+    <!-- Carousel -->
+    <div class="main-carousel">
+      <div class="carousel-cell">
+        <section class="hero" id="hero">
+          <div class="hero__container" style="background-image: url('images/design/bg/carousel/image-01.jpg');">
+            <div class="hero__data bd-container">
+              <h1 class="hero__title">La plataforma definitiva para la logistica de tu negocio</h1>
+              <h2 class="hero__subtitle">Con Techlogistic, podrás optimizar tus operaciones logísticas, reducir costos y
+                elevar la satisfacción del cliente.</h2>
+              <div class="buttons">
+                <a href="#contact" class="button">
+                  Solicita demo
+                  <i class='icon bx bx-chevron-right'></i>
+                </a>
 
-          </div>
-        </div>
-    </section>
+              </div>
+            </div>
+        </section>
+      </div>
+      <div class="carousel-cell">
+        <section class="hero" id="hero">
+          <div class="hero__container" style="background-image: url('images/design/bg/carousel/image-02.jpg')">
+            <div class="hero__data bd-container">
+              <h1 class="hero__title">Automatiza tu logística y optimiza tus operaciones</h1>
+              <h2 class="hero__subtitle">Aprovecha las herramientas de automatización inteligente de Techlogistic para
+                optimizar tus procesos logísticos, eliminar tareas manuales y mejorar la eficiencia en toda tu cadena de
+                suministro.</h2>
+              <div class="buttons">
+                <a href="#contact" class="button">
+                  Solicita demo
+                  <i class='icon bx bx-chevron-right'></i>
+                </a>
+
+              </div>
+            </div>
+        </section>
+      </div>
+      <div class="carousel-cell">
+        <section class="hero" id="hero">
+          <div class="hero__container hero__container--01"
+            style="background-image: url('images/design/bg/carousel/image-03.jpg');">
+            <div class="hero__data bd-container">
+              <h1 class="hero__title">Obtén visibilidad y control en tiempo real</h1>
+              <h2 class="hero__subtitle">El sistema avanzado de seguimiento y monitoreo de Techlogistic proporciona
+                visibilidad en tiempo real de tus envíos, lo que te permite tomar decisiones informadas, optimizar rutas
+                y garantizar entregas puntuales.</h2>
+              <div class="buttons">
+                <a href="#contact" class="button">
+                  Solicita demo
+                  <i class='icon bx bx-chevron-right'></i>
+                </a>
+              </div>
+            </div>
+        </section>
+      </div>
+    </div>
     <!-- Banner -->
     <section class="section banner">
       <div class="bd-container">
@@ -314,9 +352,10 @@
   </main>
 
   <!-- Scroll reveal -->
-  <script src="https://unpkg.com/scrollreveal"></script>
+  <script defer src="https://unpkg.com/scrollreveal"></script>
+  <script defer src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
   <!-- Main JS-->
-  <script src="./JS/carrucel.js"></script>
+  <script defer src="./js/techlogistic.js"></script>
 </body>
 
 </html>
