@@ -23,8 +23,8 @@
   <!-- Header -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
-      <a href="../../PHP/indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../../IMAGES/favicon.png"
-          alt="" class="navigation__image">Techlogistic</a>
+      <a href="../../PHP/indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../../images/favicon.png"
+          alt="Logo Techlogistic" class="navigation__image">Techlogistic</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -127,14 +127,16 @@
 
     <hr class="my-5">
   </main>
-  <div class="copyright">
-    <div class="bd-container">
-      <p>💙 © 2024 Techlogistic. Todos los derechos reservados. 💚</p>
-      <p><a href="../../HTML/terminos-y-condiciones.html">Términos y Condiciones</a> · <a
-          href="../../HTML/politica-de-privacidad.html">Política de Privacidad</a></p>
+  <footer>
+    <div class="copyright">
+      <div class="bd-container">
+        <p>💙 © 2024 Techlogistic. Todos los derechos reservados. 💚</p>
+        <p><a href="../../HTML/terminos-y-condiciones.html">Términos y Condiciones</a> · <a
+            href="../../HTML/politica-de-privacidad.html">Política de Privacidad</a></p>
+      </div>
     </div>
-  </div>
   </footer>
+
 
   <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"

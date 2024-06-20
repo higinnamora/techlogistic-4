@@ -14,16 +14,21 @@
   <link rel="stylesheet" href="../../HTML/styles/techlogistic.css">
   <!-- Estilos CSS -->
   <link rel="stylesheet" href="../../HTML/styles/techlogistic.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
 </head>
 
 
 <body>
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
-      <a href="../../PHP/indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../../IMAGES/favicon.png" alt="" class="navigation__image">Techlogistic</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <a href="../../PHP/indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../../images/favicon.png"
+          alt="Logo Techlogistic" class="navigation__image">Techlogistic</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -43,7 +48,8 @@
           <li class="nav-item dropdown">
             <div class="dropdown" role="group">
               <a class="dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="https://higinnamora.github.io/techlogistic/images/profile/profile.png" alt="mdo" class="rounded-circle" width="38" height="38" />
+                <img src="https://higinnamora.github.io/techlogistic/images/profile/profile.png" alt="mdo"
+                  class="rounded-circle" width="38" height="38" />
               </a>
               <ul class="dropdown-menu dropdown-menu-lg-end">
                 <li><a class="dropdown-item" href="../../PHP/cerrar_sesion.php">Cerrar sesión</a></li>
@@ -126,7 +132,8 @@
     <div class="copyright">
       <div class="bd-container">
         <p>💙 © 2024 Techlogistic. Todos los derechos reservados. 💚</p>
-        <p><a href="../../HTML/terminos-y-condiciones.html">Términos y Condiciones</a> · <a href="../../HTML/politica-de-privacidad.html">Política de Privacidad</a></p>
+        <p><a href="../../HTML/terminos-y-condiciones.html">Términos y Condiciones</a> · <a
+            href="../../HTML/politica-de-privacidad.html">Política de Privacidad</a></p>
       </div>
     </div>
     </footer>
@@ -138,7 +145,7 @@
     var fechaActual = new Date().toISOString().split('T')[0];
     document.getElementById("fechafactura").value = fechaActual;
 
-    document.getElementById("sign-up-form-coniva").addEventListener("input", function() {
+    document.getElementById("sign-up-form-coniva").addEventListener("input", function () {
       var conIva = parseFloat(this.value);
       var iva = conIva * 0.19;
       var sinIva = conIva - iva;
@@ -161,7 +168,7 @@
         }, false)
       })
     })()
-    
+
   </script>
 </body>
 

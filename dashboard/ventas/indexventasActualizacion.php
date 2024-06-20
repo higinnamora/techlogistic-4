@@ -19,7 +19,8 @@ if (!isset($_SESSION['tipo_usuario'])) {
   <!-- Box icons-->
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <!-- Bootstrap 5 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <!-- Estilos CSS -->
   <link rel="stylesheet" href="../../HTML/styles/techlogistic.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
@@ -30,8 +31,10 @@ if (!isset($_SESSION['tipo_usuario'])) {
   <!-- Header -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
-      <a href="../../PHP/indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../../IMAGES/favicon.png" alt="" class="navigation__image">Techlogistic</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <a href="../../PHP/indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../../images/favicon.png"
+          alt="Logo Techlogistic" class="navigation__image">Techlogistic</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -43,7 +46,8 @@ if (!isset($_SESSION['tipo_usuario'])) {
           <li class="nav-item dropdown">
             <div class="dropdown" role="group">
               <a class="dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="https://higinnamora.github.io/techlogistic/images/profile/profile.png" alt="mdo" class="rounded-circle" width="38" height="38" />
+                <img src="https://higinnamora.github.io/techlogistic/images/profile/profile.png" alt="mdo"
+                  class="rounded-circle" width="38" height="38" />
               </a>
               <ul class="dropdown-menu dropdown-menu-lg-end">
 
@@ -62,7 +66,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
       <h4 class="text-md-start text-left">Ventas</h4>
     </div>
     <hr>
-    
+
     <div>
       <h4>Actualizar orden de venta</h4>
 
@@ -70,7 +74,8 @@ if (!isset($_SESSION['tipo_usuario'])) {
 
         <div class="form-field">
           <label for="numerodeventa">Número de venta</label>
-          <input type="text" placeholder="Ingrese el numero de la venta a actualizar" id="numerodeventa" name="numerodeventa" required />
+          <input type="text" placeholder="Ingrese el numero de la venta a actualizar" id="numerodeventa"
+            name="numerodeventa" required />
         </div>
 
         <div class="form-field">
@@ -110,15 +115,19 @@ if (!isset($_SESSION['tipo_usuario'])) {
     </div>
     <hr class="my-5">
   </main>
-  <div class="copyright">
-    <div class="bd-container">
-      <p>💙 © 2024 Techlogistic. Todos los derechos reservados. 💚</p>
-      <p><a href="../../HTML/terminos-y-condiciones.html">Términos y Condiciones</a> · <a href="../../HTML/politica-de-privacidad.html">Política de Privacidad</a></p>
+  <footer>
+    <div class="copyright">
+      <div class="bd-container">
+        <p>💙 © 2024 Techlogistic. Todos los derechos reservados. 💚</p>
+        <p><a href="../../HTML/terminos-y-condiciones.html">Términos y Condiciones</a> · <a
+            href="../../HTML/politica-de-privacidad.html">Política de Privacidad</a></p>
+      </div>
     </div>
-  </div>
   </footer>
 
-  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
@@ -126,7 +135,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.html5.min.js"></script>
 <script>
-  $(document).ready(function() {
+  $(document).ready(function () {
     $('#ventas').DataTable({
       dom: 'Bfrtip',
       buttons: [

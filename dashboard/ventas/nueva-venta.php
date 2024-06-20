@@ -23,15 +23,18 @@ if ($_SESSION['tipo_usuario']) {
     <meta name="description" content="">
     <link rel="icon" href="../../images/favicon.png">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="../../HTML/styles/techlogistic.css">
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container">
-            <a href="../../PHP/indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../../IMAGES/favicon.png" alt="" class="navigation__image">Techlogistic</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <a href="../../PHP/indexdash.php" class="navbar-brand" title="Techlogistic"><img
+                    src="../../images/favicon.png" alt="Logo Techlogistic" class="navigation__image">Techlogistic</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -47,8 +50,10 @@ if ($_SESSION['tipo_usuario']) {
                     </li>
                     <li class="nav-item dropdown">
                         <div class="dropdown" role="group">
-                            <a class="dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="https://higinnamora.github.io/techlogistic/images/profile/profile.png" alt="mdo" class="rounded-circle" width="38" height="38" />
+                            <a class="dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <img src="https://higinnamora.github.io/techlogistic/images/profile/profile.png"
+                                    alt="mdo" class="rounded-circle" width="38" height="38" />
                             </a>
                             <ul class="dropdown-menu dropdown-menu-lg-end">
                                 <li><a class="dropdown-item" href="../../PHP/cerrar_sesion.php">Cerrar sesión</a></li>
@@ -64,7 +69,8 @@ if ($_SESSION['tipo_usuario']) {
             <h4 class="text-md-start text-left">Nueva venta</h4>
             <div class="form-field">
                 <label class="form-label" for="sign-up-form-numcargo">Venta realizada por</label>
-                <input type="text" class="form-control" name="vendedor" id="vendedor" value="<?php echo $nombre_usuario; ?>" readonly>
+                <input type="text" class="form-control" name="vendedor" id="vendedor"
+                    value="<?php echo $nombre_usuario; ?>" readonly>
                 <input type="hidden" name="funcionario" value="<?php echo $tipo_usuario; ?>">
             </div>
             <div class="form-field">
@@ -96,7 +102,8 @@ if ($_SESSION['tipo_usuario']) {
             ?>
             <div class="form-field">
                 <label class="form-label" for="documento">Número de documento</label>
-                <input class="form-control" type="text" id="documento" name="documento" placeholder="Ingrese el número de documento" required />
+                <input class="form-control" type="text" id="documento" name="documento"
+                    placeholder="Ingrese el número de documento" required />
             </div>
             <div class="form-field">
                 <input class="form-control" type="hidden" id="id_persona" name="id_persona" readonly />
@@ -121,7 +128,7 @@ if ($_SESSION['tipo_usuario']) {
                                 $resultadoPrecio = mysqli_query($conexion, $sql);
                                 $filaPrecio = $resultadoPrecio->fetch_assoc();
                                 $precio = $filaPrecio["precio"];
-                            ?>
+                                ?>
                                 <option value="<?php echo $producto . ',' . $precio; ?>"><?php echo $producto; ?></option>
                             <?php } ?>
                         </select>
@@ -160,13 +167,18 @@ if ($_SESSION['tipo_usuario']) {
             </div>
         </div>
     </div>
-    <div class="copyright">
-        <div class="bd-container">
-            <p>💙 © 2023 Techlogistic. Todos los derechos reservados. 💚</p>
-            <p><a href="../../HTML/terminos-y-condiciones.html">Términos y Condiciones</a> · <a href="../../HTML/politica-de-privacidad.html">Política de Privacidad</a></p>
+    <footer>
+        <div class="copyright">
+            <div class="bd-container">
+                <p>💙 © 2024 Techlogistic. Todos los derechos reservados. 💚</p>
+                <p><a href="../../HTML/terminos-y-condiciones.html">Términos y Condiciones</a> · <a
+                        href="../../HTML/politica-de-privacidad.html">Política de Privacidad</a></p>
+            </div>
         </div>
-    </div>
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    </footer>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
     <script>
         var fechaActual = new Date().toISOString().split('T')[0];
@@ -190,26 +202,26 @@ if ($_SESSION['tipo_usuario']) {
 
         function asignarEventListeners() {
             var productosSelect = document.querySelectorAll('select[name="productos[]"]');
-            productosSelect.forEach(function(select) {
+            productosSelect.forEach(function (select) {
                 select.addEventListener('change', calcularSubtotal);
             });
 
             var cantidadesInput = document.querySelectorAll('input[name="cantidades[]"]');
-            cantidadesInput.forEach(function(input) {
+            cantidadesInput.forEach(function (input) {
                 input.addEventListener('input', calcularSubtotal);
             });
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             asignarEventListeners();
         });
 
-        document.getElementById('documento').addEventListener('change', function() {
+        document.getElementById('documento').addEventListener('change', function () {
             var documento = this.value;
             if (documento.trim() !== '') {
                 var xhr = new XMLHttpRequest();
                 xhr.open('GET', '../../PHP/obtener_persona.php?id=' + documento, true);
-                xhr.onload = function() {
+                xhr.onload = function () {
                     if (xhr.status == 200) {
                         var data = JSON.parse(xhr.responseText);
                         document.getElementById('id_persona').value = data.id_persona;
@@ -224,7 +236,7 @@ if ($_SESSION['tipo_usuario']) {
                 document.getElementById('primer_apellido').value = '';
             }
         });
-        document.getElementById('agregar-producto').addEventListener('click', function() {
+        document.getElementById('agregar-producto').addEventListener('click', function () {
             var productosContainer = document.getElementById('productos-container');
             var nuevoProducto = document.createElement('div');
             nuevoProducto.classList.add('producto');
@@ -239,8 +251,8 @@ if ($_SESSION['tipo_usuario']) {
                         $resultadoPrecio = mysqli_query($conexion, $sql);
                         $filaPrecio = $resultadoPrecio->fetch_assoc();
                         $precio = $filaPrecio["precio"];
-                    ?>
-                        <option value="<?php echo $producto . ',' . $precio; ?>"><?php echo $producto; ?></option>
+                        ?>
+                            <option value="<?php echo $producto . ',' . $precio; ?>"><?php echo $producto; ?></option>
                     <?php } ?>
                 </select>
             </div>
@@ -263,7 +275,7 @@ if ($_SESSION['tipo_usuario']) {
             if (isNaN(total)) {
                 total = 0;
             } else {
-                subtotales.forEach(function(subtotal) {
+                subtotales.forEach(function (subtotal) {
                     total += parseFloat(subtotal.value);
                 });
             }
