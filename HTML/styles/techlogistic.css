@@ -1131,3 +1131,9 @@ tr:hover {
   margin-right: 10px;;
   width: 100%; /* full width */
 }
+
+.footer-absolute {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}

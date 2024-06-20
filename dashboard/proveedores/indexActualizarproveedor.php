@@ -101,7 +101,7 @@ $datos = $conexion->query($sql);
     <hr class="my-4">
   </main>
   <footer>
-    <div class="copyright">
+    <div class="copyright footer-absolute">
       <div class="bd-container">
         <p>💙 © 2024 Techlogistic. Todos los derechos reservados. 💚</p>
         <p><a href="../../HTML/terminos-y-condiciones.html">Términos y Condiciones</a> · <a
