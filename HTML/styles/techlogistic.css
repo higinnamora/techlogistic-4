@@ -834,7 +834,7 @@ a.button {
 .section-tyc {
   padding-left: 16px;
   padding-right: 16px;
-  margin: 72px auto 0;
+  margin: 12px auto 0;
   max-width: 768px;
 }
 .section-tyc p {
@@ -1136,4 +1136,7 @@ tr:hover {
   position: absolute;
   bottom: 0;
   width: 100%;
+}
+.title-margin {
+  margin: 24px 0;
 }
