@@ -8,21 +8,19 @@
   <meta name="description" content="">
   <!-- Favicon -->
   <link rel="icon" href="../../images/favicon.png">
-  <!-- Box icons
-  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>-->
-  <!-- Normalize -->
-  <link rel="stylesheet" href="../../HTML/styles/normalize.css">
+  <!-- Box icons-->
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <!-- Estilos CSS -->
   <link rel="stylesheet" href="../../HTML/styles/techlogistic.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-    crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
 </head>
 
-
 <body>
+  <!-- Header -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
       <a href="../../PHP/indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../../images/favicon.png"
@@ -39,6 +37,7 @@
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="./indexproveedores.php">Proveedores</a>
           </li>
+          <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
           <li class="nav-item dropdown">
             <div class="dropdown" role="group">
               <a class="dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
@@ -46,6 +45,11 @@
                   class="rounded-circle" width="38" height="38" />
               </a>
               <ul class="dropdown-menu dropdown-menu-lg-end">
+                <!--<li><a class="dropdown-item" href="#">Mi perfil</a></li>-->
+                <!--<li><a class="dropdown-item" href="#">Configuración</a></li>-->
+                <!--<li>
+                  <hr class="dropdown-divider">
+                </li>-->
                 <li><a class="dropdown-item" href="../../PHP/cerrar_sesion.php">Cerrar sesión</a></li>
               </ul>
             </div>
@@ -54,67 +58,67 @@
       </div>
     </div>
   </nav>
-  <main class="main">
-    <section class="section section-auth">
-      <div class="wrapper-box">
-        <h3 class="title">Registrar Proveedor</h3>
-        <form class="form" id="sign-up-form" action="registroProveedor.php" method="POST">
-          <div class="form-field">
-            <label for="sign-up-form-nit">Nit</label>
-            <input type="text" placeholder="Sin puntos ni comas" id="sign-up-form-nit" name="sign-up-form-nit"
-              required />
-          </div>
-          <div class="form-field" style="display: none;">
-            <label for="sign-up-form-persona">Persona</label>
-            <input type="number" value="1" id="sign-up-form-persona" name="sign-up-form-persona" required />
-          </div>
-          <div class="form-field">
-            <label for="sign-up-form-razon">Razón social</label>
-            <input type="text" placeholder="Ingresa Razón social" id="sign-up-form-razon" name="sign-up-form-razon"
-              required />
-          </div>
 
-          <input class="button mb-1" type="submit" value="Registrar Proveedor" />
-        </form>
+  <main class="container my-5 h-100">
+    <div class="d-flex flex-column justify-content-between">
+      <h4 class="text-center">Registrar Proveedor</h4>
+    </div>
+    <hr>
+    <form id="sign-up-form" action="registroProveedor.php" method="POST" style="margin: 0 auto; width: 580px;">
+      <div class="form-field">
+        <label for="sign-up-form-nit">NIT:</label>
+        <input type="text" placeholder="Ingresa el nit del proveedor" id="sign-up-form-nit" name="sign-up-form-nit"
+          required />
       </div>
-    </section>
-    <footer>
-      <div class="copyright footer-absolute">
-        <div class="bd-container">
-          <p>💙 © 2024 Techlogistic. Todos los derechos reservados. 💚</p>
-          <p><a href="../../HTML/terminos-y-condiciones.html">Términos y Condiciones</a> · <a
-              href="../../HTML/politica-de-privacidad.html">Política de Privacidad</a></p>
-        </div>
+      <div class="form-field" style="display: none;">
+        <label for="sign-up-form-persona">Persona</label>
+        <input type="number" value="1" id="sign-up-form-persona" name="sign-up-form-persona" required />
       </div>
-    </footer>
+      <div class="form-field">
+        <label for="sign-up-form-razon">Razón Social:</label>
+        <input type="text" placeholder="Ingresa Razón Social" id="sign-up-form-razon" name="sign-up-form-razon"
+          required />
+      </div>
+      <div>
+        <input class="button" type="submit" value="Registrar Proveedor" />
+      </div>
+    </form>
+    <hr class="my-4">
   </main>
+  <footer>
+    <div class="copyright footer-absolute">
+      <div class="bd-container">
+        <p>💙 © 2024 Techlogistic. Todos los derechos reservados. 💚</p>
+        <p><a href="../../HTML/terminos-y-condiciones.html">Términos y Condiciones</a> · <a
+            href="../../HTML/politica-de-privacidad.html">Política de Privacidad</a></p>
+      </div>
+    </div>
+  </footer>
 
-  <!-- Scroll reveal -->
-  <script src="https://unpkg.com/scrollreveal"></script>
-  <!-- Main JS-->
-  <!--<script src="../../js/techlogistic.js" defer></script>-->
-
-  <script>
-    // Example starter JavaScript for disabling form submissions if there are invalid fields
-    (() => {
-      'use strict'
-
-      // Fetch all the forms we want to apply custom Bootstrap validation styles to
-      const forms = document.querySelectorAll('.needs-validation')
-
-      // Loop over them and prevent submission
-      Array.from(forms).forEach(form => {
-        form.addEventListener('submit', event => {
-          if (!form.checkValidity()) {
-            event.preventDefault()
-            event.stopPropagation()
-          }
-
-          form.classList.add('was-validated')
-        }, false)
-      })
-    })()
-  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
 </body>
+<script>
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+  (() => {
+    'use strict'
+
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    const forms = document.querySelectorAll('.needs-validation')
+
+    // Loop over them and prevent submission
+    Array.from(forms).forEach(form => {
+      form.addEventListener('submit', event => {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+  })()
+</script>
 
 </html>

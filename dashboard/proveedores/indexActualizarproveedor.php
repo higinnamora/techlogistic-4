@@ -49,7 +49,6 @@ $datos = $conexion->query($sql);
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="../../PHP/indexdash.php">Inicio</a>
           </li>
-
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="./indexproveedores.php">Proveedores</a>
           </li>
@@ -76,23 +75,23 @@ $datos = $conexion->query($sql);
   </nav>
 
   <main class="container my-5 h-100">
-    <div class="d-flex flex-column flex-md-row justify-content-between">
-      <h4 class="text-md-start text-center">Actualizar Proveedor</h4>
+    <div class="d-flex flex-column justify-content-between">
+      <h4 class="text-center">Actualizar Proveedor</h4>
     </div>
     <hr>
     <form id="formulario-proveedor" action="actualizar_proveedor.php" method="POST"
       style="margin: 0 auto; width: 580px;">
       <div class="form-field">
-        <label for="id_proveedor">Id Proveedor</label>
-        <input type="number" placeholder="Ingrese Id" id="id_proveedor" name="id_proveedor" required />
+        <label for="id_proveedor">ID Proveedor:</label>
+        <input type="number" placeholder="Ingresa ID" id="id_proveedor" name="id_proveedor" required />
       </div>
       <div class="form-field">
-        <label for="nit">Nit</label>
-        <input type="text" placeholder="Ingrese el nit del proveedor" id="nit" name="nit" required />
+        <label for="nit">NIT:</label>
+        <input type="text" placeholder="Ingresa el nit del proveedor" id="nit" name="nit" required />
       </div>
       <div class="form-field">
-        <label for="razonSocial">Razón social</label>
-        <input type="text" placeholder="Ingrese Razón social" id="razonSocial" name="razonSocial" required />
+        <label for="razonSocial">Razón Social:</label>
+        <input type="text" placeholder="Ingresa Razón Social" id="razonSocial" name="razonSocial" required />
       </div>
       <div>
         <input class="button" type="submit" value="Actualizar" />

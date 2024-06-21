@@ -76,23 +76,22 @@ $datos = $conexion->query($sql);
 
   <!-- Main -->
   <main class="container my-5 h-100">
-    <div class="d-flex flex-column flex-md-row justify-content-between">
-      <h4 class="text-md-start text-left">Proveedores</h4>
-      <!-- subir archivos-->
-      <!--
+    <div class="d-flex flex-column justify-content-between">
+      <h4 class="text-center">Eliminar Proveedor</h4>
+    </div>
+    <!-- subir archivos-->
+    <!--
       <form action="../../PHP/carga_datos.php" method="post" enctype="multipart/form-data">
         <h4>Cargar materia prima</h4>
         <input type="file" name="archivo" accept=".xlsx, .xls" />
         <input type="submit" value="Enviar" />
       </form>-->
-    </div>
     <hr>
-
-
-    <h4>Eliminar proveedor</h4>
-    <form class="newsletter-form" action="eliminarProveedor.php" id="newsletter-form" method="POST">
+    <form class="newsletter-form" style="margin: 0 auto; width: 580px; justify-content: center;"
+      action="eliminarProveedor.php" id="newsletter-form" method="POST">
       <div class="form-field">
-        <input type="text" name="eliminarProveedor" placeholder="Nit " class="newsletter-input"
+        <label for="nit">NIT:</label>
+        <input type="text" name="eliminarProveedor" placeholder="Ingresa NIT proveedor " class="newsletter-input"
           pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
         <button class="button" type="submit">Eliminar</button>
       </div>
