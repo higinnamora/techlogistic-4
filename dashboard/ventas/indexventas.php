@@ -66,7 +66,7 @@
       -->
       <div class="actions-table">
         <div class="action-item">
-          <a class="button margin-left" aria-current="page" href="./nueva-venta.php">Registrar venta<i
+          <a class="button margin-left" aria-current="page" href="./nueva-venta2.php">Registrar venta<i
               class='bx bx-folder-plus icons-styles'></i></a>
         </div>
         <div class="action-item">
