@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restablecer Contraseña</title>
+</head>
+<body>
+    <h1>Restablecer Contraseña</h1>
+    <form action="restablecer.php" method="POST">
+        <label for="email">Correo del usuario:</label>
+         <select type="email" id="email" name="email" class="form-control" required>
+            </select>
+        <input type="email" id="email" name="email" required>
+        <button type="submit">Restablecer Contraseña</button>
+    </form>
+    <script>
+        document.getElementById("enviarBtn").addEventListener("click", function() {
+            // Obtener el correo electrónico seleccionado
+            var correo = document.getElementById("correo").value;
+            console.log("Correo seleccionado: ", correo);
+        });
+    </script>
+</body>
+</html>
+<!--<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restablecer contraseña</title>
+</head>
+<body>
+    
+        <div class="mb-3">
+            <label for="email" class="form-label">Correo electrónico</label>
+            <select type="email" id="correo" name="email" class="form-control" required>
+            </select>
+        </div>
+
+<button id="enviarBtn">Restablecer contraseña</button>
+
+<script>
+    document.getElementById("enviarBtn").addEventListener("click", function() {
+        // Obtener el correo electrónico seleccionado
+        var correo = document.getElementById("correo").value;
+        console.log("Correo seleccionado: ", correo);
+    });
+</script>-->
+
+</body>
+</html>
