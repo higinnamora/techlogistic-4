@@ -25,6 +25,10 @@ if ($result->num_rows > 0) {
         $productos[] = $row;
     }
 }
+$error_message = "";
+if (isset($_GET['error'])) {
+    $error_message = urldecode($_GET['error']);
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -39,6 +43,7 @@ if ($result->num_rows > 0) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="../../HTML/styles/techlogistic.css">
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container">
@@ -72,6 +77,17 @@ if ($result->num_rows > 0) {
         </div>
     </nav>
     <main class="container my-5">
+        <?php if ($error_message) : ?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <?php echo $error_message; ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <script>
+                setTimeout(function() {
+                    window.location.href = 'nueva-venta2.php';
+                }, 5000);
+            </script>
+        <?php endif; ?>
         <form style="margin: 0 auto; width: 580px;" id="form-new-sale" action="crearventa2.php" method="POST">
             <h4 class="text-md-start text-left">Nueva venta</h4>
             <div class="form-field">
@@ -246,7 +262,7 @@ if ($result->num_rows > 0) {
             productosContainer.appendChild(productoGroup);
         }
 
-        document.getElementById('cantidad').addEventListener('input', function () {
+        document.getElementById('cantidad').addEventListener('input', function() {
             var value = this.value;
             if (value < 0) {
                 this.value = 1;
