@@ -41,19 +41,6 @@
         die("Error en la preparación del procedimiento almacenado: " . $conex->error);
       }
 
-// Configuración de la base de datos
-$servername = "localhost";
-$username = "tu_usuario";
-$password = "tu_contraseña";
-$dbname = "tu_base_de_datos";
-
-// Conexión a la base de datos
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Verificar la conexión
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
 
 // Función para generar una nueva contraseña aleatoria
 function generateRandomPassword($length = 10) {
@@ -89,13 +76,12 @@ $sql = "UPDATE correos SET password='$hashedPassword' WHERE email='$correos'";
 
 if ($conn->query($sql) === TRUE) {
     // Configuración de correo electrónico
-    $to = "dayana@correo.com, sandra@correo.com, diana@correo.com"; // Correos a los que se enviará el mensaje
     $subject = "Restablecimiento de contraseña";
     $message = "La contraseña del usuario con correo $coreos ha sido restablecida.\n\nNueva contraseña: $newPassword";
-    $headers = "From: tu_correo@tudominio.com";
+    $headers = "From: techlogistic@outlook.es";
 
     // Enviar el correo
-    if (mail($to, $subject, $message, $headers)) {
+    if (mail($correo, $subject, $message, $headers)) {
         echo "Contraseña actualizada correctamente y correo de confirmación enviado.";
     } else {
         echo "Contraseña actualizada pero error al enviar el correo de confirmación.";

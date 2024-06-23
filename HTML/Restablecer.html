@@ -1,51 +1,63 @@
 <!DOCTYPE html>
 <html lang="es">
+<!--provando conexion con git hub-->
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restablecer Contraseña</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Techlogistic</title>
+  <meta name="description" content="">
+  <!-- Favicon -->
+  <link rel="icon" href="../images/favicon.png">
+  <!-- Box icons-->
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <!-- Normalize -->
+  <link rel="stylesheet" href="./styles/normalize.css">
+  <!-- Estilos CSS -->
+  <link rel="stylesheet" href="./styles/techlogistic.css">
 </head>
-<body>
-    <h1>Restablecer Contraseña</h1>
-    <form action="restablecer.php" method="POST">
-        <label for="email">Correo del usuario:</label>
-         <select type="email" id="email" name="email" class="form-control" required>
-            </select>
-        <input type="email" id="email" name="email" required>
-        <button type="submit">Restablecer Contraseña</button>
-    </form>
-    <script>
-        document.getElementById("enviarBtn").addEventListener("click", function() {
-            // Obtener el correo electrónico seleccionado
-            var correo = document.getElementById("correo").value;
-            console.log("Correo seleccionado: ", correo);
-        });
-    </script>
-</body>
-</html>
-<!--<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restablecer contraseña</title>
-</head>
-<body>
-    
-        <div class="mb-3">
-            <label for="email" class="form-label">Correo electrónico</label>
-            <select type="email" id="correo" name="email" class="form-control" required>
-            </select>
+  <!-- Scroll top -->
+  <a href="#" class="scrolltop" id="scroll-top" title="Scroll top">
+    <i class='bx bx-chevron-up scrolltop__icon'></i>
+  </a>
+  <!-- Header -->
+  <header class="header" id="header">
+    <nav class="navigation bd-container">
+      <div class="navigation__container-logo">
+        <a href="../index.html" class="navigation__logo" title="Techlogistic"><img src="../images/favicon.png"
+            alt="Logo Techlogistic" class="navigation__image">Techlogistic</a>
+      </div>
+      </div>
+      <div class="navigation__toggle" id="navigation-toggle">
+        <i class='bx bx-menu'></i>
+      </div>
+    </nav>
+  </header>
+  <main class="main">
+    <section class="section section-auth">
+      <div class="wrapper-box">
+        <h1>Restablecer Contraseña</h1>
+    <form action="restablecer.php" method="POST"><br>
+        <div class="form-field">
+            <label for="sign-in-form-email">Correo electrónico</label>
+            <input type="email" placeholder="Ingresa tu correo electrónico" id="sign-in-form-email"
+            name="sign-in-form-email" class="js-email-input" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"required />
         </div>
-
-<button id="enviarBtn">Restablecer contraseña</button>
-
-<script>
-    document.getElementById("enviarBtn").addEventListener("click", function() {
-        // Obtener el correo electrónico seleccionado
-        var correo = document.getElementById("correo").value;
-        console.log("Correo seleccionado: ", correo);
-    });
-</script>-->
-
+        <input class="button mb-1" type="submit" value="Enviar">
+    </form>
+    </div>
+    </section>
+    <footer class="copyright">
+    <div class="bd-container">
+        <p>💙 © 2024 Techlogistic. Todos los derechos reservados. 💚</p>
+        <p><a href="../terminos-y-condiciones.html">Términos y Condiciones</a> · <a
+            href="../politica-de-privacidad.html">Política de Privacidad</a></p>
+    </div>
+    </footer>
+    </main>
+      <!-- Scroll reveal -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <!-- Main JS-->
+  <script src="./JS/techlogistic.js"></script>
 </body>
 </html>
