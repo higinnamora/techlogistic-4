@@ -13,7 +13,6 @@ $sql = "SELECT cantidad, nombre_producto, material, precio, talla, color_product
 $datos = $conexion->query($sql);
 ?>
 
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -88,7 +87,7 @@ $datos = $conexion->query($sql);
       </li>
     </ul>
     <div class="table-responsive">
-      <table id="productos" class="table">
+      <table id="productos" style="color: black;" class="">
         <thead>
           <tr>
             <th scope="col">Cantidad</th>
@@ -146,6 +145,7 @@ $datos = $conexion->query($sql);
       buttons: [
         'excel', 'csv', 'pdf'
       ],
+
       language: {
         "sProcessing": "Procesando...",
         "sLengthMenu": "Mostrar MENU registros",

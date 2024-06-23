@@ -32,6 +32,7 @@ $datos = $conexion->query($sql);
   <link rel="stylesheet" href="../../HTML/styles/techlogistic.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
+  </style>
 </head>
 
 <body>
@@ -87,7 +88,7 @@ $datos = $conexion->query($sql);
       </li>
     </ul>
     <div class="table-responsive">
-      <table id="productos" class="table">
+      <table id="productos" style="color: black;" class="">
         <thead>
           <tr>
             <th scope="col">Color Materia</th>

@@ -92,7 +92,7 @@
       $datos = $conexion->query($sql);
       $result = mysqli_query($conexion, $sql);
 
-      echo '<table id="ventas" class="table">
+      echo '<table id="ventas" style="color: black;" class="">
             <thead>
                 <tr> 
                     <th scope="scope" >Número Orden de venta</th>
@@ -122,9 +122,8 @@
         $rta->free();
       }
       ?>
+
     </div>
-
-
     <hr class="my-5">
   </main>
   <footer>

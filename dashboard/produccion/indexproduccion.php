@@ -90,7 +90,7 @@ $datos = $conexion->query($sql);
       </li>
     </ul>
     <div class="table-responsive">
-      <table id="productos" class="table">
+      <table id="productos" style="color: black;" class="">
         <thead>
           <tr>
             <th scope="col">Código de producto</th>

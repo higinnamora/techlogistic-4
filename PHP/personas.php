@@ -16,8 +16,7 @@
     <!-- Estilos CSS -->
     <link rel="stylesheet" href="../HTML/styles/techlogistic.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
-    <link rel="stylesheet" type="text/css"
-        href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
 </head>
 
 <body class="vh-100">
@@ -78,7 +77,7 @@
             $sql = "SELECT * FROM personas;";
             $result = mysqli_query($conexion, $sql);
 
-            echo '<table id="personas" class="table">
+            echo '<table id="personas" style="color: black;" class="">
             <thead>
                 <tr> 
                     <th scope="scope" style="display: none;">Id</th>
@@ -138,7 +137,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
 <script>
     $(document).ready(function () {
-        $('#pedidos').DataTable({
+        $('#personas').DataTable({
             dom: 'Bfrtip',
             buttons: [
                 'excel', 'csv', 'pdf'

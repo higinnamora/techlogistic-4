@@ -90,7 +90,7 @@
       $result = mysqli_query($conexion, $sql);
 
 
-      echo '<table id="materia_prima" class="table">
+      echo '<table id="materia_prima" style= "color: #000" class="">
             <thead>
                 <tr> 
                     <th scope="scope" >Id Materia Prima</th>

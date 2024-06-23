@@ -111,7 +111,7 @@
                         JOIN proveedores ON pedidos.id_proveedor = proveedores.id_proveedor;";
             $result = mysqli_query($conexion, $sql);
 
-            echo '<table id="pedidos" class="table">
+            echo '<table id="pedidos" style= "color: #000"; class="">
             <thead>
                 <tr> 
                     <th scope="scope" >Id Pedido</th>

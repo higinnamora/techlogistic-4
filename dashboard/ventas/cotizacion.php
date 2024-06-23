@@ -87,7 +87,7 @@
             $datos = $conexion->query($sql);
             $result = mysqli_query($conexion, $sql);
 
-            echo '<table id="cotizacion" class="table"> 
+            echo '<table id="cotizacion" style="color: black;" class=""> 
             <thead>
                 <tr> 
                     <th scope="scope" >Código producto</th>

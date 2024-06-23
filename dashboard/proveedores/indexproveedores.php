@@ -108,7 +108,7 @@ $datos = $conexion->query($sql);
     </ul>
 
     <div class="table-responsive">
-      <table id="proveedor" class="table">
+      <table id="proveedor" style="color: #000" class="">
         <thead>
           <tr>
             <th scope="col">Id Proveedor</th>
