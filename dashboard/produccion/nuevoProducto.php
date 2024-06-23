@@ -116,11 +116,11 @@ if ($_SESSION['tipo_usuario']) {
           </div>
           <div class="form-field">
             <label for="cantidad">Cantidad de productos</label>
-            <input type="number" placeholder="Ingrese cantidad de productos" id="cantidad" name="cantidad" required />
+            <input type="number" placeholder="Ingrese cantidad de productos" min="1" id="cantidad" name="cantidad" required />
           </div>
           <div class="form-field">
             <label for="precio">Precio</label>
-            <input type="number" placeholder="Ingrese precio" id="precio" name="precio" required />
+            <input type="number" placeholder="Ingrese precio" min="1" id="precio" name="precio" required />
           </div>
           <div class="form-field">
             <label for="talla">Talla</label>

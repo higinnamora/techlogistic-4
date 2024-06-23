@@ -112,7 +112,7 @@
           </div>
           <div class="form-field">
             <label for="sign-up-form-cantidad">Cantidad</label>
-            <input type="number" placeholder="0" id="sign-up-form-cantidad" name="sign-up-form-cantidad" required />
+            <input type="number" placeholder="0" min="1" id="sign-up-form-cantidad" name="sign-up-form-cantidad" required />
           </div>
           <div class="form-field">
             <input type="hidden" id="sign-up-form-siniva" name="sign-up-form-siniva" required />
@@ -122,7 +122,7 @@
           </div>
           <div class="form-field">
             <label for="sign-up-form-coniva">Valor Total</label>
-            <input type="number" placeholder="0" id="sign-up-form-coniva" name="sign-up-form-coniva" required />
+            <input type="number" placeholder="0" min="1" id="sign-up-form-coniva" name="sign-up-form-coniva" required />
           </div>
           <input class="button mb-1" type="submit" value="Registrar Pediddo" />
         </form>

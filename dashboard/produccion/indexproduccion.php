@@ -9,7 +9,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
 }
 $conexion;
 include_once "../../PHP/conexion_a_la_DB.php";
-$sql = "SELECT codigo_producto, id_funcionario, cantidad, nombre_producto, material, precio, talla, color_producto, ubicacion FROM producto;";
+$sql = "SELECT codigo_producto, cantidad, nombre_producto, material, precio, talla, color_producto, ubicacion FROM producto;";
 $datos = $conexion->query($sql);
 ?>
 
@@ -94,7 +94,6 @@ $datos = $conexion->query($sql);
         <thead>
           <tr>
             <th scope="col">Código de producto</th>
-            <th scope="col">id funcionario</th>
             <th scope="col">Cantidad</th>
             <th scope="col">Producto</th>
             <th scope="col">Material</th>

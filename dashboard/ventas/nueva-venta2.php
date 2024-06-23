@@ -120,7 +120,7 @@ if ($result->num_rows > 0) {
                     </div>
                     <div class="form-field">
                         <label class="form-label" for="cantidad">Cantidad</label>
-                        <input type="number" class="form-control cantidad" name="cantidad[]" placeholder="cantidad" required onchange="calcularSubtotal(this)">
+                        <input type="number" class="form-control cantidad" min="1" id="cantidad" name="cantidad[]" placeholder="cantidad" required onchange="calcularSubtotal(this)">
                     </div>
                     <div class="form-field">
                         <label class="form-label" for="subtotal">Subtotal ($)</label>
@@ -167,6 +167,7 @@ if ($result->num_rows > 0) {
     <script>
         var fechaActual = new Date().toISOString().split('T')[0];
         document.getElementById("fechafactura").value = fechaActual;
+
         document.getElementById('documento').addEventListener('change', function() {
             var documento = this.value;
             if (documento.trim() !== '') {
@@ -235,7 +236,7 @@ if ($result->num_rows > 0) {
                 </div>
                 <div class="form-field">
                     <label class="form-label" for="cantidad">Cantidad</label>
-                    <input type="number" class="form-control cantidad" name="cantidad[]" placeholder="cantidad" required onchange="calcularSubtotal(this)">
+                    <input type="number" class="form-control cantidad" min="1" id="cantidad" name="cantidad[]" placeholder="cantidad" required onchange="calcularSubtotal(this)">
                 </div>
                 <div class="form-field">
                     <label class="form-label" for="subtotal">Subtotal ($)</label>
@@ -244,6 +245,13 @@ if ($result->num_rows > 0) {
             `;
             productosContainer.appendChild(productoGroup);
         }
+
+        document.getElementById('cantidad').addEventListener('input', function () {
+            var value = this.value;
+            if (value < 0) {
+                this.value = 1;
+            }
+        });
     </script>
 </body>
 

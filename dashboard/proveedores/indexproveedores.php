@@ -6,7 +6,7 @@ if (!isset($_SESSION['tipo_usuario'])) {
 }
 $conexion;
 include_once "../../PHP/conexion_a_la_DB.php";
-$sql = "SELECT id_proveedor, nit, razon_social FROM proveedores;";
+$sql = "SELECT nit, razon_social FROM proveedores;";
 $datos = $conexion->query($sql);
 ?>
 <!DOCTYPE html>
@@ -111,7 +111,6 @@ $datos = $conexion->query($sql);
       <table id="proveedor" style="color: #000" class="">
         <thead>
           <tr>
-            <th scope="col">Id Proveedor</th>
             <th scope="col">Nit</th>
             <th scope="col">Razon social</th>
           </tr>
