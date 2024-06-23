@@ -54,7 +54,7 @@ CREATE TABLE `correos` (
   PRIMARY KEY (`id_correo`),
   KEY `id_persona` (`id_persona`),
   CONSTRAINT `correo_ibfk_1` FOREIGN KEY (`id_persona`) REFERENCES `personas` (`id_persona`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -63,7 +63,7 @@ CREATE TABLE `correos` (
 
 LOCK TABLES `correos` WRITE;
 /*!40000 ALTER TABLE `correos` DISABLE KEYS */;
-INSERT INTO `correos` VALUES (1,1,'dayana@correo.com','dayana12345'),(2,2,'sandra@correo.com','f40a37048732da05928c3d374549c832'),(10,3,'diana@correo.com','12345678');
+INSERT INTO `correos` VALUES (1,4,'aura@correo.com','680db8781e41715f844eed433e9a1dda');
 /*!40000 ALTER TABLE `correos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -185,7 +185,7 @@ CREATE TABLE `funcionario` (
   KEY `fk_funcionario_roles1_idx` (`roles_id_rol`),
   CONSTRAINT `fk_funcionario_roles1` FOREIGN KEY (`roles_id_rol`) REFERENCES `roles` (`id_rol`),
   CONSTRAINT `funcionario_ibfk_1` FOREIGN KEY (`id_persona`) REFERENCES `personas` (`id_persona`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -194,7 +194,7 @@ CREATE TABLE `funcionario` (
 
 LOCK TABLES `funcionario` WRITE;
 /*!40000 ALTER TABLE `funcionario` DISABLE KEYS */;
-INSERT INTO `funcionario` VALUES (1,1,'8-5',13000,1),(2,2,'8 - 5',1300,2),(5,3,'9 - 6',1300,3);
+INSERT INTO `funcionario` VALUES (1,1,'8-5',13000,1),(2,2,'8 - 5',1300,2),(5,3,'9 - 6',1300,3),(6,4,'8 - 5',1300,1);
 /*!40000 ALTER TABLE `funcionario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -564,4 +564,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-23 15:10:37
+-- Dump completed on 2024-06-23 15:35:33

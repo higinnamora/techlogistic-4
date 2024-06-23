@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             throw new Exception("Alguno de los campos está vacío.");
         }
         $sql = "INSERT INTO funcionario(id_persona, horario, salario, roles_id_rol) VALUES ('$id_persona', '$horario', '$salario', '$cargo')";
-        $sql2 = "INSERT INTO correos ( id_persona, correo, password) values( '$id_persona', '$email', '$contra')";
+        $sql2 = "INSERT INTO correos ( id_persona, correo, password) values( '$id_persona', '$email', MD5('$contra'))";
         
         if ($conexion->query($sql) === TRUE) {
             header("Location: registro-exitoso.php");

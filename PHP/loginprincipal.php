@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $row = $pregunta->fetch_assoc();
         $pass_db = $row['password'];
 
-        if ($pass_db == $contra) {
+        if ($pass_db == MD5($contra)) {
             $_SESSION['correo'] = $row['correo'];
             $_SESSION['tipo_usuario'] = $row['id_rol'];
             $_SESSION['nombre_usuario'] = $row['nombre_completo'];
@@ -35,4 +35,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     $conexion->close();
 }
-?>

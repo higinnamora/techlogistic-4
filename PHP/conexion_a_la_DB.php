@@ -3,8 +3,8 @@
 
 $user = "root";
 $server = "localhost";
-$password = "";
-$db = "techlogistic1";
+$password = "admin";
+$db = "techlogistic";
 
 //Conexion al servidor
 /*
