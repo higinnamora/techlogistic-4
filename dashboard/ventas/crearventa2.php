@@ -17,10 +17,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 try {
     $conexion->begin_transaction();
+    
+    // Verificar si hay suficiente cantidad en el inventario para cada producto
     for ($i = 0; $i < count($productos); $i++) {
         $producto_id = $productos[$i];
     $cantidad = $cantidades[$i];
-
+    
+    // Consultar el nombre del producto
     $stmt_producto = $conexion->prepare("SELECT nombre_producto, cantidad FROM producto WHERE codigo_producto = ?");
     $stmt_producto->bind_param("i", $producto_id);
     $stmt_producto->execute();
@@ -32,6 +35,8 @@ try {
         throw new Exception("Cantidad insuficiente para el producto '$nombre_producto' (ID: $producto_id). Disponible: $cantidad_actual, Requerido: $cantidad.");
     }
     }
+
+    // Insertar la orden de venta
     $stmt = $conexion->prepare("INSERT INTO orden_venta (id_funcionario, id_persona, id_medio_pago, fecha_factura, doc_identidad, nombre_cliente) VALUES (?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("ssdsss", $funcionario, $id_persona, $mediodepago, $fechafactura, $documento, $nombrecliente);
     
@@ -39,6 +44,7 @@ try {
         $orden_id = $stmt->insert_id;
         $stmt->close();
 
+        // Insertar los detalles de la venta
         $stmt_detalle = $conexion->prepare("INSERT INTO detalle_venta (numero_orden_venta, producto, cantidad, subtotal) VALUES (?, ?, ?, ?)");
         for ($i = 0; $i < count($productos); $i++) {
             $producto_id = $productos[$i];
@@ -47,6 +53,7 @@ try {
             $stmt_detalle->bind_param("iiid", $orden_id, $producto_id, $cantidad, $subtotal);
             $stmt_detalle->execute();
 
+            // Actualizar la cantidad en el inventario
             $stmt_update = $conexion->prepare("UPDATE producto SET cantidad = cantidad - ? WHERE codigo_producto = ?");
             $stmt_update->bind_param("ii", $cantidad, $producto_id);
             $stmt_update->execute();

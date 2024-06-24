@@ -123,26 +123,38 @@ if (isset($_GET['error'])) {
                 <label class="form-label" for="primer_apellido">Apellido del cliente</label>
                 <input class="form-control" type="text" id="primer_apellido" name="primer_apellido" readonly />
             </div>
-            <div id="productos-container">
-                <div class="producto-group">
-                    <div class="form-field">
-                        <label class="form-label" for="producto">Producto</label>
-                        <select name="producto[]" class="form-select producto" onchange="calcularSubtotal(this)" required>
-                            <option value="" disabled selected hidden>Seleccione un producto</option>
-                            <?php foreach ($productos as $producto) : ?>
-                                <option value="<?php echo $producto['codigo_producto']; ?>" data-precio="<?php echo $producto['precio']; ?>"><?php echo $producto['nombre_producto']; ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <div class="form-field">
-                        <label class="form-label" for="cantidad">Cantidad</label>
-                        <input type="number" class="form-control cantidad" min="1" id="cantidad" name="cantidad[]" placeholder="cantidad" required onchange="calcularSubtotal(this)">
-                    </div>
-                    <div class="form-field">
-                        <label class="form-label" for="subtotal">Subtotal ($)</label>
-                        <input type="text" class="form-control subtotal" name="subtotal[]" placeholder="0" readonly>
-                    </div>
-                </div>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="productos-table">
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Cantidad</th>
+                            <th>Subtotal ($)</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productos-container">
+                        <tr class="producto-group">
+                            <td>
+                                <select name="producto[]" class="form-select producto" onchange="calcularSubtotal(this)" required>
+                                    <option value="" disabled selected hidden>Seleccione un producto</option>
+                                    <?php foreach ($productos as $producto) : ?>
+                                        <option value="<?php echo $producto['codigo_producto']; ?>" data-precio="<?php echo $producto['precio']; ?>"><?php echo $producto['nombre_producto']; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="number" class="form-control cantidad" min="1" id="cantidad" name="cantidad[]" placeholder="cantidad" required onchange="calcularSubtotal(this)">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control subtotal" name="subtotal[]" placeholder="0" readonly>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-danger" onclick="eliminarProducto(this)">Eliminar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             <div class="form-field">
                 <button type="button" class="btn btn-primary" onclick="agregarProducto()">Agregar Producto</button>
@@ -151,7 +163,7 @@ if (isset($_GET['error'])) {
                 <label for="total" class="form-label">Total ($)</label>
                 <input type="text" class="form-control" name="total" id="total" placeholder="0" readonly>
             </div>
-            <input type="submit" class="button" value="Agregar venta" />
+            <input type="submit" class="button" value="Finalizar venta" />
         </form>
     </main>
     <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
@@ -238,28 +250,34 @@ if (isset($_GET['error'])) {
 
         function agregarProducto() {
             var productosContainer = document.getElementById('productos-container');
-            var productoGroup = document.createElement('div');
+            var productoGroup = document.createElement('tr');
             productoGroup.className = 'producto-group';
             productoGroup.innerHTML = `
-                <div class="form-field">
-                    <label class="form-label" for="producto">Producto</label>
+                <td>
                     <select name="producto[]" class="form-select producto" onchange="calcularSubtotal(this)" required>
                         <option value="" disabled selected hidden>Seleccione un producto</option>
                         <?php foreach ($productos as $producto) : ?>
                             <option value="<?php echo $producto['codigo_producto']; ?>" data-precio="<?php echo $producto['precio']; ?>"><?php echo $producto['nombre_producto']; ?></option>
                         <?php endforeach; ?>
                     </select>
-                </div>
-                <div class="form-field">
-                    <label class="form-label" for="cantidad">Cantidad</label>
+                </td>
+                <td>
                     <input type="number" class="form-control cantidad" min="1" id="cantidad" name="cantidad[]" placeholder="cantidad" required onchange="calcularSubtotal(this)">
-                </div>
-                <div class="form-field">
-                    <label class="form-label" for="subtotal">Subtotal ($)</label>
+                </td>
+                <td>
                     <input type="text" class="form-control subtotal" name="subtotal[]" placeholder="0" readonly>
-                </div>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-danger" onclick="eliminarProducto(this)">Eliminar</button>
+                </td>
             `;
             productosContainer.appendChild(productoGroup);
+        }
+
+        function eliminarProducto(button) {
+            var productoGroup = button.closest('tr');
+            productoGroup.remove();
+            calcularTotal();
         }
 
         document.getElementById('cantidad').addEventListener('input', function() {
