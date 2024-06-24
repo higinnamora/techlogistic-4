@@ -54,13 +54,7 @@ $datos = $conexion->query($sql);
             <a class="nav-link active" aria-current="page" href="../../PHP/indexdash.php">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="./indexproduccion.php">Productos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="./nuevoProducto.php">Registrar</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="./indexproduccionEliminar.php">Eliminar</a>
+            <a class="nav-link" aria-current="page" href="./indexproduccion.php">Producción</a>
           </li>
           <li class="nav-item dropdown">
             <div class="dropdown" role="group">
@@ -78,21 +72,20 @@ $datos = $conexion->query($sql);
     </div>
   </nav>
   <main class="container my-5 h-100">
-    <div class="d-flex flex-column flex-md-row justify-content-between gap-2">
-      <h4 class="text-md-start text-left">Producción</h4>
+    <div class="d-flex flex-column justify-content-between gap-2">
+      <h4 class="text-center">Actualizar Producto</h4>
     </div>
-    <hr>
-    <h4>Actualizar Producto</h4>
+    <hr class="my-4">
     <form id="update-form" action="editarProducto.php" method="POST" style="margin: 0 auto; width: 580px;">
       <div class="form-field">
-        <label class="form-label" for="numcargo">Funcionario</label>
+        <label class="form-label" for="numcargo">Funcionario:</label>
         <input type="text" class="form-control" name="usuario" id="usuario" value="<?php echo $nombre_usuario; ?>"
           readonly>
         <input type="hidden" name="funcionario" value="<?php echo $tipo_usuario; ?>">
       </div>
       <div class="form-field">
-        <label for="codigo_producto">Código Producto</label>
-        <input type="number" placeholder="ingrese código producto" id="codigo_producto" name="codigo_producto"
+        <label for="codigo_producto">Código Producto:</label>
+        <input type="number" placeholder="ingresa código producto" id="codigo_producto" name="codigo_producto"
           required />
       </div>
       <!-- Codigo para cuando se solucione la llave foranea con materia prima, funciona pero lo ideal es que tenga lalve foranea -->
@@ -118,34 +111,34 @@ $datos = $conexion->query($sql);
             </select>
           </div> -->
       <div class="form-field">
-        <label for="material">Materia Prima</label>
-        <input type="text" placeholder="Ingrese nombre producto" id="material" name="material" required />
+        <label for="material">Materia Prima:</label>
+        <input type="text" placeholder="Ingresa el nombre del producto" id="material" name="material" required />
       </div>
       <div class="form-field">
-        <label for="producto">Nombre producto</label>
-        <input type="text" placeholder="Ingrese nombre producto" id="producto" name="producto" required />
+        <label for="producto">Nombre producto:</label>
+        <input type="text" placeholder="Ingresa el nombre del producto" id="producto" name="producto" required />
       </div>
       <div class="form-field">
-        <label for="cantidad">Cantidad de productos</label>
-        <input type="number" placeholder="Ingrese cantidad de productos" id="cantidad" name="cantidad" required />
+        <label for="cantidad">Cantidad de productos:</label>
+        <input type="number" placeholder="Ingresa la cantidad de productos" id="cantidad" name="cantidad" required />
       </div>
       <div class="form-field">
-        <label for="precio">Precio</label>
-        <input type="number" placeholder="Ingrese precio" id="precio" name="precio" required />
+        <label for="precio">Precio:</label>
+        <input type="number" placeholder="Ingresa el precio" id="precio" name="precio" required />
       </div>
       <div class="form-field">
-        <label for="talla">Talla</label>
-        <input type="text" placeholder="Ingrese talla" id="talla" name="talla" required />
+        <label for="talla">Talla:</label>
+        <input type="text" placeholder="Ingresa la talla" id="talla" name="talla" required />
       </div>
       <div class="form-field">
-        <label for="color">Color</label>
-        <input type="text" placeholder="Ingrese color" id="color" name="color" required />
+        <label for="color">Color:</label>
+        <input type="text" placeholder="Ingresa el color" id="color" name="color" required />
       </div>
       <div class="form-field">
-        <label for="ubicacion">Ubicación</label>
-        <input type="text" placeholder="Ingrese ubicacion" id="ubicacion" name="ubicacion" required />
+        <label for="ubicacion">Ubicación:</label>
+        <input type="text" placeholder="Ingresa la ubicación" id="ubicacion" name="ubicacion" required />
       </div>
-      <input class="button mb-1" type="submit" value="Actualizar Producto" />
+      <input class="button mb-1" type="submit" value="Actualizar" />
     </form>
     <hr class="my-4" />
   </main>

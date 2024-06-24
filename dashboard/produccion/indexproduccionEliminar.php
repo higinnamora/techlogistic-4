@@ -50,13 +50,7 @@ $datos = $conexion->query($sql);
             <a class="nav-link active" aria-current="page" href="../../PHP/indexdash.php">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="./indexproduccion.php">Productos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="./nuevoProducto.php">Registrar</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="./indexproduccionActualizacion.php">Actualizar</a>
+            <a class="nav-link" aria-current="page" href="./indexproduccion.php">Producción</a>
           </li>
           <li class="nav-item dropdown">
             <div class="dropdown" role="group">
@@ -74,24 +68,22 @@ $datos = $conexion->query($sql);
     </div>
   </nav>
   <main class="container my-5 h-100">
-    <div class="d-flex flex-column flex-md-row justify-content-between gap-2">
-      <h4 class="text-md-start text-left">Producción</h4>
+    <div class="d-flex flex-column justify-content-between gap-2">
+      <h4 class="text-center">Eliminar Producto</h4>
     </div>
-    <hr>
-
-
-    <h4>Eliminar producto</h4>
-    <form class="newsletter-form" action="eliminarProducto.php" id="newsletter-form" method="POST">
+    <hr class="my-4">
+    <form class="newsletter-form" action="eliminarProducto.php" id="newsletter-form"
+      style="margin: 0 auto; width: 580px; justify-content: center;" method="POST">
       <div class="form-field">
+        <label>Código Producto:</label>
         <input type="text" name="eliminarProducto" placeholder="Código producto" class="newsletter-input"
           pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
         <button class="button" type="submit">Eliminar</button>
     </form>
-    <hr class="my-4" />
   </main>
   <hr class="my-5" />
   <footer>
-    <div class="copyright">
+    <div class="copyright footer-absolute">
       <div class="bd-container">
         <p>💙 © 2024 Techlogistic. Todos los derechos reservados. 💚</p>
         <p><a href="../../HTML/terminos-y-condiciones.html">Términos y Condiciones</a> · <a
