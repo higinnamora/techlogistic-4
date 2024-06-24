@@ -57,7 +57,7 @@
     </div>
     <hr class="my-4">
     <form class="newsletter-form" action="eliminarmateria.php" id="newsletter-form"
-      style="margin: 0 auto; width: 580px; justify-content: center; method=" POST">
+      style="margin: 0 auto; width: 580px; justify-content: center;" method="POST">
       <div class="form-field">
         <label for="">ID:</label>
         <input type="text" name="eliminarmateria" placeholder="Ingresa el ID" class="newsletter-input"
