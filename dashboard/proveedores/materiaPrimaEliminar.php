@@ -36,12 +36,6 @@
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="./materiaPrima.php">Materia prima</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="./registrarMateria.html">Registrar</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="./materiaPrimaActualizacion.php">Actualizar</a>
-          </li>
           <li class="nav-item dropdown">
             <div class="dropdown" role="group">
               <a class="dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
@@ -58,16 +52,15 @@
     </div>
   </nav>
   <main class="container my-5 h-100">
-    <div class="d-flex flex-column flex-md-row justify-content-between">
-      <h4 class="text-md-start text-left">Materia prima</h4>
+    <div class="d-flex flex-column justify-content-between">
+      <h4 class="text-center">Eliminar Materia prima</h4>
     </div>
-
     <hr class="my-4">
-
-    <h4>Eliminar materia prima</h4>
-    <form class="newsletter-form" action="eliminarmateria.php" id="newsletter-form" method="POST">
+    <form class="newsletter-form" action="eliminarmateria.php" id="newsletter-form"
+      style="margin: 0 auto; width: 580px; justify-content: center; method=" POST">
       <div class="form-field">
-        <input type="text" name="eliminarmateria" placeholder="Id " class="newsletter-input"
+        <label for="">ID:</label>
+        <input type="text" name="eliminarmateria" placeholder="Ingresa el ID" class="newsletter-input"
           pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
         <button class="button" type="submit">Eliminar</button>
       </div>

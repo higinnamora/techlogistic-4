@@ -36,12 +36,6 @@
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="./materiaPrima.php">Materia prima</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="./registrarMateria.html">Registrar</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="./materiaPrimaEliminar.php">Eliminar</a>
-          </li>
           <li class="nav-item dropdown">
             <div class="dropdown" role="group">
               <a class="dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
@@ -58,38 +52,34 @@
     </div>
   </nav>
   <main class="container my-5 h-100">
-    <div class="d-flex flex-column flex-md-row justify-content-between">
-      <h4 class="text-md-start text-left">Materia prima</h4>
+    <div class="d-flex flex-column justify-content-between">
+      <h4 class="text-center">Actualizar Materia Prima</h4>
     </div>
     <hr class="my-5">
-
-    <h4>Actualizar Materia prima</h4>
     <form id="sign-up-form" action="actualizarmateriaprima.php" method="POST" style="margin: 0 auto; width: 580px;">
-
       <div class="form-field">
-        <label for="idmateriaprima">Id</label>
-        <input type="text" placeholder="Ingrese el id a actualizar" id="idmateriaprima" name="idmateriaprima"
-          required />
+        <label for="idmateriaprima">ID:</label>
+        <input type="text" placeholder="Ingresa el ID" id="idmateriaprima" name="idmateriaprima" required />
       </div>
 
       <div class="form-field">
-        <label for="colormateria">Color materia</label>
-        <input type="text" placeholder="Ingrese color" id="colormateria" name="colormateria" required />
+        <label for="colormateria">Color materia:</label>
+        <input type="text" placeholder="Ingresa color" id="colormateria" name="colormateria" required />
       </div>
 
       <div class="form-field">
-        <label for="precio">Precio</label>
-        <input type="number" placeholder="Ingrese el precio" id="precio" name="precio" required />
+        <label for="precio">Precio:</label>
+        <input type="number" placeholder="Ingresa el precio" id="precio" name="precio" required />
       </div>
 
       <div class="form-field">
-        <label for="cantidad">Cantidad</label>
-        <input type="text" placeholder="Ingrese cantidad" id="cantidad" name="cantidad" required />
+        <label for="cantidad">Cantidad:</label>
+        <input type="text" placeholder="Ingresa la cantidad" id="cantidad" name="cantidad" required />
       </div>
 
       <div class="form-field">
-        <label for="descripcion">Descripción</label>
-        <input type="text" placeholder="Ingrese descripcion" id="descripcion" name="descripcion" required />
+        <label for="descripcion">Descripción:</label>
+        <input type="text" placeholder="Ingresa la descripción" id="descripcion" name="descripcion" required />
       </div>
       <div></div>
       <div>
