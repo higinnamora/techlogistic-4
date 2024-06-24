@@ -16,7 +16,8 @@
     <!-- Estilos CSS -->
     <link rel="stylesheet" href="../HTML/styles/techlogistic.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
 </head>
 
 <body class="vh-100">
@@ -33,12 +34,6 @@
                 <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="indexdash.php">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="../HTML/sign-up.html">Registrar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="actualizar_persona.php">Actualizar</a>
                     </li>
                     <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
                     <li class="nav-item dropdown">
@@ -67,6 +62,16 @@
     <main class="container my-5 h-100">
         <div class="d-flex flex-column flex-md-row justify-content-between">
             <h4 class="text-md-start text-left">Personas</h4>
+            <div class="actions-table">
+                <div class="action-item">
+                    <a class="button margin-left" aria-current="page" href="../HTML/sign-up.html">Registrar<i
+                            class='bx bx-folder-plus icons-styles'></i></a>
+                </div>
+                <div class="action-item">
+                    <a class="button margin-left" aria-current="page" href="actualizar_persona.php">Actualizar<i
+                            class='bx bx-edit icons-styles'></i></a>
+                </div>
+            </div>
         </div>
         <hr>
         <div class="table-responsive">
