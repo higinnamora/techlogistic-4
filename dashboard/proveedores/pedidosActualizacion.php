@@ -38,12 +38,6 @@
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="./pedidos.php">Pedidos</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="./registrarPedido.html">Registrar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="./pedidosEliminar.php">Eliminar</a>
-                    </li>
                     <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
                     <li class="nav-item dropdown">
                         <div class="dropdown" role="group">
@@ -69,23 +63,23 @@
 
     <!-- Main -->
     <main class="container my-5 h-100">
-        <div class="d-flex flex-column flex-md-row justify-content-between">
-            <h4 class="text-md-start text-left">Actualizar Pedido</h4>
+        <div class="d-flex flex-column justify-content-between">
+            <h4 class="text-center">Actualizar Pedido</h4>
         </div>
         <hr>
         <form id="sign-up-form" action="actualizar_pedido.php" method="POST" style="margin: 0 auto; width: 580px;">
             <div class="form-field">
-                <label for="codigoProducto" class="form-label">Fecha de Pedido</label>
+                <label for="codigoProducto" class="form-label">Fecha de Pedido:</label>
                 <input type="date" class="form-control" name="fechafactura" id="fechafactura" readonly>
             </div>
             <div class="form-field">
-                <label for="id_pedido">Id Pedido</label>
-                <input type="number" placeholder="Ingrese Id" id="id_pedido" name="id_pedido" required />
+                <label for="id_pedido">ID Pedido:</label>
+                <input type="number" placeholder="Ingresa el ID" id="id_pedido" name="id_pedido" required />
             </div>
             <div class="form-field">
-                <label for="sign-up-form-materia">Materia Prima</label>
+                <label for="sign-up-form-materia">Materia Prima:</label>
                 <select id="sign-up-form-materia" name="sign-up-form-materia" class="form-control" required>
-                    <option value="" disabled selected hidden>Seleccione</option>
+                    <option value="" disabled selected hidden>Selecciona Materia Prima</option>
                     <?php
                     $conexion;
                     include_once "../../PHP/conexion_a_la_DB.php";
@@ -103,9 +97,9 @@
                 </select>
             </div>
             <div class="form-field">
-                <label for="sign-up-form-proveedor">Proveedor</label>
+                <label for="sign-up-form-proveedor">Proveedor:</label>
                 <select id="sign-up-form-proveedor" name="sign-up-form-proveedor" class="form-control" required>
-                    <option value="" disabled selected hidden>Seleccione</option>
+                    <option value="" disabled selected hidden>Selecciona Proveedor</option>
                     <?php
                     $conexion;
                     include_once "../../PHP/conexion_a_la_DB.php";
@@ -124,8 +118,8 @@
                 </select>
             </div>
             <div class="form-field">
-                <label for="cantidad">Cantidad</label>
-                <input type="number" placeholder="Ingrese cantidad" id="cantidad" name="cantidad" required />
+                <label for="cantidad">Cantidad:</label>
+                <input type="number" placeholder="Ingresa la cantidad" id="cantidad" name="cantidad" required />
             </div>
             <div class="form-field">
                 <input type="hidden" id="sign-up-form-siniva" name="sign-up-form-siniva" required />
@@ -134,10 +128,10 @@
                 <input type="hidden" id="sign-up-form-iva" name="sign-up-form-iva" required />
             </div>
             <div class="form-field">
-                <label for="sign-up-form-coniva">Valor Total</label>
+                <label for="sign-up-form-coniva">Valor Total:</label>
                 <input type="number" placeholder="0" id="sign-up-form-coniva" name="sign-up-form-coniva" required />
             </div>
-            <input class="button mb-1" type="submit" value="Actualizar Pediddo" />
+            <input class="button mb-1" type="submit" value="Actualizar" />
         </form>
     </main>
     <footer>

@@ -66,8 +66,7 @@
       </div>
     </form>
     <hr class="my-4">
-  </main><br><br>
-  <br><br>
+  </main>
   <footer>
     <div class="copyright">
       <div class="bd-container">
