@@ -54,7 +54,7 @@ CREATE TABLE `correos` (
   PRIMARY KEY (`id_correo`),
   KEY `id_persona` (`id_persona`),
   CONSTRAINT `correo_ibfk_1` FOREIGN KEY (`id_persona`) REFERENCES `personas` (`id_persona`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -63,7 +63,7 @@ CREATE TABLE `correos` (
 
 LOCK TABLES `correos` WRITE;
 /*!40000 ALTER TABLE `correos` DISABLE KEYS */;
-INSERT INTO `correos` VALUES (1,4,'aura@correo.com','680db8781e41715f844eed433e9a1dda');
+INSERT INTO `correos` VALUES (2,1,'iris@correo.com','60c3cef34d6d786c231696424d5e812d'),(3,2,'sandra@correo.com','d41d199c714375e0984b0d518e8c4d62'),(4,3,'diana@correo.com','55773acef73dd55869f180e81c89ed2d');
 /*!40000 ALTER TABLE `correos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -120,7 +120,7 @@ CREATE TABLE `detalle_venta` (
   KEY `producto_ibfk_2_idx` (`producto`),
   CONSTRAINT `detalle_venta_ibfk_1` FOREIGN KEY (`numero_orden_venta`) REFERENCES `orden_venta` (`numero_orden_venta`),
   CONSTRAINT `detalle_venta_ibfk_2` FOREIGN KEY (`producto`) REFERENCES `producto` (`codigo_producto`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -129,7 +129,7 @@ CREATE TABLE `detalle_venta` (
 
 LOCK TABLES `detalle_venta` WRITE;
 /*!40000 ALTER TABLE `detalle_venta` DISABLE KEYS */;
-INSERT INTO `detalle_venta` VALUES (1,10001,1,2,40000),(2,10001,2,3,90000),(3,10001,4,2,60000),(4,10002,6,3,60000),(5,10002,5,2,60000),(6,10002,1,2,40000),(7,10003,3,3,45000),(8,10003,5,2,60000);
+INSERT INTO `detalle_venta` VALUES (1,10001,1,2,40000),(2,10001,2,3,90000),(3,10001,4,2,60000),(4,10002,6,3,60000),(5,10002,5,2,60000),(6,10002,1,2,40000),(7,10003,3,3,45000),(8,10003,5,2,60000),(10,10005,1,2,40000),(11,10005,3,3,45000);
 /*!40000 ALTER TABLE `detalle_venta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -185,7 +185,7 @@ CREATE TABLE `funcionario` (
   KEY `fk_funcionario_roles1_idx` (`roles_id_rol`),
   CONSTRAINT `fk_funcionario_roles1` FOREIGN KEY (`roles_id_rol`) REFERENCES `roles` (`id_rol`),
   CONSTRAINT `funcionario_ibfk_1` FOREIGN KEY (`id_persona`) REFERENCES `personas` (`id_persona`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -194,7 +194,7 @@ CREATE TABLE `funcionario` (
 
 LOCK TABLES `funcionario` WRITE;
 /*!40000 ALTER TABLE `funcionario` DISABLE KEYS */;
-INSERT INTO `funcionario` VALUES (1,1,'8-5',13000,1),(2,2,'8 - 5',1300,2),(5,3,'9 - 6',1300,3),(6,4,'8 - 5',1300,1);
+INSERT INTO `funcionario` VALUES (1,1,'8-5',13000,1),(8,2,'8 - 5',1300,2),(9,3,'8 - 5',1300,3),(10,5,'8 - 5',1300,3);
 /*!40000 ALTER TABLE `funcionario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -227,7 +227,7 @@ CREATE TABLE `materia_prima` (
 
 LOCK TABLES `materia_prima` WRITE;
 /*!40000 ALTER TABLE `materia_prima` DISABLE KEYS */;
-INSERT INTO `materia_prima` VALUES (1,1,'Negra',20000,10,'Tela Camiseta Negra',1),(2,2,'Verde',30000,10,'Tela Jean Negro',2),(3,2,'Negro',15000,10,'Lana Negra',1),(4,2,'Azul',10000,2,'Lana Azul',1);
+INSERT INTO `materia_prima` VALUES (1,1,'Negra',20000,10,'Tela Camiseta Negra',1),(2,1,'Verde',30000,10,'Tela Jean Negro',2),(3,1,'Negro',15000,10,'Lana Negra',1),(4,1,'Azul',10000,2,'Lana Azul',1);
 /*!40000 ALTER TABLE `materia_prima` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -307,7 +307,7 @@ CREATE TABLE `orden_venta` (
   CONSTRAINT `orden_venta_ibfk_1` FOREIGN KEY (`id_medio_pago`) REFERENCES `medio_pago` (`id_medio_pago`),
   CONSTRAINT `orden_venta_ibfk_2` FOREIGN KEY (`id_funcionario`) REFERENCES `funcionario` (`id_funcionario`),
   CONSTRAINT `orden_venta_ibfk_3` FOREIGN KEY (`id_persona`) REFERENCES `personas` (`id_persona`)
-) ENGINE=InnoDB AUTO_INCREMENT=10004 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10006 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -316,7 +316,7 @@ CREATE TABLE `orden_venta` (
 
 LOCK TABLES `orden_venta` WRITE;
 /*!40000 ALTER TABLE `orden_venta` DISABLE KEYS */;
-INSERT INTO `orden_venta` VALUES (10001,1,2,1,'2024-06-23',98765,'Sandra'),(10002,1,2,2,'2024-06-23',98765,'Sandra'),(10003,1,4,1,'2024-06-23',85214,'Aura');
+INSERT INTO `orden_venta` VALUES (10001,1,2,1,'2024-06-23',98765,'Sandra'),(10002,1,2,2,'2024-06-23',98765,'Sandra'),(10003,1,4,1,'2024-06-23',85214,'Aura'),(10005,1,2,1,'2024-06-23',98765,'Sandra');
 /*!40000 ALTER TABLE `orden_venta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -399,7 +399,7 @@ CREATE TABLE `personas` (
   `segundo_apellido` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id_persona`),
   UNIQUE KEY `no_documento_UNIQUE` (`no_documento`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -408,7 +408,7 @@ CREATE TABLE `personas` (
 
 LOCK TABLES `personas` WRITE;
 /*!40000 ALTER TABLE `personas` DISABLE KEYS */;
-INSERT INTO `personas` VALUES (1,'12345','Iris','Dayana','Sanchez','Perez'),(2,'98765','Sandra','Liliana','Collazos','Gomez'),(3,'15964','Diana','Carolina','Pinzon','Gonzalez'),(4,'85214','Aura','Cristina','Vela','Gonzalez'),(5,'6876416','Ana','Esperanza','Gomez','Anturi'),(6,'9674616','Carmen','Liliana','Ramirez','pinzon'),(7,'100456','Carlos','Andres','Vanegas','Guerrero'),(10,'100457','Martha','Edilma','Puentes','Correo'),(13,'100567','Ginna','Marcela','Mora','Diaz'),(14,'100568','Aura','Margarita','Vela','Gonzalez'),(15,'100569','Ana','Marcela','Cruz','Diaz'),(16,'100570','Maria','Alejandra','Muñoz','Gonzalez');
+INSERT INTO `personas` VALUES (1,'12345','Iris','Dayana','Sanchez','Perez'),(2,'98765','Sandra','Liliana','Collazos','Gomez'),(3,'15964','Diana','Carolina','Pinzon','Gonzalez'),(4,'85214','Aura','Cristina','Vela','Gonzalez'),(5,'6876416','Ana','Esperanza','Gomez','Anturi'),(6,'9674616','Carmen','Liliana','Ramirez','pinzon');
 /*!40000 ALTER TABLE `personas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -441,7 +441,7 @@ CREATE TABLE `producto` (
 
 LOCK TABLES `producto` WRITE;
 /*!40000 ALTER TABLE `producto` DISABLE KEYS */;
-INSERT INTO `producto` VALUES (1,1,8,'Camiseta-s-gris','Algodon',20000,'s','Gris','Bodega'),(2,1,10,'Saco-s-negro','Lana',30000,'s','Negro','Bodega'),(3,2,7,'Sudadera-s-cafe','Algodon',15000,'s','Cafe','Bodega'),(4,1,10,'Jean-s-azul','Algodon',30000,'s','Azul','Bodega'),(5,2,8,'Pantalon-s-gris','Algodon',30000,'s','Gris','Bodega'),(6,1,5,'saco-s-violeta','Lana',20000,'s','violeta','Bodega');
+INSERT INTO `producto` VALUES (1,1,6,'Camiseta-s-gris','Algodon',20000,'s','Gris','Bodega'),(2,1,8,'Saco-s-negro','Lana',30000,'s','Negro','Bodega'),(3,1,10,'Sudadera-s-cafe','Algodon',15000,'s','Cafe','Bodega'),(4,1,7,'Jean-s-azul','Algodon',30000,'s','Azul','Bodega'),(5,1,10,'Pantalon-s-gris','Algodon',30000,'s','Gris','Bodega'),(6,1,6,'saco-s-violeta','Lana',20000,'s','violeta','Bodega');
 /*!40000 ALTER TABLE `producto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -564,4 +564,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-23 15:35:33
+-- Dump completed on 2024-06-24 22:24:47

@@ -1,17 +1,17 @@
 <?php
 
-
+/*
 $user = "root";
 $server = "localhost";
 $password = "admin";
 $db = "techlogistic";
-
+*/
 //Conexion al servidor
-/*
+
 $user = "educand4";
 $server = "localhost";
 $password = "educandome.org";
-$db = "educand4_techlogistic";*/
+$db = "educand4_techlogistic";
 
 $conexion = new mysqli($server, $user, $password, $db);
 
