@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['nombre_usuario'])) {
+    header("Location: /techlogistic-4/HTML/404.html");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 

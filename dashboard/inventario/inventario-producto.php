@@ -1,12 +1,11 @@
 <!-- Estamos validando que el usuario si tenga una sesion iniciada, de lo contrario se enviara a login-->
 <?php
 session_start();
-
-
-if (!isset($_SESSION['tipo_usuario'])) {
-  header("Location: ../../HTML/sign-in.html");
-  exit;
+if (!isset($_SESSION['nombre_usuario'])) {
+    header("Location: /techlogistic-4/HTML/404.html");
+    exit;
 }
+$nombre_usuario = $_SESSION['nombre_usuario'];
 $conexion;
 include_once "../../PHP/conexion_a_la_DB.php";
 $sql = "SELECT cantidad, nombre_producto, material, precio, talla, color_producto, ubicacion FROM producto;";

@@ -1,8 +1,8 @@
 <?php
 session_start();
-if (!isset($_SESSION['tipo_usuario'])) {
-  header("Location: ../../HTML/sign-in.html");
-  exit;
+if (!isset($_SESSION['nombre_usuario'])) {
+    header("Location: /techlogistic-4/HTML/404.html");
+    exit;
 }
 $conexion;
 include_once "../../PHP/conexion_a_la_DB.php";

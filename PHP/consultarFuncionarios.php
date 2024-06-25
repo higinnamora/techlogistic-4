@@ -1,8 +1,8 @@
 <?php
 session_start();
-if (!isset($_SESSION['tipo_usuario'])) {
-  header("Location: ../../HTML/sign-in.html");
-  exit;
+if (!isset($_SESSION['nombre_usuario'])) {
+    header("Location: /techlogistic-4/HTML/404.html");
+    exit;
 }
 $conexion;
 include_once "conexion_a_la_DB.php";
@@ -54,7 +54,7 @@ $datos = $conexion->query($sql);
                 <img src="https://higinnamora.github.io/techlogistic/images/profile/profile.png" alt="mdo" class="rounded-circle" width="38" height="38" />
               </a>
               <ul class="dropdown-menu dropdown-menu-lg-end">
-                <li><a class="dropdown-item" href="../../cerrar_sesion.php">Cerrar sesión</a></li>
+                <li><a class="dropdown-item" href="./cerrar_sesion.php">Cerrar sesión</a></li>
               </ul>
             </div>
           </li>

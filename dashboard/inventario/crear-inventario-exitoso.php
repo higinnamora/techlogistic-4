@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['nombre_usuario'])) {
+    header("Location: /techlogistic-4/HTML/404.html");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -13,7 +20,7 @@
   <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-  <!-- Estilos CSS -->
+   Estilos CSS -->
   <link rel="stylesheet" href="../../HTML/styles/techlogistic.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
