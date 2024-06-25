@@ -70,10 +70,10 @@ $datos = $conexion->query($sql);
           <a class="button margin-left" aria-current="page" href="registroFuncionario.php">Registrar<i
               class='bx bx-folder-plus icons-styles'></i></a>
         </div>
-        <div class="action-item">
-          <a class="button margin-left" aria-current="page" href="actualizarCotizacion.php">Actualizar<i
+       <!-- <div class="action-item">
+          <a class="button margin-left" aria-current="page" href="actualizarFuncionariofront.php">Actualizar<i
               class='bx bx-edit icons-styles'></i></a>
-        </div>
+        </div>-->
         <div class="action-item">
           <a class="button margin-left" aria-current="page" href="EliminarFuncionariofront.php">Eliminar<i
               class='bx bx-trash icons-styles'></i></a>

@@ -86,8 +86,8 @@ $datos = $conexion->query($sql);
     <form class="newsletter-form" style="margin: 0 auto; width: 580px; justify-content: center;"
       action="EliminarFuncionarioback.php" id="newsletter-form" method="POST">
       <div class="form-field">
-        <label for="nit">Correo:</label>
-        <input type="text" name="eliminarProveedor" placeholder="Ingresa correo " class="newsletter-input"
+        <label for="correo">Correo:</label>
+        <input type="text" name="eliminarFuncionario" placeholder="Ingresa correo " class="newsletter-input"
           pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
         <button class="button" type="submit">Eliminar</button>
       </div>

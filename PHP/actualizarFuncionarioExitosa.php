@@ -27,7 +27,7 @@
   <!-- Header -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
-      <a href="eliminarFuncionariofront.php" class="navbar-brand" title="Techlogistic"><img src="../images/favicon.png"
+      <a href="../../PHP/indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../../images/favicon.png"
           alt="Logo Techlogistic" class="navigation__image">Techlogistic</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,7 +36,7 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="eliminarFuncionariofront.php">Inicio</a>
+            <a class="nav-link active" aria-current="page" href="../../indexdash.php">Inicio</a>
           </li>
 
           <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
@@ -62,9 +62,9 @@
         src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Light_green_check.svg/600px-Light_green_check.svg.png"
         class="h-25 mx-auto mb-5">
       <h1 class="text-center mb-5">
-        Eliminación de funcionario exitosa
+        Actualizacion de funcionario exitosa
       </h1>
-      <a href="./consultarFuncionarios.php"><button class="button">Volver a la página funcionarios</button></a>
+      <a href="./consultarFuncionarios.php"><button class="button">Volver a la página ventas</button></a>
     </section>
     <footer class="copyright">
       <div class="bd-container">
