@@ -64,7 +64,7 @@
       <h1 class="text-center mb-5">
         Eliminación de funcionario exitosa
       </h1>
-      <a href="./eliminarFuncionariofront.php"><button class="button">Volver a la página Eliminación</button></a>
+      <a href="./consultarFuncionarios.php"><button class="button">Volver a la página Eliminación</button></a>
     </section>
     <footer class="copyright">
       <div class="bd-container">

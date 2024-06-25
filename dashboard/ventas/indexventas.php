@@ -80,9 +80,10 @@
       <li class="nav-item">
         <a class="nav-link active" aria-current="page" href="indexventas.php">Ventas</a>
       </li>
+      <!--
       <li class="nav-item">
         <a class="nav-link" aria-current="page" href="cotizacion.php">Cotización</a>
-      </li>
+      </li>-->
     </ul>
     <div class="table-responsive">
       <?php

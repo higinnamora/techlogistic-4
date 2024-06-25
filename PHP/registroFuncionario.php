@@ -22,26 +22,23 @@ if ($_SESSION['tipo_usuario']) {
   <title>Techlogistic</title>
   <meta name="description" content="">
   <!-- Favicon -->
-  <link rel="icon" href="../../images/favicon.png">
-  <!-- Box icons-->
-  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-  <!-- Bootstrap 5 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link rel="icon" href="./favicon.png">
+  <!-- Box icons
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>-->
+  <!-- Normalize -->
+  <link rel="stylesheet" href="../STYLES/normalize.css">
   <!-- Estilos CSS -->
-  <link rel="stylesheet" href="../../HTML/styles/techlogistic.css">
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
+  <link rel="stylesheet" href="../HTML/styles/techlogistic.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </head>
 
+
 <body>
-  <!-- Header -->
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
-      <a href="../../PHP/indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../../images/favicon.png"
-          alt="Logo Techlogistic" class="navigation__image">Techlogistic</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <a href="./indexdash.php" class="navbar-brand" title="Techlogistic"><img src="../images/favicon.png" alt="" class="navigation__image">Techlogistic</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -52,7 +49,6 @@ if ($_SESSION['tipo_usuario']) {
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="consultarFuncionarios.php">Funcionarios</a>
           </li>
-          <!-- Menu desplegable d-c flexon foto del  flex-columnusuario -->
           <li class="nav-item dropdown">
             <div class="dropdown" role="group">
               <a class="dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
@@ -60,11 +56,6 @@ if ($_SESSION['tipo_usuario']) {
                   class="rounded-circle" width="38" height="38" />
               </a>
               <ul class="dropdown-menu dropdown-menu-lg-end">
-                <!--<li><a class="dropdown-item" href="#">Mi perfil</a></li>-->
-                <!--<li><a class="dropdown-item" href="#">Configuración</a></li>-->
-                <!--<li>
-                  <hr class="dropdown-divider">
-                </li>-->
                 <li><a class="dropdown-item" href="../../PHP/cerrar_sesion.php">Cerrar sesión</a></li>
               </ul>
             </div>
@@ -73,125 +64,108 @@ if ($_SESSION['tipo_usuario']) {
       </div>
     </div>
   </nav>
+  <main class="main">
+    <section class="section section-auth">
+      <div class="wrapper-box">
+        <h3 class="title">Registrar funcionario</h3>
+        <form class="form" id="sign-up-form" action="crearFuncionario.php" method="POST">
+          <div class="form-field">
+            <label class="form-label" for="sign-up-form-numcargo">Cargo</label>
+            <select name="sign-up-form-numcargo" class="form-select">
+              <option value="1">1 Administrador</option>
+              <option value="2">2 Vendedor</option>
+              <option value="3">3 Costurero</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="documento">Número de documento</label>
+            <input class="form-control" type="text" id="documento" name="documento" placeholder="Ingrese el número de documento" required />
+          </div>
+          <div class="form-field">
+            <input class="form-control" type="hidden" id="id_persona" name="id_persona" readonly />
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="primer_nombre">Primer Nombre</label>
+            <input class="form-control" type="text" id="primer_nombre" name="primer_nombre" readonly />
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="segundo_nombre">Segundo Nombre</label>
+            <input class="form-control" type="text" id="segundo_nombre" name="segundo_nombre" readonly />
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="primer_apellido">Primer Apellido</label>
+            <input class="form-control" type="text" id="primer_apellido" name="primer_apellido" readonly />
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="segundo_apellido">Segundo Apellido</label>
+            <input class="form-control" type="text" id="segundo_apellido" name="segundo_apellido" readonly />
+          </div>
 
-  <main class="container my-5">
-    <div class="d-flex flex-column justify-content-between">
-      <h4 class="text-center">Registro Funcionario</h4>
-    </div>
-    <hr>
-    <form id="sign-up-form" action="crearFuncionario.php" method="POST" style="margin: 0 auto; width: 580px;">
-      <div class="form-field">
-        <label class="form-label" for="sign-up-form-numcargo">Cargo:</label>
-        <select name="sign-up-form-numcargo" class="form-select">
-          <option value="1">1 Administrador</option>
-          <option value="2">2 Vendedor</option>
-          <option value="3">3 Costurero</option>
-        </select>
+          <div class="form-field">
+            <label class="form-label" for="sign-up-form-horario">Horario</label>
+            <input class="form-control" type="text" placeholder="Ingrese el horario del funcionario" id="sign-up-form-horario" name="sign-up-form-horario" required />
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="sign-up-form-salario">Salario</label>
+            <input class="form-control" type="number" placeholder="Sin puntos ni comas" id="sign-up-form-salario" name="sign-up-form-salario" required />
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="sign-up-form-email">Correo electrónico</label>
+            <input class="form-control" type="email" placeholder="Ingresa tu correo electrónico" id="sign-up-form-email" name="sign-up-form-email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required />
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="sign-up-form-password">Contraseña</label>
+            <input class="form-control" type="password" placeholder="Ingresa tu contraseña" id="sign-up-form-password" name="sign-up-form-password" required />
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="sign-up-form-password-confirm">Confirmar contraseña</label>
+            <input class="form-control" type="password" placeholder="Confirma tu contraseña" id="sign-up-form-password-confirm" name="sign-up-form-password-confirm" title="La contraseña debe tener al menos 8 caracteres" required />
+          </div>
+          <input class="button mb-1" type="submit" value="Registrar" />
+
+        </form>
       </div>
-      <div class="form-field">
-        <label class="form-label" for="documento">Número de documento:</label>
-        <input class="form-control" type="text" id="documento" name="documento"
-          placeholder="Ingresa el número de documento" required />
-      </div>
-      <div class="form-field">
-        <input class="form-control" type="hidden" id="id_persona" name="id_persona" readonly />
-      </div>
-      <div class="form-field">
-        <label class="form-label" for="primer_nombre">Primer Nombre:</label>
-        <input class="form-control" placeholder="Ingresa el primer nombre" type="text" id="primer_nombre"
-          name="primer_nombre" readonly />
-      </div>
-      <div class="form-field">
-        <label class="form-label" for="segundo_nombre">Segundo Nombre:</label>
-        <input class="form-control" placeholder="Ingresa el segundo nombre" type="text" id="segundo_nombre"
-          name="segundo_nombre" readonly />
-      </div>
-      <div class="form-field">
-        <label class="form-label" for="primer_apellido">Primer Apellido:</label>
-        <input class="form-control" placeholder="Ingresa el primer apellido" type="text" id="primer_apellido"
-          name="primer_apellido" readonly />
-      </div>
-      <div class="form-field">
-        <label class="form-label" for="segundo_apellido">Segundo Apellido</label>
-        <input class="form-control" placeholder="Ingresa el segundo apellido" type="text" id="segundo_apellido"
-          name="segundo_apellido" readonly />
-      </div>
-      <div class="form-field">
-        <label class="form-label" for="sign-up-form-horario">Horario:</label>
-        <input class="form-control" type="text" placeholder="Ingresa el horario del funcionario"
-          id="sign-up-form-horario" name="sign-up-form-horario" required />
-      </div>
-      <div class="form-field">
-        <label class="form-label" for="sign-up-form-salario">Salario:</label>
-        <input class="form-control" type="number" placeholder="Ingresa salario sin puntos" id="sign-up-form-salario"
-          name="sign-up-form-salario" required />
-      </div>
-      <div class="form-field">
-        <label class="form-label" for="sign-up-form-email">Correo electrónico:</label>
-        <input class="form-control" type="email" placeholder="Ingresa tu correo electrónico" id="sign-up-form-email"
-          name="sign-up-form-email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required />
-      </div>
-      <div class="form-field">
-        <label class="form-label" for="sign-up-form-password">Contraseña:</label>
-        <input class="form-control" type="password" placeholder="Ingresa tu contraseña" id="sign-up-form-password"
-          name="sign-up-form-password" required />
-      </div>
-      <div class="form-field">
-        <label class="form-label" for="sign-up-form-password-confirm">Confirmar contraseña:</label>
-        <input class="form-control" type="password" placeholder="Confirma tu contraseña"
-          id="sign-up-form-password-confirm" name="sign-up-form-password-confirm"
-          title="La contraseña debe tener al menos 8 caracteres" required />
-      </div>
-      <div>
-        <input class="button" type="submit" value="Registrar" />
-      </div>
-    </form>
-    <hr class="my-4">
-  </main>
-  <footer>
-    <div class="copyright">
+    </section>
+
+    <footer class="copyright">
       <div class="bd-container">
-        <p>💙 © 2024 Techlogistic. Todos los derechos reservados. 💚</p>
-        <p><a href="../../HTML/terminos-y-condiciones.html">Términos y Condiciones</a> · <a
-            href="../../HTML/politica-de-privacidad.html">Política de Privacidad</a></p>
+        <p>💙 © 2023 Techlogistic. Todos los derechos reservados. 💚</p>
+        <p><a href="../HTML/terminos-y-condiciones.html">Términos y Condiciones</a> · <a href="../HTML/politica-de-privacidad.html">Política de Privacidad</a></p>
       </div>
-    </div>
-  </footer>
+    </footer>
+  </main>
 
-  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-    crossorigin="anonymous"></script>
-</body>
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <!--<script src="./js/techlogistic.js" defer></script>-->
 
-<script src="https://unpkg.com/scrollreveal"></script>
-<!--<script src="./js/techlogistic.js" defer></script>-->
-
-<script>
-  document.getElementById('documento').addEventListener('change', function () {
-    var documento = this.value;
-    if (documento.trim() !== '') {
-      var xhr = new XMLHttpRequest();
-      xhr.open('GET', '../PHP/obtener_persona.php?id=' + documento, true);
-      xhr.onload = function () {
-        if (xhr.status == 200) {
-          var data = JSON.parse(xhr.responseText);
-          document.getElementById('id_persona').value = data.id_persona;
-          document.getElementById('primer_nombre').value = data.primer_nombre;
-          document.getElementById('segundo_nombre').value = data.segundo_nombre;
-          document.getElementById('primer_apellido').value = data.primer_apellido;
-          document.getElementById('segundo_apellido').value = data.segundo_apellido;
-        }
-      };
-      xhr.send();
-    } else {
-      document.getElementById('id_persona').value = '';
-      document.getElementById('primer_nombre').value = '';
-      document.getElementById('segundo_nombre').value = '';
-      document.getElementById('primer_apellido').value = '';
-      document.getElementById('segundo_apellido').value = '';
-    }
-  });
-</script>
+  <script>
+    document.getElementById('documento').addEventListener('change', function() {
+      var documento = this.value;
+      if (documento.trim() !== '') {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '../PHP/obtener_persona.php?id=' + documento, true);
+        xhr.onload = function() {
+          if (xhr.status == 200) {
+            var data = JSON.parse(xhr.responseText);
+            document.getElementById('id_persona').value = data.id_persona;
+            document.getElementById('primer_nombre').value = data.primer_nombre;
+            document.getElementById('segundo_nombre').value = data.segundo_nombre;
+            document.getElementById('primer_apellido').value = data.primer_apellido;
+            document.getElementById('segundo_apellido').value = data.segundo_apellido;
+          }
+        };
+        xhr.send();
+      } else {
+        document.getElementById('id_persona').value = '';
+        document.getElementById('primer_nombre').value = '';
+        document.getElementById('segundo_nombre').value = '';
+        document.getElementById('primer_apellido').value = '';
+        document.getElementById('segundo_apellido').value = '';
+      }
+    });
+  </script>
 </body>
 
 </html>
